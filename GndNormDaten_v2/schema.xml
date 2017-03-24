@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Datenmodel für die Version 0.1 des Datenmodells des GND Index. -->
+<!-- 2014-07-11 Reh Erster Entwurf V0.1 -->
+
+<schema
+   name="GND_1.0"
+   version="1.7"
+>
+
+   <!--
+      ###########################################
+      # Essential Fields
+      ###########################################
+   -->
+   <!-- The id of the authority record -->
+   <field
+      name="id"
+      type="uniqueKey" />
+   <!-- Where is the authority record from. -->
+   <field
+      name="source"
+      type="uniqueData"
+      default="DE-101" />
+
+   <!-- Content type of the primary container -->
+   <field
+      name="recordtype"
+      type="uniqueData"
+      default="gndmarc" />
+   <!-- Primary container -->
+   <field
+      name="fullrecord"
+      type="uniqueData" />
+
+   <!-- System field of SOLR, will be implicit filled -->
+   <field
+      name="_version_"
+      type="long" />
+   <!-- Readable correspondent to '_version_'. -->
+   <field
+      name="index_date"
+      type="timeStamp"
+      default="NOW" />
+
+
+   <!--
+      ###########################################
+      # Core facility (preprocessed expansions)
+      ###########################################
+   -->
+   <!-- Preferred form. -->
+   <field
+      name="preferred"
+      type="uniqueData" />
+
+   <!-- Pseudonyms and alternativ writings. -->
+   <field
+      name="synonyms"
+      type="optionalData" />
+
+   <!-- Related terms. -->
+   <field
+      name="related"
+      type="optionalData" />
+   <field
+      name="relatedIds"
+      type="optionalKeys" />
+
+   <!-- Other ids, describing the same. -->
+   <field
+      name="sameAs"
+      type="optionalKeys" />
+
+   <!-- Other ids, probably describing the same. -->
+   <field
+      name="seeAlso"
+      type="optionalKeys" />
+
+
+   <!--
+      ###########################################
+      # Optional fields, only for some types of authority records
+      ###########################################
+   -->
+   <!-- DDC: Value. The classification may lead by a digit and an collon. -->
+   <!-- The digit is the determination key of the DNB ('4' is a perfect match, '1' is maybe a match) -->
+   <field
+      name="ddc"
+      type="optionalKeys" />
+
+   <!-- Type of the authority record (coding like DNB plus a 'r' for local definitions) -->
+   <field
+      name="authorityType"
+      type="optionalKey" />
+   <!-- level of proofed quality ('1' is the best) -->
+   <field
+      name="qualityLevel"
+      type="optionalKey" />
+
+   <!--
+      ###########################################
+      # Additional fields as marker for the workflow
+      ###########################################
+   -->
+   <!-- Record needs to revised in the 2.nd pass -->
+   <field
+      name="look4me"
+      type="boolean"  
+      default="false"  />
+
+   
+   
+   <!--
+      ###########################################
+      # Definition of the index types
+      ###########################################
+   -->
+   <fieldType
+      name="boolean"
+      class="solr.BoolField"
+      stored="false"
+      indexed="true"
+      required="true"
+      multiValued="false" />
+
+   <fieldType
+      name="long"
+      class="solr.TrieLongField"
+      stored="true"
+      indexed="true"
+      required="true"
+      multiValued="false" />
+
+   <fieldType
+      name="timeStamp"
+      class="solr.TrieDateField"
+      indexed="true"
+      stored="true"
+      required="true"
+      multiValued="false" />
+
+   <fieldType
+      name="optionalKey"
+      class="solr.StrField"
+      indexed="true"
+      stored="true"
+      required="false"
+      sortMissingLast="true"
+      multiValued="false" />
+
+   <fieldType
+      name="optionalKeys"
+      class="solr.StrField"
+      indexed="true"
+      stored="true"
+      required="false"
+      sortMissingLast="true"
+      multiValued="true" />
+
+   <fieldType
+      name="uniqueKey"
+      class="solr.StrField"
+      indexed="true"
+      stored="true"
+      required="true"
+      sortMissingLast="true"
+      multiValued="false" />
+
+
+   <!-- just stored -->
+   <fieldType
+      name="uniqueData"
+      class="solr.StrField"
+      indexed="false"
+      stored="true"
+      required="true"
+      multiValued="false" />
+
+   <fieldType
+      name="repeatedData"
+      class="solr.StrField"
+      indexed="false"
+      stored="true"
+      required="true"
+      multiValued="true" />
+
+   <fieldType
+      name="optionalData"
+      class="solr.StrField"
+      indexed="false"
+      stored="true"
+      required="false"
+      sortMissingLast="true"
+      multiValued="true" />
+
+   <uniqueKey>id</uniqueKey>
+   <defaultSearchField>id</defaultSearchField>
+   <solrQueryParser defaultOperator="AND" />
+</schema>
+

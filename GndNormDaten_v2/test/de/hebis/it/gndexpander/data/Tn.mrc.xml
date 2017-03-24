@@ -1,0 +1,972 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<collection xmlns="http://www.loc.gov/MARC21/slim">
+  <record type="Authority">
+    <leader>00000nz  a2200000o  4500</leader>
+    <controlfield tag="001">10000007X</controlfield>
+    <controlfield tag="003">DE-101</controlfield>
+    <controlfield tag="005">20130814084840.0</controlfield>
+    <controlfield tag="008">900615n||aznnnabbn           | aba    |c</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="a">http://d-nb.info/gnd/10000007X</subfield>
+      <subfield code="2">uri</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-101)10000007X</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-588)10000007X</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588a)10000007X</subfield>
+      <subfield code="9">v:zg</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588a)137113560</subfield>
+    </datafield>
+    <datafield tag="040" ind1=" " ind2=" ">
+      <subfield code="a">DE-12</subfield>
+      <subfield code="9">r:DE-12</subfield>
+      <subfield code="b">ger</subfield>
+      <subfield code="d">1403</subfield>
+    </datafield>
+    <datafield tag="079" ind1=" " ind2=" ">
+      <subfield code="a">g</subfield>
+      <subfield code="b">n</subfield>
+      <subfield code="c">3</subfield>
+      <subfield code="q">f</subfield>
+      <subfield code="u">v</subfield>
+      <subfield code="u">m</subfield>
+    </datafield>
+    <datafield tag="100" ind1="1" ind2=" ">
+      <subfield code="a">Kühn, Rolf</subfield>
+    </datafield>
+    <datafield tag="913" ind1=" " ind2=" ">
+      <subfield code="S">pnd</subfield>
+      <subfield code="i">a</subfield>
+      <subfield code="a">Kühn, Rolf</subfield>
+      <subfield code="0">(DE-588a)10000007X</subfield>
+    </datafield>
+  </record>
+  <record type="Authority">
+    <leader>00000nz  a2200000o  4500</leader>
+    <controlfield tag="001">100000118</controlfield>
+    <controlfield tag="003">DE-101</controlfield>
+    <controlfield tag="005">20110706010651.0</controlfield>
+    <controlfield tag="008">900615n||aznnnabbn           | aba    |c</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="a">http://d-nb.info/gnd/100000118</subfield>
+      <subfield code="2">uri</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-101)100000118</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-588)100000118</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588a)100000118</subfield>
+      <subfield code="9">v:zg</subfield>
+    </datafield>
+    <datafield tag="040" ind1=" " ind2=" ">
+      <subfield code="a">DE-12</subfield>
+      <subfield code="9">r:DE-12</subfield>
+      <subfield code="b">ger</subfield>
+      <subfield code="d">9999</subfield>
+    </datafield>
+    <datafield tag="079" ind1=" " ind2=" ">
+      <subfield code="a">g</subfield>
+      <subfield code="b">n</subfield>
+      <subfield code="c">3</subfield>
+      <subfield code="q">f</subfield>
+      <subfield code="q">a</subfield>
+      <subfield code="u">v</subfield>
+      <subfield code="u">z</subfield>
+    </datafield>
+    <datafield tag="100" ind1="1" ind2=" ">
+      <subfield code="a">Hussell, Ludwig</subfield>
+    </datafield>
+    <datafield tag="400" ind1="1" ind2=" ">
+      <subfield code="a">Hussel, Ludwig</subfield>
+    </datafield>
+    <datafield tag="400" ind1="1" ind2=" ">
+      <subfield code="a">Hussell, Christian H.</subfield>
+    </datafield>
+    <datafield tag="400" ind1="1" ind2=" ">
+      <subfield code="a">Hussell, Christoph H.</subfield>
+    </datafield>
+    <datafield tag="400" ind1="1" ind2=" ">
+      <subfield code="a">H., C. H.</subfield>
+    </datafield>
+    <datafield tag="400" ind1="0" ind2=" ">
+      <subfield code="a">C. H. L. H.</subfield>
+    </datafield>
+    <datafield tag="400" ind1="1" ind2=" ">
+      <subfield code="a">H-ll, C. H.</subfield>
+    </datafield>
+    <datafield tag="400" ind1="0" ind2=" ">
+      <subfield code="a">C. H. L. H-ll</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">12</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">7</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">384</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Hussell, Ludwig: Deutschlands Nacht und Morgenröthe. - 1814</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Hussell, Ludwig: Leipzigs Geschichte seit dem Einmarsch der Verbündeten im April 1813 bis*. - [1814]</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Hussell, Ludwig: Leipzig während der Schreckenstage der Schlacht im Monat Oktober 1813. - 1814 ca.</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Hussel, Ludwig: Leipzigs Geschichte. - 1813</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Hussell, Ludwig: Leipzig während der Schreckenstage der Schlacht im Monat October 1813 al*. - s.a. 1813</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Hussell, Ludwig: Xerxes des Grossen, Königs der Perser, Leben, Thaten und Ende. - 1815</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Die Ameise oder Bemerkungen, Charakterzüge und Anekdoten, auch Schlachtberichte vom Kri*. - 1814 - 1820</subfield>
+    </datafield>
+    <datafield tag="913" ind1=" " ind2=" ">
+      <subfield code="S">pnd</subfield>
+      <subfield code="i">a</subfield>
+      <subfield code="a">Hussell, Ludwig</subfield>
+      <subfield code="0">(DE-588a)100000118</subfield>
+    </datafield>
+  </record>
+  <record type="Authority">
+    <leader>00000nz  a2200000o  4500</leader>
+    <controlfield tag="001">100000142</controlfield>
+    <controlfield tag="003">DE-101</controlfield>
+    <controlfield tag="005">20160817105651.0</controlfield>
+    <controlfield tag="008">900615n||aznnnabbn           | aba    |c</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="a">http://d-nb.info/gnd/100000142</subfield>
+      <subfield code="2">uri</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-101)100000142</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-588)100000142</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588a)100000142</subfield>
+      <subfield code="9">v:zg</subfield>
+    </datafield>
+    <datafield tag="040" ind1=" " ind2=" ">
+      <subfield code="a">DE-12</subfield>
+      <subfield code="9">r:DE-12</subfield>
+      <subfield code="b">ger</subfield>
+      <subfield code="d">1610</subfield>
+    </datafield>
+    <datafield tag="079" ind1=" " ind2=" ">
+      <subfield code="a">g</subfield>
+      <subfield code="b">n</subfield>
+      <subfield code="c">6</subfield>
+      <subfield code="q">a</subfield>
+      <subfield code="q">f</subfield>
+    </datafield>
+    <datafield tag="100" ind1="1" ind2=" ">
+      <subfield code="a">Amey, Henriette</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">12</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">PND-Grundbestand</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Amey, Henriette: La littérature française de la jeunesse</subfield>
+    </datafield>
+    <datafield tag="913" ind1=" " ind2=" ">
+      <subfield code="S">pnd</subfield>
+      <subfield code="i">a</subfield>
+      <subfield code="a">Amey, Henriette</subfield>
+      <subfield code="0">(DE-588a)100000142</subfield>
+    </datafield>
+  </record>
+  <record type="Authority">
+    <leader>00000nz  a2200000o  4500</leader>
+    <controlfield tag="001">100000169</controlfield>
+    <controlfield tag="003">DE-101</controlfield>
+    <controlfield tag="005">20080405153002.0</controlfield>
+    <controlfield tag="008">900615n||aznnnabbn           | aba    |c</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="a">http://d-nb.info/gnd/100000169</subfield>
+      <subfield code="2">uri</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-101)100000169</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-588)100000169</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588a)100000169</subfield>
+      <subfield code="9">v:zg</subfield>
+    </datafield>
+    <datafield tag="040" ind1=" " ind2=" ">
+      <subfield code="a">DE-12</subfield>
+      <subfield code="9">r:DE-12</subfield>
+      <subfield code="b">ger</subfield>
+      <subfield code="d">9999</subfield>
+    </datafield>
+    <datafield tag="079" ind1=" " ind2=" ">
+      <subfield code="a">g</subfield>
+      <subfield code="b">n</subfield>
+      <subfield code="c">3</subfield>
+      <subfield code="q">f</subfield>
+      <subfield code="q">a</subfield>
+      <subfield code="u">v</subfield>
+    </datafield>
+    <datafield tag="100" ind1="1" ind2=" ">
+      <subfield code="a">Amici, Domenico</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">12</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Amici, Domenico: Nuova Raccolta delle vedute antiche e moderne dell'alma Città di Roma d*. - 1839</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Amici, Domenico: Obelischi, pubbliche fontane, et chiostri della città di Roma. - 1839</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Amici, Domenico: Nuova raccolta delle vedute antiche e moderne dell'alma Città di Roma. - [1835]</subfield>
+    </datafield>
+    <datafield tag="913" ind1=" " ind2=" ">
+      <subfield code="S">pnd</subfield>
+      <subfield code="i">a</subfield>
+      <subfield code="a">Amici, Domenico</subfield>
+      <subfield code="0">(DE-588a)100000169</subfield>
+    </datafield>
+  </record>
+  <record type="Authority">
+    <leader>00000nz  a2200000o  4500</leader>
+    <controlfield tag="001">100000207</controlfield>
+    <controlfield tag="003">DE-101</controlfield>
+    <controlfield tag="005">20160817105720.0</controlfield>
+    <controlfield tag="008">900615n||aznnnabbn           | aba    |c</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="a">http://d-nb.info/gnd/100000207</subfield>
+      <subfield code="2">uri</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-101)100000207</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-588)100000207</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588a)100000207</subfield>
+      <subfield code="9">v:zg</subfield>
+    </datafield>
+    <datafield tag="040" ind1=" " ind2=" ">
+      <subfield code="a">DE-12</subfield>
+      <subfield code="9">r:DE-12</subfield>
+      <subfield code="b">ger</subfield>
+      <subfield code="d">1610</subfield>
+    </datafield>
+    <datafield tag="079" ind1=" " ind2=" ">
+      <subfield code="a">g</subfield>
+      <subfield code="b">n</subfield>
+      <subfield code="c">6</subfield>
+      <subfield code="q">a</subfield>
+      <subfield code="q">f</subfield>
+    </datafield>
+    <datafield tag="100" ind1="1" ind2=" ">
+      <subfield code="a">Bauer, Johann K.</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">12</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">PND-Grundbestand</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Bauer, Johann K.: Gesangbuch für die häusliche Gottesverehrung. - 1807</subfield>
+    </datafield>
+    <datafield tag="913" ind1=" " ind2=" ">
+      <subfield code="S">pnd</subfield>
+      <subfield code="i">a</subfield>
+      <subfield code="a">Bauer, Johann K.</subfield>
+      <subfield code="0">(DE-588a)100000207</subfield>
+    </datafield>
+  </record>
+  <record type="Authority">
+    <leader>00000nz  a2200000o  4500</leader>
+    <controlfield tag="001">100000266</controlfield>
+    <controlfield tag="003">DE-101</controlfield>
+    <controlfield tag="005">20080516180115.0</controlfield>
+    <controlfield tag="008">900615n||aznnnabbn           | aba    |c</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="a">http://d-nb.info/gnd/100000266</subfield>
+      <subfield code="2">uri</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-101)100000266</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-588)100000266</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588a)100000266</subfield>
+      <subfield code="9">v:zg</subfield>
+    </datafield>
+    <datafield tag="040" ind1=" " ind2=" ">
+      <subfield code="a">DE-12</subfield>
+      <subfield code="9">r:DE-12</subfield>
+      <subfield code="b">ger</subfield>
+      <subfield code="d">9999</subfield>
+    </datafield>
+    <datafield tag="079" ind1=" " ind2=" ">
+      <subfield code="a">g</subfield>
+      <subfield code="b">n</subfield>
+      <subfield code="c">3</subfield>
+      <subfield code="q">f</subfield>
+      <subfield code="q">a</subfield>
+      <subfield code="u">v</subfield>
+    </datafield>
+    <datafield tag="100" ind1="1" ind2=" ">
+      <subfield code="a">Spiegel, Paul</subfield>
+    </datafield>
+    <datafield tag="400" ind1="1" ind2=" ">
+      <subfield code="a">Spiegel, Paulus</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">12</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">3</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">In auspicium felicis matrimonii, Dn. Paulo Spiegel, ... viro clarissimo ...et virgini hon*. - 1601</subfield>
+    </datafield>
+    <datafield tag="913" ind1=" " ind2=" ">
+      <subfield code="S">pnd</subfield>
+      <subfield code="i">a</subfield>
+      <subfield code="a">Spiegel, Paul</subfield>
+      <subfield code="0">(DE-588a)100000266</subfield>
+    </datafield>
+  </record>
+  <record type="Authority">
+    <leader>00000nz  a2200000o  4500</leader>
+    <controlfield tag="001">100000274</controlfield>
+    <controlfield tag="003">DE-101</controlfield>
+    <controlfield tag="005">20080405153002.0</controlfield>
+    <controlfield tag="008">900615n||aznnnabbn           | aba    |c</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="a">http://d-nb.info/gnd/100000274</subfield>
+      <subfield code="2">uri</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-101)100000274</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-588)100000274</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588a)100000274</subfield>
+      <subfield code="9">v:zg</subfield>
+    </datafield>
+    <datafield tag="040" ind1=" " ind2=" ">
+      <subfield code="a">DE-12</subfield>
+      <subfield code="9">r:DE-12</subfield>
+      <subfield code="b">ger</subfield>
+      <subfield code="d">9999</subfield>
+    </datafield>
+    <datafield tag="079" ind1=" " ind2=" ">
+      <subfield code="a">g</subfield>
+      <subfield code="b">n</subfield>
+      <subfield code="c">6</subfield>
+      <subfield code="q">a</subfield>
+      <subfield code="q">f</subfield>
+    </datafield>
+    <datafield tag="100" ind1="1" ind2=" ">
+      <subfield code="a">Amicus, F.</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">12</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">PND-Grundbestand</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Amicus, F.: Nonnulla Carmina. - 1786</subfield>
+    </datafield>
+    <datafield tag="913" ind1=" " ind2=" ">
+      <subfield code="S">pnd</subfield>
+      <subfield code="i">a</subfield>
+      <subfield code="a">Amicus, F.</subfield>
+      <subfield code="0">(DE-588a)100000274</subfield>
+    </datafield>
+  </record>
+  <record type="Authority">
+    <leader>00000nz  a2200000o  4500</leader>
+    <controlfield tag="001">100000282</controlfield>
+    <controlfield tag="003">DE-101</controlfield>
+    <controlfield tag="005">20080405153002.0</controlfield>
+    <controlfield tag="008">900615n||aznnnabbn           | aba    |c</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="a">http://d-nb.info/gnd/100000282</subfield>
+      <subfield code="2">uri</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-101)100000282</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-588)100000282</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588a)100000282</subfield>
+      <subfield code="9">v:zg</subfield>
+    </datafield>
+    <datafield tag="040" ind1=" " ind2=" ">
+      <subfield code="a">DE-12</subfield>
+      <subfield code="9">r:DE-12</subfield>
+      <subfield code="b">ger</subfield>
+      <subfield code="d">9999</subfield>
+    </datafield>
+    <datafield tag="079" ind1=" " ind2=" ">
+      <subfield code="a">g</subfield>
+      <subfield code="b">n</subfield>
+      <subfield code="c">3</subfield>
+      <subfield code="q">a</subfield>
+      <subfield code="q">f</subfield>
+      <subfield code="u">v</subfield>
+    </datafield>
+    <datafield tag="100" ind1="1" ind2=" ">
+      <subfield code="a">Valentini, Carlo</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">12</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">PND-Grundbestand;Maschinell verknuepft mit DBL-Retro-Titeldaten</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Valentini, Carlo: Amina ovvero L'Orfanella da Ginevra. - 1825</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Valentini, Carlo: Ferdinando Secondo, Granduca di Toscana. - 1831</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Valentini, Carlo: Il figlio del signor padre. - 1830</subfield>
+    </datafield>
+    <datafield tag="913" ind1=" " ind2=" ">
+      <subfield code="S">pnd</subfield>
+      <subfield code="i">a</subfield>
+      <subfield code="a">Valentini, Carlo</subfield>
+      <subfield code="0">(DE-588a)100000282</subfield>
+    </datafield>
+  </record>
+  <record type="Authority">
+    <leader>00000nz  a2200000o  4500</leader>
+    <controlfield tag="001">100000304</controlfield>
+    <controlfield tag="003">DE-101</controlfield>
+    <controlfield tag="005">20150115074902.0</controlfield>
+    <controlfield tag="008">900615n||aznnnabbn           | aba    |c</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="a">http://d-nb.info/gnd/100000304</subfield>
+      <subfield code="2">uri</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-101)100000304</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-588)100000304</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588a)100000304</subfield>
+      <subfield code="9">v:zg</subfield>
+    </datafield>
+    <datafield tag="040" ind1=" " ind2=" ">
+      <subfield code="a">DE-12</subfield>
+      <subfield code="9">r:DE-12</subfield>
+      <subfield code="b">ger</subfield>
+      <subfield code="d">0012</subfield>
+    </datafield>
+    <datafield tag="079" ind1=" " ind2=" ">
+      <subfield code="a">g</subfield>
+      <subfield code="b">n</subfield>
+      <subfield code="c">6</subfield>
+      <subfield code="q">a</subfield>
+      <subfield code="q">f</subfield>
+    </datafield>
+    <datafield tag="100" ind1="1" ind2=" ">
+      <subfield code="a">Bauer, Sigmund</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">12</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">PND-Grundbestand</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Bauer, Sigmund: Donauklänge. - (1890)</subfield>
+    </datafield>
+    <datafield tag="913" ind1=" " ind2=" ">
+      <subfield code="S">pnd</subfield>
+      <subfield code="i">a</subfield>
+      <subfield code="a">Bauer, Sigmund</subfield>
+      <subfield code="0">(DE-588a)100000304</subfield>
+    </datafield>
+  </record>
+  <record type="Authority">
+    <leader>00000nz  a2200000o  4500</leader>
+    <controlfield tag="001">100000363</controlfield>
+    <controlfield tag="003">DE-101</controlfield>
+    <controlfield tag="005">20080405153002.0</controlfield>
+    <controlfield tag="008">900615n||aznnnabbn           | aba    |c</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="a">http://d-nb.info/gnd/100000363</subfield>
+      <subfield code="2">uri</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-101)100000363</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-588)100000363</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588a)100000363</subfield>
+      <subfield code="9">v:zg</subfield>
+    </datafield>
+    <datafield tag="040" ind1=" " ind2=" ">
+      <subfield code="a">DE-12</subfield>
+      <subfield code="9">r:DE-12</subfield>
+      <subfield code="b">ger</subfield>
+      <subfield code="d">9999</subfield>
+    </datafield>
+    <datafield tag="079" ind1=" " ind2=" ">
+      <subfield code="a">g</subfield>
+      <subfield code="b">n</subfield>
+      <subfield code="c">6</subfield>
+      <subfield code="q">a</subfield>
+      <subfield code="q">f</subfield>
+    </datafield>
+    <datafield tag="100" ind1="1" ind2=" ">
+      <subfield code="a">Baugean, Jean J.</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">12</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">PND-Grundbestand</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Baugean, Jean J.: Collection de toutes les espèces de bâtimens de guierre et de bâtime*. - 1971</subfield>
+    </datafield>
+    <datafield tag="913" ind1=" " ind2=" ">
+      <subfield code="S">pnd</subfield>
+      <subfield code="i">a</subfield>
+      <subfield code="a">Baugean, Jean J.</subfield>
+      <subfield code="0">(DE-588a)100000363</subfield>
+    </datafield>
+  </record>
+  <record type="Authority">
+    <leader>00000nz  a2200000o  4500</leader>
+    <controlfield tag="001">100000428</controlfield>
+    <controlfield tag="003">DE-101</controlfield>
+    <controlfield tag="005">20080516180115.0</controlfield>
+    <controlfield tag="008">900615n||aznnnabbn           | aba    |c</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="a">http://d-nb.info/gnd/100000428</subfield>
+      <subfield code="2">uri</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-101)100000428</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-588)100000428</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588a)100000428</subfield>
+      <subfield code="9">v:zg</subfield>
+    </datafield>
+    <datafield tag="040" ind1=" " ind2=" ">
+      <subfield code="a">DE-101</subfield>
+      <subfield code="9">r:DE-101</subfield>
+      <subfield code="b">ger</subfield>
+      <subfield code="d">9999</subfield>
+    </datafield>
+    <datafield tag="079" ind1=" " ind2=" ">
+      <subfield code="a">g</subfield>
+      <subfield code="b">n</subfield>
+      <subfield code="c">3</subfield>
+      <subfield code="q">f</subfield>
+      <subfield code="u">v</subfield>
+    </datafield>
+    <datafield tag="100" ind1="1" ind2=" ">
+      <subfield code="a">Ammon, Friedrich &#152;von&#156;</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">Maschinell verknuepft mit DBL-Retro-Titeldaten</subfield>
+    </datafield>
+    <datafield tag="913" ind1=" " ind2=" ">
+      <subfield code="S">pnd</subfield>
+      <subfield code="i">a</subfield>
+      <subfield code="a">Ammon, Friedrich /von</subfield>
+      <subfield code="0">(DE-588a)100000428</subfield>
+    </datafield>
+  </record>
+  <record type="Authority">
+    <leader>00000nz  a2200000o  4500</leader>
+    <controlfield tag="001">100000444</controlfield>
+    <controlfield tag="003">DE-101</controlfield>
+    <controlfield tag="005">20080405153002.0</controlfield>
+    <controlfield tag="008">900615n||aznnnabbn           | aba    |c</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="a">http://d-nb.info/gnd/100000444</subfield>
+      <subfield code="2">uri</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-101)100000444</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-588)100000444</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588a)100000444</subfield>
+      <subfield code="9">v:zg</subfield>
+    </datafield>
+    <datafield tag="040" ind1=" " ind2=" ">
+      <subfield code="a">DE-12</subfield>
+      <subfield code="9">r:DE-12</subfield>
+      <subfield code="b">ger</subfield>
+      <subfield code="d">9999</subfield>
+    </datafield>
+    <datafield tag="079" ind1=" " ind2=" ">
+      <subfield code="a">g</subfield>
+      <subfield code="b">n</subfield>
+      <subfield code="c">6</subfield>
+      <subfield code="q">a</subfield>
+      <subfield code="q">f</subfield>
+    </datafield>
+    <datafield tag="100" ind1="1" ind2=" ">
+      <subfield code="a">Ammon, Friedrich W. &#152;von&#156;</subfield>
+    </datafield>
+    <datafield tag="400" ind1="1" ind2=" ">
+      <subfield code="a">Ammon, Fridericus W.</subfield>
+    </datafield>
+    <datafield tag="400" ind1="1" ind2=" ">
+      <subfield code="a">Ammon, Friedrich W.</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">12</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">7</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">PND-Grundbestand</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Ammon, Friedrich W. von: Zwei Predigten am 100 jährigen Jubiläum der Neustädter Kirche *. - [1837]</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Ammon, Friedrich W. von: Rudolph's und Ida's Briefe über die Unterscheidungslehren der *. - 1827</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Ammon, Friedrich W. von: Denkmal der dritten Säcular-Feier der Übergabe der Augsburger *. - 1831</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Ammon, Friedrich W. von: Gallerie der denkwürdigsten Personen, welche im XVI.XVII. und *. - 1833</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Ammon, Friedrich W. von: Über die Hoffnung einer ... Vereinigung beider protestant. Kir*. - 1818</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Ammon, Friedrich W. von: Evangelisches Jubelfestbuch zur dritten Säcularfeier der Augsb*. - 1829</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Ammon, Friedrich W. von: Geiler von Kayserbergs Leben, Lehren und Predigen. - 1826</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Ammon, Friedrich W. von: Luther, wie er sich selbst schildert. - 1829</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Ammon, Friedrich W. von: Andachtsbuch für Christen evangelischen Sinnes. - 1820</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Ammon, Friedrich W. von: Gallerie der denkwürdigsten Personen, welche im XVI., XVII. un*. - 1833</subfield>
+    </datafield>
+    <datafield tag="913" ind1=" " ind2=" ">
+      <subfield code="S">pnd</subfield>
+      <subfield code="i">a</subfield>
+      <subfield code="a">Ammon, Friedrich W. /von</subfield>
+      <subfield code="0">(DE-588a)100000444</subfield>
+    </datafield>
+  </record>
+  <record type="Authority">
+    <leader>00000nz  a2200000o  4500</leader>
+    <controlfield tag="001">100000460</controlfield>
+    <controlfield tag="003">DE-101</controlfield>
+    <controlfield tag="005">20100512170619.0</controlfield>
+    <controlfield tag="008">900615n||aznnnabbn           | aba    |c</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="a">http://d-nb.info/gnd/100000460</subfield>
+      <subfield code="2">uri</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-101)100000460</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-588)100000460</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588a)100000460</subfield>
+      <subfield code="9">v:zg</subfield>
+    </datafield>
+    <datafield tag="040" ind1=" " ind2=" ">
+      <subfield code="a">DE-12</subfield>
+      <subfield code="9">r:DE-12</subfield>
+      <subfield code="b">ger</subfield>
+      <subfield code="d">9999</subfield>
+    </datafield>
+    <datafield tag="079" ind1=" " ind2=" ">
+      <subfield code="a">g</subfield>
+      <subfield code="b">n</subfield>
+      <subfield code="c">6</subfield>
+      <subfield code="q">a</subfield>
+      <subfield code="q">f</subfield>
+    </datafield>
+    <datafield tag="100" ind1="1" ind2=" ">
+      <subfield code="a">Baumann, Aegidius</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">12</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Hebenstreit, Johann Paul: Dissertatio theologica de operationum in Christo communicatione. - 1711</subfield>
+    </datafield>
+    <datafield tag="913" ind1=" " ind2=" ">
+      <subfield code="S">pnd</subfield>
+      <subfield code="i">a</subfield>
+      <subfield code="a">Baumann, Aegidius</subfield>
+      <subfield code="0">(DE-588a)100000460</subfield>
+    </datafield>
+  </record>
+  <record type="Authority">
+    <leader>00000nz  a2200000o  4500</leader>
+    <controlfield tag="001">100000479</controlfield>
+    <controlfield tag="003">DE-101</controlfield>
+    <controlfield tag="005">20080405153002.0</controlfield>
+    <controlfield tag="008">900615n||aznnnabbn           | aba    |c</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="a">http://d-nb.info/gnd/100000479</subfield>
+      <subfield code="2">uri</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-101)100000479</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-588)100000479</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588a)100000479</subfield>
+      <subfield code="9">v:zg</subfield>
+    </datafield>
+    <datafield tag="040" ind1=" " ind2=" ">
+      <subfield code="a">DE-12</subfield>
+      <subfield code="9">r:DE-12</subfield>
+      <subfield code="b">ger</subfield>
+      <subfield code="d">9999</subfield>
+    </datafield>
+    <datafield tag="079" ind1=" " ind2=" ">
+      <subfield code="a">g</subfield>
+      <subfield code="b">n</subfield>
+      <subfield code="c">3</subfield>
+      <subfield code="q">f</subfield>
+      <subfield code="q">a</subfield>
+      <subfield code="u">v</subfield>
+    </datafield>
+    <datafield tag="100" ind1="1" ind2=" ">
+      <subfield code="a">Baumann, C. A.</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">12</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Baumann, C. A.: Die Haupt- und Residenzstadt München und ihre Umgebungen. - 1979</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Baumann, C. A.: Die Haupt- und Residenzstadt München und ihre Umgebung. - 1832</subfield>
+    </datafield>
+    <datafield tag="913" ind1=" " ind2=" ">
+      <subfield code="S">pnd</subfield>
+      <subfield code="i">a</subfield>
+      <subfield code="a">Baumann, C. A.</subfield>
+      <subfield code="0">(DE-588a)100000479</subfield>
+    </datafield>
+  </record>
+  <record type="Authority">
+    <leader>00000nz  a2200000o  4500</leader>
+    <controlfield tag="001">100000509</controlfield>
+    <controlfield tag="003">DE-101</controlfield>
+    <controlfield tag="005">20130814102349.0</controlfield>
+    <controlfield tag="008">900615n||aznnnabbn           | aba    |c</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="a">http://d-nb.info/gnd/100000509</subfield>
+      <subfield code="2">uri</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-101)100000509</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-588)100000509</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588a)100000509</subfield>
+      <subfield code="9">v:zg</subfield>
+    </datafield>
+    <datafield tag="040" ind1=" " ind2=" ">
+      <subfield code="a">DE-12</subfield>
+      <subfield code="9">r:DE-12</subfield>
+      <subfield code="b">ger</subfield>
+      <subfield code="d">1403</subfield>
+    </datafield>
+    <datafield tag="079" ind1=" " ind2=" ">
+      <subfield code="a">g</subfield>
+      <subfield code="b">n</subfield>
+      <subfield code="c">3</subfield>
+      <subfield code="q">f</subfield>
+      <subfield code="u">v</subfield>
+    </datafield>
+    <datafield tag="100" ind1="1" ind2=" ">
+      <subfield code="a">Baumann, Hans</subfield>
+    </datafield>
+    <datafield tag="400" ind1="1" ind2=" ">
+      <subfield code="a">Baumann, H.</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">12</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">7</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">384</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">Zuordnung der DDB-Titel zu Baumann, Hans, 1936-, Schweizer Kunstwissenschaftler (Studium Germanistik, Kunstgeschichte, Philosophie) nicht möglich, 9.12.97 So;Maschinell verknuepft mit DBL-Retro-Titeldaten</subfield>
+    </datafield>
+    <datafield tag="913" ind1=" " ind2=" ">
+      <subfield code="S">pnd</subfield>
+      <subfield code="i">a</subfield>
+      <subfield code="a">Baumann, Hans</subfield>
+      <subfield code="0">(DE-588a)100000509</subfield>
+    </datafield>
+  </record>
+  <record type="Authority">
+    <leader>00000nz  a2200000o  4500</leader>
+    <controlfield tag="001">100000517</controlfield>
+    <controlfield tag="003">DE-101</controlfield>
+    <controlfield tag="005">20080516180115.0</controlfield>
+    <controlfield tag="008">900615n||aznnnabbn           | aba    |c</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="a">http://d-nb.info/gnd/100000517</subfield>
+      <subfield code="2">uri</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-101)100000517</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-588)100000517</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588a)100000517</subfield>
+      <subfield code="9">v:zg</subfield>
+    </datafield>
+    <datafield tag="040" ind1=" " ind2=" ">
+      <subfield code="a">DE-101</subfield>
+      <subfield code="9">r:DE-101</subfield>
+      <subfield code="b">ger</subfield>
+      <subfield code="d">9999</subfield>
+    </datafield>
+    <datafield tag="079" ind1=" " ind2=" ">
+      <subfield code="a">g</subfield>
+      <subfield code="b">n</subfield>
+      <subfield code="c">3</subfield>
+      <subfield code="q">f</subfield>
+      <subfield code="u">v</subfield>
+    </datafield>
+    <datafield tag="100" ind1="1" ind2=" ">
+      <subfield code="a">Baumann, Johann H.</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">19</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Verkehrsmodelle. - 1984</subfield>
+    </datafield>
+    <datafield tag="913" ind1=" " ind2=" ">
+      <subfield code="S">pnd</subfield>
+      <subfield code="i">a</subfield>
+      <subfield code="a">Baumann, Johann H.</subfield>
+      <subfield code="0">(DE-588a)100000517</subfield>
+    </datafield>
+  </record>
+  <record type="Authority">
+    <leader>00000nz  a2200000o  4500</leader>
+    <controlfield tag="001">100000622</controlfield>
+    <controlfield tag="003">DE-101</controlfield>
+    <controlfield tag="005">20080405153003.0</controlfield>
+    <controlfield tag="008">900615n||aznnnabbn           | aba    |c</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="a">http://d-nb.info/gnd/100000622</subfield>
+      <subfield code="2">uri</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-101)100000622</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-588)100000622</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588a)100000622</subfield>
+      <subfield code="9">v:zg</subfield>
+    </datafield>
+    <datafield tag="040" ind1=" " ind2=" ">
+      <subfield code="a">DE-12</subfield>
+      <subfield code="9">r:DE-12</subfield>
+      <subfield code="b">ger</subfield>
+      <subfield code="d">9999</subfield>
+    </datafield>
+    <datafield tag="079" ind1=" " ind2=" ">
+      <subfield code="a">g</subfield>
+      <subfield code="b">n</subfield>
+      <subfield code="c">6</subfield>
+      <subfield code="q">a</subfield>
+      <subfield code="q">f</subfield>
+    </datafield>
+    <datafield tag="100" ind1="1" ind2=" ">
+      <subfield code="a">Amoureux, Pierre J.</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">12</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">PND-Grundbestand</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Amoureux, Pierre J.: Notice historique et bibliographique sur la vie et les ouvrages de L*. - 1969</subfield>
+    </datafield>
+    <datafield tag="913" ind1=" " ind2=" ">
+      <subfield code="S">pnd</subfield>
+      <subfield code="i">a</subfield>
+      <subfield code="a">Amoureux, Pierre J.</subfield>
+      <subfield code="0">(DE-588a)100000622</subfield>
+    </datafield>
+  </record> 
+</collection>

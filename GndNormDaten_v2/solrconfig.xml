@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config>
+   <luceneMatchVersion>6.4.2</luceneMatchVersion>
+   <dataDir>${solr.data.dir:}</dataDir>
+
+   <indexConfig>
+      <infoStream>false</infoStream>
+   </indexConfig>
+
+   <updateHandler class="solr.DirectUpdateHandler2">
+      <updateLog>
+         <str name="dir">${solr.ulog.dir:}</str>
+      </updateLog>
+      <autoCommit>
+         <maxTime>${solr.autoCommit.maxTime:300000}</maxTime>
+         <openSearcher>false</openSearcher>
+      </autoCommit>
+      <autoSoftCommit>
+         <maxTime>${solr.autoSoftCommit.maxTime:1000}</maxTime>
+      </autoSoftCommit>
+   </updateHandler>
+
+   <query>
+      <maxBooleanClauses>1024</maxBooleanClauses>
+      <filterCache
+         class="solr.FastLRUCache"
+         size="512"
+         initialSize="512"
+         autowarmCount="0" />
+
+      <queryResultCache
+         class="solr.LRUCache"
+         size="512"
+         initialSize="512"
+         autowarmCount="0" />
+
+      <enableLazyFieldLoading>true</enableLazyFieldLoading>
+      <queryResultWindowSize>10</queryResultWindowSize>
+      <queryResultMaxDocsCached>20</queryResultMaxDocsCached>
+      <useColdSearcher>true</useColdSearcher>
+   </query>
+
+   <requestDispatcher handleSelect="false">
+      <requestParsers
+         enableRemoteStreaming="false"
+         addHttpRequestToContext="false" />
+      <httpCaching never304="false" />
+   </requestDispatcher>
+
+   <requestHandler
+      name="/select"
+      class="solr.SearchHandler"
+   >
+      <lst name="defaults">
+         <str name="echoParams">all</str>
+         <str name="df">synonyms</str>
+      </lst>
+   </requestHandler>
+
+   <searchComponent
+      name="terms"
+      class="solr.TermsComponent" />
+
+   <requestHandler
+      name="/terms"
+      class="solr.SearchHandler"
+      startup="lazy"
+   >
+      <lst name="defaults">
+         <bool name="terms">true</bool>
+         <bool name="distrib">false</bool>
+      </lst>
+      <arr name="components">
+         <str>terms</str>
+      </arr>
+   </requestHandler>
+
+</config>

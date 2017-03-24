@@ -1,0 +1,693 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+  <responseDate>2017-03-16T11:14:31Z</responseDate>
+  <request from="2017-03-16T11:13:46Z" metadataPrefix="MARC21-xml" set="authorities" until="2017-03-16T23:13:47Z" verb="ListRecords">http://services.dnb.de/oai/repository</request>
+  <ListRecords xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd">
+    <record>
+      <header>
+        <identifier>oai:dnb.de/authorities/1127774069</identifier>
+        <datestamp>2017-03-16T11:14:19Z</datestamp>
+        <setSpec>authorities</setSpec>
+      </header>
+      <metadata>
+        <record xmlns="http://www.loc.gov/MARC21/slim" type="Authority">
+     
+          <leader>00000nz  a2200000o  4500</leader>
+     
+          <controlfield tag="001">1127774069</controlfield>
+     
+          <controlfield tag="003">DE-101</controlfield>
+     
+          <controlfield tag="005">20170316121419.0</controlfield>
+     
+          <controlfield tag="008">170316n||aznnnaabn           | ana    |c</controlfield>
+     
+          <datafield ind1="7" ind2=" " tag="024">
+       
+            <subfield code="a">http://d-nb.info/gnd/1127774069</subfield>
+       
+            <subfield code="2">uri</subfield>
+    
+          </datafield>
+     
+          <datafield ind1=" " ind2=" " tag="035">
+       
+            <subfield code="a">(DE-101)1127774069</subfield>
+    
+          </datafield>
+     
+          <datafield ind1=" " ind2=" " tag="035">
+       
+            <subfield code="a">(DE-588)1127774069</subfield>
+    
+          </datafield>
+     
+          <datafield ind1=" " ind2=" " tag="040">
+       
+            <subfield code="a">DE-14</subfield>
+       
+            <subfield code="9">r:DE-576</subfield>
+       
+            <subfield code="b">ger</subfield>
+       
+            <subfield code="d">0014</subfield>
+       
+            <subfield code="e">rda</subfield>
+    
+          </datafield>
+     
+          <datafield ind1=" " ind2=" " tag="079">
+       
+            <subfield code="a">g</subfield>
+       
+            <subfield code="b">u</subfield>
+       
+            <subfield code="c">3</subfield>
+       
+            <subfield code="q">f</subfield>
+       
+            <subfield code="q">m</subfield>
+       
+            <subfield code="u">m</subfield>
+       
+            <subfield code="v">wim</subfield>
+    
+          </datafield>
+     
+          <datafield ind1="1" ind2=" " tag="100">
+       
+            <subfield code="a">Sluka, Luboš</subfield>
+       
+            <subfield code="d">1928-</subfield>
+       
+            <subfield code="t">Quartette</subfield>
+       
+            <subfield code="m">Violine (2)</subfield>
+       
+            <subfield code="m">Viola</subfield>
+       
+            <subfield code="m">Violoncello</subfield>
+       
+            <subfield code="n">Nr. 1</subfield>
+    
+          </datafield>
+     
+          <datafield ind1=" " ind2=" " tag="380">
+       
+            <subfield code="0">(DE-101)041766180</subfield>
+       
+            <subfield code="0">(DE-588)4176618-0</subfield>
+       
+            <subfield code="0">http://d-nb.info/gnd/4176618-0</subfield>
+       
+            <subfield code="a">Quartett</subfield>
+       
+            <subfield code="2">gnd</subfield>
+    
+          </datafield>
+     
+          <datafield ind1=" " ind2=" " tag="382">
+       
+            <subfield code="0">(DE-101)040197913</subfield>
+       
+            <subfield code="0">(DE-588)4019791-8</subfield>
+       
+            <subfield code="0">http://d-nb.info/gnd/4019791-8</subfield>
+       
+            <subfield code="a">Violine</subfield>
+       
+            <subfield code="n">2</subfield>
+       
+            <subfield code="2">gnd</subfield>
+    
+          </datafield>
+     
+          <datafield ind1=" " ind2=" " tag="382">
+       
+            <subfield code="0">(DE-101)041883640</subfield>
+       
+            <subfield code="0">(DE-588)4188364-0</subfield>
+       
+            <subfield code="0">http://d-nb.info/gnd/4188364-0</subfield>
+       
+            <subfield code="a">Viola</subfield>
+       
+            <subfield code="2">gnd</subfield>
+    
+          </datafield>
+     
+          <datafield ind1=" " ind2=" " tag="382">
+       
+            <subfield code="0">(DE-101)040635848</subfield>
+       
+            <subfield code="0">(DE-588)4063584-3</subfield>
+       
+            <subfield code="0">http://d-nb.info/gnd/4063584-3</subfield>
+       
+            <subfield code="a">Violoncello</subfield>
+       
+            <subfield code="2">gnd</subfield>
+    
+          </datafield>
+     
+          <datafield ind1=" " ind2=" " tag="382">
+       
+            <subfield code="s">4</subfield>
+       
+            <subfield code="2">gnd</subfield>
+    
+          </datafield>
+     
+          <datafield ind1=" " ind2=" " tag="383">
+       
+            <subfield code="a">Nr. 1</subfield>
+    
+          </datafield>
+     
+          <datafield ind1="1" ind2=" " tag="500">
+       
+            <subfield code="0">(DE-101)135282322</subfield>
+       
+            <subfield code="0">(DE-588)135282322</subfield>
+       
+            <subfield code="0">http://d-nb.info/gnd/135282322</subfield>
+       
+            <subfield code="a">Sluka, Luboš</subfield>
+       
+            <subfield code="d">1928-</subfield>
+       
+            <subfield code="9">4:kom1</subfield>
+       
+            <subfield code="w">r</subfield>
+       
+            <subfield code="i">Komponist1</subfield>
+       
+            <subfield code="e">Komponist1</subfield>
+    
+          </datafield>
+     
+          <datafield ind1=" " ind2=" " tag="548">
+       
+            <subfield code="a">1977</subfield>
+       
+            <subfield code="9">4:dats</subfield>
+       
+            <subfield code="w">r</subfield>
+       
+            <subfield code="i">Erstellungszeit</subfield>
+    
+          </datafield>
+     
+          <datafield ind1=" " ind2=" " tag="550">
+       
+            <subfield code="0">(DE-101)040580237</subfield>
+       
+            <subfield code="0">(DE-588)4058023-4</subfield>
+       
+            <subfield code="0">http://d-nb.info/gnd/4058023-4</subfield>
+       
+            <subfield code="a">Streichquartett</subfield>
+       
+            <subfield code="9">4:obin</subfield>
+       
+            <subfield code="w">r</subfield>
+       
+            <subfield code="i">Oberbegriff instantiell</subfield>
+    
+          </datafield>
+     
+          <datafield ind1=" " ind2=" " tag="670">
+       
+            <subfield code="a">Vorlage</subfield>
+    
+          </datafield>
+  
+        </record>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:dnb.de/authorities/1126754951</identifier>
+        <datestamp>2017-03-16T11:14:11Z</datestamp>
+        <setSpec>authorities</setSpec>
+      </header>
+      <metadata>
+        <record xmlns="http://www.loc.gov/MARC21/slim" type="Authority">
+     
+          <leader>00000nz  a2200000n  4500</leader>
+     
+          <controlfield tag="001">1126754951</controlfield>
+     
+          <controlfield tag="003">DE-101</controlfield>
+     
+          <controlfield tag="005">20170316121411.0</controlfield>
+     
+          <controlfield tag="008">170303n||azznnaabn           | aaa    |c</controlfield>
+     
+          <datafield ind1="7" ind2=" " tag="024">
+       
+            <subfield code="a">http://d-nb.info/gnd/1126754951</subfield>
+       
+            <subfield code="2">uri</subfield>
+    
+          </datafield>
+     
+          <datafield ind1=" " ind2=" " tag="035">
+       
+            <subfield code="a">(DE-101)1126754951</subfield>
+    
+          </datafield>
+     
+          <datafield ind1=" " ind2=" " tag="035">
+       
+            <subfield code="a">(DE-588)1126754951</subfield>
+    
+          </datafield>
+     
+          <datafield ind1=" " ind2=" " tag="040">
+       
+            <subfield code="a">DE-154</subfield>
+       
+            <subfield code="9">r:DE-384</subfield>
+       
+            <subfield code="b">ger</subfield>
+       
+            <subfield code="d">8999</subfield>
+       
+            <subfield code="e">rda</subfield>
+    
+          </datafield>
+     
+          <datafield ind1=" " ind2=" " tag="043">
+       
+            <subfield code="c">XA-DE</subfield>
+    
+          </datafield>
+     
+          <datafield ind1=" " ind2=" " tag="065">
+       
+            <subfield code="a">6.4p</subfield>
+       
+            <subfield code="2">sswd</subfield>
+    
+          </datafield>
+     
+          <datafield ind1=" " ind2=" " tag="065">
+       
+            <subfield code="a">13.2p</subfield>
+       
+            <subfield code="2">sswd</subfield>
+    
+          </datafield>
+     
+          <datafield ind1=" " ind2=" " tag="079">
+       
+            <subfield code="a">g</subfield>
+       
+            <subfield code="b">p</subfield>
+       
+            <subfield code="c">1</subfield>
+       
+            <subfield code="q">s</subfield>
+       
+            <subfield code="v">piz</subfield>
+    
+          </datafield>
+     
+          <datafield ind1="1" ind2=" " tag="100">
+       
+            <subfield code="a">Blitz, Lothar</subfield>
+       
+            <subfield code="d">1956-</subfield>
+    
+          </datafield>
+     
+          <datafield ind1=" " ind2=" " tag="375">
+       
+            <subfield code="a">1</subfield>
+       
+            <subfield code="2">iso5218</subfield>
+    
+          </datafield>
+     
+          <datafield ind1=" " ind2=" " tag="548">
+       
+            <subfield code="a">1956-</subfield>
+       
+            <subfield code="9">4:datl</subfield>
+       
+            <subfield code="w">r</subfield>
+       
+            <subfield code="i">Lebensdaten</subfield>
+    
+          </datafield>
+     
+          <datafield ind1=" " ind2=" " tag="550">
+       
+            <subfield code="0">(DE-101)043021824</subfield>
+       
+            <subfield code="0">(DE-588)4302182-7</subfield>
+       
+            <subfield code="0">http://d-nb.info/gnd/4302182-7</subfield>
+       
+            <subfield code="a">Kunsterzieher</subfield>
+       
+            <subfield code="9">4:berc</subfield>
+       
+            <subfield code="w">r</subfield>
+       
+            <subfield code="i">Charakteristischer Beruf</subfield>
+    
+          </datafield>
+     
+          <datafield ind1=" " ind2=" " tag="550">
+       
+            <subfield code="0">(DE-101)041395506</subfield>
+       
+            <subfield code="0">(DE-588)4139550-5</subfield>
+       
+            <subfield code="0">http://d-nb.info/gnd/4139550-5</subfield>
+       
+            <subfield code="a">Bildhauer</subfield>
+       
+            <subfield code="9">4:beru</subfield>
+       
+            <subfield code="w">r</subfield>
+       
+            <subfield code="i">Beruf</subfield>
+    
+          </datafield>
+     
+          <datafield ind1=" " ind2=" " tag="551">
+       
+            <subfield code="0">(DE-101)040036146</subfield>
+       
+            <subfield code="0">(DE-588)4003614-5</subfield>
+       
+            <subfield code="0">http://d-nb.info/gnd/4003614-5</subfield>
+       
+            <subfield code="a">Augsburg</subfield>
+       
+            <subfield code="9">4:ortg</subfield>
+       
+            <subfield code="w">r</subfield>
+       
+            <subfield code="i">Geburtsort</subfield>
+    
+          </datafield>
+     
+          <datafield ind1=" " ind2=" " tag="551">
+       
+            <subfield code="0">(DE-101)954424794</subfield>
+       
+            <subfield code="0">(DE-588)4513083-8</subfield>
+       
+            <subfield code="0">http://d-nb.info/gnd/4513083-8</subfield>
+       
+            <subfield code="a">Thurmansbang</subfield>
+       
+            <subfield code="9">4:ortw</subfield>
+       
+            <subfield code="w">r</subfield>
+       
+            <subfield code="i">Wirkungsort</subfield>
+    
+          </datafield>
+     
+          <datafield ind1=" " ind2=" " tag="670">
+       
+            <subfield code="a">Internet</subfield>
+       
+            <subfield code="b">Stand: 16.03.2017</subfield>
+       
+            <subfield code="u">http://www.lothar-blitz.de/</subfield>
+    
+          </datafield>
+  
+        </record>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:dnb.de/authorities/1085323498</identifier>
+        <datestamp>2017-03-16T11:14:12Z</datestamp>
+        <setSpec>authorities</setSpec>
+      </header>
+      <metadata>
+        <record xmlns="http://www.loc.gov/MARC21/slim" type="Authority">
+     
+          <leader>00000cz  a2200000o  4500</leader>
+     
+          <controlfield tag="001">1085323498</controlfield>
+     
+          <controlfield tag="003">DE-101</controlfield>
+     
+          <controlfield tag="005">20170316121412.0</controlfield>
+     
+          <controlfield tag="008">160303n||aznnnaabn           | ana    |c</controlfield>
+     
+          <datafield ind1="7" ind2=" " tag="024">
+       
+            <subfield code="a">http://d-nb.info/gnd/1085323498</subfield>
+       
+            <subfield code="2">uri</subfield>
+    
+          </datafield>
+     
+          <datafield ind1=" " ind2=" " tag="035">
+       
+            <subfield code="a">(DE-101)1085323498</subfield>
+    
+          </datafield>
+     
+          <datafield ind1=" " ind2=" " tag="035">
+       
+            <subfield code="a">(DE-588)1085323498</subfield>
+    
+          </datafield>
+     
+          <datafield ind1=" " ind2=" " tag="040">
+       
+            <subfield code="a">CH-BaUGNV</subfield>
+       
+            <subfield code="9">r:CH-BaUGNV</subfield>
+       
+            <subfield code="b">ger</subfield>
+       
+            <subfield code="d">1600</subfield>
+       
+            <subfield code="e">kids</subfield>
+    
+          </datafield>
+     
+          <datafield ind1=" " ind2=" " tag="043">
+       
+            <subfield code="c">ZZ</subfield>
+    
+          </datafield>
+     
+          <datafield ind1=" " ind2=" " tag="079">
+       
+            <subfield code="a">g</subfield>
+       
+            <subfield code="b">b</subfield>
+       
+            <subfield code="c">6</subfield>
+       
+            <subfield code="q">f</subfield>
+       
+            <subfield code="v">kiz</subfield>
+    
+          </datafield>
+     
+          <datafield ind1="2" ind2=" " tag="110">
+       
+            <subfield code="a">Clear Channel Schweiz AG</subfield>
+    
+          </datafield>
+     
+          <datafield ind1=" " ind2=" " tag="670">
+       
+            <subfield code="a">Handelsregister</subfield>
+    
+          </datafield>
+     
+          <datafield ind1=" " ind2=" " tag="682">
+       
+            <subfield code="i">Umlenkung</subfield>
+       
+            <subfield code="0">(DE-101)1064124100</subfield>
+       
+            <subfield code="0">(DE-588)1064124100</subfield>
+       
+            <subfield code="0">http://d-nb.info/gnd/1064124100</subfield>
+       
+            <subfield code="a">Clear Channel Schweiz AG</subfield>
+    
+          </datafield>
+  
+        </record>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:dnb.de/authorities/001190504</identifier>
+        <datestamp>2017-03-16T11:13:49Z</datestamp>
+        <setSpec>authorities</setSpec>
+      </header>
+      <metadata>
+        <record xmlns="http://www.loc.gov/MARC21/slim" type="Authority">
+     
+          <leader>00000nz  a2200000n  4500</leader>
+     
+          <controlfield tag="001">001190504</controlfield>
+     
+          <controlfield tag="003">DE-101</controlfield>
+     
+          <controlfield tag="005">20170316121349.0</controlfield>
+     
+          <controlfield tag="008">890418n||aznnnaabn           | ana    |c</controlfield>
+     
+          <datafield ind1="7" ind2=" " tag="024">
+       
+            <subfield code="a">http://d-nb.info/gnd/119050-7</subfield>
+       
+            <subfield code="2">uri</subfield>
+    
+          </datafield>
+     
+          <datafield ind1=" " ind2=" " tag="035">
+       
+            <subfield code="a">(DE-101)001190504</subfield>
+    
+          </datafield>
+     
+          <datafield ind1=" " ind2=" " tag="035">
+       
+            <subfield code="a">(DE-588)119050-7</subfield>
+    
+          </datafield>
+     
+          <datafield ind1=" " ind2=" " tag="035">
+       
+            <subfield code="z">(DE-588b)119050-7</subfield>
+       
+            <subfield code="9">v:zg</subfield>
+    
+          </datafield>
+     
+          <datafield ind1=" " ind2=" " tag="040">
+       
+            <subfield code="a">DE-1</subfield>
+       
+            <subfield code="9">r:DE-1</subfield>
+       
+            <subfield code="b">ger</subfield>
+       
+            <subfield code="d">1140</subfield>
+    
+          </datafield>
+     
+          <datafield ind1=" " ind2=" " tag="043">
+       
+            <subfield code="c">XA-DXDE</subfield>
+    
+          </datafield>
+     
+          <datafield ind1=" " ind2=" " tag="079">
+       
+            <subfield code="a">g</subfield>
+       
+            <subfield code="b">g</subfield>
+       
+            <subfield code="c">1</subfield>
+       
+            <subfield code="q">f</subfield>
+       
+            <subfield code="u">z</subfield>
+       
+            <subfield code="u">v</subfield>
+       
+            <subfield code="u">w</subfield>
+       
+            <subfield code="v">gik</subfield>
+    
+          </datafield>
+     
+          <datafield ind1=" " ind2=" " tag="151">
+       
+            <subfield code="a">Gladbach</subfield>
+    
+          </datafield>
+     
+          <datafield ind1=" " ind2=" " tag="451">
+       
+            <subfield code="a">M.-Gladbach</subfield>
+       
+            <subfield code="g">Gladbach</subfield>
+    
+          </datafield>
+     
+          <datafield ind1=" " ind2=" " tag="451">
+       
+            <subfield code="a">M.Gladbach</subfield>
+       
+            <subfield code="g">Gladbach</subfield>
+    
+          </datafield>
+     
+          <datafield ind1=" " ind2=" " tag="451">
+       
+            <subfield code="a">M. Gladbach</subfield>
+       
+            <subfield code="g">Gladbach</subfield>
+    
+          </datafield>
+     
+          <datafield ind1=" " ind2=" " tag="548">
+       
+            <subfield code="a">-31.12.1887</subfield>
+       
+            <subfield code="9">4:datb</subfield>
+       
+            <subfield code="w">r</subfield>
+       
+            <subfield code="i">Zeitraum</subfield>
+    
+          </datafield>
+     
+          <datafield ind1=" " ind2=" " tag="551">
+       
+            <subfield code="0">(DE-101)00700060X</subfield>
+       
+            <subfield code="0">(DE-588)2046074-0</subfield>
+       
+            <subfield code="0">http://d-nb.info/gnd/2046074-0</subfield>
+       
+            <subfield code="a">München-Gladbach</subfield>
+       
+            <subfield code="9">4:nach</subfield>
+       
+            <subfield code="w">r</subfield>
+       
+            <subfield code="i">Nachfolger</subfield>
+    
+          </datafield>
+     
+          <datafield ind1=" " ind2=" " tag="913">
+       
+            <subfield code="S">gkd</subfield>
+       
+            <subfield code="i">a</subfield>
+       
+            <subfield code="a">Gladbach</subfield>
+       
+            <subfield code="0">(DE-588b)119050-7</subfield>
+    
+          </datafield>
+  
+        </record>
+      </metadata>
+    </record>
+  </ListRecords>
+</OAI-PMH>

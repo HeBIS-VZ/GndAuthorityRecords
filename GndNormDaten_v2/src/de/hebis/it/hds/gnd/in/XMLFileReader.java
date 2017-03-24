@@ -1,4 +1,4 @@
-package de.hebis.it.gndexpander;
+package de.hebis.it.hds.gnd.in;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -21,6 +21,7 @@ import org.apache.solr.common.SolrInputDocument;
 
 import de.hebis.it.hds.tools.concurrent.WaitingNamedExecutorService;
 import de.hebis.it.hds.tools.streams.TextBlockSpliterator;
+
 
 /**
  * Splits the marc21-XML file in single records and process them concurrently.<br/>
@@ -74,7 +75,7 @@ public class XMLFileReader extends Thread {
 
       try {
          // Mapper von Stream<String> zu Stream<List<String>> !! Achtung Stream muss sequenziell bleiben.
-         tbs = TextBlockSpliterator.toBlocks(Files.lines(dateipfad), startpattern, endpattern, false);
+         tbs = TextBlockSpliterator.toTextBlocks(Files.lines(dateipfad), startpattern, endpattern, false);
       } catch (IOException e) {
          LOG.fatal("Fehler beim Lesen der Eingabedatei: " + dateipfad.toString(), e);
       }

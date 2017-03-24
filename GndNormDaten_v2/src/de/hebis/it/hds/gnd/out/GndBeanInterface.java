@@ -1,4 +1,4 @@
-package de.hebis.it.gvi.gnd.interfaces;
+package de.hebis.it.hds.gnd.out;
 
 import java.util.Collection;
 

@@ -13,9 +13,9 @@ import org.apache.solr.client.solrj.impl.HttpSolrClient;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import de.hebis.it.gvi.gnd.Finder;
-import de.hebis.it.gvi.gnd.GndBean;
-import de.hebis.it.gvi.gnd.interfaces.FinderStatus;
+import de.hebis.it.hds.gnd.out.Finder;
+import de.hebis.it.hds.gnd.out.FinderStatus;
+import de.hebis.it.hds.gnd.out.GndBean;
 
 /**
  * Überprüft ob der {@link Finder} geforderten Eigenschaften aufweist.<br/>

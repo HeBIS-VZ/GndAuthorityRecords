@@ -1,4 +1,4 @@
-package de.hebis.it.gvi.gnd;
+package de.hebis.it.hds.gnd.out;
 
 import java.io.IOException;
 
@@ -9,9 +9,6 @@ import org.apache.solr.client.solrj.impl.HttpSolrClient;
 import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.util.NamedList;
-
-import de.hebis.it.gvi.gnd.interfaces.FinderInterface;
-import de.hebis.it.gvi.gnd.interfaces.FinderStatus;
 
 /**
  * Erste Implementierung für eine Solr-Backend.<br/>

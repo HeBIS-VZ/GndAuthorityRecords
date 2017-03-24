@@ -1,9 +1,24 @@
-package de.hebis.it.gvi.gnd;
+/*
+ * Copyright 2016, 2017 by HeBIS (www.hebis.de).
+ * 
+ * This file is part of HeBIS Programing Toolkit.
+ *
+ * This is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or any later version.
+ *
+ * This code is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with the code.  If not, see http://www.gnu.org/licenses/agpl>.
+ */
+package de.hebis.it.hds.gnd.out;
 
 import java.util.ArrayList;
 import java.util.Collection;
-
-import de.hebis.it.gvi.gnd.interfaces.GndBeanInterface;
 
 /**
  * Einfache Bean zur Representation eines Normdatensatzes.<br/>
@@ -14,8 +29,8 @@ import de.hebis.it.gvi.gnd.interfaces.GndBeanInterface;
  *
  */
 public class GndBean implements GndBeanInterface {
-   private String       myId;
-   private String       myPreferred;
+   private String             myId;
+   private String             myPreferred;
    private Collection<Object> mySynonyms;
    private Collection<Object> myRelations;
 
@@ -25,14 +40,14 @@ public class GndBean implements GndBeanInterface {
     * 
     * @param id
     * @param preferred
-    * @param synonymes
+    * @param synonyms
     * @param relations
     */
-   public GndBean(String id, String preferred, Collection<Object> synonymes, Collection<Object> relations) {
+   public GndBean(String id, String preferred, Collection<Object> synonyms, Collection<Object> relations) {
       if (id == null) throw new NullPointerException("Die Id ist ein Pflichtparameter");
       myId = id;
       myPreferred = (preferred == null) ? "" : preferred;
-      mySynonyms = (synonymes == null) ? new ArrayList<>() : synonymes;
+      mySynonyms = (synonyms == null) ? new ArrayList<>() : synonyms;
       myRelations = (relations == null) ? new ArrayList<>() : relations;
    }
 

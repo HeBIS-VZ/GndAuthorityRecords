@@ -1,4 +1,4 @@
-package de.hebis.it.gndexpander;
+package de.hebis.it.hds.gnd.in;
 
 import java.io.IOException;
 import java.net.URI;

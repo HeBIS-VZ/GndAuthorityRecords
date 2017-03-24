@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import de.hebis.it.gndexpander.data.TestData;
+import de.hebis.it.hds.gnd.in.Loader;
 
 public class LoaderTest {
 

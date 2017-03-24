@@ -1,7 +1,7 @@
-package de.hebis.it.gvi.gnd.interfaces;
+package de.hebis.it.hds.gnd.out;
 
 /**
- * Berschreibung des Statuses der Verbindung zwischen dem {@link de.hebis.it.gvi.gnd.Finder} und des dahinterligenden Stores.
+ * Berschreibung des Statuses der Verbindung zwischen dem {@link de.hebis.it.hds.gnd.out.Finder} und des dahinterligenden Stores.
  * @author uwe
  *
  */

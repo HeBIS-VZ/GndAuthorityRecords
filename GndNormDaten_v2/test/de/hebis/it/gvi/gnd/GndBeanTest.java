@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import de.hebis.it.gvi.gnd.GndBean;
+import de.hebis.it.hds.gnd.out.GndBean;
 
 /**
  * Validiert minimale Anforderungen an eine GndBean

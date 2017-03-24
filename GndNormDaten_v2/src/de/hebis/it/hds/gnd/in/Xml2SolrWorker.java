@@ -1,4 +1,4 @@
-package de.hebis.it.gndexpander;
+package de.hebis.it.hds.gnd.in;
 
 import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
@@ -227,7 +227,7 @@ public class Xml2SolrWorker implements Callable<SolrInputDocument> {
       if (LOG.isTraceEnabled()) LOG.trace("Read subfield : " + key);
       List<String> values = dataField.get(key);
       if (values == null) {
-         values = new ArrayList<String>();
+         values = new ArrayList<>();
          dataField.put(key, values);
       }
       String value;

@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.apache.solr.common.SolrInputDocument;
 
-import de.hebis.it.gvi.gnd.GndBean;
+import de.hebis.it.hds.gnd.out.GndBean;
 
 /**
  * Bereitstellung von Beispieldaten für die Tests

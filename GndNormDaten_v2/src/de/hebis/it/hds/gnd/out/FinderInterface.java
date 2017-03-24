@@ -1,4 +1,4 @@
-package de.hebis.it.gvi.gnd.interfaces;
+package de.hebis.it.hds.gnd.out;
 
 /**
  * Definition der minimal vorhanden Methoden eines GND-Store. Die hier vorgegebenen Methoden sind threadsicher zu implementieren.

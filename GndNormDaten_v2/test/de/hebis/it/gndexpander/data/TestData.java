@@ -4,6 +4,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 
+@SuppressWarnings("javadoc")
 public class TestData {
    public static URI getURI4UpdateData() {
       return url2uri(TestData.class.getResource("oaiUpdate.xml"));

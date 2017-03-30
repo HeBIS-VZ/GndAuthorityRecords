@@ -39,7 +39,7 @@ import de.hebis.it.hds.gnd.in.subfields.GeneralFields;
 import de.hebis.it.hds.gnd.in.subfields.TopicFields;
 
 /**
- * Callable to parse/convert a single Marc21-XML authority record<br>
+ * Function to parse/convert a single Marc21-XML authority record<br>
  * The converted data will be returned as a {@link SolrInputDocument}.
  * 
  * @author Uwe Reh (uh), HeBIS-IT
@@ -69,6 +69,14 @@ public class MarcXmlParser implements Function<List<String>, Boolean> {
     */
    @Override
    public Boolean apply(List<String> recordAsListOfLines) {
+      if (recordAsListOfLines == null) {
+         LOG.debug("NULL record received. If this is an OAI update, its normal");
+         return true;
+      }
+      if (recordAsListOfLines.size() < 3) {
+         LOG.warn("Unusable record received");
+         return false;
+      }
       StringBuilder fullrecord = new StringBuilder();
       // concat lines and omit unneeded whitespace characters
       for (String line : recordAsListOfLines) {
@@ -136,7 +144,7 @@ public class MarcXmlParser implements Function<List<String>, Boolean> {
       }
       if (LOG.isTraceEnabled()) LOG.trace("Index record");
       try {
-         if (LOG.isDebugEnabled()) LOG.debug("Nwe Document: " + doc.toString());
+         if (LOG.isDebugEnabled()) LOG.debug("New Document: " + doc.toString());
          solrClient.add(doc);
       } catch (SolrServerException | IOException e) {
          LOG.warn("Failed sending document:" + doc.get("id") + " to " + solrClient.toString(), e);

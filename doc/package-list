@@ -1,6 +1,5 @@
-de.hebis.it.gndexpander
-de.hebis.it.gndexpander.data
-de.hebis.it.gvi.gnd
-de.hebis.it.gvi.gnd.interfaces
-de.hebis.it.hds.tools.concurrent
-de.hebis.it.hds.tools.streams
+de.hebis.it.gvi.hds.gnd.out
+de.hebis.it.hds.gnd.in
+de.hebis.it.hds.gnd.in.data
+de.hebis.it.hds.gnd.in.subfields
+de.hebis.it.hds.gnd.out

@@ -52,85 +52,85 @@ public class LoaderTest {
       assertTrue(true); // dummy
    }
 
-//   /**
-//    * Loading organizations and companies<br>
-//    * The quality of the imported data is untested.
-//    */
-//   @Test
-//   public void loadOrganisation() {
-//      loader2Test.load(TestData.getURI4Organisation());
-//      assertTrue(true); // dummy
-//   }
-//
-//   /**
-//    * Loading conferences and events<br>
-//    * The quality of the imported data is untested.
-//    */
-//   @Test
-//   public void loadConference() {
-//      loader2Test.load(TestData.getURI4Conference());
-//      assertTrue(true); // dummy
-//   }
-//
-//   /**
-//    * Loading geographic terms<br>
-//    * The quality of the imported data is untested.
-//    */
-//   @Test
-//   public void loadGeographic() {
-//      loader2Test.load(TestData.getURI4Geographic());
-//      assertTrue(true); // dummy
-//   }
-//
-//   /**
-//    * Loading not individualized persons<br>
-//    * The quality of the imported data is untested.
-//    */
-//   @Test
-//   public void loadPerson() {
-//      loader2Test.load(TestData.getURI4Person());
-//      assertTrue(true); // dummy
-//   }
-//
-//   /**
-//    * Loading individualized persons<br>
-//    * The quality of the imported data is untested.
-//    */
-//   @Test
-//   public void loadIndividulizedPerson() {
-//      loader2Test.load(TestData.getURI4IndividulizedPerson());
-//      assertTrue(true); // dummy
-//   }
-//
-//   /**
-//    * Loading works<br>
-//    * The quality of the imported data is untested.
-//    */
-//   @Test
-//   public void loadWork() {
-//      loader2Test.load(TestData.getURI4Work());
-//      assertTrue(true); // dummy
-//   }
-//
-//   /**
-//    * Loading deletions and redirections<br>
-//    * The quality of the imported data is untested.
-//    */
-//   @Test
-//   public void loadRedirect() {
-//      loader2Test.load(TestData.getURI4Redirect());
-//      assertTrue(true); // dummy
-//   }
-//
-//   /**
-//    * Loading all kind from OAI update<br>
-//    * The quality of the imported data is untested.
-//    */
-//   @Test
-//   public void loadUpdate() {
-//      loader2Test.load(TestData.getURI4UpdateData());
-//      assertTrue(true); // dummy
-//   }
+   /**
+    * Loading organizations and companies<br>
+    * The quality of the imported data is untested.
+    */
+   @Test
+   public void loadOrganisation() {
+      loader2Test.load(TestData.getURI4Organisation());
+      assertTrue(true); // dummy
+   }
+
+   /**
+    * Loading conferences and events<br>
+    * The quality of the imported data is untested.
+    */
+   @Test
+   public void loadConference() {
+      loader2Test.load(TestData.getURI4Conference());
+      assertTrue(true); // dummy
+   }
+
+   /**
+    * Loading geographic terms<br>
+    * The quality of the imported data is untested.
+    */
+   @Test
+   public void loadGeographic() {
+      loader2Test.load(TestData.getURI4Geographic());
+      assertTrue(true); // dummy
+   }
+
+   /**
+    * Loading not individualized persons<br>
+    * The quality of the imported data is untested.
+    */
+   @Test
+   public void loadPerson() {
+      loader2Test.load(TestData.getURI4Person());
+      assertTrue(true); // dummy
+   }
+
+   /**
+    * Loading individualized persons<br>
+    * The quality of the imported data is untested.
+    */
+   @Test
+   public void loadIndividulizedPerson() {
+      loader2Test.load(TestData.getURI4IndividulizedPerson());
+      assertTrue(true); // dummy
+   }
+
+   /**
+    * Loading works<br>
+    * The quality of the imported data is untested.
+    */
+   @Test
+   public void loadWork() {
+      loader2Test.load(TestData.getURI4Work());
+      assertTrue(true); // dummy
+   }
+
+   /**
+    * Loading deletions and redirections<br>
+    * The quality of the imported data is untested.
+    */
+   @Test
+   public void loadRedirect() {
+      loader2Test.load(TestData.getURI4Redirect());
+      assertTrue(true); // dummy
+   }
+
+   /**
+    * Loading all kind from OAI update<br>
+    * The quality of the imported data is untested.
+    */
+   @Test
+   public void loadUpdate() {
+      loader2Test.load(TestData.getURI4UpdateData());
+      assertTrue(true); // dummy
+   }
    
    
    // TODO

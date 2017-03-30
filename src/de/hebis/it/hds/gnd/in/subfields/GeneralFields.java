@@ -77,6 +77,7 @@ public class GeneralFields {
     * Stores the type of the record. &lt;datafield tag="079"&gt;.<br>
     * Subfield '$b' is taken as type. (schema:authorityType)<br>
     * Subfield '$c' is taken as level of trust. (schema:qualityLevel)<br>
+    * ('1' is the best, over '3' should only used on own risk)<br>
     * 
     * @param dataField The content of the data field
     */

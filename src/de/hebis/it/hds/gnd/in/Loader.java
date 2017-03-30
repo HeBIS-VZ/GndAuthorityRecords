@@ -48,7 +48,8 @@ public class Loader {
 
    /** The Constant LOG. */
    private static final Logger            LOG          = LogManager.getLogger(Loader.class);
-   private static final Predicate<String> startpattern = Pattern.compile(".*<record.*").asPredicate();
+   /** Start with a record tag which has attributes. (the OAI-Format has enclosing record tags without attributes) */
+   private static final Predicate<String> startpattern = Pattern.compile(".*<record[^>].*").asPredicate();
    private static final Predicate<String> endpattern   = Pattern.compile(".*</record.*").asPredicate();
    private static SolrClient              server       = null;
 
@@ -81,7 +82,9 @@ public class Loader {
       // group the lines. TODO find better code
       Stream<List<String>> marcXmlStream = TextBlockSpliterator.toTextBlocks(lineStream, startpattern, endpattern, true);
       // process the data. map and consume
-      marcXmlStream.map(new MarcXmlParser(server)).forEach(x -> {if (!x) System.err.println("Fail");});
+      marcXmlStream.map(new MarcXmlParser(server)).forEach(x -> {
+         if (!x) System.err.println("Fail");
+      });
       LOG.debug("Finished with " + marcXmlFile.toString());
       try {
          server.commit();

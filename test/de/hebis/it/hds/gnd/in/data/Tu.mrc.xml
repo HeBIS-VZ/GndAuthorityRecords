@@ -1,0 +1,973 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+This is a subset of the  Gemeinsame Normdatei (GND) a collection of authority records
+provided by the German National Library. (http://www.dnb.de/EN/Home/home_node.html)
+The GND is published with the CC0 license (https://creativecommons.org/publicdomain/zero/1.0/)
+The data was downloaded 2017-03-09
+-->
+<collection xmlns="http://www.loc.gov/MARC21/slim">
+<record type="Authority">
+    <leader>00000nz  a2200000n  4500</leader>
+    <controlfield tag="001">112539398X</controlfield>
+    <controlfield tag="003">DE-101</controlfield>
+    <controlfield tag="005">20170213140200.0</controlfield>
+    <controlfield tag="008">170213n||aznnnaabn           | ana    |c</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="a">http://d-nb.info/gnd/112539398X</subfield>
+      <subfield code="2">uri</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-101)112539398X</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-588)112539398X</subfield>
+    </datafield>
+    <datafield tag="040" ind1=" " ind2=" ">
+      <subfield code="a">DE-101</subfield>
+      <subfield code="9">r:DE-101</subfield>
+      <subfield code="b">ger</subfield>
+      <subfield code="d">1340</subfield>
+      <subfield code="e">rda</subfield>
+    </datafield>
+    <datafield tag="079" ind1=" " ind2=" ">
+      <subfield code="a">g</subfield>
+      <subfield code="b">u</subfield>
+      <subfield code="c">1</subfield>
+      <subfield code="q">m</subfield>
+      <subfield code="q">f</subfield>
+      <subfield code="u">m</subfield>
+      <subfield code="v">wim</subfield>
+    </datafield>
+    <datafield tag="110" ind1="2" ind2=" ">
+      <subfield code="a">Born Loose</subfield>
+      <subfield code="g">Musikgruppe</subfield>
+      <subfield code="t">Death from above</subfield>
+      <subfield code="g">Musikalbum</subfield>
+    </datafield>
+    <datafield tag="380" ind1=" " ind2=" ">
+      <subfield code="0">(DE-101)1077267533</subfield>
+      <subfield code="0">(DE-588)1077267533</subfield>
+      <subfield code="0">http://d-nb.info/gnd/1077267533</subfield>
+      <subfield code="a">Musikalbum</subfield>
+      <subfield code="2">gnd</subfield>
+    </datafield>
+    <datafield tag="510" ind1="2" ind2=" ">
+      <subfield code="0">(DE-101)1081565705</subfield>
+      <subfield code="0">(DE-588)1081565705</subfield>
+      <subfield code="0">http://d-nb.info/gnd/1081565705</subfield>
+      <subfield code="a">Born Loose</subfield>
+      <subfield code="g">Musikgruppe</subfield>
+      <subfield code="9">4:kom1</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Komponist1</subfield>
+      <subfield code="e">Komponist1</subfield>
+    </datafield>
+    <datafield tag="670" ind1=" " ind2=" ">
+      <subfield code="a">Vorlage (AKZ L-2017-503472)</subfield>
+    </datafield>
+  </record>
+  <record type="Authority">
+    <leader>00000nz  a2200000o  4500</leader>
+    <controlfield tag="001">1125394005</controlfield>
+    <controlfield tag="003">DE-101</controlfield>
+    <controlfield tag="005">20170213140212.0</controlfield>
+    <controlfield tag="008">170213n||aznnnaabn           | ana    |c</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="a">http://d-nb.info/gnd/1125394005</subfield>
+      <subfield code="2">uri</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-101)1125394005</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-588)1125394005</subfield>
+    </datafield>
+    <datafield tag="040" ind1=" " ind2=" ">
+      <subfield code="a">DE-12</subfield>
+      <subfield code="9">r:DE-12</subfield>
+      <subfield code="b">ger</subfield>
+      <subfield code="d">8999</subfield>
+      <subfield code="e">rda</subfield>
+    </datafield>
+    <datafield tag="043" ind1=" " ind2=" ">
+      <subfield code="c">XA-FR</subfield>
+    </datafield>
+    <datafield tag="079" ind1=" " ind2=" ">
+      <subfield code="a">g</subfield>
+      <subfield code="b">u</subfield>
+      <subfield code="c">3</subfield>
+      <subfield code="q">f</subfield>
+      <subfield code="v">wit</subfield>
+    </datafield>
+    <datafield tag="100" ind1="1" ind2=" ">
+      <subfield code="a">Gautier, Théophile</subfield>
+      <subfield code="d">1811-1872</subfield>
+      <subfield code="t">Voyage en Égypte</subfield>
+    </datafield>
+    <datafield tag="500" ind1="1" ind2=" ">
+      <subfield code="0">(DE-101)11853789X</subfield>
+      <subfield code="0">(DE-588)11853789X</subfield>
+      <subfield code="0">http://d-nb.info/gnd/11853789X</subfield>
+      <subfield code="a">Gautier, Théophile</subfield>
+      <subfield code="d">1811-1872</subfield>
+      <subfield code="9">4:aut1</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Verfasserschaft1</subfield>
+      <subfield code="e">Verfasserschaft1</subfield>
+    </datafield>
+  </record>
+  <record type="Authority">
+    <leader>00000nz  a2200000o  4500</leader>
+    <controlfield tag="001">1125394455</controlfield>
+    <controlfield tag="003">DE-101</controlfield>
+    <controlfield tag="005">20170213140831.0</controlfield>
+    <controlfield tag="008">170213n||aznnnaabn           | ana    |c</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="a">http://d-nb.info/gnd/1125394455</subfield>
+      <subfield code="2">uri</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-101)1125394455</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-588)1125394455</subfield>
+    </datafield>
+    <datafield tag="040" ind1=" " ind2=" ">
+      <subfield code="a">CH-ZuZBF</subfield>
+      <subfield code="9">r:CH-ZuZBF</subfield>
+      <subfield code="b">ger</subfield>
+      <subfield code="d">1601</subfield>
+      <subfield code="e">rda</subfield>
+    </datafield>
+    <datafield tag="079" ind1=" " ind2=" ">
+      <subfield code="a">g</subfield>
+      <subfield code="b">u</subfield>
+      <subfield code="c">3</subfield>
+      <subfield code="q">f</subfield>
+      <subfield code="q">m</subfield>
+      <subfield code="v">wim</subfield>
+    </datafield>
+    <datafield tag="100" ind1="1" ind2=" ">
+      <subfield code="a">Nováček, Rudolf</subfield>
+      <subfield code="d">1860-1929</subfield>
+      <subfield code="t">Märchenzauber</subfield>
+    </datafield>
+    <datafield tag="377" ind1=" " ind2="7">
+      <subfield code="a">zxx</subfield>
+      <subfield code="2">iso639-2b</subfield>
+    </datafield>
+    <datafield tag="380" ind1=" " ind2=" ">
+      <subfield code="0">(DE-101)041890426</subfield>
+      <subfield code="0">(DE-588)4189042-5</subfield>
+      <subfield code="0">http://d-nb.info/gnd/4189042-5</subfield>
+      <subfield code="a">Walzer</subfield>
+      <subfield code="2">gnd</subfield>
+    </datafield>
+    <datafield tag="382" ind1=" " ind2=" ">
+      <subfield code="0">(DE-101)040309827</subfield>
+      <subfield code="0">(DE-588)4030982-4</subfield>
+      <subfield code="0">http://d-nb.info/gnd/4030982-4</subfield>
+      <subfield code="a">Klavier</subfield>
+      <subfield code="n">1</subfield>
+      <subfield code="2">gnd</subfield>
+    </datafield>
+    <datafield tag="382" ind1=" " ind2=" ">
+      <subfield code="s">1</subfield>
+      <subfield code="2">gnd</subfield>
+    </datafield>
+    <datafield tag="383" ind1=" " ind2=" ">
+      <subfield code="b">op. 85</subfield>
+    </datafield>
+    <datafield tag="500" ind1="1" ind2=" ">
+      <subfield code="0">(DE-101)134474937</subfield>
+      <subfield code="0">(DE-588)134474937</subfield>
+      <subfield code="0">http://d-nb.info/gnd/134474937</subfield>
+      <subfield code="a">Nováček, Rudolf</subfield>
+      <subfield code="d">1860-1929</subfield>
+      <subfield code="9">4:kom1</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Komponist1</subfield>
+      <subfield code="e">Komponist1</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">IDS noch nicht geprüft</subfield>
+    </datafield>
+    <datafield tag="670" ind1=" " ind2=" ">
+      <subfield code="a">Vorlage</subfield>
+    </datafield>
+  </record>
+  <record type="Authority">
+    <leader>00000nz  a2200000o  4500</leader>
+    <controlfield tag="001">1125394536</controlfield>
+    <controlfield tag="003">DE-101</controlfield>
+    <controlfield tag="005">20170213140936.0</controlfield>
+    <controlfield tag="008">170213n||azznnaabn           | ana    |c</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="a">http://d-nb.info/gnd/1125394536</subfield>
+      <subfield code="2">uri</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-101)1125394536</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-588)1125394536</subfield>
+    </datafield>
+    <datafield tag="040" ind1=" " ind2=" ">
+      <subfield code="a">DE-14</subfield>
+      <subfield code="9">r:DE-576</subfield>
+      <subfield code="b">ger</subfield>
+      <subfield code="d">0014</subfield>
+      <subfield code="e">rda</subfield>
+    </datafield>
+    <datafield tag="043" ind1=" " ind2=" ">
+      <subfield code="c">XA-IT</subfield>
+    </datafield>
+    <datafield tag="065" ind1=" " ind2=" ">
+      <subfield code="a">13.4p</subfield>
+      <subfield code="2">sswd</subfield>
+    </datafield>
+    <datafield tag="079" ind1=" " ind2=" ">
+      <subfield code="a">g</subfield>
+      <subfield code="b">u</subfield>
+      <subfield code="c">4</subfield>
+      <subfield code="q">s</subfield>
+      <subfield code="v">wit</subfield>
+    </datafield>
+    <datafield tag="100" ind1="1" ind2=" ">
+      <subfield code="a">Carrà, Carlo</subfield>
+      <subfield code="d">1881-1966</subfield>
+      <subfield code="t">&#152;Die&#156; Geliebte des Ingenieurs</subfield>
+      <subfield code="n">Documenta 1955.108</subfield>
+    </datafield>
+    <datafield tag="380" ind1=" " ind2=" ">
+      <subfield code="a">Ölgemälde</subfield>
+      <subfield code="2">gnd</subfield>
+    </datafield>
+    <datafield tag="400" ind1="1" ind2=" ">
+      <subfield code="a">Carrà, Carlo</subfield>
+      <subfield code="d">1881-1966</subfield>
+      <subfield code="t">&#152;L'&#156; amante dell'ingegnere</subfield>
+      <subfield code="n">Monferini 236</subfield>
+    </datafield>
+    <datafield tag="500" ind1="1" ind2=" ">
+      <subfield code="0">(DE-101)118519247</subfield>
+      <subfield code="0">(DE-588)118519247</subfield>
+      <subfield code="0">http://d-nb.info/gnd/118519247</subfield>
+      <subfield code="a">Carrà, Carlo</subfield>
+      <subfield code="d">1881-1966</subfield>
+      <subfield code="9">4:kue1</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Kuenstler1</subfield>
+      <subfield code="e">Kuenstler1</subfield>
+    </datafield>
+    <datafield tag="548" ind1=" " ind2=" ">
+      <subfield code="a">ca. 1921</subfield>
+      <subfield code="9">4:datj</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Erscheinungszeit</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">FID-Kunst Malerei</subfield>
+    </datafield>
+    <datafield tag="670" ind1=" " ind2=" ">
+      <subfield code="a">Documenta : Kunst des XX. Jahrhunderts, internationale Ausstellung im Museum Fridericianum in Kassel (15. Juli bis 18. September 1955)</subfield>
+      <subfield code="b">S. 38, Nr. 108</subfield>
+    </datafield>
+    <datafield tag="670" ind1=" " ind2=" ">
+      <subfield code="a">Monferini, Augusta (Hg.): Carlo Carrà, 1881 - 1966 : Galleria Nazionale d'Arte Moderna, Roma, 15 dicembre 1994 - 28 febbraio 1995 (1994), S. 236</subfield>
+    </datafield>
+    <datafield tag="678" ind1=" " ind2=" ">
+      <subfield code="b">Öl/Leinwand, 55 x 40 cm, Privatbesitz</subfield>
+    </datafield>
+  </record>
+  <record type="Authority">
+    <leader>00000nz  a2200000o  4500</leader>
+    <controlfield tag="001">1125395036</controlfield>
+    <controlfield tag="003">DE-101</controlfield>
+    <controlfield tag="005">20170213141754.0</controlfield>
+    <controlfield tag="008">170213n||aznnnaabn           | ana    |c</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="a">http://d-nb.info/gnd/1125395036</subfield>
+      <subfield code="2">uri</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-101)1125395036</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-588)1125395036</subfield>
+    </datafield>
+    <datafield tag="040" ind1=" " ind2=" ">
+      <subfield code="a">DE-715</subfield>
+      <subfield code="9">r:DE-1</subfield>
+      <subfield code="b">ger</subfield>
+      <subfield code="d">0715</subfield>
+      <subfield code="e">rda</subfield>
+    </datafield>
+    <datafield tag="043" ind1=" " ind2=" ">
+      <subfield code="c">XD-US</subfield>
+    </datafield>
+    <datafield tag="079" ind1=" " ind2=" ">
+      <subfield code="a">g</subfield>
+      <subfield code="b">u</subfield>
+      <subfield code="c">3</subfield>
+      <subfield code="q">f</subfield>
+      <subfield code="q">m</subfield>
+      <subfield code="v">wim</subfield>
+    </datafield>
+    <datafield tag="100" ind1="1" ind2=" ">
+      <subfield code="a">Pinkard, Maceo</subfield>
+      <subfield code="d">1897-1962</subfield>
+      <subfield code="t">Them there eyes</subfield>
+    </datafield>
+    <datafield tag="380" ind1=" " ind2=" ">
+      <subfield code="0">(DE-101)042410290</subfield>
+      <subfield code="0">(DE-588)4241029-0</subfield>
+      <subfield code="0">http://d-nb.info/gnd/4241029-0</subfield>
+      <subfield code="a">Jazzsong</subfield>
+      <subfield code="2">gnd</subfield>
+    </datafield>
+    <datafield tag="400" ind1="1" ind2=" ">
+      <subfield code="a">Pinkard, Maceo</subfield>
+      <subfield code="d">1897-1962</subfield>
+      <subfield code="t">Then there eyes</subfield>
+    </datafield>
+    <datafield tag="500" ind1="1" ind2=" ">
+      <subfield code="0">(DE-101)1028979517</subfield>
+      <subfield code="0">(DE-588)1028979517</subfield>
+      <subfield code="0">http://d-nb.info/gnd/1028979517</subfield>
+      <subfield code="a">Pinkard, Maceo</subfield>
+      <subfield code="d">1897-1962</subfield>
+      <subfield code="9">4:kom1</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Komponist1</subfield>
+      <subfield code="e">Komponist1</subfield>
+    </datafield>
+    <datafield tag="500" ind1="1" ind2=" ">
+      <subfield code="0">(DE-101)1125394471</subfield>
+      <subfield code="0">(DE-588)1125394471</subfield>
+      <subfield code="0">http://d-nb.info/gnd/1125394471</subfield>
+      <subfield code="a">Tauber, Doris</subfield>
+      <subfield code="d">1907-1996</subfield>
+      <subfield code="9">4:koma</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Komponist</subfield>
+      <subfield code="e">Komponist</subfield>
+    </datafield>
+    <datafield tag="500" ind1="1" ind2=" ">
+      <subfield code="0">(DE-101)1125393505</subfield>
+      <subfield code="0">(DE-588)1125393505</subfield>
+      <subfield code="0">http://d-nb.info/gnd/1125393505</subfield>
+      <subfield code="a">Tracey, William</subfield>
+      <subfield code="d">1893-1957</subfield>
+      <subfield code="9">4:dich</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Textdichter</subfield>
+      <subfield code="e">Textdichter</subfield>
+    </datafield>
+    <datafield tag="548" ind1=" " ind2=" ">
+      <subfield code="a">1930</subfield>
+      <subfield code="9">4:dats</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Erstellungszeit</subfield>
+    </datafield>
+    <datafield tag="670" ind1=" " ind2=" ">
+      <subfield code="u">http://www.jazzstandards.com/compositions-2/themthereeyes.htm</subfield>
+    </datafield>
+    <datafield tag="670" ind1=" " ind2=" ">
+      <subfield code="a">Wikipedia</subfield>
+    </datafield>
+  </record>
+  <record type="Authority">
+    <leader>00000nz  a2200000o  4500</leader>
+    <controlfield tag="001">1125395265</controlfield>
+    <controlfield tag="003">DE-101</controlfield>
+    <controlfield tag="005">20170213142209.0</controlfield>
+    <controlfield tag="008">170213n||aznnnaabn           | ana    |c</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="a">http://d-nb.info/gnd/1125395265</subfield>
+      <subfield code="2">uri</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-101)1125395265</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-588)1125395265</subfield>
+    </datafield>
+    <datafield tag="040" ind1=" " ind2=" ">
+      <subfield code="a">CH-ZuZBF</subfield>
+      <subfield code="9">r:CH-ZuZBF</subfield>
+      <subfield code="b">ger</subfield>
+      <subfield code="d">1601</subfield>
+      <subfield code="e">rda</subfield>
+    </datafield>
+    <datafield tag="079" ind1=" " ind2=" ">
+      <subfield code="a">g</subfield>
+      <subfield code="b">u</subfield>
+      <subfield code="c">3</subfield>
+      <subfield code="q">f</subfield>
+      <subfield code="q">m</subfield>
+      <subfield code="v">wim</subfield>
+    </datafield>
+    <datafield tag="100" ind1="1" ind2=" ">
+      <subfield code="a">Ketterer, Eugène</subfield>
+      <subfield code="d">1831-1870</subfield>
+      <subfield code="t">Boute-en-train</subfield>
+    </datafield>
+    <datafield tag="377" ind1=" " ind2="7">
+      <subfield code="a">zxx</subfield>
+      <subfield code="2">iso639-2b</subfield>
+    </datafield>
+    <datafield tag="380" ind1=" " ind2=" ">
+      <subfield code="0">(DE-101)943425506</subfield>
+      <subfield code="0">(DE-588)4364517-3</subfield>
+      <subfield code="0">http://d-nb.info/gnd/4364517-3</subfield>
+      <subfield code="a">Galopp, Musik</subfield>
+      <subfield code="2">gnd</subfield>
+    </datafield>
+    <datafield tag="382" ind1=" " ind2=" ">
+      <subfield code="0">(DE-101)040309827</subfield>
+      <subfield code="0">(DE-588)4030982-4</subfield>
+      <subfield code="0">http://d-nb.info/gnd/4030982-4</subfield>
+      <subfield code="a">Klavier</subfield>
+      <subfield code="n">1</subfield>
+      <subfield code="2">gnd</subfield>
+    </datafield>
+    <datafield tag="382" ind1=" " ind2=" ">
+      <subfield code="s">1</subfield>
+      <subfield code="2">gnd</subfield>
+    </datafield>
+    <datafield tag="383" ind1=" " ind2=" ">
+      <subfield code="b">op. 212</subfield>
+    </datafield>
+    <datafield tag="500" ind1="1" ind2=" ">
+      <subfield code="0">(DE-101)116151579</subfield>
+      <subfield code="0">(DE-588)116151579</subfield>
+      <subfield code="0">http://d-nb.info/gnd/116151579</subfield>
+      <subfield code="a">Ketterer, Eugène</subfield>
+      <subfield code="d">1831-1870</subfield>
+      <subfield code="9">4:kom1</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Komponist1</subfield>
+      <subfield code="e">Komponist1</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">IDS noch nicht geprüft</subfield>
+    </datafield>
+    <datafield tag="670" ind1=" " ind2=" ">
+      <subfield code="a">Vorlage</subfield>
+    </datafield>
+  </record>
+  <record type="Authority">
+    <leader>00000nz  a2200000o  4500</leader>
+    <controlfield tag="001">1125396571</controlfield>
+    <controlfield tag="003">DE-101</controlfield>
+    <controlfield tag="005">20170213144441.0</controlfield>
+    <controlfield tag="008">170213n||azznnaabn           | ana    |c</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="a">http://d-nb.info/gnd/1125396571</subfield>
+      <subfield code="2">uri</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-101)1125396571</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-588)1125396571</subfield>
+    </datafield>
+    <datafield tag="040" ind1=" " ind2=" ">
+      <subfield code="a">DE-14</subfield>
+      <subfield code="9">r:DE-576</subfield>
+      <subfield code="b">ger</subfield>
+      <subfield code="d">0014</subfield>
+      <subfield code="e">rda</subfield>
+    </datafield>
+    <datafield tag="043" ind1=" " ind2=" ">
+      <subfield code="c">XA-IT</subfield>
+    </datafield>
+    <datafield tag="065" ind1=" " ind2=" ">
+      <subfield code="a">13.4p</subfield>
+      <subfield code="2">sswd</subfield>
+    </datafield>
+    <datafield tag="079" ind1=" " ind2=" ">
+      <subfield code="a">g</subfield>
+      <subfield code="b">u</subfield>
+      <subfield code="c">4</subfield>
+      <subfield code="q">s</subfield>
+      <subfield code="v">wit</subfield>
+    </datafield>
+    <datafield tag="100" ind1="1" ind2=" ">
+      <subfield code="a">Carrà, Carlo</subfield>
+      <subfield code="d">1881-1966</subfield>
+      <subfield code="t">&#152;Das&#156; Begräbnis des Anarchisten Galli</subfield>
+      <subfield code="n">Documenta 1955.102</subfield>
+    </datafield>
+    <datafield tag="380" ind1=" " ind2=" ">
+      <subfield code="a">Ölgemälde</subfield>
+      <subfield code="2">gnd</subfield>
+    </datafield>
+    <datafield tag="400" ind1="1" ind2=" ">
+      <subfield code="a">Carrà, Carlo</subfield>
+      <subfield code="d">1881-1966</subfield>
+      <subfield code="t">&#152;I&#156; funerali dell'anarchico Galli</subfield>
+      <subfield code="n">Monferini 200</subfield>
+    </datafield>
+    <datafield tag="500" ind1="1" ind2=" ">
+      <subfield code="0">(DE-101)118519247</subfield>
+      <subfield code="0">(DE-588)118519247</subfield>
+      <subfield code="0">http://d-nb.info/gnd/118519247</subfield>
+      <subfield code="a">Carrà, Carlo</subfield>
+      <subfield code="d">1881-1966</subfield>
+      <subfield code="9">4:kue1</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Kuenstler1</subfield>
+      <subfield code="e">Kuenstler1</subfield>
+    </datafield>
+    <datafield tag="510" ind1="2" ind2=" ">
+      <subfield code="0">(DE-101)004042204</subfield>
+      <subfield code="0">(DE-588)1007559-8</subfield>
+      <subfield code="0">http://d-nb.info/gnd/1007559-8</subfield>
+      <subfield code="a">&#152;The&#156; Museum of Modern Art</subfield>
+      <subfield code="g">New York, NY</subfield>
+      <subfield code="9">4:besi</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Besitzer</subfield>
+      <subfield code="e">Besitzer</subfield>
+    </datafield>
+    <datafield tag="548" ind1=" " ind2=" ">
+      <subfield code="a">ca. 1911</subfield>
+      <subfield code="9">4:datj</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Erscheinungszeit</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">FID-Kunst Malerei</subfield>
+    </datafield>
+    <datafield tag="670" ind1=" " ind2=" ">
+      <subfield code="a">Documenta : Kunst des XX. Jahrhunderts, internationale Ausstellung im Museum Fridericianum in Kassel (15. Juli bis 18. September 1955)</subfield>
+      <subfield code="b">S. 38, Nr. 102</subfield>
+    </datafield>
+    <datafield tag="670" ind1=" " ind2=" ">
+      <subfield code="a">Monferini, Augusta (Hg.): Carlo Carrà, 1881 - 1966 : Galleria Nazionale d'Arte Moderna, Roma, 15 dicembre 1994 - 28 febbraio 1995 (1994), S. 200</subfield>
+    </datafield>
+    <datafield tag="678" ind1=" " ind2=" ">
+      <subfield code="b">Öl/Leinwand, 185 x 260 cm</subfield>
+    </datafield>
+  </record>
+  <record type="Authority">
+    <leader>00000nz  a2200000o  4500</leader>
+    <controlfield tag="001">1125396636</controlfield>
+    <controlfield tag="003">DE-101</controlfield>
+    <controlfield tag="005">20170213144610.0</controlfield>
+    <controlfield tag="008">170213n||aznnnaabn           | ana    |c</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="a">http://d-nb.info/gnd/1125396636</subfield>
+      <subfield code="2">uri</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-101)1125396636</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-588)1125396636</subfield>
+    </datafield>
+    <datafield tag="040" ind1=" " ind2=" ">
+      <subfield code="a">DE-18</subfield>
+      <subfield code="9">r:DE-18</subfield>
+      <subfield code="b">ger</subfield>
+      <subfield code="d">0018</subfield>
+      <subfield code="e">rda</subfield>
+    </datafield>
+    <datafield tag="079" ind1=" " ind2=" ">
+      <subfield code="a">g</subfield>
+      <subfield code="b">u</subfield>
+      <subfield code="c">3</subfield>
+      <subfield code="q">f</subfield>
+      <subfield code="v">wit</subfield>
+    </datafield>
+    <datafield tag="100" ind1="1" ind2=" ">
+      <subfield code="a">Granin, Daniil</subfield>
+      <subfield code="d">1919-</subfield>
+      <subfield code="t">Moy leytenant</subfield>
+    </datafield>
+    <datafield tag="400" ind1="1" ind2=" ">
+      <subfield code="a">Granin, Daniil</subfield>
+      <subfield code="d">1919-</subfield>
+      <subfield code="t">Mein Leutnant</subfield>
+    </datafield>
+    <datafield tag="500" ind1="1" ind2=" ">
+      <subfield code="0">(DE-101)121371328</subfield>
+      <subfield code="0">(DE-588)121371328</subfield>
+      <subfield code="0">http://d-nb.info/gnd/121371328</subfield>
+      <subfield code="a">Granin, Daniil</subfield>
+      <subfield code="d">1919-</subfield>
+      <subfield code="9">4:aut1</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Verfasserschaft1</subfield>
+      <subfield code="e">Verfasserschaft1</subfield>
+    </datafield>
+    <datafield tag="548" ind1=" " ind2=" ">
+      <subfield code="a">2011</subfield>
+      <subfield code="9">4:datj</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Erscheinungszeit</subfield>
+    </datafield>
+  </record>
+  <record type="Authority">
+    <leader>00000nz  a2200000o  4500</leader>
+    <controlfield tag="001">1125396822</controlfield>
+    <controlfield tag="003">DE-101</controlfield>
+    <controlfield tag="005">20170213144910.0</controlfield>
+    <controlfield tag="008">170213n||aznnnaabn           | ana    |c</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="a">http://d-nb.info/gnd/1125396822</subfield>
+      <subfield code="2">uri</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-101)1125396822</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-588)1125396822</subfield>
+    </datafield>
+    <datafield tag="040" ind1=" " ind2=" ">
+      <subfield code="a">DE-30</subfield>
+      <subfield code="9">r:DE-30</subfield>
+      <subfield code="b">ger</subfield>
+      <subfield code="d">0030</subfield>
+      <subfield code="e">rda</subfield>
+    </datafield>
+    <datafield tag="079" ind1=" " ind2=" ">
+      <subfield code="a">g</subfield>
+      <subfield code="b">u</subfield>
+      <subfield code="c">3</subfield>
+      <subfield code="q">f</subfield>
+      <subfield code="q">m</subfield>
+      <subfield code="v">wim</subfield>
+    </datafield>
+    <datafield tag="100" ind1="1" ind2=" ">
+      <subfield code="a">Klose, Katrin</subfield>
+      <subfield code="d">1990-</subfield>
+      <subfield code="t">Kammermusik</subfield>
+    </datafield>
+    <datafield tag="500" ind1="1" ind2=" ">
+      <subfield code="0">(DE-101)1109905165</subfield>
+      <subfield code="0">(DE-588)1109905165</subfield>
+      <subfield code="0">http://d-nb.info/gnd/1109905165</subfield>
+      <subfield code="a">Klose, Katrin</subfield>
+      <subfield code="d">1990-</subfield>
+      <subfield code="9">4:kom1</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Komponist1</subfield>
+      <subfield code="e">Komponist1</subfield>
+    </datafield>
+  </record>
+  <record type="Authority">
+    <leader>00000nz  a2200000o  4500</leader>
+    <controlfield tag="001">1125396865</controlfield>
+    <controlfield tag="003">DE-101</controlfield>
+    <controlfield tag="005">20170213144959.0</controlfield>
+    <controlfield tag="008">170213n||aznnnaabn           | ana    |c</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="a">http://d-nb.info/gnd/1125396865</subfield>
+      <subfield code="2">uri</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-101)1125396865</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-588)1125396865</subfield>
+    </datafield>
+    <datafield tag="040" ind1=" " ind2=" ">
+      <subfield code="a">DE-101</subfield>
+      <subfield code="9">r:DE-101</subfield>
+      <subfield code="b">ger</subfield>
+      <subfield code="d">1240</subfield>
+      <subfield code="e">rda</subfield>
+    </datafield>
+    <datafield tag="079" ind1=" " ind2=" ">
+      <subfield code="a">g</subfield>
+      <subfield code="b">u</subfield>
+      <subfield code="c">3</subfield>
+      <subfield code="q">f</subfield>
+      <subfield code="v">wit</subfield>
+    </datafield>
+    <datafield tag="130" ind1=" " ind2="0">
+      <subfield code="a">Praxis Wirtschaft</subfield>
+      <subfield code="g">Schulbuch</subfield>
+    </datafield>
+    <datafield tag="380" ind1=" " ind2=" ">
+      <subfield code="0">(DE-101)040534588</subfield>
+      <subfield code="0">(DE-588)4053458-3</subfield>
+      <subfield code="0">http://d-nb.info/gnd/4053458-3</subfield>
+      <subfield code="a">Schulbuch</subfield>
+      <subfield code="2">gnd</subfield>
+    </datafield>
+  </record>
+  <record type="Authority">
+    <leader>00000nz  a2200000o  4500</leader>
+    <controlfield tag="001">1125396962</controlfield>
+    <controlfield tag="003">DE-101</controlfield>
+    <controlfield tag="005">20170213145124.0</controlfield>
+    <controlfield tag="008">170213n||aznnnaabn           | ana    |c</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="a">http://d-nb.info/gnd/1125396962</subfield>
+      <subfield code="2">uri</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-101)1125396962</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-588)1125396962</subfield>
+    </datafield>
+    <datafield tag="040" ind1=" " ind2=" ">
+      <subfield code="a">AT-UBMW</subfield>
+      <subfield code="9">r:AT-OBV</subfield>
+      <subfield code="b">ger</subfield>
+      <subfield code="d">1400</subfield>
+      <subfield code="e">rda</subfield>
+    </datafield>
+    <datafield tag="065" ind1=" " ind2=" ">
+      <subfield code="a">14.4p</subfield>
+      <subfield code="2">sswd</subfield>
+    </datafield>
+    <datafield tag="079" ind1=" " ind2=" ">
+      <subfield code="a">g</subfield>
+      <subfield code="b">u</subfield>
+      <subfield code="c">3</subfield>
+      <subfield code="q">m</subfield>
+      <subfield code="q">f</subfield>
+      <subfield code="v">wim</subfield>
+    </datafield>
+    <datafield tag="100" ind1="1" ind2=" ">
+      <subfield code="a">Bruckner, Anton</subfield>
+      <subfield code="d">1824-1896</subfield>
+      <subfield code="t">Am Grabe</subfield>
+    </datafield>
+    <datafield tag="377" ind1=" " ind2="7">
+      <subfield code="a">ger</subfield>
+      <subfield code="2">iso639-2b</subfield>
+    </datafield>
+    <datafield tag="382" ind1=" " ind2=" ">
+      <subfield code="0">(DE-101)041684672</subfield>
+      <subfield code="0">(DE-588)4168467-9</subfield>
+      <subfield code="0">http://d-nb.info/gnd/4168467-9</subfield>
+      <subfield code="a">Männer-Chor</subfield>
+      <subfield code="v">4-stimmig</subfield>
+      <subfield code="2">gnd</subfield>
+    </datafield>
+    <datafield tag="383" ind1=" " ind2=" ">
+      <subfield code="c">WAB 2</subfield>
+    </datafield>
+    <datafield tag="384" ind1="0" ind2=" ">
+      <subfield code="a">f-Moll</subfield>
+    </datafield>
+    <datafield tag="400" ind1="1" ind2=" ">
+      <subfield code="a">Bruckner, Anton</subfield>
+      <subfield code="d">1824-1896</subfield>
+      <subfield code="t">Brüder, trocknet euer Zähren</subfield>
+    </datafield>
+    <datafield tag="500" ind1="1" ind2=" ">
+      <subfield code="0">(DE-101)118515799</subfield>
+      <subfield code="0">(DE-588)118515799</subfield>
+      <subfield code="0">http://d-nb.info/gnd/118515799</subfield>
+      <subfield code="a">Bruckner, Anton</subfield>
+      <subfield code="d">1824-1896</subfield>
+      <subfield code="9">4:kom1</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Komponist1</subfield>
+      <subfield code="e">Komponist1</subfield>
+    </datafield>
+    <datafield tag="548" ind1=" " ind2=" ">
+      <subfield code="a">1861</subfield>
+      <subfield code="9">4:dats</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Erstellungszeit</subfield>
+    </datafield>
+    <datafield tag="670" ind1=" " ind2=" ">
+      <subfield code="a">WAB</subfield>
+    </datafield>
+  </record>
+  <record type="Authority">
+    <leader>00000nz  a2200000o  4500</leader>
+    <controlfield tag="001">1125397039</controlfield>
+    <controlfield tag="003">DE-101</controlfield>
+    <controlfield tag="005">20170213145212.0</controlfield>
+    <controlfield tag="008">170213n||azznnaabn           | ana    |c</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="a">http://d-nb.info/gnd/1125397039</subfield>
+      <subfield code="2">uri</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-101)1125397039</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-588)1125397039</subfield>
+    </datafield>
+    <datafield tag="040" ind1=" " ind2=" ">
+      <subfield code="a">DE-14</subfield>
+      <subfield code="9">r:DE-576</subfield>
+      <subfield code="b">ger</subfield>
+      <subfield code="d">0014</subfield>
+      <subfield code="e">rda</subfield>
+    </datafield>
+    <datafield tag="043" ind1=" " ind2=" ">
+      <subfield code="c">XA-IT</subfield>
+    </datafield>
+    <datafield tag="065" ind1=" " ind2=" ">
+      <subfield code="a">13.4p</subfield>
+      <subfield code="2">sswd</subfield>
+    </datafield>
+    <datafield tag="079" ind1=" " ind2=" ">
+      <subfield code="a">g</subfield>
+      <subfield code="b">u</subfield>
+      <subfield code="c">4</subfield>
+      <subfield code="q">s</subfield>
+      <subfield code="v">wit</subfield>
+    </datafield>
+    <datafield tag="100" ind1="1" ind2=" ">
+      <subfield code="a">Carrà, Carlo</subfield>
+      <subfield code="d">1881-1966</subfield>
+      <subfield code="t">&#152;Der&#156; Sommer</subfield>
+      <subfield code="n">Documenta 1955.111</subfield>
+    </datafield>
+    <datafield tag="380" ind1=" " ind2=" ">
+      <subfield code="a">Ölgemälde</subfield>
+      <subfield code="2">gnd</subfield>
+    </datafield>
+    <datafield tag="400" ind1="1" ind2=" ">
+      <subfield code="a">Carrà, Carlo</subfield>
+      <subfield code="d">1881-1966</subfield>
+      <subfield code="t">Estate</subfield>
+      <subfield code="n">Monferini 304</subfield>
+    </datafield>
+    <datafield tag="500" ind1="1" ind2=" ">
+      <subfield code="0">(DE-101)118519247</subfield>
+      <subfield code="0">(DE-588)118519247</subfield>
+      <subfield code="0">http://d-nb.info/gnd/118519247</subfield>
+      <subfield code="a">Carrà, Carlo</subfield>
+      <subfield code="d">1881-1966</subfield>
+      <subfield code="9">4:kue1</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Kuenstler1</subfield>
+      <subfield code="e">Kuenstler1</subfield>
+    </datafield>
+    <datafield tag="510" ind1="2" ind2=" ">
+      <subfield code="0">(DE-101)041952332</subfield>
+      <subfield code="0">(DE-588)4195233-9</subfield>
+      <subfield code="0">http://d-nb.info/gnd/4195233-9</subfield>
+      <subfield code="a">Civico Museo d'Arte Contemporanea</subfield>
+      <subfield code="9">4:besi</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Besitzer</subfield>
+      <subfield code="e">Besitzer</subfield>
+    </datafield>
+    <datafield tag="548" ind1=" " ind2=" ">
+      <subfield code="a">ca. 1930</subfield>
+      <subfield code="9">4:datj</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Erscheinungszeit</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">FID-Kunst Malerei</subfield>
+    </datafield>
+    <datafield tag="670" ind1=" " ind2=" ">
+      <subfield code="a">Documenta : Kunst des XX. Jahrhunderts, internationale Ausstellung im Museum Fridericianum in Kassel (15. Juli bis 18. September 1955)</subfield>
+      <subfield code="b">S. 38, Nr. 111</subfield>
+    </datafield>
+    <datafield tag="670" ind1=" " ind2=" ">
+      <subfield code="a">Monferini, Augusta (Hg.): Carlo Carrà, 1881 - 1966 : Galleria Nazionale d'Arte Moderna, Roma, 15 dicembre 1994 - 28 febbraio 1995 (1994), S. 304</subfield>
+    </datafield>
+    <datafield tag="678" ind1=" " ind2=" ">
+      <subfield code="b">Öl/Leinwand, 165 x 120 cm</subfield>
+    </datafield>
+  </record>
+  <record type="Authority">
+    <leader>00000nz  a2200000o  4500</leader>
+    <controlfield tag="001">1125397233</controlfield>
+    <controlfield tag="003">DE-101</controlfield>
+    <controlfield tag="005">20170213145540.0</controlfield>
+    <controlfield tag="008">170213n||aznnnaabn           | ana    |c</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="a">http://d-nb.info/gnd/1125397233</subfield>
+      <subfield code="2">uri</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-101)1125397233</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-588)1125397233</subfield>
+    </datafield>
+    <datafield tag="040" ind1=" " ind2=" ">
+      <subfield code="a">AT-UBMW</subfield>
+      <subfield code="9">r:AT-OBV</subfield>
+      <subfield code="b">ger</subfield>
+      <subfield code="d">1400</subfield>
+      <subfield code="e">rda</subfield>
+    </datafield>
+    <datafield tag="065" ind1=" " ind2=" ">
+      <subfield code="a">14.4p</subfield>
+      <subfield code="2">sswd</subfield>
+    </datafield>
+    <datafield tag="079" ind1=" " ind2=" ">
+      <subfield code="a">g</subfield>
+      <subfield code="b">u</subfield>
+      <subfield code="c">3</subfield>
+      <subfield code="q">m</subfield>
+      <subfield code="q">f</subfield>
+      <subfield code="v">wim</subfield>
+    </datafield>
+    <datafield tag="100" ind1="1" ind2=" ">
+      <subfield code="a">Bruckner, Anton</subfield>
+      <subfield code="d">1824-1896</subfield>
+      <subfield code="t">Apollo-Marsch</subfield>
+    </datafield>
+    <datafield tag="377" ind1=" " ind2="7">
+      <subfield code="a">zxx</subfield>
+      <subfield code="2">iso639-2b</subfield>
+    </datafield>
+    <datafield tag="380" ind1=" " ind2=" ">
+      <subfield code="0">(DE-101)041689763</subfield>
+      <subfield code="0">(DE-588)4168976-8</subfield>
+      <subfield code="0">http://d-nb.info/gnd/4168976-8</subfield>
+      <subfield code="a">Marschmusik</subfield>
+      <subfield code="2">gnd</subfield>
+    </datafield>
+    <datafield tag="380" ind1=" " ind2=" ">
+      <subfield code="0">(DE-101)040393445</subfield>
+      <subfield code="0">(DE-588)4039344-6</subfield>
+      <subfield code="0">http://d-nb.info/gnd/4039344-6</subfield>
+      <subfield code="a">Militärmusik</subfield>
+      <subfield code="2">gnd</subfield>
+    </datafield>
+    <datafield tag="382" ind1=" " ind2=" ">
+      <subfield code="0">(DE-101)041127846</subfield>
+      <subfield code="0">(DE-588)4112784-5</subfield>
+      <subfield code="0">http://d-nb.info/gnd/4112784-5</subfield>
+      <subfield code="a">Blasorchester</subfield>
+      <subfield code="2">gnd</subfield>
+    </datafield>
+    <datafield tag="383" ind1=" " ind2=" ">
+      <subfield code="c">WAB 115</subfield>
+    </datafield>
+    <datafield tag="384" ind1="0" ind2=" ">
+      <subfield code="a">Es-Dur</subfield>
+    </datafield>
+    <datafield tag="500" ind1="1" ind2=" ">
+      <subfield code="0">(DE-101)118515799</subfield>
+      <subfield code="0">(DE-588)118515799</subfield>
+      <subfield code="0">http://d-nb.info/gnd/118515799</subfield>
+      <subfield code="a">Bruckner, Anton</subfield>
+      <subfield code="d">1824-1896</subfield>
+      <subfield code="9">4:kom1</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Komponist1</subfield>
+      <subfield code="e">Komponist1</subfield>
+    </datafield>
+    <datafield tag="548" ind1=" " ind2=" ">
+      <subfield code="a">1862</subfield>
+      <subfield code="9">4:dats</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Erstellungszeit</subfield>
+    </datafield>
+    <datafield tag="670" ind1=" " ind2=" ">
+      <subfield code="a">WAB</subfield>
+    </datafield>
+  </record> 
+</collection>

@@ -1,0 +1,876 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+This is a subset of the  Gemeinsame Normdatei (GND) a collection of authority records
+provided by the German National Library. (http://www.dnb.de/EN/Home/home_node.html)
+The GND is published with the CC0 license (https://creativecommons.org/publicdomain/zero/1.0/)
+The data was downloaded 2017-03-09
+-->
+<collection xmlns="http://www.loc.gov/MARC21/slim">
+  <record type="Authority">
+    <leader>00000nz  a2200000n  4500</leader>
+    <controlfield tag="001">000001104</controlfield>
+    <controlfield tag="003">DE-101</controlfield>
+    <controlfield tag="005">20160420183351.0</controlfield>
+    <controlfield tag="008">890418n||aznnnaabn           | ana    |c</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="a">http://d-nb.info/gnd/110-7</subfield>
+      <subfield code="2">uri</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-101)000001104</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-588)110-7</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588b)110-7</subfield>
+      <subfield code="9">v:zg</subfield>
+    </datafield>
+    <datafield tag="040" ind1=" " ind2=" ">
+      <subfield code="a">DE-1</subfield>
+      <subfield code="9">r:DE-1</subfield>
+      <subfield code="b">ger</subfield>
+      <subfield code="d">1601</subfield>
+    </datafield>
+    <datafield tag="043" ind1=" " ind2=" ">
+      <subfield code="c">XD-US</subfield>
+    </datafield>
+    <datafield tag="079" ind1=" " ind2=" ">
+      <subfield code="a">g</subfield>
+      <subfield code="b">b</subfield>
+      <subfield code="c">1</subfield>
+      <subfield code="q">f</subfield>
+      <subfield code="u">z</subfield>
+      <subfield code="v">kiz</subfield>
+    </datafield>
+    <datafield tag="110" ind1="2" ind2=" ">
+      <subfield code="a">Congress of Neurological Surgeons</subfield>
+    </datafield>
+    <datafield tag="410" ind1="2" ind2=" ">
+      <subfield code="a">CNS</subfield>
+      <subfield code="9">4:abku</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Abkuerzung</subfield>
+      <subfield code="e">Abkuerzung</subfield>
+    </datafield>
+    <datafield tag="410" ind1="2" ind2=" ">
+      <subfield code="a">CNS</subfield>
+      <subfield code="g">Congress of Neurological Surgeons</subfield>
+    </datafield>
+    <datafield tag="548" ind1=" " ind2=" ">
+      <subfield code="a">1951-</subfield>
+      <subfield code="9">4:datb</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Zeitraum</subfield>
+    </datafield>
+    <datafield tag="670" ind1=" " ind2=" ">
+      <subfield code="a">Homepage</subfield>
+      <subfield code="u">http://www.cns.org</subfield>
+    </datafield>
+    <datafield tag="670" ind1=" " ind2=" ">
+      <subfield code="a">LCAuth</subfield>
+    </datafield>
+    <datafield tag="679" ind1=" " ind2=" ">
+      <subfield code="a">Ansetzung für Kongressfolge und veranstaltende Körperschaft</subfield>
+    </datafield>
+    <datafield tag="913" ind1=" " ind2=" ">
+      <subfield code="S">gkd</subfield>
+      <subfield code="i">a</subfield>
+      <subfield code="a">Congress of Neurological Surgeons</subfield>
+      <subfield code="0">(DE-588b)110-7</subfield>
+    </datafield>
+  </record>
+  <record type="Authority">
+    <leader>00000nz  a2200000n  4500</leader>
+    <controlfield tag="001">000001910</controlfield>
+    <controlfield tag="003">DE-101</controlfield>
+    <controlfield tag="005">20100424123157.0</controlfield>
+    <controlfield tag="008">890418n||aznnnaabn           | ana    |c</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="a">http://d-nb.info/gnd/191-0</subfield>
+      <subfield code="2">uri</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-101)000001910</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-588)191-0</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588b)191-0</subfield>
+      <subfield code="9">v:zg</subfield>
+    </datafield>
+    <datafield tag="040" ind1=" " ind2=" ">
+      <subfield code="a">DE-1</subfield>
+      <subfield code="9">r:DE-1</subfield>
+      <subfield code="b">ger</subfield>
+      <subfield code="d">9999</subfield>
+    </datafield>
+    <datafield tag="043" ind1=" " ind2=" ">
+      <subfield code="c">XA-ES</subfield>
+    </datafield>
+    <datafield tag="079" ind1=" " ind2=" ">
+      <subfield code="a">g</subfield>
+      <subfield code="b">b</subfield>
+      <subfield code="c">1</subfield>
+      <subfield code="q">f</subfield>
+      <subfield code="u">z</subfield>
+    </datafield>
+    <datafield tag="110" ind1="2" ind2=" ">
+      <subfield code="a">Consejo Superior de Investigaciones Científicas</subfield>
+      <subfield code="b">División de Ciencias Matemáticas, Médicas y de la Naturaleza</subfield>
+    </datafield>
+    <datafield tag="510" ind1="2" ind2=" ">
+      <subfield code="0">(DE-101)000364169</subfield>
+      <subfield code="0">(DE-588)36416-2</subfield>
+      <subfield code="0">http://d-nb.info/gnd/36416-2</subfield>
+      <subfield code="a">Consejo Superior de Investigaciones Científicas</subfield>
+      <subfield code="9">4:adue</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Ueberordnung</subfield>
+      <subfield code="e">Ueberordnung</subfield>
+    </datafield>
+    <datafield tag="913" ind1=" " ind2=" ">
+      <subfield code="S">gkd</subfield>
+      <subfield code="i">a</subfield>
+      <subfield code="a">Consejo Superior de Investigaciones Científicas / División de Ciencias Matemáticas, Médicas y de la Naturaleza</subfield>
+      <subfield code="0">(DE-588b)191-0</subfield>
+    </datafield>
+  </record>
+  <record type="Authority">
+    <leader>00000nz  a2200000n  4500</leader>
+    <controlfield tag="001">000002577</controlfield>
+    <controlfield tag="003">DE-101</controlfield>
+    <controlfield tag="005">20161118164044.0</controlfield>
+    <controlfield tag="008">890418n||aznnnaabn           | ana    |c</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="a">http://d-nb.info/gnd/257-4</subfield>
+      <subfield code="2">uri</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-101)000002577</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-588)257-4</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588b)257-4</subfield>
+      <subfield code="9">v:zg</subfield>
+    </datafield>
+    <datafield tag="040" ind1=" " ind2=" ">
+      <subfield code="a">DE-1</subfield>
+      <subfield code="9">r:DE-1</subfield>
+      <subfield code="b">ger</subfield>
+      <subfield code="d">1610</subfield>
+    </datafield>
+    <datafield tag="043" ind1=" " ind2=" ">
+      <subfield code="c">XA-IT</subfield>
+    </datafield>
+    <datafield tag="079" ind1=" " ind2=" ">
+      <subfield code="a">g</subfield>
+      <subfield code="b">b</subfield>
+      <subfield code="c">1</subfield>
+      <subfield code="q">f</subfield>
+      <subfield code="v">kiz</subfield>
+    </datafield>
+    <datafield tag="110" ind1="2" ind2=" ">
+      <subfield code="a">Fondazione Antonio Baselli</subfield>
+    </datafield>
+    <datafield tag="913" ind1=" " ind2=" ">
+      <subfield code="S">gkd</subfield>
+      <subfield code="i">a</subfield>
+      <subfield code="a">Fondazione Antonio Baselli</subfield>
+      <subfield code="0">(DE-588b)257-4</subfield>
+    </datafield>
+  </record>
+  <record type="Authority">
+    <leader>00000nz  a2200000n  4500</leader>
+    <controlfield tag="001">000002739</controlfield>
+    <controlfield tag="003">DE-101</controlfield>
+    <controlfield tag="005">20161118160227.0</controlfield>
+    <controlfield tag="008">890418n||aznnnaabn           | ana    |c</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="a">http://d-nb.info/gnd/273-2</subfield>
+      <subfield code="2">uri</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-101)000002739</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-588)273-2</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588b)273-2</subfield>
+      <subfield code="9">v:zg</subfield>
+    </datafield>
+    <datafield tag="040" ind1=" " ind2=" ">
+      <subfield code="a">DE-1</subfield>
+      <subfield code="9">r:DE-1</subfield>
+      <subfield code="b">ger</subfield>
+      <subfield code="d">1610</subfield>
+    </datafield>
+    <datafield tag="043" ind1=" " ind2=" ">
+      <subfield code="c">ZZ</subfield>
+    </datafield>
+    <datafield tag="079" ind1=" " ind2=" ">
+      <subfield code="a">g</subfield>
+      <subfield code="b">b</subfield>
+      <subfield code="c">1</subfield>
+      <subfield code="q">f</subfield>
+      <subfield code="v">wit</subfield>
+    </datafield>
+    <datafield tag="110" ind1="2" ind2=" ">
+      <subfield code="a">Copyright Law Symposium</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">Falsche Satzart</subfield>
+    </datafield>
+    <datafield tag="679" ind1=" " ind2=" ">
+      <subfield code="a">Schriftenreihe</subfield>
+    </datafield>
+    <datafield tag="913" ind1=" " ind2=" ">
+      <subfield code="S">gkd</subfield>
+      <subfield code="i">a</subfield>
+      <subfield code="a">Copyright Law Symposium</subfield>
+      <subfield code="0">(DE-588b)273-2</subfield>
+    </datafield>
+  </record>
+  <record type="Authority">
+    <leader>00000nz  a2200000n  4500</leader>
+    <controlfield tag="001">000002755</controlfield>
+    <controlfield tag="003">DE-101</controlfield>
+    <controlfield tag="005">20160420183407.0</controlfield>
+    <controlfield tag="008">890418n||azznnaabn           | ana    |c</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="a">http://d-nb.info/gnd/275-6</subfield>
+      <subfield code="2">uri</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-101)000002755</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-588)275-6</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588)16294577-2</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588b)16294577-2</subfield>
+      <subfield code="9">v:zg</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588)16286598-3</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588b)16286598-3</subfield>
+      <subfield code="9">v:zg</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588)4223553-4</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588c)4223553-4</subfield>
+      <subfield code="9">v:zg</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588b)6000323-6</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588b)275-6</subfield>
+      <subfield code="9">v:zg</subfield>
+    </datafield>
+    <datafield tag="040" ind1=" " ind2=" ">
+      <subfield code="a">DE-1</subfield>
+      <subfield code="9">r:DE-1</subfield>
+      <subfield code="b">ger</subfield>
+      <subfield code="d">1601</subfield>
+    </datafield>
+    <datafield tag="043" ind1=" " ind2=" ">
+      <subfield code="c">XD-US</subfield>
+    </datafield>
+    <datafield tag="065" ind1=" " ind2=" ">
+      <subfield code="a">6.6</subfield>
+      <subfield code="2">sswd</subfield>
+    </datafield>
+    <datafield tag="079" ind1=" " ind2=" ">
+      <subfield code="a">g</subfield>
+      <subfield code="b">b</subfield>
+      <subfield code="c">1</subfield>
+      <subfield code="q">f</subfield>
+      <subfield code="q">s</subfield>
+      <subfield code="u">z</subfield>
+      <subfield code="u">v</subfield>
+      <subfield code="v">kiz</subfield>
+    </datafield>
+    <datafield tag="110" ind1="2" ind2=" ">
+      <subfield code="a">Cornell University</subfield>
+    </datafield>
+    <datafield tag="410" ind1="2" ind2=" ">
+      <subfield code="a">Kornel'skii Universitet</subfield>
+      <subfield code="g">Ithaca, NY</subfield>
+    </datafield>
+    <datafield tag="410" ind1="2" ind2=" ">
+      <subfield code="a">Cornell Univ.</subfield>
+    </datafield>
+    <datafield tag="410" ind1="2" ind2=" ">
+      <subfield code="a">University</subfield>
+      <subfield code="g">Ithaca, NY</subfield>
+    </datafield>
+    <datafield tag="410" ind1="2" ind2=" ">
+      <subfield code="a">Cornell University</subfield>
+      <subfield code="g">Ithaca, N.Y.</subfield>
+    </datafield>
+    <datafield tag="410" ind1="2" ind2=" ">
+      <subfield code="a">Cornell University</subfield>
+      <subfield code="g">Ithaca, NY</subfield>
+    </datafield>
+    <datafield tag="548" ind1=" " ind2=" ">
+      <subfield code="a">1865-</subfield>
+      <subfield code="9">4:datb</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Zeitraum</subfield>
+    </datafield>
+    <datafield tag="551" ind1=" " ind2=" ">
+      <subfield code="0">(DE-101)04109168X</subfield>
+      <subfield code="0">(DE-588)4109168-1</subfield>
+      <subfield code="0">http://d-nb.info/gnd/4109168-1</subfield>
+      <subfield code="a">Ithaca, NY</subfield>
+      <subfield code="9">4:orta</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Ort</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">IDS Basel/Bern: Aufnahme per Programm 1999 aus SIBIL erstellt</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">Quelle: LCAuth / DNB-Normdaten</subfield>
+    </datafield>
+    <datafield tag="670" ind1=" " ind2=" ">
+      <subfield code="a">Homepage</subfield>
+      <subfield code="u">http://www.cornell.edu/</subfield>
+    </datafield>
+    <datafield tag="913" ind1=" " ind2=" ">
+      <subfield code="S">gkd</subfield>
+      <subfield code="i">a</subfield>
+      <subfield code="a">Cornell University &lt;Ithaca, NY&gt;</subfield>
+      <subfield code="0">(DE-588b)275-6</subfield>
+    </datafield>
+    <datafield tag="913" ind1=" " ind2=" ">
+      <subfield code="S">swd</subfield>
+      <subfield code="i">c</subfield>
+      <subfield code="a">Ithaca &lt;NY&gt; / Cornell University</subfield>
+      <subfield code="0">(DE-588c)4223553-4</subfield>
+    </datafield>
+    <datafield tag="913" ind1=" " ind2=" ">
+      <subfield code="S">gkd</subfield>
+      <subfield code="i">a</subfield>
+      <subfield code="a">Cornell University &lt;Ithaca, N.Y.&gt;</subfield>
+      <subfield code="0">(DE-588b)16286598-3</subfield>
+    </datafield>
+    <datafield tag="913" ind1=" " ind2=" ">
+      <subfield code="S">gkd</subfield>
+      <subfield code="i">a</subfield>
+      <subfield code="a">Cornell University</subfield>
+      <subfield code="0">(DE-588b)16294577-2</subfield>
+    </datafield>
+  </record>
+  <record type="Authority">
+    <leader>00000nz  a2200000n  4500</leader>
+    <controlfield tag="001">000002771</controlfield>
+    <controlfield tag="003">DE-101</controlfield>
+    <controlfield tag="005">20160429151927.0</controlfield>
+    <controlfield tag="008">890418n||aznnnaabn           | ana    |c</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="a">http://d-nb.info/gnd/277-X</subfield>
+      <subfield code="2">uri</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-101)000002771</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-588)277-X</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588b)277-X</subfield>
+      <subfield code="9">v:zg</subfield>
+    </datafield>
+    <datafield tag="040" ind1=" " ind2=" ">
+      <subfield code="a">DE-1</subfield>
+      <subfield code="9">r:DE-1</subfield>
+      <subfield code="b">ger</subfield>
+      <subfield code="d">1601</subfield>
+    </datafield>
+    <datafield tag="043" ind1=" " ind2=" ">
+      <subfield code="c">XD-US</subfield>
+    </datafield>
+    <datafield tag="079" ind1=" " ind2=" ">
+      <subfield code="a">g</subfield>
+      <subfield code="b">b</subfield>
+      <subfield code="c">1</subfield>
+      <subfield code="q">f</subfield>
+      <subfield code="u">z</subfield>
+      <subfield code="u">v</subfield>
+      <subfield code="v">kiz</subfield>
+    </datafield>
+    <datafield tag="110" ind1="2" ind2=" ">
+      <subfield code="a">American Heart Association</subfield>
+    </datafield>
+    <datafield tag="410" ind1="2" ind2=" ">
+      <subfield code="a">Heart Association</subfield>
+      <subfield code="g">USA</subfield>
+    </datafield>
+    <datafield tag="410" ind1="2" ind2=" ">
+      <subfield code="a">Amerikanische Herzgesellschaft</subfield>
+    </datafield>
+    <datafield tag="410" ind1="2" ind2=" ">
+      <subfield code="a">AHA</subfield>
+      <subfield code="9">4:abku</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Abkuerzung</subfield>
+      <subfield code="e">Abkuerzung</subfield>
+    </datafield>
+    <datafield tag="410" ind1="2" ind2=" ">
+      <subfield code="a">A.H.A.</subfield>
+      <subfield code="g">American Heart Association</subfield>
+    </datafield>
+    <datafield tag="410" ind1="2" ind2=" ">
+      <subfield code="a">AHA</subfield>
+      <subfield code="g">American Heart Association</subfield>
+    </datafield>
+    <datafield tag="548" ind1=" " ind2=" ">
+      <subfield code="a">1922-</subfield>
+      <subfield code="9">4:datb</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Zeitraum</subfield>
+    </datafield>
+    <datafield tag="551" ind1=" " ind2=" ">
+      <subfield code="0">(DE-101)040787044</subfield>
+      <subfield code="0">(DE-588)4078704-7</subfield>
+      <subfield code="0">http://d-nb.info/gnd/4078704-7</subfield>
+      <subfield code="a">USA</subfield>
+      <subfield code="9">4:geow</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Wirkungsraum</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">IDS Basel/Bern: Aufnahme per Programm 1999 aus SIBIL erstellt</subfield>
+    </datafield>
+    <datafield tag="913" ind1=" " ind2=" ">
+      <subfield code="S">gkd</subfield>
+      <subfield code="i">a</subfield>
+      <subfield code="a">American Heart Association</subfield>
+      <subfield code="0">(DE-588b)277-X</subfield>
+    </datafield>
+  </record>
+  <record type="Authority">
+    <leader>00000nz  a2200000n  4500</leader>
+    <controlfield tag="001">00000278X</controlfield>
+    <controlfield tag="003">DE-101</controlfield>
+    <controlfield tag="005">20160127151017.0</controlfield>
+    <controlfield tag="008">890418n||aznnnaabn           | ana    |c</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="a">http://d-nb.info/gnd/278-1</subfield>
+      <subfield code="2">uri</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-101)00000278X</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-588)278-1</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588b)278-1</subfield>
+      <subfield code="9">v:zg</subfield>
+    </datafield>
+    <datafield tag="040" ind1=" " ind2=" ">
+      <subfield code="a">DE-1</subfield>
+      <subfield code="9">r:DE-1</subfield>
+      <subfield code="b">ger</subfield>
+      <subfield code="d">1141</subfield>
+      <subfield code="e">rda</subfield>
+    </datafield>
+    <datafield tag="043" ind1=" " ind2=" ">
+      <subfield code="c">XD-US</subfield>
+    </datafield>
+    <datafield tag="079" ind1=" " ind2=" ">
+      <subfield code="a">g</subfield>
+      <subfield code="b">b</subfield>
+      <subfield code="c">1</subfield>
+      <subfield code="q">f</subfield>
+      <subfield code="u">z</subfield>
+      <subfield code="v">kiz</subfield>
+    </datafield>
+    <datafield tag="110" ind1="2" ind2=" ">
+      <subfield code="a">The Council of State Governments</subfield>
+    </datafield>
+    <datafield tag="410" ind1="2" ind2=" ">
+      <subfield code="a">Council of State Governments</subfield>
+    </datafield>
+    <datafield tag="410" ind1="2" ind2=" ">
+      <subfield code="a">CSG</subfield>
+      <subfield code="9">4:abku</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Abkuerzung</subfield>
+      <subfield code="e">Abkuerzung</subfield>
+    </datafield>
+    <datafield tag="510" ind1="2" ind2=" ">
+      <subfield code="0">(DE-101)000140503</subfield>
+      <subfield code="0">(DE-588)14050-8</subfield>
+      <subfield code="0">http://d-nb.info/gnd/14050-8</subfield>
+      <subfield code="a">American Legislators' Association</subfield>
+      <subfield code="9">4:vorg</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Vorgaenger</subfield>
+      <subfield code="e">Vorgaenger</subfield>
+    </datafield>
+    <datafield tag="548" ind1=" " ind2=" ">
+      <subfield code="a">1933-</subfield>
+      <subfield code="9">4:datb</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Zeitraum</subfield>
+    </datafield>
+    <datafield tag="551" ind1=" " ind2=" ">
+      <subfield code="0">(DE-101)041957202</subfield>
+      <subfield code="0">(DE-588)4195720-9</subfield>
+      <subfield code="0">http://d-nb.info/gnd/4195720-9</subfield>
+      <subfield code="a">Lexington-Fayette, Ky.</subfield>
+      <subfield code="9">4:orta</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Ort</subfield>
+    </datafield>
+    <datafield tag="670" ind1=" " ind2=" ">
+      <subfield code="a">Homepage</subfield>
+      <subfield code="b">Stand: 27.01.2016</subfield>
+      <subfield code="u">http://www.csg.org/about/default.aspx</subfield>
+    </datafield>
+    <datafield tag="670" ind1=" " ind2=" ">
+      <subfield code="a">B Wissen und Yearb (online) 00</subfield>
+    </datafield>
+    <datafield tag="913" ind1=" " ind2=" ">
+      <subfield code="S">gkd</subfield>
+      <subfield code="i">a</subfield>
+      <subfield code="a">Council of State Governments</subfield>
+      <subfield code="0">(DE-588b)278-1</subfield>
+    </datafield>
+  </record>
+  <record type="Authority">
+    <leader>00000nz  a2200000n  4500</leader>
+    <controlfield tag="001">000002917</controlfield>
+    <controlfield tag="003">DE-101</controlfield>
+    <controlfield tag="005">20161019003044.0</controlfield>
+    <controlfield tag="008">890418n||azznnaabn           | ana    |c</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="a">http://d-nb.info/gnd/291-4</subfield>
+      <subfield code="2">uri</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-101)000002917</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-588)291-4</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588)4011410-7</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588c)4011410-7</subfield>
+      <subfield code="9">v:zg</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588b)6504952-4</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588b)291-4</subfield>
+      <subfield code="9">v:zg</subfield>
+    </datafield>
+    <datafield tag="040" ind1=" " ind2=" ">
+      <subfield code="a">DE-1</subfield>
+      <subfield code="9">r:DE-1</subfield>
+      <subfield code="b">ger</subfield>
+      <subfield code="d">9999</subfield>
+      <subfield code="e">rda</subfield>
+    </datafield>
+    <datafield tag="043" ind1=" " ind2=" ">
+      <subfield code="c">XA-IT</subfield>
+    </datafield>
+    <datafield tag="065" ind1=" " ind2=" ">
+      <subfield code="a">8.2b</subfield>
+      <subfield code="2">sswd</subfield>
+    </datafield>
+    <datafield tag="079" ind1=" " ind2=" ">
+      <subfield code="a">g</subfield>
+      <subfield code="b">b</subfield>
+      <subfield code="c">1</subfield>
+      <subfield code="q">f</subfield>
+      <subfield code="q">s</subfield>
+      <subfield code="u">z</subfield>
+      <subfield code="u">w</subfield>
+      <subfield code="v">kiz</subfield>
+    </datafield>
+    <datafield tag="110" ind1="2" ind2=" ">
+      <subfield code="a">Democrazia Cristiana</subfield>
+    </datafield>
+    <datafield tag="410" ind1="2" ind2=" ">
+      <subfield code="a">Democrazia Cristiana Italiana</subfield>
+    </datafield>
+    <datafield tag="410" ind1="2" ind2=" ">
+      <subfield code="a">DC</subfield>
+      <subfield code="9">4:abku</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Abkuerzung</subfield>
+      <subfield code="e">Abkuerzung</subfield>
+    </datafield>
+    <datafield tag="510" ind1="2" ind2=" ">
+      <subfield code="0">(DE-101)944825176</subfield>
+      <subfield code="0">(DE-588)1230516-9</subfield>
+      <subfield code="0">http://d-nb.info/gnd/1230516-9</subfield>
+      <subfield code="a">Partito Popolare Italiano</subfield>
+      <subfield code="g">1919 - 1926</subfield>
+      <subfield code="9">4:vorg</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Vorgaenger</subfield>
+      <subfield code="e">Vorgaenger</subfield>
+    </datafield>
+    <datafield tag="510" ind1="2" ind2=" ">
+      <subfield code="0">(DE-101)962900737</subfield>
+      <subfield code="0">(DE-588)10028756-6</subfield>
+      <subfield code="0">http://d-nb.info/gnd/10028756-6</subfield>
+      <subfield code="a">Partito Popolare Italiano</subfield>
+      <subfield code="g">1994 -</subfield>
+      <subfield code="9">4:nach</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Nachfolger</subfield>
+      <subfield code="e">Nachfolger</subfield>
+    </datafield>
+    <datafield tag="548" ind1=" " ind2=" ">
+      <subfield code="a">1943-1994</subfield>
+      <subfield code="9">4:datb</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Zeitraum</subfield>
+    </datafield>
+    <datafield tag="550" ind1=" " ind2=" ">
+      <subfield code="0">(DE-101)040447375</subfield>
+      <subfield code="0">(DE-588)4044737-6</subfield>
+      <subfield code="0">http://d-nb.info/gnd/4044737-6</subfield>
+      <subfield code="a">Partei</subfield>
+      <subfield code="9">4:obin</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Oberbegriff instantiell</subfield>
+    </datafield>
+    <datafield tag="551" ind1=" " ind2=" ">
+      <subfield code="0">(DE-101)040278336</subfield>
+      <subfield code="0">(DE-588)4027833-5</subfield>
+      <subfield code="0">http://d-nb.info/gnd/4027833-5</subfield>
+      <subfield code="a">Italien</subfield>
+      <subfield code="9">4:geow</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Wirkungsraum</subfield>
+    </datafield>
+    <datafield tag="670" ind1=" " ind2=" ">
+      <subfield code="a">B Wissen</subfield>
+    </datafield>
+    <datafield tag="912" ind1=" " ind2=" ">
+      <subfield code="z">2016-10-14</subfield>
+      <subfield code="b">a-DE-18-SE e-DE-601-SE</subfield>
+      <subfield code="a">TBS s ergänzt</subfield>
+    </datafield>
+    <datafield tag="913" ind1=" " ind2=" ">
+      <subfield code="S">gkd</subfield>
+      <subfield code="i">a</subfield>
+      <subfield code="a">Democrazia Cristiana</subfield>
+      <subfield code="0">(DE-588b)291-4</subfield>
+    </datafield>
+    <datafield tag="913" ind1=" " ind2=" ">
+      <subfield code="S">swd</subfield>
+      <subfield code="i">k</subfield>
+      <subfield code="a">Democrazia Cristiana</subfield>
+      <subfield code="0">(DE-588c)4011410-7</subfield>
+    </datafield>
+  </record>
+  <record type="Authority">
+    <leader>00000nz  a2200000n  4500</leader>
+    <controlfield tag="001">00000295X</controlfield>
+    <controlfield tag="003">DE-101</controlfield>
+    <controlfield tag="005">20161118163320.0</controlfield>
+    <controlfield tag="008">890418n||aznnnaabn           | ana    |c</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="a">http://d-nb.info/gnd/295-1</subfield>
+      <subfield code="2">uri</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-101)00000295X</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-588)295-1</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588b)295-1</subfield>
+      <subfield code="9">v:zg</subfield>
+    </datafield>
+    <datafield tag="040" ind1=" " ind2=" ">
+      <subfield code="a">DE-1</subfield>
+      <subfield code="9">r:DE-1</subfield>
+      <subfield code="b">ger</subfield>
+      <subfield code="d">1610</subfield>
+    </datafield>
+    <datafield tag="043" ind1=" " ind2=" ">
+      <subfield code="c">XA-DE</subfield>
+    </datafield>
+    <datafield tag="079" ind1=" " ind2=" ">
+      <subfield code="a">g</subfield>
+      <subfield code="b">b</subfield>
+      <subfield code="c">1</subfield>
+      <subfield code="q">f</subfield>
+      <subfield code="u">v</subfield>
+      <subfield code="u">z</subfield>
+      <subfield code="v">kiz</subfield>
+    </datafield>
+    <datafield tag="110" ind1="2" ind2=" ">
+      <subfield code="a">Deutsche Arbeitsgemeinschaft für Blutgerinnungsforschung</subfield>
+    </datafield>
+    <datafield tag="410" ind1="2" ind2=" ">
+      <subfield code="a">Arbeitsgemeinschaft für Blutgerinnungsforschung</subfield>
+      <subfield code="g">Deutschland, Bundesrepublik</subfield>
+    </datafield>
+    <datafield tag="410" ind1="2" ind2=" ">
+      <subfield code="a">German Society of Blood Coagulation Research</subfield>
+    </datafield>
+    <datafield tag="410" ind1="2" ind2=" ">
+      <subfield code="a">Society of Blood Coagulation Research</subfield>
+      <subfield code="g">Deutschland, Bundesrepublik</subfield>
+    </datafield>
+    <datafield tag="410" ind1="2" ind2=" ">
+      <subfield code="a">DAB</subfield>
+      <subfield code="9">4:abku</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Abkuerzung</subfield>
+      <subfield code="e">Abkuerzung</subfield>
+    </datafield>
+    <datafield tag="510" ind1="2" ind2=" ">
+      <subfield code="0">(DE-101)00742101X</subfield>
+      <subfield code="0">(DE-588)2093184-0</subfield>
+      <subfield code="0">http://d-nb.info/gnd/2093184-0</subfield>
+      <subfield code="a">Gesellschaft für Thrombose- und Hämostaseforschung</subfield>
+      <subfield code="9">4:nach</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Nachfolger</subfield>
+      <subfield code="e">Nachfolger</subfield>
+    </datafield>
+    <datafield tag="548" ind1=" " ind2=" ">
+      <subfield code="a">30.11.1956-</subfield>
+      <subfield code="9">4:datb</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Zeitraum</subfield>
+    </datafield>
+    <datafield tag="551" ind1=" " ind2=" ">
+      <subfield code="0">(DE-101)040118894</subfield>
+      <subfield code="0">(DE-588)4011889-7</subfield>
+      <subfield code="0">http://d-nb.info/gnd/4011889-7</subfield>
+      <subfield code="a">Deutschland</subfield>
+      <subfield code="g">Bundesrepublik</subfield>
+      <subfield code="9">4:geow</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Wirkungsraum</subfield>
+    </datafield>
+    <datafield tag="670" ind1=" " ind2=" ">
+      <subfield code="a">Dom 1977</subfield>
+    </datafield>
+    <datafield tag="679" ind1=" " ind2=" ">
+      <subfield code="a">Sitz: München; e.V.</subfield>
+    </datafield>
+    <datafield tag="913" ind1=" " ind2=" ">
+      <subfield code="S">gkd</subfield>
+      <subfield code="i">a</subfield>
+      <subfield code="a">Deutsche Arbeitsgemeinschaft für Blutgerinnungsforschung</subfield>
+      <subfield code="0">(DE-588b)295-1</subfield>
+    </datafield>
+  </record>
+  <record type="Authority">
+    <leader>00000nz  a2200000n  4500</leader>
+    <controlfield tag="001">000002984</controlfield>
+    <controlfield tag="003">DE-101</controlfield>
+    <controlfield tag="005">20161118164131.0</controlfield>
+    <controlfield tag="008">890418n||aznnnaabn           | ana    |c</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="a">http://d-nb.info/gnd/298-7</subfield>
+      <subfield code="2">uri</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-101)000002984</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-588)298-7</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588b)298-7</subfield>
+      <subfield code="9">v:zg</subfield>
+    </datafield>
+    <datafield tag="040" ind1=" " ind2=" ">
+      <subfield code="a">DE-1</subfield>
+      <subfield code="9">r:DE-1</subfield>
+      <subfield code="b">ger</subfield>
+      <subfield code="d">1610</subfield>
+    </datafield>
+    <datafield tag="043" ind1=" " ind2=" ">
+      <subfield code="c">XA-DE</subfield>
+    </datafield>
+    <datafield tag="079" ind1=" " ind2=" ">
+      <subfield code="a">g</subfield>
+      <subfield code="b">b</subfield>
+      <subfield code="c">1</subfield>
+      <subfield code="q">f</subfield>
+      <subfield code="u">z</subfield>
+      <subfield code="u">v</subfield>
+      <subfield code="v">kiz</subfield>
+    </datafield>
+    <datafield tag="110" ind1="2" ind2=" ">
+      <subfield code="a">Deutsche Gesellschaft für Biophysik</subfield>
+    </datafield>
+    <datafield tag="410" ind1="2" ind2=" ">
+      <subfield code="a">Gesellschaft für Biophysik</subfield>
+      <subfield code="g">Deutschland, Bundesrepublik</subfield>
+    </datafield>
+    <datafield tag="410" ind1="2" ind2=" ">
+      <subfield code="a">German Biophysical Society</subfield>
+    </datafield>
+    <datafield tag="410" ind1="2" ind2=" ">
+      <subfield code="a">Biophysical Society</subfield>
+      <subfield code="g">Deutschland, Bundesrepublik</subfield>
+    </datafield>
+    <datafield tag="410" ind1="2" ind2=" ">
+      <subfield code="a">Biophysical Society</subfield>
+      <subfield code="g">Deutschland</subfield>
+    </datafield>
+    <datafield tag="548" ind1=" " ind2=" ">
+      <subfield code="a">1961-</subfield>
+      <subfield code="9">4:datb</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Zeitraum</subfield>
+    </datafield>
+    <datafield tag="551" ind1=" " ind2=" ">
+      <subfield code="0">(DE-101)040118894</subfield>
+      <subfield code="0">(DE-588)4011889-7</subfield>
+      <subfield code="0">http://d-nb.info/gnd/4011889-7</subfield>
+      <subfield code="a">Deutschland</subfield>
+      <subfield code="g">Bundesrepublik</subfield>
+      <subfield code="9">4:geow</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Wirkungsraum</subfield>
+    </datafield>
+    <datafield tag="551" ind1=" " ind2=" ">
+      <subfield code="0">(DE-101)040118827</subfield>
+      <subfield code="0">(DE-588)4011882-4</subfield>
+      <subfield code="0">http://d-nb.info/gnd/4011882-4</subfield>
+      <subfield code="a">Deutschland</subfield>
+      <subfield code="9">4:geow</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Wirkungsraum</subfield>
+    </datafield>
+    <datafield tag="913" ind1=" " ind2=" ">
+      <subfield code="S">gkd</subfield>
+      <subfield code="i">a</subfield>
+      <subfield code="a">Deutsche Gesellschaft für Biophysik</subfield>
+      <subfield code="0">(DE-588b)298-7</subfield>
+    </datafield>
+  </record> 
+</collection>

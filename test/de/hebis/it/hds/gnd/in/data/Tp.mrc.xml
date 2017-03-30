@@ -1,0 +1,943 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+This is a subset of the  Gemeinsame Normdatei (GND) a collection of authority records
+provided by the German National Library. (http://www.dnb.de/EN/Home/home_node.html)
+The GND is published with the CC0 license (https://creativecommons.org/publicdomain/zero/1.0/)
+The data was downloaded 2017-03-09
+-->
+<collection xmlns="http://www.loc.gov/MARC21/slim">
+  <record type="Authority">
+    <leader>00000nz  a2200000o  4500</leader>
+    <controlfield tag="001">100000096</controlfield>
+    <controlfield tag="003">DE-101</controlfield>
+    <controlfield tag="005">20110818164325.0</controlfield>
+    <controlfield tag="008">900615n||aznnnaabn           | aaa    |c</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="a">http://d-nb.info/gnd/100000096</subfield>
+      <subfield code="2">uri</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-101)100000096</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-588)100000096</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588a)100000096</subfield>
+      <subfield code="9">v:zg</subfield>
+    </datafield>
+    <datafield tag="040" ind1=" " ind2=" ">
+      <subfield code="a">DE-12</subfield>
+      <subfield code="9">r:DE-12</subfield>
+      <subfield code="b">ger</subfield>
+      <subfield code="d">1500</subfield>
+    </datafield>
+    <datafield tag="079" ind1=" " ind2=" ">
+      <subfield code="a">g</subfield>
+      <subfield code="b">p</subfield>
+      <subfield code="c">6</subfield>
+      <subfield code="q">a</subfield>
+      <subfield code="q">f</subfield>
+      <subfield code="v">piz</subfield>
+    </datafield>
+    <datafield tag="100" ind1="0" ind2=" ">
+      <subfield code="a">Ambrosius</subfield>
+      <subfield code="c">de Lombez</subfield>
+    </datafield>
+    <datafield tag="400" ind1="1" ind2=" ">
+      <subfield code="a">Lombez, Ambrosius &#152;de&#156;</subfield>
+    </datafield>
+    <datafield tag="400" ind1="1" ind2=" ">
+      <subfield code="a">La Peirie, Ambroise</subfield>
+      <subfield code="9">v:4ELRAKm</subfield>
+    </datafield>
+    <datafield tag="400" ind1="1" ind2=" ">
+      <subfield code="a">LaPeirie, Ambroise</subfield>
+      <subfield code="9">v:RAK alt</subfield>
+    </datafield>
+    <datafield tag="400" ind1="0" ind2=" ">
+      <subfield code="a">Ambroise</subfield>
+      <subfield code="c">de Lombez</subfield>
+    </datafield>
+    <datafield tag="400" ind1="1" ind2=" ">
+      <subfield code="a">Lombez, Ambroise &#152;de&#156;</subfield>
+    </datafield>
+    <datafield tag="400" ind1="0" ind2=" ">
+      <subfield code="a">LaPeyrie</subfield>
+    </datafield>
+    <datafield tag="400" ind1="1" ind2=" ">
+      <subfield code="a">Lombez, Ambrosius &#152;von&#156;</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">12</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Ambrosius &lt;de Lombez&gt;: Über den innern Frieden. - 1840</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Ambrosius &lt;de Lombez&gt;: Abhandlung von dem innerlichen Frieden. - 1766</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Ambrosius &lt;de Lombez&gt;: Über den innern Frieden. - 1831</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Ambrosius &lt;de Lombez&gt;: Epitome officiorum. - [1545]</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Ambrosius &lt;de Lombez&gt;: Über die innere Freude. - 1840</subfield>
+    </datafield>
+    <datafield tag="913" ind1=" " ind2=" ">
+      <subfield code="S">pnd</subfield>
+      <subfield code="i">5</subfield>
+      <subfield code="a">Ambrosius &lt;de Lombez&gt;</subfield>
+      <subfield code="0">(DE-588a)100000096</subfield>
+    </datafield>
+  </record>
+  <record type="Authority">
+    <leader>00000nz  a2200000n  4500</leader>
+    <controlfield tag="001">100000193</controlfield>
+    <controlfield tag="003">DE-101</controlfield>
+    <controlfield tag="005">20160408161335.0</controlfield>
+    <controlfield tag="008">900615n||aznnnaabn           | aaa    |c</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="a">http://d-nb.info/gnd/100000193</subfield>
+      <subfield code="2">uri</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-101)100000193</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-588)100000193</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588a)100000193</subfield>
+      <subfield code="9">v:zg</subfield>
+    </datafield>
+    <datafield tag="040" ind1=" " ind2=" ">
+      <subfield code="a">DE-12</subfield>
+      <subfield code="9">r:DE-12</subfield>
+      <subfield code="b">ger</subfield>
+      <subfield code="d">1601</subfield>
+    </datafield>
+    <datafield tag="043" ind1=" " ind2=" ">
+      <subfield code="c">XA-DE</subfield>
+    </datafield>
+    <datafield tag="079" ind1=" " ind2=" ">
+      <subfield code="a">g</subfield>
+      <subfield code="b">p</subfield>
+      <subfield code="c">1</subfield>
+      <subfield code="q">a</subfield>
+      <subfield code="q">f</subfield>
+      <subfield code="q">z</subfield>
+      <subfield code="u">k</subfield>
+      <subfield code="v">piz</subfield>
+    </datafield>
+    <datafield tag="100" ind1="1" ind2=" ">
+      <subfield code="a">Bauer, Johann Gottfried</subfield>
+      <subfield code="d">1695-1763</subfield>
+    </datafield>
+    <datafield tag="375" ind1=" " ind2=" ">
+      <subfield code="a">1</subfield>
+      <subfield code="2">iso5218</subfield>
+    </datafield>
+    <datafield tag="400" ind1="1" ind2=" ">
+      <subfield code="a">Bauer, Johanes Gottfried</subfield>
+      <subfield code="d">1695-1763</subfield>
+    </datafield>
+    <datafield tag="400" ind1="1" ind2=" ">
+      <subfield code="a">Bauerus, Johannes Godofredus</subfield>
+      <subfield code="d">1695-1763</subfield>
+    </datafield>
+    <datafield tag="400" ind1="1" ind2=" ">
+      <subfield code="a">Bauer, Johannes Gothofredus</subfield>
+      <subfield code="d">1695-1763</subfield>
+    </datafield>
+    <datafield tag="400" ind1="1" ind2=" ">
+      <subfield code="a">Bauer, Johannes Gottofredus</subfield>
+      <subfield code="d">1695-1763</subfield>
+    </datafield>
+    <datafield tag="400" ind1="1" ind2=" ">
+      <subfield code="a">Bauer, Iohannes Godofredus</subfield>
+      <subfield code="d">1695-1763</subfield>
+    </datafield>
+    <datafield tag="400" ind1="1" ind2=" ">
+      <subfield code="a">Baverus, Ioan. Godofredus</subfield>
+      <subfield code="d">1695-1763</subfield>
+    </datafield>
+    <datafield tag="400" ind1="1" ind2=" ">
+      <subfield code="a">Bauer, Johannes Gottfried</subfield>
+      <subfield code="d">1695-1763</subfield>
+    </datafield>
+    <datafield tag="400" ind1="1" ind2=" ">
+      <subfield code="a">Bauer, Joannes Godofredus</subfield>
+      <subfield code="d">1695-1763</subfield>
+    </datafield>
+    <datafield tag="400" ind1="1" ind2=" ">
+      <subfield code="a">Bauerus, Ioannes Godofredus</subfield>
+      <subfield code="d">1695-1763</subfield>
+    </datafield>
+    <datafield tag="400" ind1="1" ind2=" ">
+      <subfield code="a">Bauer, Ioannes Godofredus</subfield>
+      <subfield code="d">1695-1763</subfield>
+    </datafield>
+    <datafield tag="400" ind1="1" ind2=" ">
+      <subfield code="a">Bauerus, Iohannes Godofredus</subfield>
+      <subfield code="d">1695-1763</subfield>
+    </datafield>
+    <datafield tag="400" ind1="1" ind2=" ">
+      <subfield code="a">Bauerus, Joannes Godofredus</subfield>
+      <subfield code="d">1695-1763</subfield>
+    </datafield>
+    <datafield tag="500" ind1="1" ind2=" ">
+      <subfield code="0">(DE-101)121453839</subfield>
+      <subfield code="0">(DE-588)121453839</subfield>
+      <subfield code="0">http://d-nb.info/gnd/121453839</subfield>
+      <subfield code="a">Bauer, Heinrich Gottfried</subfield>
+      <subfield code="d">1733-1811</subfield>
+      <subfield code="9">4:bezf</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Beziehung familiaer</subfield>
+      <subfield code="e">Beziehung familiaer</subfield>
+      <subfield code="9">v:Sohn</subfield>
+    </datafield>
+    <datafield tag="548" ind1=" " ind2=" ">
+      <subfield code="a">20.02.1695-02.03.1763</subfield>
+      <subfield code="9">4:datx</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Exakte Lebensdaten</subfield>
+    </datafield>
+    <datafield tag="548" ind1=" " ind2=" ">
+      <subfield code="a">1695-1763</subfield>
+      <subfield code="9">4:datl</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Lebensdaten</subfield>
+    </datafield>
+    <datafield tag="550" ind1=" " ind2=" ">
+      <subfield code="0">(DE-101)040290506</subfield>
+      <subfield code="0">(DE-588)4029050-5</subfield>
+      <subfield code="0">http://d-nb.info/gnd/4029050-5</subfield>
+      <subfield code="a">Jurist</subfield>
+      <subfield code="9">4:berc</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Charakteristischer Beruf</subfield>
+    </datafield>
+    <datafield tag="550" ind1=" " ind2=" ">
+      <subfield code="a">Professor</subfield>
+      <subfield code="9">4:akad</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Akademischer Grad</subfield>
+    </datafield>
+    <datafield tag="551" ind1=" " ind2=" ">
+      <subfield code="0">(DE-101)040352064</subfield>
+      <subfield code="0">(DE-588)4035206-7</subfield>
+      <subfield code="0">http://d-nb.info/gnd/4035206-7</subfield>
+      <subfield code="a">Leipzig</subfield>
+      <subfield code="9">4:ortg</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Geburtsort</subfield>
+    </datafield>
+    <datafield tag="551" ind1=" " ind2=" ">
+      <subfield code="0">(DE-101)040352064</subfield>
+      <subfield code="0">(DE-588)4035206-7</subfield>
+      <subfield code="0">http://d-nb.info/gnd/4035206-7</subfield>
+      <subfield code="a">Leipzig</subfield>
+      <subfield code="9">4:orts</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Sterbeort</subfield>
+    </datafield>
+    <datafield tag="551" ind1=" " ind2=" ">
+      <subfield code="0">(DE-101)040352064</subfield>
+      <subfield code="0">(DE-588)4035206-7</subfield>
+      <subfield code="0">http://d-nb.info/gnd/4035206-7</subfield>
+      <subfield code="a">Leipzig</subfield>
+      <subfield code="9">4:ortw</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Wirkungsort</subfield>
+    </datafield>
+    <datafield tag="551" ind1=" " ind2=" ">
+      <subfield code="0">(DE-101)040387496</subfield>
+      <subfield code="0">(DE-588)4038749-5</subfield>
+      <subfield code="0">http://d-nb.info/gnd/4038749-5</subfield>
+      <subfield code="a">Merseburg</subfield>
+      <subfield code="9">4:ortw</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Wirkungsort</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">12</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">384</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">188</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">7</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">3</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">VD-18,</subfield>
+    </datafield>
+    <datafield tag="670" ind1=" " ind2=" ">
+      <subfield code="a">NDB; ADB; DBA</subfield>
+    </datafield>
+    <datafield tag="670" ind1=" " ind2=" ">
+      <subfield code="a">Des Verfassers Dissertatio iuridica inauguralis de feudi consolidatione temporaria, 1752</subfield>
+    </datafield>
+    <datafield tag="678" ind1=" " ind2=" ">
+      <subfield code="b">Ordinarius an der jurist. Fakultät der Univ. Leipzig</subfield>
+    </datafield>
+    <datafield tag="678" ind1=" " ind2=" ">
+      <subfield code="b">Jurist</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Rechenberg, Karl Otto: Institutionum iurisprudentiae naturalis  Lib. II.,  Tit.  1  -  4  ... - 1712</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Bauer, Johann Gottfried : Dissertatio inauguralis de aestimandis et restituendis fructibus, ad dec. nov. II. - 1753</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Bauer, Johann Gottfried : Dissertatio inauguralis de pacto remissorio ante concursum formalem in foro Saxoniae electoralis. - 1755</subfield>
+    </datafield>
+    <datafield tag="913" ind1=" " ind2=" ">
+      <subfield code="S">pnd</subfield>
+      <subfield code="i">a</subfield>
+      <subfield code="a">Bauer, Johann Gottfried</subfield>
+      <subfield code="0">(DE-588a)100000193</subfield>
+    </datafield>
+  </record>
+  <record type="Authority">
+    <leader>00000nz  a2200000n  4500</leader>
+    <controlfield tag="001">100000231</controlfield>
+    <controlfield tag="003">DE-101</controlfield>
+    <controlfield tag="005">20170111003542.0</controlfield>
+    <controlfield tag="008">900615n||azznnaabn           | aaa    |c</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="a">http://d-nb.info/gnd/100000231</subfield>
+      <subfield code="2">uri</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-101)100000231</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-588)100000231</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588)17418154X</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588a)17418154X</subfield>
+      <subfield code="9">v:zg</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588)172001064</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588a)172001064</subfield>
+      <subfield code="9">v:zg</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588a)100000231</subfield>
+      <subfield code="9">v:zg</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588c)4495254-5</subfield>
+      <subfield code="9">v:zg</subfield>
+    </datafield>
+    <datafield tag="040" ind1=" " ind2=" ">
+      <subfield code="a">DE-12</subfield>
+      <subfield code="9">r:DE-12</subfield>
+      <subfield code="b">ger</subfield>
+      <subfield code="d">9999</subfield>
+    </datafield>
+    <datafield tag="043" ind1=" " ind2=" ">
+      <subfield code="c">XA-FR</subfield>
+      <subfield code="c">XA-DE</subfield>
+      <subfield code="c">XA-AT</subfield>
+    </datafield>
+    <datafield tag="065" ind1=" " ind2=" ">
+      <subfield code="a">13.4p</subfield>
+      <subfield code="2">sswd</subfield>
+    </datafield>
+    <datafield tag="079" ind1=" " ind2=" ">
+      <subfield code="a">g</subfield>
+      <subfield code="b">p</subfield>
+      <subfield code="c">1</subfield>
+      <subfield code="q">a</subfield>
+      <subfield code="q">f</subfield>
+      <subfield code="q">s</subfield>
+      <subfield code="q">d</subfield>
+      <subfield code="u">w</subfield>
+      <subfield code="u">v</subfield>
+      <subfield code="v">piz</subfield>
+    </datafield>
+    <datafield tag="100" ind1="1" ind2=" ">
+      <subfield code="a">Baur, Johann Wilhelm</subfield>
+      <subfield code="d">1607-1642</subfield>
+    </datafield>
+    <datafield tag="375" ind1=" " ind2=" ">
+      <subfield code="a">1</subfield>
+      <subfield code="2">iso5218</subfield>
+    </datafield>
+    <datafield tag="400" ind1="1" ind2=" ">
+      <subfield code="a">Baur, W.</subfield>
+      <subfield code="d">1607-1642</subfield>
+    </datafield>
+    <datafield tag="400" ind1="1" ind2=" ">
+      <subfield code="a">Baur, Johannes Guilielmus</subfield>
+      <subfield code="d">1607-1642</subfield>
+    </datafield>
+    <datafield tag="400" ind1="1" ind2=" ">
+      <subfield code="a">Baur, Wilhelm</subfield>
+      <subfield code="d">1607-1642</subfield>
+    </datafield>
+    <datafield tag="400" ind1="1" ind2=" ">
+      <subfield code="a">Bauer, Wilhelm</subfield>
+      <subfield code="d">1607-1642</subfield>
+    </datafield>
+    <datafield tag="400" ind1="1" ind2=" ">
+      <subfield code="a">Bauer, Johann Wilhelm</subfield>
+      <subfield code="d">1607-1642</subfield>
+    </datafield>
+    <datafield tag="400" ind1="1" ind2=" ">
+      <subfield code="a">Baur, Joannes Guilielmus</subfield>
+      <subfield code="d">1607-1642</subfield>
+    </datafield>
+    <datafield tag="400" ind1="1" ind2=" ">
+      <subfield code="a">Baur, Johannes Wilhelm</subfield>
+      <subfield code="d">1607-1642</subfield>
+    </datafield>
+    <datafield tag="400" ind1="1" ind2=" ">
+      <subfield code="a">Bauer, Johannes Wilhelm</subfield>
+      <subfield code="d">1607-1642</subfield>
+    </datafield>
+    <datafield tag="400" ind1="1" ind2=" ">
+      <subfield code="a">Bauer, Johann Wilhlem</subfield>
+      <subfield code="d">1607-1642</subfield>
+    </datafield>
+    <datafield tag="400" ind1="1" ind2=" ">
+      <subfield code="a">Paur, Johann Wilhelm</subfield>
+      <subfield code="d">1607-1642</subfield>
+    </datafield>
+    <datafield tag="400" ind1="1" ind2=" ">
+      <subfield code="a">Baurn, Johannes Guilelmus</subfield>
+      <subfield code="d">1607-1642</subfield>
+    </datafield>
+    <datafield tag="548" ind1=" " ind2=" ">
+      <subfield code="a">1607-1642</subfield>
+      <subfield code="9">4:datl</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Lebensdaten</subfield>
+      <subfield code="9">v:nach aktuellem Forschungsstand; anderslt. Todesjahr: 1640</subfield>
+    </datafield>
+    <datafield tag="548" ind1=" " ind2=" ">
+      <subfield code="a">31.05.1600-XX.01.1642</subfield>
+      <subfield code="9">4:datx</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Exakte Lebensdaten</subfield>
+      <subfield code="9">v:AKL online</subfield>
+    </datafield>
+    <datafield tag="550" ind1=" " ind2=" ">
+      <subfield code="0">(DE-101)040372154</subfield>
+      <subfield code="0">(DE-588)4037215-7</subfield>
+      <subfield code="0">http://d-nb.info/gnd/4037215-7</subfield>
+      <subfield code="a">Maler</subfield>
+      <subfield code="9">4:berc</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Charakteristischer Beruf</subfield>
+    </datafield>
+    <datafield tag="550" ind1=" " ind2=" ">
+      <subfield code="0">(DE-101)041767934</subfield>
+      <subfield code="0">(DE-588)4176793-7</subfield>
+      <subfield code="0">http://d-nb.info/gnd/4176793-7</subfield>
+      <subfield code="a">Radierer</subfield>
+      <subfield code="9">4:beru</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Beruf</subfield>
+    </datafield>
+    <datafield tag="551" ind1=" " ind2=" ">
+      <subfield code="0">(DE-101)04057878X</subfield>
+      <subfield code="0">(DE-588)4057878-1</subfield>
+      <subfield code="0">http://d-nb.info/gnd/4057878-1</subfield>
+      <subfield code="a">Straßburg</subfield>
+      <subfield code="9">4:ortg</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Geburtsort</subfield>
+    </datafield>
+    <datafield tag="551" ind1=" " ind2=" ">
+      <subfield code="0">(DE-101)040660095</subfield>
+      <subfield code="0">(DE-588)4066009-6</subfield>
+      <subfield code="0">http://d-nb.info/gnd/4066009-6</subfield>
+      <subfield code="a">Wien</subfield>
+      <subfield code="9">4:orts</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Sterbeort</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">12</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">7</subfield>
+    </datafield>
+    <datafield tag="670" ind1=" " ind2=" ">
+      <subfield code="a">Thieme-Becker</subfield>
+    </datafield>
+    <datafield tag="670" ind1=" " ind2=" ">
+      <subfield code="a">WBIS</subfield>
+    </datafield>
+    <datafield tag="678" ind1=" " ind2=" ">
+      <subfield code="b">Dt. Radierer und Miniaturmaler</subfield>
+    </datafield>
+    <datafield tag="678" ind1=" " ind2=" ">
+      <subfield code="b">Maler</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Iconographia</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Des vortrefflichen römischen Poetens Publii Ovidii Nasonis ... - 1709</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Ovidii Metamorphosis oder Verwandelungs Bücher. - [1641]</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Ovid's Verwandlungen. - [1639]</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Der Spanisch-Niederländische Krieg</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Bauer, Wilhelm: Ovidische Verwandlungen. - 1641</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Bauer, Wilhelm: Unterschiedliche Prospecten, in Italien nach den Leben gezeichnet. - 1681</subfield>
+    </datafield>
+    <datafield tag="700" ind1="1" ind2="4">
+      <subfield code="a">Baur, Joh. Wilhelm</subfield>
+      <subfield code="d">1607-1642</subfield>
+      <subfield code="9">v:1600-1642</subfield>
+    </datafield>
+    <datafield tag="913" ind1=" " ind2=" ">
+      <subfield code="S">pnd</subfield>
+      <subfield code="i">a</subfield>
+      <subfield code="a">Baur, Johann Wilhelm</subfield>
+      <subfield code="0">(DE-588a)100000231</subfield>
+    </datafield>
+    <datafield tag="913" ind1=" " ind2=" ">
+      <subfield code="S">pnd</subfield>
+      <subfield code="i">a</subfield>
+      <subfield code="a">Baur, Johann W.</subfield>
+      <subfield code="0">(DE-588a)172001064</subfield>
+    </datafield>
+    <datafield tag="913" ind1=" " ind2=" ">
+      <subfield code="S">pnd</subfield>
+      <subfield code="i">a</subfield>
+      <subfield code="a">Baur, Johann Wilhelm</subfield>
+      <subfield code="0">(DE-588a)17418154X</subfield>
+    </datafield>
+  </record>
+  <record type="Authority">
+    <leader>00000nz  a2200000n  4500</leader>
+    <controlfield tag="001">100000355</controlfield>
+    <controlfield tag="003">DE-101</controlfield>
+    <controlfield tag="005">20130614155849.0</controlfield>
+    <controlfield tag="008">900615n||aznnnaabn           | aaa    |c</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="a">http://d-nb.info/gnd/100000355</subfield>
+      <subfield code="2">uri</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-101)100000355</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-588)100000355</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588a)100000355</subfield>
+      <subfield code="9">v:zg</subfield>
+    </datafield>
+    <datafield tag="040" ind1=" " ind2=" ">
+      <subfield code="a">DE-12</subfield>
+      <subfield code="9">r:DE-12</subfield>
+      <subfield code="b">ger</subfield>
+      <subfield code="d">3030</subfield>
+    </datafield>
+    <datafield tag="043" ind1=" " ind2=" ">
+      <subfield code="c">XA-DE</subfield>
+    </datafield>
+    <datafield tag="079" ind1=" " ind2=" ">
+      <subfield code="a">g</subfield>
+      <subfield code="b">p</subfield>
+      <subfield code="c">1</subfield>
+      <subfield code="q">a</subfield>
+      <subfield code="q">f</subfield>
+      <subfield code="v">piz</subfield>
+    </datafield>
+    <datafield tag="100" ind1="1" ind2=" ">
+      <subfield code="a">Amman, Reiner</subfield>
+    </datafield>
+    <datafield tag="400" ind1="1" ind2=" ">
+      <subfield code="a">Amman, Reinerius</subfield>
+      <subfield code="9">v:Vorlage</subfield>
+    </datafield>
+    <datafield tag="510" ind1="2" ind2=" ">
+      <subfield code="0">(DE-101)004047621</subfield>
+      <subfield code="0">(DE-588)1008636-5</subfield>
+      <subfield code="0">http://d-nb.info/gnd/1008636-5</subfield>
+      <subfield code="a">Franziskaner</subfield>
+      <subfield code="9">4:affi</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Affiliation</subfield>
+      <subfield code="e">Affiliation</subfield>
+    </datafield>
+    <datafield tag="548" ind1=" " ind2=" ">
+      <subfield code="a">1790-1799</subfield>
+      <subfield code="9">4:datw</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Wirkungsdaten</subfield>
+    </datafield>
+    <datafield tag="550" ind1=" " ind2=" ">
+      <subfield code="0">(DE-101)041303229</subfield>
+      <subfield code="0">(DE-588)4130322-2</subfield>
+      <subfield code="0">http://d-nb.info/gnd/4130322-2</subfield>
+      <subfield code="a">Prediger</subfield>
+      <subfield code="9">4:berc</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Charakteristischer Beruf</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">12</subfield>
+    </datafield>
+    <datafield tag="670" ind1=" " ind2=" ">
+      <subfield code="a">DbA (WBIS)</subfield>
+    </datafield>
+    <datafield tag="678" ind1=" " ind2=" ">
+      <subfield code="b">Dt. Prediger</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Gemeinnützliche Predigten</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Kurtze Betrachtungsreden für die h. Fastenzeit und auff alle hohe Feste de*. - 1799</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Kurtze Betrachtungsreden auf alle Feste der sel. Gottesmutter Maria. - 1799</subfield>
+    </datafield>
+    <datafield tag="913" ind1=" " ind2=" ">
+      <subfield code="S">pnd</subfield>
+      <subfield code="i">a</subfield>
+      <subfield code="a">Amman, Reiner</subfield>
+      <subfield code="0">(DE-588a)100000355</subfield>
+    </datafield>
+  </record>
+  <record type="Authority">
+    <leader>00000nz  a2200000o  4500</leader>
+    <controlfield tag="001">100000541</controlfield>
+    <controlfield tag="003">DE-101</controlfield>
+    <controlfield tag="005">20151120114755.0</controlfield>
+    <controlfield tag="008">900615n||aznnnaabn           | aaa    |c</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="a">http://d-nb.info/gnd/100000541</subfield>
+      <subfield code="2">uri</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-101)100000541</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-588)100000541</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588a)100000541</subfield>
+      <subfield code="9">v:zg</subfield>
+    </datafield>
+    <datafield tag="040" ind1=" " ind2=" ">
+      <subfield code="a">DE-12</subfield>
+      <subfield code="9">r:DE-12</subfield>
+      <subfield code="b">ger</subfield>
+      <subfield code="d">0014</subfield>
+      <subfield code="e">rda</subfield>
+    </datafield>
+    <datafield tag="043" ind1=" " ind2=" ">
+      <subfield code="c">XA-IT</subfield>
+    </datafield>
+    <datafield tag="079" ind1=" " ind2=" ">
+      <subfield code="a">g</subfield>
+      <subfield code="b">p</subfield>
+      <subfield code="c">3</subfield>
+      <subfield code="q">a</subfield>
+      <subfield code="q">f</subfield>
+      <subfield code="v">piz</subfield>
+    </datafield>
+    <datafield tag="100" ind1="1" ind2=" ">
+      <subfield code="a">Mosca, Giuseppe</subfield>
+      <subfield code="d">1772-1839</subfield>
+    </datafield>
+    <datafield tag="400" ind1="1" ind2=" ">
+      <subfield code="a">Mosca, Gioseppe</subfield>
+      <subfield code="d">1772-1839</subfield>
+    </datafield>
+    <datafield tag="500" ind1="1" ind2=" ">
+      <subfield code="0">(DE-101)1079102868</subfield>
+      <subfield code="0">(DE-588)1079102868</subfield>
+      <subfield code="0">http://d-nb.info/gnd/1079102868</subfield>
+      <subfield code="a">Mosca, Luigi</subfield>
+      <subfield code="d">1775-1824</subfield>
+      <subfield code="9">4:bezf</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Beziehung familiaer</subfield>
+      <subfield code="e">Beziehung familiaer</subfield>
+      <subfield code="9">v:Bruder</subfield>
+    </datafield>
+    <datafield tag="548" ind1=" " ind2=" ">
+      <subfield code="a">1772-1839</subfield>
+      <subfield code="9">4:datl</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Lebensdaten</subfield>
+    </datafield>
+    <datafield tag="550" ind1=" " ind2=" ">
+      <subfield code="0">(DE-101)04032009X</subfield>
+      <subfield code="0">(DE-588)4032009-1</subfield>
+      <subfield code="0">http://d-nb.info/gnd/4032009-1</subfield>
+      <subfield code="a">Komponist</subfield>
+      <subfield code="9">4:berc</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Charakteristischer Beruf</subfield>
+    </datafield>
+    <datafield tag="550" ind1=" " ind2=" ">
+      <subfield code="0">(DE-101)040408418</subfield>
+      <subfield code="0">(DE-588)4040841-3</subfield>
+      <subfield code="0">http://d-nb.info/gnd/4040841-3</subfield>
+      <subfield code="a">Musiker</subfield>
+      <subfield code="9">4:beru</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Beruf</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">12</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">7</subfield>
+    </datafield>
+    <datafield tag="670" ind1=" " ind2=" ">
+      <subfield code="a">Riemann, Lui, NUC</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Mosca, Giuseppe: L' amore e l'armi. - 1815</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Mosca, Giuseppe: Emira, regina d'Egitto. - 1821</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Mosca, Giuseppe: Emira, regina d'Egitto. - 1824</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Mosca, Giuseppe: La gioventù d'Enrico V.. - 1818</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Mosca, Giuseppe: I tre mariti. - 1814</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Mosca, Giuseppe: La poetessa errante. - 1822</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Mosca, Giuseppe: La fortunata combinazione. - 1802</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Mosca, Giuseppe: La dama locandiera ossia L'albergo de'pitocchi. - 1822</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Mosca, Giuseppe: Le bestie in uomimi. - 1812</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Mosca, Giuseppe: Avviso al pubblico. - 1814</subfield>
+    </datafield>
+    <datafield tag="913" ind1=" " ind2=" ">
+      <subfield code="S">pnd</subfield>
+      <subfield code="i">a</subfield>
+      <subfield code="a">Mosca, Giuseppe</subfield>
+      <subfield code="0">(DE-588a)100000541</subfield>
+    </datafield>
+  </record>
+  <record type="Authority">
+    <leader>00000nz  a2200000o  4500</leader>
+    <controlfield tag="001">100000649</controlfield>
+    <controlfield tag="003">DE-101</controlfield>
+    <controlfield tag="005">20161207004647.0</controlfield>
+    <controlfield tag="008">900615n||aznnnaabn           | aaa    |c</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="a">http://d-nb.info/gnd/100000649</subfield>
+      <subfield code="2">uri</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-101)100000649</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(DE-588)100000649</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588)109011804X</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(DE-588a)100000649</subfield>
+      <subfield code="9">v:zg</subfield>
+    </datafield>
+    <datafield tag="040" ind1=" " ind2=" ">
+      <subfield code="a">DE-12</subfield>
+      <subfield code="9">r:DE-12</subfield>
+      <subfield code="b">ger</subfield>
+      <subfield code="d">9999</subfield>
+    </datafield>
+    <datafield tag="043" ind1=" " ind2=" ">
+      <subfield code="c">XA-NL</subfield>
+    </datafield>
+    <datafield tag="079" ind1=" " ind2=" ">
+      <subfield code="a">g</subfield>
+      <subfield code="b">p</subfield>
+      <subfield code="c">3</subfield>
+      <subfield code="q">a</subfield>
+      <subfield code="q">f</subfield>
+      <subfield code="q">d</subfield>
+      <subfield code="u">v</subfield>
+      <subfield code="u">o</subfield>
+      <subfield code="v">piz</subfield>
+    </datafield>
+    <datafield tag="100" ind1="1" ind2=" ">
+      <subfield code="a">Ampzing, Samuel</subfield>
+      <subfield code="d">1590-1632</subfield>
+    </datafield>
+    <datafield tag="375" ind1=" " ind2=" ">
+      <subfield code="a">1</subfield>
+      <subfield code="2">iso5218</subfield>
+    </datafield>
+    <datafield tag="400" ind1="1" ind2=" ">
+      <subfield code="a">Ampsinck, Samuel</subfield>
+      <subfield code="d">1590-1632</subfield>
+    </datafield>
+    <datafield tag="400" ind1="1" ind2=" ">
+      <subfield code="a">Ampsingius, Samuel</subfield>
+      <subfield code="d">1590-1632</subfield>
+    </datafield>
+    <datafield tag="400" ind1="1" ind2=" ">
+      <subfield code="a">Ampzingh, Samuel</subfield>
+      <subfield code="d">1590-1632</subfield>
+    </datafield>
+    <datafield tag="400" ind1="1" ind2=" ">
+      <subfield code="a">Ampsing, Samuel</subfield>
+      <subfield code="d">1590-1632</subfield>
+    </datafield>
+    <datafield tag="500" ind1="1" ind2=" ">
+      <subfield code="0">(DE-101)102437327</subfield>
+      <subfield code="0">(DE-588)102437327</subfield>
+      <subfield code="0">http://d-nb.info/gnd/102437327</subfield>
+      <subfield code="a">Ampzing, Johannes Assuerus</subfield>
+      <subfield code="d">1558-1642</subfield>
+      <subfield code="9">4:bezf</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Beziehung familiaer</subfield>
+      <subfield code="e">Beziehung familiaer</subfield>
+      <subfield code="9">v:Vater</subfield>
+    </datafield>
+    <datafield tag="548" ind1=" " ind2=" ">
+      <subfield code="a">24.06.1590-29.07.1632</subfield>
+      <subfield code="9">4:datx</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Exakte Lebensdaten</subfield>
+    </datafield>
+    <datafield tag="548" ind1=" " ind2=" ">
+      <subfield code="a">1590-1632</subfield>
+      <subfield code="9">4:datl</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Lebensdaten</subfield>
+      <subfield code="9">v:andersl. Geburtsjahre 1591 und 1594</subfield>
+    </datafield>
+    <datafield tag="550" ind1=" " ind2=" ">
+      <subfield code="0">(DE-101)041325923</subfield>
+      <subfield code="0">(DE-588)4132592-8</subfield>
+      <subfield code="0">http://d-nb.info/gnd/4132592-8</subfield>
+      <subfield code="a">Pfarrer</subfield>
+      <subfield code="9">4:berc</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Charakteristischer Beruf</subfield>
+    </datafield>
+    <datafield tag="550" ind1=" " ind2=" ">
+      <subfield code="0">(DE-101)040533093</subfield>
+      <subfield code="0">(DE-588)4053309-8</subfield>
+      <subfield code="0">http://d-nb.info/gnd/4053309-8</subfield>
+      <subfield code="a">Schriftsteller</subfield>
+      <subfield code="9">4:beru</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Beruf</subfield>
+    </datafield>
+    <datafield tag="551" ind1=" " ind2=" ">
+      <subfield code="0">(DE-101)040226875</subfield>
+      <subfield code="0">(DE-588)4022687-6</subfield>
+      <subfield code="0">http://d-nb.info/gnd/4022687-6</subfield>
+      <subfield code="a">Haarlem</subfield>
+      <subfield code="9">4:ortg</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Geburtsort</subfield>
+    </datafield>
+    <datafield tag="551" ind1=" " ind2=" ">
+      <subfield code="0">(DE-101)040226875</subfield>
+      <subfield code="0">(DE-588)4022687-6</subfield>
+      <subfield code="0">http://d-nb.info/gnd/4022687-6</subfield>
+      <subfield code="a">Haarlem</subfield>
+      <subfield code="9">4:orts</subfield>
+      <subfield code="w">r</subfield>
+      <subfield code="i">Sterbeort</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">12</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">7</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">PND-Grundbestand</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">Andersl. Geburtsjahr: 1591</subfield>
+      <subfield code="5">CH-ZuETHN</subfield>
+    </datafield>
+    <datafield tag="667" ind1=" " ind2=" ">
+      <subfield code="a">MMm</subfield>
+    </datafield>
+    <datafield tag="670" ind1=" " ind2=" ">
+      <subfield code="a">Biografisch Archief van de Benelux I 15,316-321</subfield>
+    </datafield>
+    <datafield tag="670" ind1=" " ind2=" ">
+      <subfield code="a">DbA I 22,317</subfield>
+    </datafield>
+    <datafield tag="670" ind1=" " ind2=" ">
+      <subfield code="a">Wikipedia</subfield>
+      <subfield code="u">https://nl.wikipedia.org/wiki/Samuel_Ampzing</subfield>
+    </datafield>
+    <datafield tag="678" ind1=" " ind2=" ">
+      <subfield code="b">Niederländ. reform. Theologe und Poet; Prediger in Rijsoord und Haarlem</subfield>
+    </datafield>
+    <datafield tag="678" ind1=" " ind2=" ">
+      <subfield code="b">Pfarrer, Schriftsteller</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Ampsing, Samuel: Beschryving ende lof der stad Haerlem in Holland. - 1628</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Ampsing, Samuel: Eer-Verdedinge sijns Persoons, ende Ampts, tegens verscheyde onbekende A*. - 1629</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Ampsing, Samuel: Beschryvinge ende lof der Stad Haerlem in Holland. - 1628</subfield>
+    </datafield>
+    <datafield tag="692" ind1=" " ind2=" ">
+      <subfield code="a">Ampsing, Samuel: Tegens de ogenliche Ergernißen der superstitieuse Overblijfzelen van het*. - 1630</subfield>
+    </datafield>
+    <datafield tag="913" ind1=" " ind2=" ">
+      <subfield code="S">pnd</subfield>
+      <subfield code="i">a</subfield>
+      <subfield code="a">Ampsing, Samuel</subfield>
+      <subfield code="0">(DE-588a)100000649</subfield>
+    </datafield>
+  </record>
+</collection>

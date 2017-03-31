@@ -36,6 +36,7 @@ import org.apache.solr.common.SolrInputDocument;
 
 import de.hebis.it.hds.gnd.in.subfields.DataField;
 import de.hebis.it.hds.gnd.in.subfields.GeneralFields;
+import de.hebis.it.hds.gnd.in.subfields.GeoFields;
 import de.hebis.it.hds.gnd.in.subfields.TopicFields;
 
 /**
@@ -49,7 +50,7 @@ import de.hebis.it.hds.gnd.in.subfields.TopicFields;
 public class MarcXmlParser implements Function<List<String>, Boolean> {
    private final static Logger          LOG                 = LogManager.getLogger(MarcXmlParser.class);
    private final static XMLInputFactory srf                 = XMLInputFactory.newInstance();
-   private static final Integer[]       fieldList           = { 35, 79, 83, 150, 550 };
+   private static final Integer[]       fieldList           = { 34, 35, 79, 83, 150, 550 };
    private static final List<Integer>   dataFieldsToProcess = Arrays.asList(fieldList);
    private String                       recordId            = null;
    private SolrClient                   solrClient          = null;
@@ -165,10 +166,13 @@ public class MarcXmlParser implements Function<List<String>, Boolean> {
          return false;
       }
       switch (subFieldId) {
+         case "034": // geographic coordinates
+            GeoFields.coordinates(dataField);
+            break;
          case "035": // The id(s) of the record
             recordId = GeneralFields.id(dataField);
             break;
-         case "079": // type of authority record
+            case "079": // type of authority record
             GeneralFields.type(dataField);
             break;
          case "083": // DDC
@@ -178,7 +182,7 @@ public class MarcXmlParser implements Function<List<String>, Boolean> {
             TopicFields.headingTopicalTerm(dataField);
             break;
          case "550": // related term
-            TopicFields.tracingTopicalTerm(dataField);
+            TopicFields.relatedTopicalTerm(dataField);
             break;
          default:
             throw new RuntimeException("Coding error: No rule to parse marc:" + dataField.get("tag").get(0));

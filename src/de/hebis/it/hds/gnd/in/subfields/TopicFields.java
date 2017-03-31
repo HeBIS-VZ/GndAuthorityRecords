@@ -36,7 +36,7 @@ public class TopicFields {
    private final static Logger LOG = LogManager.getLogger(TopicFields.class);
 
    /**
-    * Stores topic term from &lt;datafield tag="150"&gt;.<br>
+    * Topic term &lt;datafield tag="150"&gt;.<br>
     * Subfield '$a' into field (preferred)<br>
     * 
     * @param dataField The content of the data field
@@ -48,16 +48,39 @@ public class TopicFields {
    }
 
    /**
-    * Stores related terms from &lt;datafield tag="550"&gt;.<br>
+    * Complex See Reference-Subject &lt;datafield tag="260"&gt;.<br>
     * Subfield '$0' into (schema:relatedIds)<br>
     * Subfield '$a' into (schema:related)<br>
     * 
     * @param dataField The content of the data field
     */
-   public static void tracingTopicalTerm(DataField dataField) {
+   public static void complexSeeReferenceTerm(DataField dataField) {
       if (LOG.isTraceEnabled()) LOG.trace(dataField.recordId + ": in method");
-      dataField.storeValues("0", "relatedIds", true, "http://d-nb.info.*"); // dismiss redundant URI
-      dataField.storeValues("a", "related", true, null);
+      dataField.storeValues("0", "seeAlso", true, "https?://d-nb.info.*"); // dismiss redundant URI
+      dataField.storeValues("a", "synonyms", true, null);      
    }
 
+   /**
+    * Alternative terms &lt;datafield tag="450"&gt;.<br>
+    * Subfield '$a' into (schema:synonyms)<br>
+    * 
+    * @param dataField The content of the data field
+    */
+   public static void tracingTopicalTerm(DataField dataField) {
+      if (LOG.isTraceEnabled()) LOG.trace(dataField.recordId + ": in method");
+      dataField.storeValues("a", "synonyms", true, null);
+   }
+
+   /**
+    * Related terms &lt;datafield tag="550"&gt;.<br>
+    * Subfield '$0' into (schema:relatedIds)<br>
+    * Subfield '$a' into (schema:related)<br>
+    * 
+    * @param dataField The content of the data field
+    */
+   public static void relatedTopicalTerm(DataField dataField) {
+      if (LOG.isTraceEnabled()) LOG.trace(dataField.recordId + ": in method");
+      dataField.storeValues("0", "relatedIds", true, "https?://d-nb.info.*"); // dismiss redundant URI
+      dataField.storeValues("a", "related", true, null);
+   }
 }

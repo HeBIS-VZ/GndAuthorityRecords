@@ -31,6 +31,6 @@ import de.hebis.it.hds.gnd.in.subfields.AllSubFieldTests;
  */
 @RunWith(Suite.class)
 @SuiteClasses({ LoaderTest.class, AllSubFieldTests.class })
-public class AllTests {
+public class AllImportTests {
 
 }

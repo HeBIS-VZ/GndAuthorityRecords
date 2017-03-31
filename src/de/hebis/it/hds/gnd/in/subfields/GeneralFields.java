@@ -37,7 +37,7 @@ public class GeneralFields {
    private final static Logger LOG = LogManager.getLogger(GeneralFields.class);
 
    /**
-    * Stores the id(s) from &lt;datafield tag="035"&gt;.<br>
+    * Id(s) &lt;datafield tag="035"&gt;.<br>
     * The first id found in '$a' and '$0' which starts with "(DE-588)" will be used as primary id. (schema:id)<br>
     * Other ids are stored as reference. (schema:sameAs)
     * 
@@ -74,7 +74,7 @@ public class GeneralFields {
    }
 
    /**
-    * Stores the type of the record. &lt;datafield tag="079"&gt;.<br>
+    * Type of the record. &lt;datafield tag="079"&gt;.<br>
     * Subfield '$b' is taken as type. (schema:authorityType)<br>
     * Subfield '$c' is taken as level of trust. (schema:qualityLevel)<br>
     * ('1' is the best, over '3' should only used on own risk)<br>
@@ -87,7 +87,7 @@ public class GeneralFields {
    }
 
    /**
-    * Stores the Dewey Decimal Classification (DDC) number from &lt;datafield tag="083"&gt;.<br>
+    * Dewey Decimal Classification (DDC) &lt;datafield tag="083"&gt;.<br>
     * Since the mapping to DDC may not be perfect the DNB introduced the subfield "$9d".<br>
     * The level of similarity is coded with a cipher [1..4], where '4' is "perfect match" and '1' is a "could be".<br>
     * 

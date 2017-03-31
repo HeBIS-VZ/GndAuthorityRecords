@@ -98,6 +98,11 @@
       name="qualityLevel"
       type="optionalKey" />
 
+   <!-- Locations and areas -->
+   <field
+      name="coordinates"
+      type="location_rpt" />
+
    <!--
       ###########################################
       # Additional fields as marker for the workflow
@@ -166,7 +171,17 @@
       required="true"
       sortMissingLast="true"
       multiValued="false" />
-
+      
+   <fieldType 
+      name=location_rpt" 
+      class="solr.SpatialRecursivePrefixTreeFieldType" 
+      geo="true" 
+      distErrPct="0.025"
+      maxDistErr="0.001"
+      distanceUnits="kilometers"
+      stored="true"
+      required="false"
+      multiValued="true" />
 
    <!-- just stored -->
    <fieldType

@@ -22,7 +22,6 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Collection;
 
-import org.apache.solr.common.SolrInputDocument;
 import org.junit.Test;
 
 /**
@@ -37,28 +36,28 @@ public class TopicFieldsTest {
     */
    @Test
    public void headingTopicalTerm() {
-      DataField testDataField = TestHelper.dataFieldFactory(null, new SolrInputDocument(), "150", "a", "TopTop");
+      DataField testDataField = TestHelper.dataFieldFactory("testid", null, "150", "a", "TopTop");
       TopicFields.headingTopicalTerm(testDataField);
       // check side effects
-      Collection<Object> result = testDataField.solrDoc.getFieldValues("preferred");
+      Collection<Object> result = testDataField.getFieldValues("preferred");
       assertTrue("The preferred term is mandatory", (result != null));
       assertTrue("The preferred term  has to be unique", (result.size() == 1));
       assertTrue("The preferred term should be 'TopTop'.", result.contains("TopTop"));
    }
 
-    /**
+   /**
     * complex terms and ids (data field 260)
     */
    @Test
    public void complexSeeReferenceTerm() {
-      DataField testDataField = TestHelper.dataFieldFactory(null, new SolrInputDocument(), "260", "a", "hip hop");
+      DataField testDataField = TestHelper.dataFieldFactory("testid", null, "260", "a", "hip hop");
       TestHelper.addSubField(testDataField, "0", "foo", "http://d-nb.info/gnd/4027242-4", "https://d-nb.info/gnd/4027242-4");
       TopicFields.complexSeeReferenceTerm(testDataField);
       // check side effects
-      Collection<Object> result = testDataField.solrDoc.getFieldValues("synonyms");
+      Collection<Object> result = testDataField.getFieldValues("synonyms");
       assertTrue("A complex term is expected", (result != null));
       assertTrue("The complex term 'hip hop' should exist", result.contains("hip hop"));
-      result = testDataField.solrDoc.getFieldValues("seeAlso");
+      result = testDataField.getFieldValues("seeAlso");
       assertTrue("Similar ids are expected", (result != null));
       assertFalse("The related id 'https://d-nb.info/gnd/4027242-4' should be dismissed", result.contains("https://d-nb.info/gnd/4027242-4"));
    }
@@ -68,10 +67,10 @@ public class TopicFieldsTest {
     */
    @Test
    public void tracingTopicalTerm() {
-      DataField testDataField = TestHelper.dataFieldFactory(null, new SolrInputDocument(), "450", "a", "AlsoTop");
+      DataField testDataField = TestHelper.dataFieldFactory("testid", null, "450", "a", "AlsoTop");
       TopicFields.tracingTopicalTerm(testDataField);
       // check side effects
-      Collection<Object> result = testDataField.solrDoc.getFieldValues("synonyms");
+      Collection<Object> result = testDataField.getFieldValues("synonyms");
       assertTrue("A synonym is expected", (result != null));
       assertTrue("The synonym 'AlsoTop' should exist", result.contains("AlsoTop"));
    }
@@ -81,19 +80,18 @@ public class TopicFieldsTest {
     */
    @Test
    public void relatedTopicalTerm() {
-      DataField testDataField = TestHelper.dataFieldFactory(null, new SolrInputDocument(), "550", "a", "AlsoTop");
+      DataField testDataField = TestHelper.dataFieldFactory("testid", null, "550", "a", "AlsoTop");
       TestHelper.addSubField(testDataField, "0", "foo", "http://d-nb.info/gnd/4027242-4", "https://d-nb.info/gnd/4027242-4");
       TopicFields.relatedTopicalTerm(testDataField);
       // check side effects
-      Collection<Object> result = testDataField.solrDoc.getFieldValues("related");
+      Collection<Object> result = testDataField.getFieldValues("related");
       assertTrue("A related term is expected", (result != null));
       assertTrue("Exact one related term is expected", (result.size() == 1));
       assertTrue("The related term should to be 'AlsoTop'", result.contains("AlsoTop"));
-      result = testDataField.solrDoc.getFieldValues("relatedIds");
+      result = testDataField.getFieldValues("relatedIds");
       assertTrue("Related ids are expected", (result != null));
       assertTrue("Exact one related is is expected", (result.size() == 1));
       assertTrue("The related id should to be 'foo'", result.contains("foo"));
    }
-
 
 }

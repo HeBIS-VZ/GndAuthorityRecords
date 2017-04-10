@@ -19,7 +19,6 @@ package de.hebis.it.hds.gnd.in.subfields;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.solr.common.SolrInputDocument;
 
 /**
  * Methods for general subfields
@@ -50,25 +49,23 @@ public class GeneralFields {
          LOG.trace("Conversion warning: Datafield 035 has no $a. Skipping");
          return dataField.recordId;
       }
-      SolrInputDocument doc = dataField.solrDoc;
       if (dataField.recordId == null) { 
          if (LOG.isTraceEnabled()) LOG.trace(testId + ": as first id found");
          dataField.recordId = testId;
-         doc.addField("id", testId); // set document id
+         dataField.storeUnique("id", testId); // set document id
       }
       else if (testId.startsWith("(DE-588)")) { // get rid of previous minor (not gnd) ids
          if (LOG.isTraceEnabled()) {
             LOG.trace(testId + ": replaces previous found id: " + dataField.recordId);
             LOG.trace(testId + ": store additional id: " + dataField.recordId);
          }
-         doc.addField("sameAs", dataField.recordId); // remember all ids
-         if (doc.containsKey("id")) doc.remove("id");
-         doc.addField("id", testId); // set document id
+         dataField.storeMultiValued("sameAs", dataField.recordId); // remember all ids
+         dataField.replaceUnique("id", testId);
          dataField.recordId = testId;
       }
       else {
          if (LOG.isTraceEnabled()) LOG.trace(dataField.recordId + ": store additional id: " + testId);
-         doc.addField("sameAs", testId); 
+         dataField.storeMultiValued("sameAs", testId); 
       }   
       return dataField.recordId; // return a copy of the primary id
    }
@@ -104,7 +101,7 @@ public class GeneralFields {
          ddc = subf9.substring(0, 1) + ":" + ddc;
       }
       if (LOG.isTraceEnabled()) LOG.trace(dataField.recordId + ": Store dewey: " + ddc);
-      dataField.solrDoc.addField("ddc", ddc);
+      dataField.storeMultiValued("ddc", ddc);
    }
 
 }

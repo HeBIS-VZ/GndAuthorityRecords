@@ -19,6 +19,7 @@ package de.hebis.it.hds.gnd.in.subfields;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
@@ -28,6 +29,7 @@ import javax.xml.stream.XMLStreamReader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.solr.common.SolrInputDocument;
+import org.apache.solr.common.SolrInputField;
 
 /**
  * Representation of marcXML datafield with some methods to help processing subfields.
@@ -39,10 +41,10 @@ public class DataField extends HashMap<String, List<String>> {
    private static final long   serialVersionUID = 1L;
    private final static Logger LOG              = LogManager.getLogger(DataField.class);
    public String               recordId;
-   public SolrInputDocument    solrDoc;
+   private SolrInputDocument   solrDoc;
 
    /**
-    * Preconfigure a new DataField
+    * Preconfigure the new DataField
     * 
     * @param recordId The Id of the record
     * @param doc The SolrDocument to write in.
@@ -153,4 +155,74 @@ public class DataField extends HashMap<String, List<String>> {
       return Arrays.asList(data);
    }
 
+   /**
+    * Hide the underlying document and avoid duplicate entries.
+    * 
+    * @param fieldName Name of the search field as defined in schema.xml
+    * @param value The data to add
+    */
+   public void storeMultiValued(String fieldName, String value) {
+      SolrInputField field = solrDoc.getField(fieldName);
+      if (field == null) {
+         if (LOG.isTraceEnabled()) LOG.trace("First entry in field \"" + fieldName);
+         solrDoc.addField(fieldName, value);
+         return;
+      }
+      for (Object entry : field.getValues()) {
+         if (value.equals(entry)) return; // skip doublets
+      }
+      field.addValue(value, 1);
+   }
+
+   /**
+    * Hide the underlying document and check the 'unique' constraint
+    * 
+    * @param fieldName Name of the search field as defined in schema.xml
+    * @param value The data to add
+    */
+   public void storeUnique(String fieldName, String value) {
+      storeUnique(fieldName, value, false);
+   }
+
+   /**
+    * Hide the underlying document and check the 'unique' constraint<br>
+    * If the field is already used, the new value will be ignored.
+    * 
+    * @param fieldName Name of the search field as defined in schema.xml
+    * @return The values stored in the search field or NULL if the field does not exist.
+    */
+   public Collection<Object> getFieldValues(String fieldName) {
+      return solrDoc.getFieldValues(fieldName);
+   }
+
+   /**
+    * Hide the underlying document and check the 'unique' constraint<br>
+    * If the field is already used, the old entry will be replaced with the new value.
+    * 
+    * @param fieldName Name of the search field as defined in schema.xml
+    * @return The values stored in the search field or NULL if the field does not exist.
+    */
+   public void replaceUnique(String fieldName, String value) {
+      storeUnique(fieldName, value, true);
+
+   }
+
+   /**
+    * Generalize {@link #storeUnique(String, String)} and {@link #replaceUnique(String, String)}
+    * 
+    * @param fieldName Name of the search field as defined in schema.xml
+    * @param value The data to add
+    * @param override TRUE: the old value will be replaced. FALSE: the new value will only written if the field was empty.
+    */
+   private void storeUnique(String fieldName, String value, boolean override) {
+      if (solrDoc.containsKey(fieldName)) {
+         if (!override) {
+            LOG.error(recordId + "# Attempt to store multiple values into unique field: " + fieldName);
+            return;
+         }
+         if (LOG.isDebugEnabled()) LOG.debug(recordId + "# Replace value of unique field: " + fieldName);
+         solrDoc.remove("id");
+      }
+      solrDoc.addField(fieldName, value);
+   }
 }

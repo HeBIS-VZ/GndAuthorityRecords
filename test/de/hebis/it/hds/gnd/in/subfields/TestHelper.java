@@ -32,15 +32,20 @@ public class TestHelper {
    /**
     * Builds new marc {@link DataField} from the parameters.
     * 
-    * @param recordId Id of the theoretical record
-    * @param solrDocument The solr document to use
+    * @param recordId Id for the record
+    * @param DataField NULL for a new {@link DataField} or one to reuse.
     * @param dataFieldId Id of the data field
     * @param subFieldId Id of the first subfield
     * @param subFieldValues One or more value(s) for the (repeatable) subfield
     * @return A new datafield with one (repeatable) subfield;
     */
-   public static DataField dataFieldFactory(String recordId, SolrInputDocument solrDocument, String dataFieldId, String subFieldId, String... subFieldValues) {
-      DataField testData = new DataField(recordId, solrDocument);
+   public static DataField dataFieldFactory(String recordId, DataField testData, String dataFieldId, String subFieldId, String... subFieldValues) {
+      if (testData == null) {
+         testData = new DataField(recordId, new SolrInputDocument());
+      }
+      else {
+         testData.recordId = recordId;
+      }
       testData.put("tag", testData.newList(dataFieldId));
       testData.put("ind1", testData.newList(" "));
       testData.put("ind2", testData.newList(" "));

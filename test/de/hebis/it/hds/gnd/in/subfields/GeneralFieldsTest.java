@@ -23,8 +23,8 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Collection;
 
-import org.apache.solr.common.SolrInputDocument;
 import org.junit.Test;
+
 /**
  * Test class for {@link GeneralFields}
  *
@@ -38,24 +38,25 @@ public class GeneralFieldsTest {
    @Test
    public void id() {
       // check regular results
-      DataField testDataField = TestHelper.dataFieldFactory(null, new SolrInputDocument(), "035", "a", "(DE-101)interalId");
-      String recordId = GeneralFields.id(testDataField);
+      String recordId = null;
+      DataField testDataField = TestHelper.dataFieldFactory(recordId, null, "035", "a", "(DE-101)interalId");
+      recordId = GeneralFields.id(testDataField);
       assertEquals("The first id must fit.", "(DE-101)interalId", recordId);
-      testDataField = TestHelper.dataFieldFactory(recordId, testDataField.solrDoc, "035", "a", "(DE-588)gndId");
+      testDataField = TestHelper.dataFieldFactory(recordId, testDataField, "035", "a", "(DE-588)gndId");
       recordId = GeneralFields.id(testDataField);
       assertEquals("The gndId id must override.", "(DE-588)gndId", recordId);
-      testDataField = TestHelper.dataFieldFactory(recordId, testDataField.solrDoc, "035", "a", "(foobar)anyId");
+      testDataField = TestHelper.dataFieldFactory(recordId, testDataField, "035", "a", "(foobar)anyId");
       recordId = GeneralFields.id(testDataField);
       assertEquals("The gndId id must remain.", "(DE-588)gndId", recordId);
-      testDataField = TestHelper.dataFieldFactory(recordId, testDataField.solrDoc, "035", "z", "(DE-588_3)oldId");
+      testDataField = TestHelper.dataFieldFactory(recordId, testDataField, "035", "z", "(DE-588_3)oldId"); // ignore
       recordId = GeneralFields.id(testDataField);
       assertEquals("The gndId id must remain.", "(DE-588)gndId", recordId);
       // check side effects
-      Collection<Object> result = testDataField.solrDoc.getFieldValues("id");
+      Collection<Object> result = testDataField.getFieldValues("id");
       assertTrue("The Id is mandatory", (result != null));
       assertTrue("The Id has to be unique", (result.size() == 1));
       assertTrue("The gndId id must win.", result.contains("(DE-588)gndId"));
-      result = testDataField.solrDoc.getFieldValues("sameAs");
+      result = testDataField.getFieldValues("sameAs");
       assertTrue("Alternate ids are expected.", (result != null));
       assertTrue("Two alternate ids are expected.", (result.size() == 2));
       assertFalse("Wrong subfield evaluated.", result.contains("(DE-588_3)oldId"));
@@ -66,13 +67,13 @@ public class GeneralFieldsTest {
     */
    @Test
    public void type() {
-      DataField testDataField = TestHelper.dataFieldFactory(null, new SolrInputDocument(), "079", "b", "s");
+      DataField testDataField = TestHelper.dataFieldFactory("test", null, "079", "b", "s");
       TestHelper.addSubField(testDataField, "c", "9");
       GeneralFields.type(testDataField);
       // check side effects
-      Collection<Object> result = testDataField.solrDoc.getFieldValues("authorityType");
+      Collection<Object> result = testDataField.getFieldValues("authorityType");
       assertTrue("The type should to be 's'", result.contains("s"));
-      result = testDataField.solrDoc.getFieldValues("qualityLevel");
+      result = testDataField.getFieldValues("qualityLevel");
       assertTrue("The qualitiy level should be '9'.", result.contains("9"));
    }
 
@@ -82,14 +83,14 @@ public class GeneralFieldsTest {
    @Test
    public void dewey() {
       // ddc without qualifier
-      DataField testDataField = TestHelper.dataFieldFactory(null, new SolrInputDocument(), "083", "a", "999");
+      DataField testDataField = TestHelper.dataFieldFactory("test", null, "083", "a", "999");
       GeneralFields.dewey(testDataField);
-      Collection<Object> result = testDataField.solrDoc.getFieldValues("ddc");
+      Collection<Object> result = testDataField.getFieldValues("ddc");
       assertTrue("The ddc should to be '999'", result.contains("999"));
       // ddc with qualifier
       TestHelper.addSubField(testDataField, "9", "d:4");
       GeneralFields.dewey(testDataField);
-      result = testDataField.solrDoc.getFieldValues("ddc");
+      result = testDataField.getFieldValues("ddc");
       assertTrue("The qualified ddc should to be '4:999'", result.contains("4:999"));
    }
 

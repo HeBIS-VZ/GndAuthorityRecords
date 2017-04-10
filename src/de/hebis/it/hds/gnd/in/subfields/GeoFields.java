@@ -71,10 +71,10 @@ public class GeoFields {
          longitute  = (longitute + toNormalizedDecimal(maxLon, codingSchema)) / 2;
          latitute  = (latitute + toNormalizedDecimal(maxLat, codingSchema)) / 2;
       }
-      dataField.solrDoc.addField("coordinates", latitute.toString() + ' ' + longitute.toString());  
+      dataField.storeMultiValued("coordinates", latitute.toString() + ' ' + longitute.toString());  
       // optional URI
       String sameAs = dataField.getFirstValue("0");
-      if (sameAs != null) dataField.solrDoc.addField("sameAs", sameAs);
+      if (sameAs != null) dataField.storeMultiValued("sameAs", sameAs);
    }
 
    private static Double toNormalizedDecimal(String in, char codingSchema) {

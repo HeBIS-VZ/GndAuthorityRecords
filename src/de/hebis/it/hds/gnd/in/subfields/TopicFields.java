@@ -43,7 +43,7 @@ public class TopicFields {
     */
 
    public static void headingTopicalTerm(DataField dataField) {
-      if (LOG.isTraceEnabled()) LOG.trace(dataField.recordId + ": in method");
+      if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
       dataField.storeValues("a", "preferred", false, null);
    }
 
@@ -55,9 +55,9 @@ public class TopicFields {
     * @param dataField The content of the data field
     */
    public static void complexSeeReferenceTerm(DataField dataField) {
-      if (LOG.isTraceEnabled()) LOG.trace(dataField.recordId + ": in method");
+      if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
       dataField.storeValues("0", "seeAlso", true, "https?://d-nb.info.*"); // dismiss redundant URI
-      dataField.storeValues("a", "synonyms", true, null);      
+      dataField.storeValues("a", "synonyms", true, null);
    }
 
    /**
@@ -67,7 +67,7 @@ public class TopicFields {
     * @param dataField The content of the data field
     */
    public static void tracingTopicalTerm(DataField dataField) {
-      if (LOG.isTraceEnabled()) LOG.trace(dataField.recordId + ": in method");
+      if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
       dataField.storeValues("a", "synonyms", true, null);
    }
 
@@ -79,8 +79,23 @@ public class TopicFields {
     * @param dataField The content of the data field
     */
    public static void relatedTopicalTerm(DataField dataField) {
-      if (LOG.isTraceEnabled()) LOG.trace(dataField.recordId + ": in method");
+      if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
       dataField.storeValues("0", "relatedIds", true, "https?://d-nb.info.*"); // dismiss redundant URI
       dataField.storeValues("a", "related", true, null);
+   }
+
+   /**
+    * Alternative names in other systems &lt;datafield tag="750"&gt;.<br>
+    * Subfield '$a' is taken as alias. (schema:synonyms)<br>
+    * Optional trailing informations "ABC%DE3..." will be removed -> "ABC"
+    * 
+    * @param dataField
+    */
+   public static void linkingEntrylTopicalTerm(DataField dataField) {
+      if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
+      String altName = dataField.getFirstValue("a");
+      dataField.storeMultiValued("synonyms", altName.replaceAll("%DE.*", ""));
+      String altId = dataField.getFirstValue("0");
+      dataField.storeMultiValued("sameAs", altId);
    }
 }

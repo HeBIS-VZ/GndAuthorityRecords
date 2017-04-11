@@ -94,4 +94,22 @@ public class TopicFieldsTest {
       assertTrue("The related id should to be 'foo'", result.contains("foo"));
    }
 
+   /**
+    * Alternative names from other Systems (data field 750)
+    */
+   @Test
+   public void linkingEntrylTopicalTerm() {
+      DataField testDataField = TestHelper.dataFieldFactory("simpleCase", null, "750", "a", "OtherTerm");
+      PersonFields.linkingEntryPersonalName(testDataField);
+      Collection<Object> result = testDataField.getFieldValues("synonyms");
+      assertTrue("A synonym is expected", (result != null));
+      assertTrue("The synonym 'OtherTerm' should exist", result.contains("OtherTerm"));
+
+      TestHelper.addSubField(testDataField, "0", "(isil) foo bar", "http://anywhere.edu");
+      PersonFields.linkingEntryPersonalName(testDataField);
+      result = testDataField.getFieldValues("sameAs");
+      assertTrue("The altrnative id '(isil) foo bar' should exist", result.contains("(isil) foo bar"));
+      assertFalse("The altrnative URL to the other system should not be storred", result.contains("http://anywhere.edu"));
+   }
+
 }

@@ -35,15 +35,17 @@ import org.apache.logging.log4j.Logger;
 public class PersonFields {
    private final static Logger LOG = LogManager.getLogger(PersonFields.class);
    /**
-    * Alternative Names in other systems &lt;datafield tag="034"&gt;.<br>
+    * Alternative names in other systems &lt;datafield tag="700"&gt;.<br>
     * Subfield '$a' is taken as alias. (schema:synonyms)<br>
     * Optional trailing informations "ABC%DE3..." will be removed -> "ABC"
-    * @param testDataField
+    * @param dataField 
     */
    public static void linkingEntryPersonalName(DataField dataField) {
-      if (LOG.isTraceEnabled()) LOG.trace(dataField.recordId + ": in method");
+      if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
       String altName = dataField.getFirstValue("a");
       dataField.storeMultiValued("synonyms", altName.replaceAll("%DE.*", ""));
+      String altId = dataField.getFirstValue("0");
+      dataField.storeMultiValued("sameAs", altId);
    }
 
 }

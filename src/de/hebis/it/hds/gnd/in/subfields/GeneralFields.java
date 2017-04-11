@@ -47,27 +47,27 @@ public class GeneralFields {
       String testId = dataField.getFirstValue("a");
       if ((testId == null) || testId.isEmpty()) {
          LOG.trace("Conversion warning: Datafield 035 has no $a. Skipping");
-         return dataField.recordId;
+         return dataField.getRecordId();
       }
-      if (dataField.recordId == null) { 
+      if (dataField.getRecordId() == null) { 
          if (LOG.isTraceEnabled()) LOG.trace(testId + ": as first id found");
-         dataField.recordId = testId;
+         dataField = new DataField(testId, dataField);
          dataField.storeUnique("id", testId); // set document id
       }
       else if (testId.startsWith("(DE-588)")) { // get rid of previous minor (not gnd) ids
          if (LOG.isTraceEnabled()) {
-            LOG.trace(testId + ": replaces previous found id: " + dataField.recordId);
-            LOG.trace(testId + ": store additional id: " + dataField.recordId);
+            LOG.trace(testId + ": replaces previous found id: " + dataField.getRecordId());
+            LOG.trace(testId + ": store additional id: " + dataField.getRecordId());
          }
-         dataField.storeMultiValued("sameAs", dataField.recordId); // remember all ids
+         dataField.storeMultiValued("sameAs", dataField.getRecordId()); // remember all ids
          dataField.replaceUnique("id", testId);
-         dataField.recordId = testId;
+         dataField = new DataField(testId, dataField);
       }
       else {
-         if (LOG.isTraceEnabled()) LOG.trace(dataField.recordId + ": store additional id: " + testId);
+         if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": store additional id: " + testId);
          dataField.storeMultiValued("sameAs", testId); 
       }   
-      return dataField.recordId; // return a copy of the primary id
+      return dataField.getRecordId(); // return a copy of the primary id
    }
 
    /**
@@ -100,7 +100,7 @@ public class GeneralFields {
       if ((subf9 != null) && !subf9.isEmpty()) {
          ddc = subf9.substring(0, 1) + ":" + ddc;
       }
-      if (LOG.isTraceEnabled()) LOG.trace(dataField.recordId + ": Store dewey: " + ddc);
+      if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": Store dewey: " + ddc);
       dataField.storeMultiValued("ddc", ddc);
    }
 

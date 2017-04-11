@@ -19,8 +19,6 @@ package de.hebis.it.hds.gnd.in.subfields;
 
 import java.util.Arrays;
 
-import org.apache.solr.common.SolrInputDocument;
-
 /**
  * Static methods as helper for the Tests
  *
@@ -33,19 +31,14 @@ public class TestHelper {
     * Builds new marc {@link DataField} from the parameters.
     * 
     * @param recordId Id for the record
-    * @param DataField NULL for a new {@link DataField} or one to reuse.
+    * @param testData NULL for a new {@link DataField} or one to reuse.
     * @param dataFieldId Id of the data field
     * @param subFieldId Id of the first subfield
     * @param subFieldValues One or more value(s) for the (repeatable) subfield
-    * @return A new datafield with one (repeatable) subfield;
+    * @return A new Dateifeld with one (repeatable) subfield;
     */
    public static DataField dataFieldFactory(String recordId, DataField testData, String dataFieldId, String subFieldId, String... subFieldValues) {
-      if (testData == null) {
-         testData = new DataField(recordId, new SolrInputDocument());
-      }
-      else {
-         testData.recordId = recordId;
-      }
+      testData = new DataField(recordId, testData);
       testData.put("tag", testData.newList(dataFieldId));
       testData.put("ind1", testData.newList(" "));
       testData.put("ind2", testData.newList(" "));

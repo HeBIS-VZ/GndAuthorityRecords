@@ -46,23 +46,23 @@ public class GeoFields {
       boolean calculateMidPoint = true; // assume that min and max values are different
       String minLon = dataField.getFirstValue("d");
       if ((minLon == null) || minLon.isEmpty()) {
-         LOG.info(dataField.recordId + ": Subfield $d is missing, skip evaluation");
+         LOG.info(dataField.getRecordId() + ": Subfield $d is missing, skip evaluation");
          return;
       }
       String maxLon = dataField.getFirstValue("e");
       if ((maxLon == null) || maxLon.isEmpty() || maxLon.equals(minLon)) {
-         if (LOG.isDebugEnabled()) LOG.debug(dataField.recordId + ": Max value is missed ore equal.");
+         if (LOG.isDebugEnabled()) LOG.debug(dataField.getRecordId() + ": Max value is missed ore equal.");
          calculateMidPoint = false;
       }
       String minLat = dataField.getFirstValue("f");
       if ((minLat == null) || minLat.isEmpty()) {
-         LOG.info(dataField.recordId + ": Subfield $f is missing, skip evaluation");
+         LOG.info(dataField.getRecordId() + ": Subfield $f is missing, skip evaluation");
          return;
       }
       String maxLat = dataField.getFirstValue("g");
       char codingSchema = getCoding(dataField);
       if (codingSchema == '?') { // unknown
-         LOG.info(dataField.recordId + ": Subfield $9a is missing and format could not detected, skip evaluation");
+         LOG.info(dataField.getRecordId() + ": Subfield $9a is missing and format could not detected, skip evaluation");
          return;
       }
       Double longitute = toNormalizedDecimal(minLon, codingSchema);
@@ -98,7 +98,7 @@ public class GeoFields {
       if ((coding != null) && !coding.isEmpty()) return coding.charAt(0);
       // Try to detect the coding
       String minLon = dataField.getFirstValue("d");
-      if (LOG.isDebugEnabled()) LOG.debug(dataField.recordId + ": Subfield $9A is missing, try to detect.");
+      if (LOG.isDebugEnabled()) LOG.debug(dataField.getRecordId() + ": Subfield $9A is missing, try to detect.");
       if (minLon.contains(" ")) { // formatting spaces may an indicate a coding in degrees
          if (minLon.indexOf('.') < 0) return 'a'; // no decimal dot; seems to be coded as degrees
       }

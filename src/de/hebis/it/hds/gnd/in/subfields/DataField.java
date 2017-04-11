@@ -40,21 +40,40 @@ import org.apache.solr.common.SolrInputField;
 public class DataField extends HashMap<String, List<String>> {
    private static final long   serialVersionUID = 1L;
    private final static Logger LOG              = LogManager.getLogger(DataField.class);
-   public String               recordId;
+   private String              recordId;
    private SolrInputDocument   solrDoc;
 
    /**
-    * Preconfigure the new DataField
+    * Preconfigure a new DataField
     * 
     * @param recordId The Id of the record
     * @param doc The SolrDocument to write in.
     */
    public DataField(String recordId, SolrInputDocument doc) {
       super();
-      this.recordId = recordId;
-      solrDoc = doc;
+      init(recordId, doc);
    }
 
+   /**
+    * Reuse a DataField with a new Id
+    * 
+    * @param newRecordId The Id of the record
+    * @param dataField The DataField to reuse.
+    */
+   public DataField(String newRecordId, DataField dataField) {
+      super();
+      if (dataField == null) {
+         init(newRecordId, null);
+      }
+      else {
+         init(newRecordId, dataField.solrDoc);
+      }
+   }
+
+   private void init(String newRecordId, SolrInputDocument doc) {
+      if (newRecordId != null) recordId = newRecordId;
+      solrDoc = (doc == null) ? new SolrInputDocument() : doc;     
+   }
    /**
     * Store the value(s) of an (repeated)subfield into the solr document
     * 
@@ -159,9 +178,10 @@ public class DataField extends HashMap<String, List<String>> {
     * Hide the underlying document and avoid duplicate entries.
     * 
     * @param fieldName Name of the search field as defined in schema.xml
-    * @param value The data to add
+    * @param value The data to add. NULL is ignored
     */
    public void storeMultiValued(String fieldName, String value) {
+      if (value == null) return;
       SolrInputField field = solrDoc.getField(fieldName);
       if (field == null) {
          if (LOG.isTraceEnabled()) LOG.trace("First entry in field \"" + fieldName);
@@ -178,9 +198,10 @@ public class DataField extends HashMap<String, List<String>> {
     * Hide the underlying document and check the 'unique' constraint
     * 
     * @param fieldName Name of the search field as defined in schema.xml
-    * @param value The data to add
+    * @param value The data to add. NULL is ignored
     */
    public void storeUnique(String fieldName, String value) {
+      if (value == null) return;
       storeUnique(fieldName, value, false);
    }
 
@@ -200,11 +221,18 @@ public class DataField extends HashMap<String, List<String>> {
     * If the field is already used, the old entry will be replaced with the new value.
     * 
     * @param fieldName Name of the search field as defined in schema.xml
-    * @return The values stored in the search field or NULL if the field does not exist.
+    * @param value The data to add
     */
    public void replaceUnique(String fieldName, String value) {
       storeUnique(fieldName, value, true);
 
+   }
+
+   /**
+    * @return The Id of the current record (stored in this DataField)
+    */
+   public String getRecordId() {
+      return recordId;
    }
 
    /**

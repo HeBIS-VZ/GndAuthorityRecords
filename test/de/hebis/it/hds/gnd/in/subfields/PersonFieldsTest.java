@@ -17,7 +17,7 @@
  */
 package de.hebis.it.hds.gnd.in.subfields;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import java.util.Collection;
 
@@ -41,6 +41,12 @@ public class PersonFieldsTest {
       Collection<Object> result = testDataField.getFieldValues("synonyms");
       assertTrue("A synonym is expected", (result != null));
       assertTrue("The synonym 'Jon Doh' should exist", result.contains("Jon Doh"));
+
+      TestHelper.addSubField(testDataField, "0", "(isil) foo bar", "http://anywhere.edu");
+      PersonFields.linkingEntryPersonalName(testDataField);
+      result = testDataField.getFieldValues("sameAs");
+      assertTrue("The altrnative id '(isil) foo bar' should exist", result.contains("(isil) foo bar"));
+      assertFalse("The altrnative URL to the other system should not be storred", result.contains("http://anywhere.edu"));
 
       testDataField = TestHelper.dataFieldFactory("withAdditionalCoding", null, "700", "a", "Jon Doh%DE3-1-2");
       PersonFields.linkingEntryPersonalName(testDataField);

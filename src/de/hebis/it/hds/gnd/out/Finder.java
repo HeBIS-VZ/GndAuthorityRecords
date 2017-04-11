@@ -28,7 +28,7 @@ import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.util.NamedList;
 
 /**
- * Erste Implementierung für eine Solr-Backend.<br/>
+ * Erste Implementierung für eine Solr-Backend.<br>
  * 
  * @author Uwe Reh (uh), HeBIS-IT
  * @version 2017-02-28 uh First try

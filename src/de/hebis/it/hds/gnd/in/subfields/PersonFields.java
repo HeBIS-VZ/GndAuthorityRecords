@@ -23,8 +23,7 @@ import org.apache.logging.log4j.Logger;
 /**
  * Methods for persons
  * <dl>
- * <dt>Referenced definitions:
- * <dt>
+ * <dt>Referenced definitions:</dt>
  * <dd>Basics: <a href="https://www.loc.gov/marc/authority/">LOC: MARC 21 Format for Authority Data</a></dd>
  * <dd>Extentions: "Normdaten (GND)" at <a href="http://www.dnb.de/DE/Standardisierung/Formate/MARC21/marc21_node.html">DNB: MARC 21</a></dd>
  * </dl>
@@ -34,18 +33,20 @@ import org.apache.logging.log4j.Logger;
  */
 public class PersonFields {
    private final static Logger LOG = LogManager.getLogger(PersonFields.class);
+
    /**
     * Alternative names in other systems &lt;datafield tag="700"&gt;.<br>
     * Subfield '$a' is taken as alias. (schema:synonyms)<br>
-    * Optional trailing informations "ABC%DE3..." will be removed -> "ABC"
-    * @param dataField 
+    * Optional trailing informations "ABC%DE3..." will be removed. Result: "ABC"
+    * 
+    * @param dataField The content of the data field
     */
    public static void linkingEntryPersonalName(DataField dataField) {
       if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
       String altName = dataField.getFirstValue("a");
       dataField.storeMultiValued("synonyms", altName.replaceAll("%DE.*", ""));
-      String altId = dataField.getFirstValue("0");
-      dataField.storeMultiValued("sameAs", altId);
+      dataField.storeValues("0", "sameAs", true, "http.+"); // no URLs
+
    }
 
 }

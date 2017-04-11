@@ -36,8 +36,8 @@ import org.apache.solr.client.solrj.impl.ConcurrentUpdateSolrClient;
 import de.hebis.it.hds.tools.streams.TextBlockSpliterator;
 
 /**
- * Import program for GND authority record files provided by the DNB.<br/>
- * The input files need to bee formated as marc21-XML.<br/>
+ * Import program for GND authority record files provided by the DNB.<br>
+ * The input files need to bee formated as marc21-XML.<br>
  * The processed records will be send to an solr index.
  * 
  * @author Uwe Reh (uh), HeBIS-IT

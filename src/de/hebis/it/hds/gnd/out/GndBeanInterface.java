@@ -20,8 +20,8 @@ package de.hebis.it.hds.gnd.out;
 import java.util.Collection;
 
 /**
- * Initialer Container für denormalisierte Normdaten.<br/>
- * Es werden nicht alle Attribute von der Normdaten abgedeckt. Der Container kann bei Berarf erweitert werden.
+ * Initialer Container für denormalisierte Normdaten.<br>
+ * Es werden nicht alle Attribute von der Normdaten abgedeckt. Der Container kann bei Bedarf erweitert werden.
  * 
  * @author Uwe Reh (uh), HeBIS-IT
  * @version 2017-02-28 uh First try
@@ -31,7 +31,7 @@ public interface GndBeanInterface {
    /**
     * Gibt die ID des Normdatensatzes aus.
     * 
-    * @return Derzeit nur die GND-ID in der Form (DE-588)<id>
+    * @return Derzeit nur die GND-ID in der Form (DE-588)&lt;id&gt;
     */
    public String getId();
 
@@ -51,7 +51,7 @@ public interface GndBeanInterface {
 
    /**
     * Gibt relationierte Begriffe des Normdatensatzes aus.<br>
-    * Hier ohne Bezeichner weil die für die Suche eher unwichtig sind.<br/>
+    * Hier ohne Bezeichner weil die für die Suche eher unwichtig sind.<br>
     * Mit den Einträgen könnte ein zusätzliches Suchfeld gefüllt werden.
     * 
     * @return Liste der relationierten Begriffe

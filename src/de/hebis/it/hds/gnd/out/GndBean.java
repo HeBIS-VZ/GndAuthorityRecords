@@ -21,8 +21,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 /**
- * Einfache Bean zur Representation eines Normdatensatzes.<br/>
- * Aus Performancegründen wurde darauf verzichtet die Bean explizit inmutable zu machen.<br/>
+ * Einfache Bean zur Representation eines Normdatensatzes.<br>
+ * Aus Performancegründen wurde darauf verzichtet die Bean explizit inmutable zu machen.<br>
  * Es sollte in den aufrufenden Klassen darauf verzichtet werden die ausgegebenen Objekte zu verändern.
  * 
  * @author Uwe Reh (uh), HeBIS-IT
@@ -35,13 +35,13 @@ public class GndBean implements GndBeanInterface {
    private Collection<Object> myRelations;
 
    /**
-    * Im Konstruktor werden alle Werte voreingestellt.<br/>
+    * Im Konstruktor werden alle Werte voreingestellt.<br>
     * Eine spätere Änderung ist nicht vorgesehen/erwünscht aber nicht explizit verhindert.
     * 
-    * @param id
-    * @param preferred
-    * @param synonyms
-    * @param relations
+    * @param id The GND-ID
+    * @param preferred The prefered notation
+    * @param synonyms Alternative notations
+    * @param relations Related objects
     */
    public GndBean(String id, String preferred, Collection<Object> synonyms, Collection<Object> relations) {
       if (id == null) throw new NullPointerException("Die Id ist ein Pflichtparameter");

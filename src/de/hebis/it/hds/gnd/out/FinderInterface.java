@@ -33,11 +33,11 @@ public interface FinderInterface {
    public GndBeanInterface getGndBean(String gndId);
 
    /**
-    * Bei nicht trivialen Implementierungen kann es sein, dass die GND noch nicht oder gerade nicht verfügbar sind.<br/>
+    * Bei nicht trivialen Implementierungen kann es sein, dass die GND noch nicht oder gerade nicht verfügbar sind.<br>
     * Die Enummeration Status informiert über den aktuellen Zustand des Store.
     * 
-    * @return Der aktuelle Statuscode wird ausgegeben. Der ausgegebene Status ist eine Momentaufname. Es ist also<br/>
-    *         nicht garantiert, dass der Status zum letzten oder Nächsten Aufruf von {@link #getGndBean(String)} passt.<br/>
+    * @return Der aktuelle Statuscode wird ausgegeben. Der ausgegebene Status ist eine Momentaufname. Es ist also<br>
+    *         nicht garantiert, dass der Status zum letzten oder Nächsten Aufruf von {@link #getGndBean(String)} passt.<br>
     *         Eine Verbale Beschreibung des Status kann mit {@link #getStatusText()} erfragt werden.
     */
    public FinderStatus getStatus();
@@ -45,8 +45,8 @@ public interface FinderInterface {
    /**
     * Als Ergänzung zu {@link #getStatus()} kann mit Dieser Methode der Status als Text ausgegeben werden.
     * 
-    * @return Die Beschreibung des aktuellen Status wird ausgegeben. Der Text kan dabei auf die Besonderheiten der Implementierung eingehen<br/>
-    *         Der Status ist dabei eine Momentaufname und musss nicht immer zu, letzen/nächsten Aufruf von {@link #getStatus()} passen.
+    * @return Die Beschreibung des aktuellen Status wird ausgegeben. Der Text kan dabei auf die Besonderheiten der Implementierung eingehen<br>
+    *         Der Status ist dabei eine Momentaufname und muss nicht immer zu, letzen/nächsten Aufruf von {@link #getStatus()} passen.
     */
    public String getStatusText();
 

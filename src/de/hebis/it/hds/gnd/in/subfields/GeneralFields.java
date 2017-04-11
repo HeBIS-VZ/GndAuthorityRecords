@@ -23,8 +23,7 @@ import org.apache.logging.log4j.Logger;
 /**
  * Methods for general subfields
  * <dl>
- * <dt>Referenced definitions:
- * <dt>
+ * <dt>Referenced definitions:</dt>
  * <dd>Basics: <a href="https://www.loc.gov/marc/authority/">LOC: MARC 21 Format for Authority Data</a></dd>
  * <dd>Extentions: "Normdaten (GND)" at <a href="http://www.dnb.de/DE/Standardisierung/Formate/MARC21/marc21_node.html">DNB: MARC 21</a></dd>
  * </dl>

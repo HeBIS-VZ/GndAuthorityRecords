@@ -34,7 +34,7 @@ public class LoaderTest {
    private static Loader loader2Test = null;
 
    /**
-    * Get a loader for all tests in this class.<br/>
+    * Get a loader for all tests in this class.<br>
     * 
     */
    @BeforeClass

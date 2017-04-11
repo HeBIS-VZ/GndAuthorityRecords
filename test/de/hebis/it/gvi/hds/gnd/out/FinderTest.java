@@ -35,7 +35,7 @@ import de.hebis.it.hds.gnd.out.FinderStatus;
 import de.hebis.it.hds.gnd.out.GndBean;
 
 /**
- * Überprüft ob der {@link Finder} geforderten Eigenschaften aufweist.<br/>
+ * Überprüft ob der {@link Finder} geforderten Eigenschaften aufweist.<br>
  * Hier wird implizit die Anbindung zu einem SolrBackend geprüft
  * 
  * @author Uwe Reh (uh), HeBIS-IT
@@ -48,11 +48,11 @@ public class FinderTest {
    private static Finder   finder  = null;
 
    /**
-    * Aufbau der Datenverbindung zum Backend (SOLR).<br/>
-    * Hinterlegen der Testdaten im Backend<br/>
+    * Aufbau der Datenverbindung zum Backend (SOLR).<br>
+    * Hinterlegen der Testdaten im Backend<br>
     * 
-    * @throws IOException
-    * @throws SolrServerException
+    * @throws IOException Indicates a Problem with the HTTP connection
+    * @throws SolrServerException Indicates a Problem with the data
     * 
     */
    @BeforeClass

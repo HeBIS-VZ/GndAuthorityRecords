@@ -43,7 +43,7 @@ public class ExampleSolrDocs {
    private static final GndBean                orwell    = new GndBean("(DE-588)118590359", "Orwell, George", collect("Blair, Eric Arthur", "Ārvel, Jārg", "Orvell, Džordž"),
          collect("Blair, Richard"));
    /**
-    * Die verkürzte Beispieldaten zum Einpielen in einen Testindex.<br/>
+    * Die verkürzte Beispieldaten zum Einpielen in einen Testindex.<br>
     * goethe:(DE-588)118540238, tucholski:(DE-588)11862444X und orwell:(DE-588)118590359
     */
    public static final List<SolrInputDocument> examples  = convertBeans2Docs();

@@ -22,9 +22,26 @@ The service has three Parts
 * A minimal configuration for the Solr index
 * [Exemplary code](GndAuthorityRecords/src/de/hebis/it/hds/gnd/in) to integrate the preprocessed synonymes into the own indexing process. e.g. [SolrMarc](https://github.com/solrmarc) 
 
-#### Notes
+# Status
+The main skeleton is quite stable but the processing of the data is in progress
+####  Initial data
+The offline package of the GND is seperated in disjunkt files
+* T_umlenk_loesch1701.mrc.xml - (todo)
+* Tbgesamt1701gnd.mrc.xml - (todo)
+* Tfgesamt1701gnd.mrc.xml - (todo)
+* Tggesamt1701gnd.mrc.xml - (todo)
+* Tngesamt1701gnd.mrc.xml - (todo)
+* Tpgesamt1701gnd.mrc.xml - Personal Names (in progress)
+* Tsgesamt1701gnd.mrc.xml - Topic Terms (done)
+* Tugesamt1701gnd.mrc.xml - (todo)
+#### Online update
+Changes in the GND are available via OAI
+* OaiUpdates - All kind (todo)
+
+# Notes
 1. The code and the config for Solr contains some optional features, beside the synonyms
-2. The approach can easy extended for authority records from additional/other sources  
+2. The approach can easy extended for authority records from additional/other sources
+3. The source contains a URL to a local installation of Solr. This resource is not public available.  
 
 #### JavaDoc
 You can find the precompiled javadoc below [doc](GndAuthorityRecords/doc) 

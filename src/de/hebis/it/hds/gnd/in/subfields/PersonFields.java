@@ -60,7 +60,7 @@ public class PersonFields {
       if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
       StringBuilder fullName = buildFormatedName(dataField);
       if ((fullName != null) && (fullName.length() > 0)) {
-         dataField.storeMultiValued("synonymes", fullName.toString());
+         dataField.storeMultiValued("synonyms", fullName.toString());
       }
       // is a 2nd pass required?
       if ("navi".equals(dataField.getSub9SubField('4'))) {

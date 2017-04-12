@@ -95,7 +95,7 @@ public class GeneralFields {
    public static void dewey(DataField dataField) {
       String ddc = dataField.getFirstValue("a");
       if (ddc == null) return;
-      String subf9 = dataField.getPseudoSubField("9", 'd');
+      String subf9 = dataField.getSub9SubField('d');
       if ((subf9 != null) && !subf9.isEmpty()) {
          ddc = subf9.substring(0, 1) + ":" + ddc;
       }

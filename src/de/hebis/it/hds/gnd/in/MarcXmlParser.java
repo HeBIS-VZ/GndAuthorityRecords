@@ -49,12 +49,13 @@ import de.hebis.it.hds.gnd.in.subfields.TopicFields;
  *
  */
 public class MarcXmlParser implements Function<List<String>, Boolean> {
-   private final static Logger          LOG                 = LogManager.getLogger(MarcXmlParser.class);
-   private final static XMLInputFactory srf                 = XMLInputFactory.newInstance();
-   private static final Integer[]       fieldList           = { 34, 35, 79, 83, 150, 550, 700, 750 };
-   private static final List<Integer>   dataFieldsToProcess = Arrays.asList(fieldList);
-   private String                       recordId            = null;
-   private SolrClient                   solrClient          = null;
+   private final static Logger          LOG                = LogManager.getLogger(MarcXmlParser.class);
+   private final static XMLInputFactory srf                = XMLInputFactory.newInstance();
+   private static final String[]        unusedfields       = { "001", "003", "005", "008", "024", "040", "043", "065", "089", "151", "336", "339", "372", "377", "380", "382", "451", "548", "667",
+         "670", "675", "678", "679", "680", "682", "692", "912", "913" };
+   private static final List<String>    dataFieldsToIgnore = Arrays.asList(unusedfields);
+   private String                       recordId           = null;
+   private SolrClient                   solrClient         = null;
 
    /**
     * Define where to store the parsed records.
@@ -112,15 +113,16 @@ public class MarcXmlParser implements Function<List<String>, Boolean> {
                   switch (rawreader.getLocalName()) {
                      case "datafield":
                         String tagId = rawreader.getAttributeValue(null, "tag");
-                        if (dataFieldsToProcess.contains(Integer.valueOf(tagId))) { // only if used
-                           if (LOG.isTraceEnabled()) LOG.trace("Found field : " + tagId);
-                           dataField = new DataField(recordId, doc);
-                           dataField.put("tag", dataField.newList(tagId));
-                           dataField.put("ind1", dataField.newList(rawreader.getAttributeValue(null, "ind1")));
-                           dataField.put("ind2", dataField.newList(rawreader.getAttributeValue(null, "ind2")));
-                        } else {
-                           if (LOG.isTraceEnabled()) LOG.trace("Skip field : " + tagId);
+                        if (dataFieldsToIgnore.contains(tagId)) {
+                           if (LOG.isTraceEnabled()) LOG.trace("Skip unused field : " + tagId);
+                           break;
                         }
+                        // only if used
+                        if (LOG.isTraceEnabled()) LOG.trace("Found field : " + tagId);
+                        dataField = new DataField(recordId, doc);
+                        dataField.put("tag", dataField.newList(tagId));
+                        dataField.put("ind1", dataField.newList(rawreader.getAttributeValue(null, "ind1")));
+                        dataField.put("ind2", dataField.newList(rawreader.getAttributeValue(null, "ind2")));
                         break;
                      case "subfield":
                         if (dataField == null) break; // Only if the field matters
@@ -179,8 +181,20 @@ public class MarcXmlParser implements Function<List<String>, Boolean> {
          case "083": // DDC
             GeneralFields.dewey(dataField);
             break;
+         case "100": // Personal name
+            PersonFields.personalName(dataField);
+            break;
          case "150": // This term/topic
             TopicFields.headingTopicalTerm(dataField);
+            break;
+         case "400": // Alternativ name
+            PersonFields.tracingPersonalName(dataField);
+            break;
+         case "450": // Alternativ term/topic
+            TopicFields.tracingTopicalTerm(dataField);
+            break;
+         case "500": // Related personal name
+            PersonFields.relatedPersonalName(dataField);
             break;
          case "550": // Related term
             TopicFields.relatedTopicalTerm(dataField);
@@ -192,7 +206,7 @@ public class MarcXmlParser implements Function<List<String>, Boolean> {
             TopicFields.linkingEntrylTopicalTerm(dataField);
             break;
          default:
-            throw new RuntimeException("Coding error: No rule to parse marc:" + dataField.get("tag").get(0));
+            LOG.warn("No Rule for " + recordId + " : " + subFieldId);
       }
       return true;
 

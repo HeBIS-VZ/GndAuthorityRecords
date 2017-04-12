@@ -6,11 +6,11 @@ Modern bibliographic search systems are mostly based on full text retrieval syst
 Meanwhile some of this back ends may emulate a 'join', they are still key-value stores. For this it will be in 
 most cases better, to expand the authority records external. 
 
-#### Expanding authority records while indexing vs. while searching
+### Expanding authority records while indexing vs. while searching
 * Expanding the synonymes while searching is a straight forward strategy, but it is hard to handle complex synonymes like "big apple" to "new york city". Also it may limit the response time of the system.
 * Expanding the synonymes while searching is not that flexible, but at index time the kind of the authority record (topic term, personal name, ...) is known. So it is easy to handle complex synonyms.
  
-#### Static file vs. service for synonymes
+### Static file vs. service for synonymes
 * A static file is easy to handle, but for a great collection of authority records may grow to a size of some Gb. This doesn't matte for a complete build of the index, but loading such a big file for every update of a bibliographic record is inefficient.
 * A background service is slight more complex, but does not slow down the startup of the index or the update. On the other hand, a service may increase the time needed to build a new index. This disadvantage can be avoided with a cache. 
 
@@ -24,7 +24,7 @@ The service has three Parts
 
 # Status
 The main skeleton is quite stable but the processing of the data is in progress
-####  Initial data
+###  Initial data
 The offline package of the GND is seperated in disjunkt files
 * T_umlenk_loesch1701.mrc.xml - (todo)
 * Tbgesamt1701gnd.mrc.xml - (todo)
@@ -43,10 +43,10 @@ Changes in the GND are available via OAI
 2. The approach can easy extended for authority records from additional/other sources
 3. The source contains a URL to a local installation of Solr. This resource is not public available.  
 
-#### JavaDoc
+### JavaDoc
 You can find the precompiled javadoc below [doc](GndAuthorityRecords/doc) 
 
-#### Compatibility
+### Compatibility
 The code uses features of Java8 and needs libraries from following projects:
 * [Log4j 2](https://logging.apache.org/log4j/2.x/)
 * [SolrJ](http://lucene.apache.org/solr/)

@@ -152,13 +152,12 @@ public class DataField extends HashMap<String, List<String>> {
     * Get a DNB pseudo subfield.<br>
     * This extension to 'normal' fields is coded by an leading character and colon to the value.
     * 
-    * @param subFieldCode Identifier of the extended subfield. (mostly '4' or '9')
-    * @param extentionCode Additional identifier.
+    * @param extentionCode Additional identifier. (mostly '4')
     * @return The stripped value or NULL if the requested pseudo subfield isn'present.
     */
-   public String getPseudoSubField(String subFieldCode, char extentionCode) {
+   public String getSub9SubField(char extentionCode) {
       String startPattern = extentionCode + ":";
-      for (String subf9 : getValues(subFieldCode)) {
+      for (String subf9 : getValues("9")) {
          if (subf9.startsWith(startPattern)) return subf9.substring(2);
       }
       return null;

@@ -93,7 +93,7 @@ public class GeoFields {
    }
 
    static char getCoding(DataField dataField) {
-      String coding = dataField.getPseudoSubField("9", 'A');
+      String coding = dataField.getSub9SubField('A');
       if ((coding != null) && !coding.isEmpty()) return coding.charAt(0);
       // Try to detect the coding
       String minLon = dataField.getFirstValue("d");

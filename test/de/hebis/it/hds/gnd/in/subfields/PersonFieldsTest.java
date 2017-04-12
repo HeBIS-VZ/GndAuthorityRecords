@@ -32,6 +32,37 @@ import org.junit.Test;
 public class PersonFieldsTest {
 
    /**
+    * personal name (data field 100)
+    */
+   @Test
+   public void personalName() {
+      DataField testDataField = TestHelper.dataFieldFactory("(DE-588)100000096", null, "100", "a", "Ambrosius");
+      TestHelper.addSubField(testDataField, "b", "III");
+      TestHelper.addSubField(testDataField, "c", "de Lombez", "other title");
+      PersonFields.personalName(testDataField);
+      Collection<Object> result = testDataField.getFieldValues("preferred");
+      assertTrue("A name is expected", (result != null));
+      assertTrue("The combined name 'Ambrosius III <de Lombez> <other title>' should exist", result.contains("Ambrosius III <de Lombez> <other title>"));
+   }
+   
+   /**
+    * Check related terms and related ids (data field 500)
+    */
+   @Test
+   public void relatedPersonalName() {
+      DataField testDataField = TestHelper.dataFieldFactory("(DE-588)100000193", null, "500", "a", "Bauer, Heinrich Gottfried");
+      TestHelper.addSubField(testDataField, "0", "(DE-101)121453839", "(DE-588)121453839", "http://d-nb.info/gnd/121453839");
+      TestHelper.addSubField(testDataField, "9", "4:bezf", "v:Sohn");
+      PersonFields.relatedPersonalName(testDataField);
+      Collection<Object> result = testDataField.getFieldValues("related");
+      assertTrue("A related Name is expected", (result != null));
+      assertTrue("A related term should to be 'Bauer, Heinrich Gottfried'", result.contains("Bauer, Heinrich Gottfried"));
+      result = testDataField.getFieldValues("relatedIds");
+      assertTrue("Related ids are expected", (result != null));
+      assertTrue("One related id should to be '(DE-588)121453839'", result.contains("(DE-588)121453839"));
+   }
+   
+   /**
     * Alternative names from other Systems (data field 700)
     */
    @Test

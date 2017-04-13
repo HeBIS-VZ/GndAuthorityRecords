@@ -62,11 +62,7 @@ public class PersonFields {
       if ((fullName != null) && (fullName.length() > 0)) {
          dataField.storeMultiValued("synonyms", fullName.toString());
       }
-      // is a 2nd pass required?
-      if ("navi".equals(dataField.getSub9SubField('4'))) {
-         if (LOG.isDebugEnabled()) LOG.debug(dataField.getRecordId() + ": Real name in synonyms found.");
-         dataField.replaceUnique("look4me", "true");
-      }
+      checkRealName(dataField);
    }
 
    /**
@@ -80,6 +76,7 @@ public class PersonFields {
       if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
       dataField.storeValues("0", "relatedIds", true, "https?://d-nb.info.*"); // dismiss redundant URI
       dataField.storeValues("a", "related", true, null);
+      checkRealName(dataField);
    }
 
    /**
@@ -92,9 +89,25 @@ public class PersonFields {
    public static void linkingEntryPersonalName(DataField dataField) {
       if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
       String altName = dataField.getFirstValue("a");
-      if (altName != null) dataField.storeMultiValued("synonyms", altName.replaceAll("%DE.*", ""));
+      if (altName == null) return;
+      dataField.storeMultiValued("synonyms", altName.replaceAll("%DE.*", ""));
       dataField.storeValues("0", "sameAs", true, "http.+"); // no URLs
 
+   }
+
+   /**
+    * Looks for the relation code "nawi", which means 'name, wirklicher=real'<br>
+    * This case needs a second pass to get from the main (real) entry the other synonyms.<br>
+    * If a real name is given the flag (schema:look4me) will be set.
+    * 
+    * @param dataField
+    */
+   private static void checkRealName(DataField dataField) {
+      // is a 2nd pass required?
+      if ("navi".equals(dataField.getSub9SubField('4'))) {
+         if (LOG.isDebugEnabled()) LOG.debug(dataField.getRecordId() + ": Real name in synonyms found.");
+         dataField.replaceUnique("look4me", "true");
+      }
    }
 
    private static StringBuilder buildFormatedName(DataField dataField) {

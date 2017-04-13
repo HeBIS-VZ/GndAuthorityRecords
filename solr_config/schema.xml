@@ -173,7 +173,7 @@
       multiValued="false" />
       
    <fieldType 
-      name=location_rpt" 
+      name="location_rpt" 
       class="solr.SpatialRecursivePrefixTreeFieldType" 
       geo="true" 
       distErrPct="0.025"

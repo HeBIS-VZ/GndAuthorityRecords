@@ -92,7 +92,7 @@ public class PersonFields {
    public static void linkingEntryPersonalName(DataField dataField) {
       if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
       String altName = dataField.getFirstValue("a");
-      dataField.storeMultiValued("synonyms", altName.replaceAll("%DE.*", ""));
+      if (altName != null) dataField.storeMultiValued("synonyms", altName.replaceAll("%DE.*", ""));
       dataField.storeValues("0", "sameAs", true, "http.+"); // no URLs
 
    }

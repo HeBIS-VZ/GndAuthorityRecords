@@ -45,7 +45,7 @@ public class GeoFieldsTest {
       GeoFields.coordinates(testDataField);
       Collection<Object> result = testDataField.getFieldValues("coordinates");
       assertTrue("Coordinates (degree) should exist", (result != null));
-      assertTrue("Coordinates (degree) should be '54.6944 15.9875'.", result.contains("54.6944 15.9875"));
+      assertTrue("Coordinates (degree) should be '54.6944, 15.9875'.", result.contains("54.6944, 15.9875"));
       // reference
       result = testDataField.getFieldValues("sameAs");
       assertTrue("URL to geonames should exist.", (result != null));
@@ -67,7 +67,7 @@ public class GeoFieldsTest {
       GeoFields.coordinates(testDataField);
       Collection<Object> result = testDataField.getFieldValues("coordinates");
       assertTrue("Coordinates (decimal) should exist", (result != null));
-      assertTrue("Coordinates (decimal) should be '54.694401 15.987501'.", result.contains("54.694401 15.987501"));
+      assertTrue("Coordinates (decimal) should be '54.694401, 15.987501'.", result.contains("54.694401, 15.987501"));
       // reference
       result = testDataField.getFieldValues("sameAs");
       assertTrue("URL to geonames should exist.", (result != null));

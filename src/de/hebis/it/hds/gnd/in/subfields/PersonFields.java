@@ -42,7 +42,7 @@ public class PersonFields {
     * 
     * @param dataField The content of the data field
     */
-   public static void personalName(DataField dataField) {
+   public static void headingPersonalName(DataField dataField) {
       if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
       StringBuilder fullName = buildFormatedName(dataField);
       if ((fullName != null) && (fullName.length() > 0)) {
@@ -67,32 +67,26 @@ public class PersonFields {
 
    /**
     * Related personal names &lt;datafield tag="500"&gt;.<br>
-    * Subfield '$0' into (schema:relatedIds)<br>
-    * Subfield '$a' into (schema:related)<br>
+    * see: {@link GenericFields#related(DataField)}<br>
+    * If this name is the real name set Flag for 2nd pass
     * 
     * @param dataField The content of the data field
     */
    public static void relatedPersonalName(DataField dataField) {
       if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
-      dataField.storeValues("0", "relatedIds", true, "https?://d-nb.info.*"); // dismiss redundant URI
-      dataField.storeValues("a", "related", true, null);
+      GenericFields.related(dataField);
       checkRealName(dataField);
    }
 
    /**
     * Alternative names in other systems &lt;datafield tag="700"&gt;.<br>
-    * Subfield '$a' is taken as alias. (schema:synonyms)<br>
-    * Optional trailing informations "ABC%DE3..." will be removed. Result: "ABC"
+    * see: {@link GenericFields#linkingEntry(DataField, String)} Optional trailing informations starting with "%DE" are be removed. "ABC%DE3..." will result in "ABC"
     * 
     * @param dataField The content of the data field
     */
    public static void linkingEntryPersonalName(DataField dataField) {
       if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
-      String altName = dataField.getFirstValue("a");
-      if (altName == null) return;
-      dataField.storeMultiValued("synonyms", altName.replaceAll("%DE.*", ""));
-      dataField.storeValues("0", "sameAs", true, "http.+"); // no URLs
-
+      GenericFields.linkingEntry(dataField, "%DE.*");
    }
 
    /**
@@ -104,7 +98,7 @@ public class PersonFields {
     */
    private static void checkRealName(DataField dataField) {
       // is a 2nd pass required?
-      if ("navi".equals(dataField.getSub9SubField('4'))) {
+      if ("nawi".equals(dataField.getSub9SubField('4'))) {
          if (LOG.isDebugEnabled()) LOG.debug(dataField.getRecordId() + ": Real name in synonyms found.");
          dataField.replaceUnique("look4me", "true");
       }
@@ -114,7 +108,7 @@ public class PersonFields {
       // name
       String name = dataField.getFirstValue("a");
       if (name == null) {
-         LOG.warn(dataField.getRecordId() + ": Field 100 without $a.");
+         LOG.warn(dataField.getRecordId() + ": Field [45]00 without $a.");
          return null;
       }
       StringBuilder fullName = new StringBuilder();

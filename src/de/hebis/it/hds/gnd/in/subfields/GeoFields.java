@@ -75,7 +75,53 @@ public class GeoFields {
       String sameAs = dataField.getFirstValue("0");
       if (sameAs != null) dataField.storeMultiValued("sameAs", sameAs);
    }
+   
+   /**
+    * Geoname &lt;datafield tag="151"&gt;.<br>
+    * see: {@link GenericFields#heading(DataField)}
+    * 
+    * @param dataField The content of the data field
+    */
 
+   public static void headingGeoName(DataField dataField) {
+      if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
+      GenericFields.heading(dataField);
+   }
+   
+   /**
+    * Alternative geonames &lt;datafield tag="451"&gt;.<br>
+    * see: {@link GenericFields#tracing(DataField)}
+    * 
+    * @param dataField The content of the data field
+    */
+   public static void tracingGeoName(DataField dataField) {
+      if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
+      GenericFields.tracing(dataField);
+   }
+
+
+   /**
+    * Related geographic names &lt;datafield tag="551"&gt;.<br>
+    * see: {@link GenericFields#related(DataField)}
+    * 
+    * @param dataField The content of the data field
+    */
+   public static void relatedGeoName(DataField dataField) {
+      if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
+      GenericFields.related(dataField);
+   }
+
+   /**
+    * Alternative names in other systems &lt;datafield tag="751"&gt;.<br>
+    * see: {@link GenericFields#linkingEntry(DataField, String)}
+    * 
+    * @param dataField The content of the data field
+    */
+   public static void linkingEntryGeoName(DataField dataField) {
+      if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
+      GenericFields.linkingEntry(dataField, null);
+   }
+   
    private static Double toNormalizedDecimal(String in, char codingSchema) {
       String data = in.replaceAll("[^\\w.]", "");
       if (codingSchema == 'a') { // convert degree minutes and seconds to decimal

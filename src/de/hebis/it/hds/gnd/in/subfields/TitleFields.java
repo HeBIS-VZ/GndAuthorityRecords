@@ -29,63 +29,52 @@ import org.apache.logging.log4j.Logger;
  * </dl>
  *
  * @author Uwe Reh (uh), HeBIS-IT
- * @version 30.03.2017 uh initial
+ * @version 28.04.2017 uh initial
  */
-public class TopicFields {
-   private final static Logger LOG = LogManager.getLogger(TopicFields.class);
+public class TitleFields {
+   private final static Logger LOG = LogManager.getLogger(TitleFields.class);
 
    /**
-    * Topic term &lt;datafield tag="150"&gt;.<br>
+    * Title term &lt;datafield tag="130"&gt;.<br>
     * see: {@link GenericFields#heading(DataField)}
     * 
     * @param dataField The content of the data field
     */
 
-   public static void headingTopicalTerm(DataField dataField) {
+   public static void headingTitle(DataField dataField) {
       if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
       GenericFields.heading(dataField);
    }
 
    /**
-    * Complex See Reference-Subject &lt;datafield tag="260"&gt;.<br>
-    * see: {@link GenericFields#complexSeeReference(DataField)}
-    * 
-    * @param dataField The content of the data field
-    */
-   public static void complexSeeReferenceTerm(DataField dataField) {
-      if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
-      GenericFields.complexSeeReference(dataField);
-   }
-
-   /**
-    * Alternative terms &lt;datafield tag="450"&gt;.<br>
+    * Alternative title &lt;datafield tag="430"&gt;.<br>
     * see: {@link GenericFields#tracing(DataField)}
     * 
     * @param dataField The content of the data field
     */
-   public static void tracingTopicalTerm(DataField dataField) {
+   public static void tracingTitle(DataField dataField) {
       if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
       GenericFields.tracing(dataField);
    }
 
    /**
-    * Related terms &lt;datafield tag="550"&gt;.<br>
+    * Related title &lt;datafield tag="530"&gt;.<br>
     * see: {@link GenericFields#related(DataField)}
     * 
     * @param dataField The content of the data field
     */
-   public static void relatedTopicalTerm(DataField dataField) {
+   public static void relatedTitle(DataField dataField) {
       if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
       GenericFields.related(dataField);
    }
 
    /**
-    * Alternative names in other systems &lt;datafield tag="750"&gt;.<br>
+    * Alternative titles in other systems &lt;datafield tag="730"&gt;.<br>
     * see: {@link GenericFields#linkingEntry(DataField, String)}
     * 
     * @param dataField The content of the data field
     */
-   public static void linkingEntryTopicalTerm(DataField dataField) {
+   public static void linkingEntryTitle(DataField dataField) {
       if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
       GenericFields.linkingEntry(dataField, null);
    }

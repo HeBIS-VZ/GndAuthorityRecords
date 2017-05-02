@@ -19,6 +19,7 @@ package de.hebis.it.hds.gnd.in;
 
 import java.io.IOException;
 import java.net.URI;
+import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -92,5 +93,25 @@ public class Loader {
          LOG.error("Failed sending final commit for:" + marcXmlFile.toString() + " to " + server.toString(), e);
          throw new RuntimeException(e);
       }
+   }
+
+   public static void main(String[] args) throws URISyntaxException {
+      if (args.length == 0) printHelp("At least one URI or filepath is needed.");
+      Loader me = new Loader("http://zantafino.hebis.uni-frankfurt.de:3001/solr/GND_01");
+      for (String filepath : args) {
+         System.out.println("GndLoader: process " + filepath);
+         if (filepath.toLowerCase().startsWith("file")) me.load(new URI(filepath));
+         else if (filepath.charAt(0) == '/') me.load(new URI("file:" + filepath));
+         else printHelp("Dont't know how to handle \"" + filepath + "\".");
+      }
+      System.out.println("\n--- Fertsch --\n");
+   }
+
+   private static void printHelp(String msg) {
+      System.out.println("\n\nLoader");
+      System.out.println("  Msg: " + msg);
+      System.out.println("  Params: List of URIs or absolut Filenames to import.");
+      System.out.println("  Example: java Loader file:/home/user/git/GndNormDaten/test/de/hebis/it/hds/gnd/in/data/Ts.mrc.xml /home/user/git/GndNormDaten/test/de/hebis/it/hds/gnd/in/data/Tp.mrc.xml");
+      System.exit(-1);
    }
 }

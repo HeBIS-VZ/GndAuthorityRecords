@@ -40,7 +40,7 @@ public class GeneralFields {
     * Other ids are stored as reference. (schema:sameAs)
     * 
     * @param dataField The content of the data field
-    * @return The found id or NULL if 035$a is empty
+    * @return The found id, or the last known id if 035$a is empty
     */
    public static String id(DataField dataField) {
       String testId = dataField.getFirstValue("a");
@@ -101,6 +101,11 @@ public class GeneralFields {
       }
       if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": Store dewey: " + ddc);
       dataField.storeMultiValued("ddc", ddc);
+   }
+
+   public static void controllInfos(DataField dataField) {
+      // TODO Auto-generated method stub
+      
    }
 
 }

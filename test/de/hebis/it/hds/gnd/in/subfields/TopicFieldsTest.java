@@ -50,16 +50,17 @@ public class TopicFieldsTest {
     */
    @Test
    public void complexSeeReferenceTerm() {
-      DataField testDataField = TestHelper.dataFieldFactory("testid", null, "260", "a", "hip hop");
-      TestHelper.addSubField(testDataField, "0", "foo", "http://d-nb.info/gnd/4027242-4", "https://d-nb.info/gnd/4027242-4");
+      DataField testDataField = TestHelper.dataFieldFactory("(DE-588)4153935-7", null, "260", "a", "Feldforschung");
+      TestHelper.addSubField(testDataField, "0", "foo", "(DE-588)4016674-0", "https://d-nb.info/gnd/4016674-0");
       TopicFields.complexSeeReferenceTerm(testDataField);
       // check side effects
       Collection<Object> result = testDataField.getFieldValues("synonyms");
       assertTrue("A complex term is expected", (result != null));
-      assertTrue("The complex term 'hip hop' should exist", result.contains("hip hop"));
+      assertTrue("The complex term 'Feldforschung' should exist", result.contains("Feldforschung"));
       result = testDataField.getFieldValues("seeAlso");
       assertTrue("Similar ids are expected", (result != null));
-      assertFalse("The related id 'https://d-nb.info/gnd/4027242-4' should be dismissed", result.contains("https://d-nb.info/gnd/4027242-4"));
+      assertTrue("The related id '(DE-588)4016674-0' should be storred", result.contains("(DE-588)4016674-0"));
+      assertFalse("The related id 'https://d-nb.info/gnd/4016674-0' should be dismissed", result.contains("https://d-nb.info/gnd/4016674-0"));
    }
 
    /**

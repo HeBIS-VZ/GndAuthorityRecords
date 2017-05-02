@@ -35,16 +35,44 @@ public class PersonFieldsTest {
     * personal name (data field 100)
     */
    @Test
-   public void personalName() {
+   public void headingPersonalName() {
       DataField testDataField = TestHelper.dataFieldFactory("(DE-588)100000096", null, "100", "a", "Ambrosius");
       TestHelper.addSubField(testDataField, "b", "III");
       TestHelper.addSubField(testDataField, "c", "de Lombez", "other title");
-      PersonFields.personalName(testDataField);
+      PersonFields.headingPersonalName(testDataField);
       Collection<Object> result = testDataField.getFieldValues("preferred");
       assertTrue("A name is expected", (result != null));
       assertTrue("The combined name 'Ambrosius III <de Lombez> <other title>' should exist", result.contains("Ambrosius III <de Lombez> <other title>"));
    }
-   
+
+   /**
+    * Check alternative names (data field 400)
+    */
+   @Test
+   public void tracingFakePersonalName() {
+      DataField testDataField = TestHelper.dataFieldFactory("(DE-588)11862444X", null, "400", "a", "Old Shatterhand");
+      TestHelper.addSubField(testDataField, "9", "4:pseu");
+      PersonFields.tracingPersonalName(testDataField);
+      Collection<Object> result = testDataField.getFieldValues("synonyms");
+      assertTrue("A synonym is expected", (result != null));
+      assertTrue("The synonym 'Old Shatterhand' should exist", result.contains("Old Shatterhand"));
+      result = testDataField.getFieldValues("look4me");
+      if (result != null) assertTrue("The flag 'look4me should be missig or to be false", result.contains("false"));
+   }
+
+   /**
+    * Check real names (data field 400)
+    */
+   @Test
+   public void tracingRealPersonalName() {
+      DataField testDataField = TestHelper.dataFieldFactory("(DE-588)100004687", null, "400", "a", "Groll, Georg");
+      TestHelper.addSubField(testDataField, "9", "4:nawi");
+      PersonFields.tracingPersonalName(testDataField);
+      Collection<Object> result = testDataField.getFieldValues("look4me");
+      assertTrue("The flag 'look4me' has to be set", (result != null));
+      if (result != null) assertTrue("The flag 'look4me' has to be true", result.contains("true"));
+   }
+
    /**
     * Check related terms and related ids (data field 500)
     */
@@ -61,7 +89,7 @@ public class PersonFieldsTest {
       assertTrue("Related ids are expected", (result != null));
       assertTrue("One related id should to be '(DE-588)121453839'", result.contains("(DE-588)121453839"));
    }
-   
+
    /**
     * Alternative names from other Systems (data field 700)
     */

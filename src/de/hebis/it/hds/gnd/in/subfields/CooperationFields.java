@@ -29,63 +29,52 @@ import org.apache.logging.log4j.Logger;
  * </dl>
  *
  * @author Uwe Reh (uh), HeBIS-IT
- * @version 30.03.2017 uh initial
+ * @version 28.04.2017 uh initial
  */
-public class TopicFields {
-   private final static Logger LOG = LogManager.getLogger(TopicFields.class);
+public class CooperationFields {
+   private final static Logger LOG = LogManager.getLogger(CooperationFields.class);
 
    /**
-    * Topic term &lt;datafield tag="150"&gt;.<br>
+    * Name of the cooperation &lt;datafield tag="110"&gt;.<br>
     * see: {@link GenericFields#heading(DataField)}
     * 
     * @param dataField The content of the data field
     */
 
-   public static void headingTopicalTerm(DataField dataField) {
+   public static void headingCooperationName(DataField dataField) {
       if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
       GenericFields.heading(dataField);
    }
 
    /**
-    * Complex See Reference-Subject &lt;datafield tag="260"&gt;.<br>
-    * see: {@link GenericFields#complexSeeReference(DataField)}
-    * 
-    * @param dataField The content of the data field
-    */
-   public static void complexSeeReferenceTerm(DataField dataField) {
-      if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
-      GenericFields.complexSeeReference(dataField);
-   }
-
-   /**
-    * Alternative terms &lt;datafield tag="450"&gt;.<br>
+    * Alternative names &lt;datafield tag="410"&gt;.<br>
     * see: {@link GenericFields#tracing(DataField)}
     * 
     * @param dataField The content of the data field
     */
-   public static void tracingTopicalTerm(DataField dataField) {
+   public static void tracingCooperationName(DataField dataField) {
       if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
       GenericFields.tracing(dataField);
    }
 
    /**
-    * Related terms &lt;datafield tag="550"&gt;.<br>
+    * Related names &lt;datafield tag="510"&gt;.<br>
     * see: {@link GenericFields#related(DataField)}
     * 
     * @param dataField The content of the data field
     */
-   public static void relatedTopicalTerm(DataField dataField) {
+   public static void relatedCooperationName(DataField dataField) {
       if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
       GenericFields.related(dataField);
    }
 
    /**
-    * Alternative names in other systems &lt;datafield tag="750"&gt;.<br>
+    * Alternative names in other systems &lt;datafield tag="710"&gt;.<br>
     * see: {@link GenericFields#linkingEntry(DataField, String)}
     * 
     * @param dataField The content of the data field
     */
-   public static void linkingEntryTopicalTerm(DataField dataField) {
+   public static void linkingEntryCooperationName(DataField dataField) {
       if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
       GenericFields.linkingEntry(dataField, null);
    }

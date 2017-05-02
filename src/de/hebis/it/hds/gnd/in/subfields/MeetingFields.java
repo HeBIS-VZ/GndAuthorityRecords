@@ -29,10 +29,10 @@ import org.apache.logging.log4j.Logger;
  * </dl>
  *
  * @author Uwe Reh (uh), HeBIS-IT
- * @version 30.03.2017 uh initial
+ * @version 28.04.2017 uh initial
  */
-public class TopicFields {
-   private final static Logger LOG = LogManager.getLogger(TopicFields.class);
+public class MeetingFields {
+   private final static Logger LOG = LogManager.getLogger(MeetingFields.class);
 
    /**
     * Topic term &lt;datafield tag="150"&gt;.<br>
@@ -41,20 +41,9 @@ public class TopicFields {
     * @param dataField The content of the data field
     */
 
-   public static void headingTopicalTerm(DataField dataField) {
+   public static void headingMeetingName(DataField dataField) {
       if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
       GenericFields.heading(dataField);
-   }
-
-   /**
-    * Complex See Reference-Subject &lt;datafield tag="260"&gt;.<br>
-    * see: {@link GenericFields#complexSeeReference(DataField)}
-    * 
-    * @param dataField The content of the data field
-    */
-   public static void complexSeeReferenceTerm(DataField dataField) {
-      if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
-      GenericFields.complexSeeReference(dataField);
    }
 
    /**
@@ -63,7 +52,7 @@ public class TopicFields {
     * 
     * @param dataField The content of the data field
     */
-   public static void tracingTopicalTerm(DataField dataField) {
+   public static void tracingMeetingName(DataField dataField) {
       if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
       GenericFields.tracing(dataField);
    }
@@ -74,7 +63,7 @@ public class TopicFields {
     * 
     * @param dataField The content of the data field
     */
-   public static void relatedTopicalTerm(DataField dataField) {
+   public static void relatedMeetingName(DataField dataField) {
       if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
       GenericFields.related(dataField);
    }
@@ -85,7 +74,7 @@ public class TopicFields {
     * 
     * @param dataField The content of the data field
     */
-   public static void linkingEntryTopicalTerm(DataField dataField) {
+   public static void linkingEntryMeetingName(DataField dataField) {
       if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
       GenericFields.linkingEntry(dataField, null);
    }

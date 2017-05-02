@@ -34,10 +34,13 @@ import org.apache.solr.client.solrj.SolrClient;
 import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.common.SolrInputDocument;
 
+import de.hebis.it.hds.gnd.in.subfields.CooperationFields;
 import de.hebis.it.hds.gnd.in.subfields.DataField;
 import de.hebis.it.hds.gnd.in.subfields.GeneralFields;
 import de.hebis.it.hds.gnd.in.subfields.GeoFields;
+import de.hebis.it.hds.gnd.in.subfields.MeetingFields;
 import de.hebis.it.hds.gnd.in.subfields.PersonFields;
+import de.hebis.it.hds.gnd.in.subfields.TitleFields;
 import de.hebis.it.hds.gnd.in.subfields.TopicFields;
 
 /**
@@ -51,8 +54,8 @@ import de.hebis.it.hds.gnd.in.subfields.TopicFields;
 public class MarcXmlParser implements Function<List<String>, Boolean> {
    private final static Logger          LOG                = LogManager.getLogger(MarcXmlParser.class);
    private final static XMLInputFactory srf                = XMLInputFactory.newInstance();
-   private static final String[]        unusedfields       = { "001", "003", "005", "008", "024", "040", "043", "065", "089", "151", "336", "339", "372", "377", "380", "382", "451", "548", "667",
-         "670", "675", "678", "679", "680", "682", "692", "912", "913" };
+   private static final String[]        unusedfields       = { "001", "003", "005", "008", "024", "040", "043", "065", "089", "336", "339", "372", "375", "377", "380", "382", "383", "384", "548",
+         "667", "670", "675", "678", "679", "680", "682", "692", "912", "913" };
    private static final List<String>    dataFieldsToIgnore = Arrays.asList(unusedfields);
    private String                       recordId           = null;
    private SolrClient                   solrClient         = null;
@@ -100,6 +103,7 @@ public class MarcXmlParser implements Function<List<String>, Boolean> {
       XMLStreamReader rawreader = null;
       DataField dataField = null;
       recordId = null;
+      char recordType = 'n'; // New/Normal
       try {
          rawreader = srf.createXMLStreamReader(new ByteArrayInputStream(xmlRecord.getBytes("UTF-8")), "UTF-8");
       } catch (Exception e) {
@@ -111,11 +115,22 @@ public class MarcXmlParser implements Function<List<String>, Boolean> {
             switch (rawreader.getEventType()) {
                case XMLStreamConstants.START_ELEMENT:
                   switch (rawreader.getLocalName()) {
+                     case "leader":
+                        if (LOG.isTraceEnabled()) LOG.trace("Process leader.");
+                        recordType = readTypeFromLeader(rawreader);
+                        break;
                      case "datafield":
                         String tagId = rawreader.getAttributeValue(null, "tag");
-                        if (dataFieldsToIgnore.contains(tagId)) {
-                           if (LOG.isTraceEnabled()) LOG.trace("Skip unused field : " + tagId);
-                           break;
+                        if (recordType == 'n') { // Normal authority record
+                           if (dataFieldsToIgnore.contains(tagId)) {
+                              if (LOG.isTraceEnabled()) LOG.trace("Skip unused field : " + tagId);
+                              break;
+                           }
+                        } else { // Control record, only the '682' data field needs to be evaluated
+                           if (!"682".equals(tagId)) {
+                              if (LOG.isTraceEnabled()) LOG.trace("Skip unused field in control record : " + tagId);
+                              break;
+                           }
                         }
                         // only if used
                         if (LOG.isTraceEnabled()) LOG.trace("Found field : " + tagId);
@@ -156,6 +171,11 @@ public class MarcXmlParser implements Function<List<String>, Boolean> {
       if (LOG.isTraceEnabled()) LOG.trace("Record is send.");
    }
 
+   private char readTypeFromLeader(XMLStreamReader rawreader) {
+      // TODO Auto-generated method stub
+      return 0;
+   }
+
    /**
     * Interpret a single marcXML 'datafield'
     * 
@@ -182,28 +202,79 @@ public class MarcXmlParser implements Function<List<String>, Boolean> {
             GeneralFields.dewey(dataField);
             break;
          case "100": // Personal name
-            PersonFields.personalName(dataField);
+            PersonFields.headingPersonalName(dataField);
+            break;
+         case "110": // Cooperation name
+            CooperationFields.headingCooperationName(dataField);
+            break;
+         case "111": // Meeting name
+            MeetingFields.headingMeetingName(dataField);
+            break;
+         case "130": // Title name
+            TitleFields.headingTitle(dataField);
             break;
          case "150": // This term/topic
             TopicFields.headingTopicalTerm(dataField);
             break;
-         case "400": // Alternativ name
+         case "151": // This term/topic
+            GeoFields.headingGeoName(dataField);
+            break;
+         case "400": // Alternative name
             PersonFields.tracingPersonalName(dataField);
             break;
-         case "450": // Alternativ term/topic
+         case "410": // Alternative cooperation name
+            CooperationFields.tracingCooperationName(dataField);
+            break;
+         case "411": // Alternative meeting name
+            MeetingFields.tracingMeetingName(dataField);
+            break;
+         case "430": // Alternative title
+            TitleFields.tracingTitle(dataField);
+            break;
+         case "450": // Alternative term/topic
             TopicFields.tracingTopicalTerm(dataField);
+            break;
+         case "451": // Alternative geoname
+            GeoFields.tracingGeoName(dataField);
             break;
          case "500": // Related personal name
             PersonFields.relatedPersonalName(dataField);
             break;
+         case "510": // Related cooperation
+            CooperationFields.relatedCooperationName(dataField);
+            break;
+         case "511": // Related meeting
+            MeetingFields.relatedMeetingName(dataField);
+            break;
+         case "530": // Related uniform title
+            TitleFields.relatedTitle(dataField);
+            break;
          case "550": // Related term
             TopicFields.relatedTopicalTerm(dataField);
+            break;
+         case "551": // Related geographic name
+            GeoFields.relatedGeoName(dataField);
+            break;
+         case "682": // Infos for control records TODO
+            GeneralFields.controllInfos(dataField);
             break;
          case "700": // Alternative name for person in other system
             PersonFields.linkingEntryPersonalName(dataField);
             break;
+         case "710": // Alternative cooperation name in other system
+            CooperationFields.linkingEntryCooperationName(dataField);
+            break;
+         case "711": // Alternative meeting name in other system
+            MeetingFields.linkingEntryMeetingName(dataField);
+            break;
+         case "730": // Alternative title in other system
+            TitleFields.linkingEntryTitle(dataField);
+            break;
          case "750": // Alternative name for topic in other system
-            TopicFields.linkingEntrylTopicalTerm(dataField);
+            TopicFields.linkingEntryTopicalTerm(dataField);
+            break;
+         case "751": // Alternative name for topic in other system
+            GeoFields.linkingEntryGeoName(dataField);
             break;
          default:
             LOG.warn("No Rule for " + recordId + " : " + subFieldId);

@@ -17,6 +17,7 @@
  */
 package de.hebis.it.hds.gnd.in.subfields;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Collection;
@@ -92,7 +93,71 @@ public class GeoFieldsTest {
       assertTrue("URL to geonames should exist.", (result != null));
       assertTrue("The URL should be 'http://sws.geonames.org/3103556'.", result.contains("http://sws.geonames.org/3103556"));
    }
+   
+   /**
+    * Check geoname (data field 151)
+    */
+   @Test
+   public void headingGeoName() {
+      DataField testDataField = TestHelper.dataFieldFactory("(DE-588)6560-2", null, "151", "a", "Uschlag");
+      GeoFields.headingGeoName(testDataField);
+      // check side effects
+      Collection<Object> result = testDataField.getFieldValues("preferred");
+      assertTrue("The preferred term is mandatory", (result != null));
+      assertTrue("The preferred term  has to be unique", (result.size() == 1));
+      assertTrue("The preferred term should be 'Uschlag'.", result.contains("Uschlag"));
+   }
+   
+   /**
+    * Check alternative geonames (data field 451)
+    */
+   @Test
+   public void tracingGeoName() {
+      DataField testDataField = TestHelper.dataFieldFactory("(DE-588)7343-X", null, "451", "a", "Imperio do Brazil", "Brasilien");
+      GeoFields.tracingGeoName(testDataField);
+      // check side effects
+      Collection<Object> result = testDataField.getFieldValues("synonyms");
+      assertTrue("A synonym is expected", (result != null));
+      assertTrue("The synonym 'Brasilien' should exist", result.contains("Brasilien"));
+   }
 
+   /**
+    * Check related geonames and related ids (data field 551)
+    */
+   @Test
+   public void relatedGeoName() {
+      DataField testDataField = TestHelper.dataFieldFactory("(DE-588)6560-2", null, "551", "a", "Staufenberg");
+      TestHelper.addSubField(testDataField, "0", "(DE-588)2001843-5", "http://d-nb.info/gnd/2001843-5");
+      GeoFields.relatedGeoName(testDataField);
+      // check side effects
+      Collection<Object> result = testDataField.getFieldValues("related");
+      assertTrue("A related term is expected", (result != null));
+      assertTrue("Exact one related term is expected", (result.size() == 1));
+      assertTrue("The related term should to be 'Staufenberg'", result.contains("Staufenberg"));
+      result = testDataField.getFieldValues("relatedIds");
+      assertTrue("Related ids are expected", (result != null));
+      assertTrue("Exact one related is is expected", (result.size() == 1));
+      assertTrue("The related id should to be 'foo'", result.contains("(DE-588)2001843-5"));
+   }
+
+   /**
+    * Alternative names from other Systems (data field 751)
+    */
+   @Test
+   public void linkingEntrylGeoName() {
+      DataField testDataField = TestHelper.dataFieldFactory("(DE-588)84416-0", null, "751", "a", "کرمانشاه", "");
+      GeoFields.linkingEntryGeoName(testDataField);
+      Collection<Object> result = testDataField.getFieldValues("synonyms");
+      assertTrue("A synonym is expected", (result != null));
+      assertTrue("The synonym 'کرمانشاه' should exist", result.contains("کرمانشاه"));
+
+      TestHelper.addSubField(testDataField, "0", "(isil) foo bar", "http://anywhere.edu");
+      PersonFields.linkingEntryPersonalName(testDataField);
+      result = testDataField.getFieldValues("sameAs");
+      assertTrue("The altrnative id '(isil) foo bar' should exist", result.contains("(isil) foo bar"));
+      assertFalse("The altrnative URL to the other system should not be storred", result.contains("http://anywhere.edu"));
+   }
+   
    /**
     * Detect coding schema
     */

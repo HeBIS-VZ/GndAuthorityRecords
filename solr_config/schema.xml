@@ -54,7 +54,7 @@
       name="preferred"
       type="uniqueData" />
 
-   <!-- Pseudonyms and alternativ writings. -->
+   <!-- Pseudonyms and alternative writings. -->
    <field
       name="synonyms"
       type="optionalData" />
@@ -83,7 +83,7 @@
       # Optional fields, only for some types of authority records
       ###########################################
    -->
-   <!-- DDC: Value. The classification may lead by a digit and an collon. -->
+   <!-- DDC: Value. The classification may lead by a digit and an colon. -->
    <!-- The digit is the determination key of the DNB ('4' is a perfect match, '1' is maybe a match) -->
    <field
       name="ddc"

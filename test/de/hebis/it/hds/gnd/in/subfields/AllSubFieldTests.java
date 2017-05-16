@@ -28,7 +28,7 @@ import org.junit.runners.Suite.SuiteClasses;
  * @version 31.03.2017 uh initial
  */
 @RunWith(Suite.class)
-@SuiteClasses({ GeneralFieldsTest.class, TopicFieldsTest.class, GeoFieldsTest.class, PersonFieldsTest.class })
+@SuiteClasses({ GeneralFieldsTest.class, TopicFieldsTest.class, GeoFieldsTest.class, PersonFieldsTest.class, CooperationFieldsTest.class, MeetingFieldsTest.class, TitleFieldsTest.class })
 public class AllSubFieldTests {
 
 }

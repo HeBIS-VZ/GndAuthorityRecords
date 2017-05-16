@@ -173,7 +173,8 @@ public class MarcXmlParser implements Function<List<String>, Boolean> {
 
    private char readTypeFromLeader(XMLStreamReader rawreader) {
       // TODO Auto-generated method stub
-      return 0;
+      // TODO Dummy for upcomming functions for deletions ans redirections. 
+      return 'n';
    }
 
    /**

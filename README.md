@@ -26,17 +26,23 @@ The service has three Parts
 The main skeleton is quite stable but the processing of the data is in progress
 ###  Initial data
 The offline package of the GND is seperated in disjunkt files
-* T_umlenk_loesch1701.mrc.xml - (todo)
-* Tbgesamt1701gnd.mrc.xml - (todo)
-* Tfgesamt1701gnd.mrc.xml - (todo)
-* Tggesamt1701gnd.mrc.xml - (todo)
-* Tngesamt1701gnd.mrc.xml - (todo)
-* Tpgesamt1701gnd.mrc.xml - Personal Names (in progress)
-* Tsgesamt1701gnd.mrc.xml - Topic Terms (done)
-* Tugesamt1701gnd.mrc.xml - (todo)
-#### Online update
+* T_umlenk_loesch1701.mrc.xml - Deletions and redirections (todo)
+* Tbgesamt1701gnd.mrc.xml - Organisations
+* Tfgesamt1701gnd.mrc.xml - Meetings
+* Tggesamt1701gnd.mrc.xml - Geographic
+* Tngesamt1701gnd.mrc.xml - Personal names (non individualized)
+* Tpgesamt1701gnd.mrc.xml - Personal Names (individualized)
+* Tsgesamt1701gnd.mrc.xml - Topic Terms
+* Tugesamt1701gnd.mrc.xml - Work/Title
+
+### Online update
 Changes in the GND are available via OAI
 * OaiUpdates - All kind (todo)
+
+### Local authority records
+* Tw: Libraries (todo)
+* Tk: RVK Notations (todo)
+* Tr: other (todo)
 
 # Notes
 1. The code and the config for Solr contains some optional features, beside the synonyms

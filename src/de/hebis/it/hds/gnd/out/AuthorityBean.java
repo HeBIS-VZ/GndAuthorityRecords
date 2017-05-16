@@ -27,6 +27,13 @@ import java.util.List;
  */
 import org.apache.solr.client.solrj.beans.Field;
 
+/**
+ * Container for the retrieved authority records.
+ * 
+ * @author Uwe Reh (uh), HeBIS-IT
+ * @version 2017-05-11 uh first try
+ *
+ */
 public class AuthorityBean {
 
    /** The unique Id of the authority record. (mandatory) */
@@ -41,19 +48,21 @@ public class AuthorityBean {
    @Field("synonyms")
    public List<String> synonyms;
 
-   /** DDC notation with trust level. (optional) <br>
-    * The entries are formated as <digit>:<ddc notation> The Digit [1..4] indicates the trust level. <br>
+   /**
+    * DDC notation with trust level. (optional) <br>
+    * The entries are formated as &lt;digit&gt;:&lt;ddc notation&gt; The Digit [1..4] indicates the trust level. <br>
     * '4' indicates a perfect match if the ddc notation. <br>
-    * '1' indicates only a weak match.  */
+    * '1' indicates only a weak match.
+    */
    @Field("ddc")
    public List<String> ddc;
 
    /** The unchanged authority record. (mandatory) */
    @Field("fullrecord")
    public String       fullRecord;
-   
-   /** 
-    * Human readable overview of the retrieved data 
+
+   /**
+    * Human readable overview of the retrieved data
     * 
     */
    @Override

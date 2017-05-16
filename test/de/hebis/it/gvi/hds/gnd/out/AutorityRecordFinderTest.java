@@ -27,8 +27,7 @@ import de.hebis.it.hds.gnd.out.AuthorityRecordException;
 import de.hebis.it.hds.gnd.out.AutorityRecordFinder;
 
 /**
- * Überprüft ob der {@link Finder} geforderten Eigenschaften aufweist.<br>
- * Hier wird implizit die Anbindung zu einem SolrBackend geprüft
+ * Assuming an existing repository this test validates basic attributes of a result.<br>
  * 
  * @author Uwe Reh (uh), HeBIS-IT
  * @version 2017-05-11 uh first try

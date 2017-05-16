@@ -29,7 +29,6 @@ import org.apache.solr.client.solrj.beans.Field;
 
 /**
  * Full template to read the authority records. <br>
- * {@see solr_config/schema.xml}
  *
  * @author Uwe Reh (uh), HeBIS-IT
  * @version 11.05.2017 uh initial
@@ -104,7 +103,7 @@ public class AuthorityCompleteBean extends AuthorityBean {
     * <dd>A assumed name (pseudonym) contains a reference to the real name, but not to other assumed names. <br>
     * To obtain all synonyms, it's necessary to copy the synonyms of the 'real name' record.
     * <dd>
-    * <dl>
+    * </dl>
     */
    @Field
    public boolean      look4me;

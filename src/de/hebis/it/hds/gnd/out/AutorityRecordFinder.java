@@ -45,14 +45,11 @@ public class AutorityRecordFinder {
    private static Model         config               = Model.getModel();
 
    /**
-    * Initialize a new Finder and connect to the given Solr core
+    * Initialize a new Finder and connect to the default Solr core
     * 
-    * @param baseUrl URL to identify the core to use eg. "http://host:8983/solr/core"
     */
    public AutorityRecordFinder() {
-      String baseUrl = config.getProperty("BaseURL");
-      if (baseUrl == null) throw new RuntimeException("Parameter \"BaseURL\" is not configured.");
-      server = new HttpSolrClient.Builder(baseUrl).build();
+      this(config.getProperty("BaseURL"));
    }
 
    /**
@@ -61,13 +58,14 @@ public class AutorityRecordFinder {
     * @param baseUrl URL to identify the core to use eg. "http://host:8983/solr/core"
     */
    public AutorityRecordFinder(String baseUrl) {
+      if (baseUrl == null) throw new RuntimeException("Parameter \"BaseURL\" is missing.");
       server = new HttpSolrClient.Builder(baseUrl).build();
    }
 
    /**
-    * get the data for the given Id
+    * get the data for the given id
     * 
-    * @param gndId The complete Id mostly prefixed with a ISIL. Eg. '(DE-588)' for the GND
+    * @param recordId The complete Id mostly prefixed with a ISIL. Eg. '(DE-588)' for the GND
     * @return a authority bean representing the authority record or null if the id is unknown.
     * @throws AuthorityRecordException Indicates a problem while retrieving data from repository
     */

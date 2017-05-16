@@ -34,6 +34,7 @@ import org.apache.solr.client.solrj.SolrClient;
 import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.impl.ConcurrentUpdateSolrClient;
 
+import de.hebis.it.hds.gnd.Model;
 import de.hebis.it.hds.tools.streams.TextBlockSpliterator;
 
 /**
@@ -52,7 +53,8 @@ public class Loader {
    /** Start with a record tag which has attributes. (the OAI-Format has enclosing record tags without attributes) */
    private static final Predicate<String> startpattern = Pattern.compile(".*<record[^>].*").asPredicate();
    private static final Predicate<String> endpattern   = Pattern.compile(".*</record.*").asPredicate();
-   private static SolrClient              server       = null;
+   private static Model                   config       = Model.getModel();
+   private SolrClient                     server       = null;
 
    /**
     * Instantiates a new loader.
@@ -60,6 +62,7 @@ public class Loader {
     * @param baseSolrURL The URL to the repository (solr core)
     */
    public Loader(String baseSolrURL) {
+      if (baseSolrURL == null) throw new RuntimeException("No URL to solr server provided.");
       server = new ConcurrentUpdateSolrClient.Builder(baseSolrURL).withQueueSize(100).withThreadCount(100).build();
       if (server == null) throw new RuntimeException("Can't initialize the solrj client.");
       LOG.debug("SolrWriter is connected to " + baseSolrURL);
@@ -95,9 +98,15 @@ public class Loader {
       }
    }
 
+   /**
+    * Read authority records (marcXML) from file
+    * 
+    * @param args List of files as URI or fully qualified path
+    * @throws URISyntaxException if a given URI is syntactically wrong
+    */
    public static void main(String[] args) throws URISyntaxException {
       if (args.length == 0) printHelp("At least one URI or filepath is needed.");
-      Loader me = new Loader("http://zantafino.hebis.uni-frankfurt.de:3001/solr/GND_01");
+      Loader me = new Loader(config.getProperty("BaseURL"));
       for (String filepath : args) {
          System.out.println("GndLoader: process " + filepath);
          if (filepath.toLowerCase().startsWith("file")) me.load(new URI(filepath));

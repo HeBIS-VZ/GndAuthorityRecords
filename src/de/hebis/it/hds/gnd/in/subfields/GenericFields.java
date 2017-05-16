@@ -82,13 +82,13 @@ public class GenericFields {
     * Subfield '$a' is taken as alias. (schema:synonyms)<br>
     * 
     * @param dataField The content of the data field
-    * @param filterpattern Optional regex to remove noise
+    * @param filterPattern Optional regex to remove noise
     */
    public static void linkingEntry(DataField dataField, String filterPattern) {
       if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
       String altName = dataField.getFirstValue("a");
       if (altName == null) return; // w/o a  name we need no id
-      if (filterPattern != null) altName = altName.replaceAll("%DE.*", "");
+      if (filterPattern != null) altName = altName.replaceAll(filterPattern, "");
       dataField.storeMultiValued("synonyms", altName);
       dataField.storeValues("0", "sameAs", true, "http.+"); // no URLs
 

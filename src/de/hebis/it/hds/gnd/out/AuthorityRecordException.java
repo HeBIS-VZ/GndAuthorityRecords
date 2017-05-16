@@ -37,8 +37,8 @@ public class AuthorityRecordException extends IOException {
    /**
     * Indicates a problem while retrieving data from repository
     * 
-    * @param msg
-    * @param e
+    * @param msg The own errormessage
+    * @param e The source of the raised error
     */
    public AuthorityRecordException(String msg, Exception e) {
       super(msg, e);
@@ -48,7 +48,7 @@ public class AuthorityRecordException extends IOException {
    /**
     * Indicates a problem while retrieving data from repository
     * 
-    * @param msg
+    * @param msg The own errormessage
     */
    public AuthorityRecordException(String msg) {
       super(msg);

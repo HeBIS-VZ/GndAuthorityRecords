@@ -39,6 +39,7 @@ public class LoaderTest {
     */
    @BeforeClass
    public static void init() {
+      // URL to Solr Server is only local accessible. 
       loader2Test = new Loader("http://zantafino.hebis.uni-frankfurt.de:3001/solr/GND_01");
    }
 
@@ -116,7 +117,7 @@ public class LoaderTest {
     * Loading deletions and redirections<br>
     * The quality of the imported data is untested.
     */
-   @Test
+//   @Test
    public void loadRedirect() {
       loader2Test.load(TestData.getURI4Redirect());
       assertTrue(true); // dummy
@@ -126,7 +127,7 @@ public class LoaderTest {
     * Loading all kind from OAI update<br>
     * The quality of the imported data is untested.
     */
-   @Test
+ //  @Test
    public void loadUpdate() {
       loader2Test.load(TestData.getURI4UpdateData());
       assertTrue(true); // dummy

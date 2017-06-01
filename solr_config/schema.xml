@@ -20,7 +20,7 @@
    <!-- Where is the authority record from. -->
    <field
       name="source"
-      type="uniqueData"
+      type="uniqueKey"
       default="DE-101" />
 
    <!-- Content type of the primary container -->

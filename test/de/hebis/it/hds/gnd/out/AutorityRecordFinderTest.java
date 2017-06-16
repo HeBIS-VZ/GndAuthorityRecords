@@ -42,8 +42,22 @@ public class AutorityRecordFinderTest {
     * @throws AuthorityRecordException indicates a problem while retrieving data from repository
     */
    @Test
-   public void checkOrwell() throws AuthorityRecordException {
-      AutorityRecordFinder   finder  = new AutorityRecordFinder();
+   public void checkOrwellFromSolr() throws AuthorityRecordException {
+      AutorityRecordFinder   finder  = new AutorityRecordSolrFinder();
+      AuthorityBean data = finder.getAuthorityBean(orwell);
+      assertEquals("The found id must be equal to the queried.", orwell, data.id);
+      assertNotNull("The preferred textual naming is mandatory.", data.preferred);
+      assertNotNull("This entry should have synonyms.", data.synonyms);
+   }
+
+   /**
+    * Check the property file and the existence of an entry to George Orwell.
+    *
+    * @throws AuthorityRecordException indicates a problem while retrieving data from repository
+    */
+   @Test
+   public void checkOrwellFromFile() throws AuthorityRecordException {
+      AutorityRecordFinder   finder  = new AutorityRecordFileFinder();
       AuthorityBean data = finder.getAuthorityBean(orwell);
       assertEquals("The found id must be equal to the queried.", orwell, data.id);
       assertNotNull("The preferred textual naming is mandatory.", data.preferred);

@@ -17,50 +17,23 @@
  */
 package de.hebis.it.hds.gnd.out;
 
-import java.io.IOException;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.apache.solr.client.solrj.SolrClient;
-import org.apache.solr.client.solrj.SolrQuery;
-import org.apache.solr.client.solrj.SolrServerException;
-import org.apache.solr.client.solrj.beans.DocumentObjectBinder;
-import org.apache.solr.client.solrj.impl.HttpSolrClient;
-import org.apache.solr.client.solrj.response.QueryResponse;
-import org.apache.solr.common.SolrDocument;
-import org.apache.solr.common.util.NamedList;
-
 import de.hebis.it.hds.gnd.Model;
-import de.hebis.it.hds.gnd.in.Loader;
 
 /**
- * Get the authority informations from the repository.<br>
+ * Abstract Implementation of common methods of all AutorityRecord&lt;DATASOURCE&gt;Finder.<br>
  * 
  * @author Uwe Reh (uh), HeBIS-IT
- * @version 2017-05-12 uh initial version
+ * @version 2017-06-02 uh initial version
  */
-public class AutorityRecordFinder {
-   private static final Logger  LOG                  = LogManager.getLogger(Loader.class);
-   private static SolrClient    server               = null;
-   private DocumentObjectBinder documentObjectBinder = new DocumentObjectBinder();
-   private static Model         config               = Model.getModel();
+public abstract class AutorityRecordFinder {
+   static final Model config = Model.getModel();
 
    /**
-    * Initialize a new Finder and connect to the default Solr core
+    * Initialize a new Finder and 'connect to' or 'load from' the data source.
     * 
+    * @param configParamName The name of a parameter in the configuration file
     */
-   public AutorityRecordFinder() {
-      this(config.getProperty("BaseURL"));
-   }
-
-   /**
-    * Initialize a new Finder and connect to the given Solr core
-    * 
-    * @param baseUrl URL to identify the core to use eg. "http://host:8983/solr/core"
-    */
-   public AutorityRecordFinder(String baseUrl) {
-      if (baseUrl == null) throw new RuntimeException("Parameter \"BaseURL\" is missing.");
-      server = new HttpSolrClient.Builder(baseUrl).build();
-   }
+   abstract public void init(String configParamName);
 
    /**
     * get the data for the given id
@@ -69,53 +42,6 @@ public class AutorityRecordFinder {
     * @return a authority bean representing the authority record or null if the id is unknown.
     * @throws AuthorityRecordException Indicates a problem while retrieving data from repository
     */
-   public AuthorityBean getAuthorityBean(String recordId) throws AuthorityRecordException {
-      if (server == null) return null;
-      if (recordId == null) throw new NullPointerException("The id is mandatory");
-      return doRealTimeGet(recordId);
-   }
+   abstract public AuthorityBean getAuthorityBean(String recordId) throws AuthorityRecordException;
 
-   /**
-    * Do real time get.
-    *
-    * @param documentId the id of the authority record
-    * @return a authority bean representing the authority record or null if the id does not exist.
-    * @throws AuthorityRecordException
-    */
-   private AuthorityBean doRealTimeGet(String documentId) throws AuthorityRecordException {
-      QueryResponse response = null;
-      SolrQuery rtg_query = new SolrQuery();
-      rtg_query.setRequestHandler("/get");
-      rtg_query.set("fl", "fullrecord");
-      rtg_query.setFields("id", "preferred", "synonyms");
-      rtg_query.set("id", documentId);
-      try {
-         response = server.query(rtg_query);
-         if (response.getStatus() != 0) throw new SolrServerException("Response state: " + response.getStatus());
-      } catch (SolrServerException | IOException e) {
-         e.printStackTrace();
-         throw new AuthorityRecordException("Solr query \"" + rtg_query.toString() + "\" can't be executed.", e);
-      }
-      // Workaround: RTG does not allow to call response.getBeans(AuthorityBean.class);
-      NamedList<Object> result = response.getResponse();
-      if (result == null) throw new AuthorityRecordException("Solr query \"" + rtg_query.toString() + "\" has no result.");
-      SolrDocument doc = (SolrDocument) result.get("doc");
-      if ((doc == null) || (doc.size() == 0)) {
-         if (LOG.isDebugEnabled()) LOG.debug("Solr query \"" + rtg_query.toString() + "\" No doc found.");
-         return null;
-      }
-      return documentObjectBinder.getBean(AuthorityBean.class, doc);
-   }
-
-   /**
-    * Minimal Test and usage example
-    * 
-    * @param args cmd line parameters
-    * @throws AuthorityRecordException Indicates a problem while retrieving data from repository
-    */
-   public static void main(String[] args) throws AuthorityRecordException {
-      AutorityRecordFinder me = new AutorityRecordFinder();
-      AuthorityBean data = me.getAuthorityBean(args[0]);
-      System.out.println(data.toString());
-   }
 }

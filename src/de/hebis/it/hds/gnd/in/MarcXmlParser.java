@@ -86,7 +86,7 @@ public class MarcXmlParser implements Function<List<String>, Boolean> {
       StringBuilder fullrecord = new StringBuilder();
       // concat lines, omit unneeded whitespace characters and replace weird SOS ans EOS characters
       for (String line : recordAsListOfLines) {
-         fullrecord.append(line.trim().replace("&#152;", "<").replace("&#156;", ">"));
+         fullrecord.append(line.trim().replace("&#152;", "&lt;").replace("&#156;", "&gt;"));
       }
       parse(fullrecord.toString());
       return true;

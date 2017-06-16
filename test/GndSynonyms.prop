@@ -1,0 +1,29 @@
+# Synonym file for authority records, exported from the project: "GndAuthorityRecords".
+# see: https://github.com/HeBIS-VZ/GndAuthorityRecords
+# Format:
+# Id of the authority record = <preferred notation>!_#_!<1st synonym>!_#_!...!_#_!<last synonym>
+# 
+(DE-588)1-2 = Conference of Non-Nuclear Weapon States!_#_!Conferentie van Niet-Kernwapenstaten!_#_!Conference on Non-Nuclear Weapon States
+(DE-588)10-3 = Congrès des Économistes de Langue Française!_#_!Congrès des économistes de langue française
+(DE-588)10000007X = Kühn, Rolf
+(DE-588)100000096 = Ambrosius <de Lombez>!_#_!Lombez, Ambrosius de!_#_!La Peirie, Ambroise!_#_!LaPeirie, Ambroise!_#_!Ambroise <de Lombez>!_#_!Lombez, Ambroise de!_#_!LaPeyrie!_#_!Lombez, Ambrosius von
+(DE-588)100000118 = Hussell, Ludwig!_#_!Hussel, Ludwig!_#_!Hussell, Christian H.!_#_!Hussell, Christoph H.!_#_!H., C. H.!_#_!C. H. L. H.!_#_!H-ll, C. H.!_#_!C. H. L. H-ll
+(DE-588)100000142 = Amey, Henriette
+(DE-588)100000169 = Amici, Domenico
+(DE-588)100000193 = Bauer, Johann Gottfried!_#_!Bauer, Johanes Gottfried!_#_!Bauerus, Johannes Godofredus!_#_!Bauer, Johannes Gothofredus!_#_!Bauer, Johannes Gottofredus!_#_!Bauer, Iohannes Godofredus!_#_!Baverus, Ioan. Godofredus!_#_!Bauer, Johannes Gottfried!_#_!Bauer, Joannes Godofredus!_#_!Bauerus, Ioannes Godofredus!_#_!Bauer, Ioannes Godofredus!_#_!Bauerus, Iohannes Godofredus!_#_!Bauerus, Joannes Godofredus
+(DE-588)100000207 = Bauer, Johann K.
+(DE-588)100000231 = Baur, Johann Wilhelm!_#_!Baur, W.!_#_!Baur, Johannes Guilielmus!_#_!Baur, Wilhelm!_#_!Bauer, Wilhelm!_#_!Bauer, Johann Wilhelm!_#_!Baur, Joannes Guilielmus!_#_!Baur, Johannes Wilhelm!_#_!Bauer, Johannes Wilhelm!_#_!Bauer, Johann Wilhlem!_#_!Paur, Johann Wilhelm!_#_!Baurn, Johannes Guilelmus!_#_!Baur, Joh. Wilhelm
+(DE-588)100000266 = Spiegel, Paul!_#_!Spiegel, Paulus
+(DE-588)100000274 = Amicus, F.
+(DE-588)100000282 = Valentini, Carlo
+(DE-588)100000304 = Bauer, Sigmund
+(DE-588)100000355 = Amman, Reiner!_#_!Amman, Reinerius
+(DE-588)100000363 = Baugean, Jean J.
+(DE-588)100000428 = Ammon, Friedrich von
+(DE-588)100000444 = Ammon, Friedrich W. von!_#_!Ammon, Fridericus W.!_#_!Ammon, Friedrich W.
+(DE-588)100000460 = Baumann, Aegidius
+(DE-588)100000479 = Baumann, C. A.
+(DE-588)100000509 = Baumann, Hans!_#_!Baumann, H.
+(DE-588)100000517 = Baumann, Johann H.
+
+(DE-588)118590359 = Orwell, George!_#_!Blair, Eric!_#_!...

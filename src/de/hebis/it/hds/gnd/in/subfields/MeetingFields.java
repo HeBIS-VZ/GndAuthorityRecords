@@ -21,7 +21,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * Methods for 'topic' subfields
+ * Methods for 'meeting' subfields
  * <dl>
  * <dt>Referenced definitions:</dt>
  * <dd>Basics: <a href="https://www.loc.gov/marc/authority/">LOC: MARC 21 Format for Authority Data</a></dd>
@@ -35,7 +35,7 @@ public class MeetingFields {
    private final static Logger LOG = LogManager.getLogger(MeetingFields.class);
 
    /**
-    * Topic term &lt;datafield tag="150"&gt;.<br>
+    * Term &lt;datafield tag="111"&gt;.<br>
     * see: {@link GenericFields#heading(DataField)}
     * 
     * @param dataField The content of the data field
@@ -47,7 +47,7 @@ public class MeetingFields {
    }
 
    /**
-    * Alternative terms &lt;datafield tag="450"&gt;.<br>
+    * Alternative terms &lt;datafield tag="411"&gt;.<br>
     * see: {@link GenericFields#tracing(DataField)}
     * 
     * @param dataField The content of the data field
@@ -58,7 +58,7 @@ public class MeetingFields {
    }
 
    /**
-    * Related terms &lt;datafield tag="550"&gt;.<br>
+    * Related terms &lt;datafield tag="511"&gt;.<br>
     * see: {@link GenericFields#related(DataField)}
     * 
     * @param dataField The content of the data field
@@ -69,7 +69,7 @@ public class MeetingFields {
    }
 
    /**
-    * Alternative names in other systems &lt;datafield tag="750"&gt;.<br>
+    * Alternative names in other systems &lt;datafield tag="711"&gt;.<br>
     * see: {@link GenericFields#linkingEntry(DataField, String)}
     * 
     * @param dataField The content of the data field

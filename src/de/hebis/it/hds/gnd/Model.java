@@ -50,7 +50,7 @@ public class Model extends Properties {
    /**
     * Factory to build exact on instance (Singelton)
     * 
-    * @return The referenz to the singelton.
+    * @return The reference to the singelton.
     */
    public static synchronized Model getModel() {
       if (singleton == null) {

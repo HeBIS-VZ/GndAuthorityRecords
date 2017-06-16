@@ -150,6 +150,6 @@ public class AutorityRecordFileWriter extends AutorityRecordSolrFinder {
    public static void main(String[] args) throws AuthorityRecordException {
       AutorityRecordFileWriter me = new AutorityRecordFileWriter();
       me.maxCount = 22;
-      me.generateSynonymFile("/home/uwe/git/GndNormDaten/test/GndSynonyms.prop");
+      me.generateSynonymFile(null);
    }
 }

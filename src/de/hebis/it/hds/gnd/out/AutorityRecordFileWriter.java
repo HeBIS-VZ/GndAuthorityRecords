@@ -30,10 +30,12 @@ import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.response.QueryResponse;
 
 /**
- * Get the authority informations from the repository.<br>
+ * Export the authority informations from the repository to a property file<br>
+ * The lines of the file are defined as "&lt;ID&gt; = &lt;preferred&gt;(&lt;seperator&gt;&lt;synonym&gt;)*"<br> 
+ * Eg. "(DE-588)100000355 = Amman, Reiner!_#_!Amman, Reinerius"
  * 
  * @author Uwe Reh (uh), HeBIS-IT
- * @version 2017-05-12 uh initial version
+ * @version 2017-06-18 uh initial version
  */
 public class AutorityRecordFileWriter extends AutorityRecordSolrFinder {
    private static final Logger LOG              = LogManager.getLogger(AutorityRecordFileWriter.class);
@@ -142,14 +144,23 @@ public class AutorityRecordFileWriter extends AutorityRecordSolrFinder {
    }
 
    /**
-    * Minimal Test and usage example
+    * Exports the synonym file
     * 
-    * @param args cmd line parameters
+    * @param args no cmd line parameters is used 
     * @throws AuthorityRecordException Indicates a problem while retrieving data from repository
     */
    public static void main(String[] args) throws AuthorityRecordException {
+      System.out.println("\n\nExport of authority synonyms.");
       AutorityRecordFileWriter me = new AutorityRecordFileWriter();
-      me.maxCount = 22;
-      me.generateSynonymFile(null);
+      String maxCount = config.getProperty("MaxLinesToProcess");
+      if (maxCount != null)  {
+         me.maxCount = Integer.valueOf(maxCount);
+         System.out.println("\tThe export process will stop after " + maxCount + " lines."); 
+      }
+      String fpath = config.getProperty("PropertyFilePath");
+      if (fpath != null) System.out.println("\tThe output will be written to " + fpath);
+      System.out.println("");
+      me.generateSynonymFile(config.getProperty("PropertyFilePath"));
+      System.out.println("\nFinished\n");
    }
 }

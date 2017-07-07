@@ -36,24 +36,27 @@ public class CooperationFieldsTest {
     */
    @Test
    public void headingCooperationName() {
-      DataField testDataField = TestHelper.dataFieldFactory("(DE-588)191-0", null, "110", "a", "Consejo Superior de Investigaciones Científicas");
+      DataField testDataField = TestHelper.dataFieldFactory("(DE-588)10000074-5", null, "110", "a", "USA");
+      TestHelper.addSubField(testDataField, "b", "Interagency Agricultural Projections Committee", "FOO");
       CooperationFields.headingCooperationName(testDataField);
       Collection<Object> result = testDataField.getFieldValues("preferred");
       assertTrue("The preferred term is mandatory", (result != null));
       assertTrue("The preferred term  has to be unique", (result.size() == 1));
-      assertTrue("The preferred term should be 'Consejo Superior de Investigaciones Científicas'.", result.contains("Consejo Superior de Investigaciones Científicas"));   }
-
+      assertTrue("The preferred term should be 'USA. Interagency Agricultural Projections Committee. FOO'.", result.contains("USA. Interagency Agricultural Projections Committee. FOO"));   }
+   
    /**
     * Check alternative names (data field 410)
     */
    @Test
    public void tracingCooperationName() {
-      DataField testDataField = TestHelper.dataFieldFactory("(DE-588)4223553-4", null, "410", "a", "Cornell Univ");
+      DataField testDataField = TestHelper.dataFieldFactory("(DE-588)10000074-5", null, "410", "a", "USA");
+      TestHelper.addSubField(testDataField, "b", "Department of Agriculture", "Interagency Agricultural Projections Committee");
+      TestHelper.addSubField(testDataField, "g", "USA");
       CooperationFields.tracingCooperationName(testDataField);
       // check side effects
       Collection<Object> result = testDataField.getFieldValues("synonyms");
       assertTrue("A synonym is expected", (result != null));
-      assertTrue("The synonym 'Cornell Univ' should exist", result.contains("Cornell Univ"));
+      assertTrue("The synonym 'Cornell Univ' should exist", result.contains("USA. Department of Agriculture. Interagency Agricultural Projections Committee (USA)"));
    }
 
    /**
@@ -63,10 +66,11 @@ public class CooperationFieldsTest {
    public void relatedCooperationlName() {
       DataField testDataField = TestHelper.dataFieldFactory("(DE-588)191-0", null, "510", "a", "Consejo Superior de Investigaciones Científicas");
       TestHelper.addSubField(testDataField, "0", "(DE-588)36416-2", "http://d-nb.info/gnd/36416-2");
+      TestHelper.addSubField(testDataField, "g", "TEST", "Test");
       CooperationFields.relatedCooperationName(testDataField);
       Collection<Object> result = testDataField.getFieldValues("related");
       assertTrue("A related Name is expected", (result != null));
-      assertTrue("A related term should to be 'Consejo Superior de Investigaciones Científicas'", result.contains("Consejo Superior de Investigaciones Científicas"));
+      assertTrue("A related term should to be 'Consejo Superior de Investigaciones Científicas'", result.contains("Consejo Superior de Investigaciones Científicas (TEST) (Test)"));
       result = testDataField.getFieldValues("relatedIds");
       assertTrue("Related ids are expected", (result != null));
       assertTrue("One related id should to be '(DE-588)36416-2'", result.contains("(DE-588)36416-2"));

@@ -17,6 +17,8 @@
  */
 package de.hebis.it.hds.gnd.in.subfields;
 
+import java.util.List;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -43,7 +45,7 @@ public class TopicFields {
 
    public static void headingTopicalTerm(DataField dataField) {
       if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
-      GenericFields.heading(dataField);
+      dataField.storeUnique("preferred", buildFormatedName(dataField));
    }
 
    /**
@@ -54,7 +56,9 @@ public class TopicFields {
     */
    public static void complexSeeReferenceTerm(DataField dataField) {
       if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
-      GenericFields.complexSeeReference(dataField);
+      dataField.storeValues("0", "seeAlso", true, "https?://d-nb.info.*"); // dismiss redundant URI
+      dataField.storeMultiValued("synonyms", buildFormatedName(dataField));
+
    }
 
    /**
@@ -65,7 +69,7 @@ public class TopicFields {
     */
    public static void tracingTopicalTerm(DataField dataField) {
       if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
-      GenericFields.tracing(dataField);
+      dataField.storeMultiValued("synonyms", buildFormatedName(dataField));
    }
 
    /**
@@ -76,8 +80,9 @@ public class TopicFields {
     */
    public static void relatedTopicalTerm(DataField dataField) {
       if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
-      GenericFields.related(dataField);
-   }
+      dataField.storeValues("0", "relatedIds", true, "https?://d-nb.info.*"); // dismiss redundant URI
+      dataField.storeMultiValued("related", buildFormatedName(dataField));
+      }
 
    /**
     * Alternative names in other systems &lt;datafield tag="750"&gt;.<br>
@@ -87,6 +92,33 @@ public class TopicFields {
     */
    public static void linkingEntryTopicalTerm(DataField dataField) {
       if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
-      GenericFields.linkingEntry(dataField, null);
+      dataField.storeMultiValued("synonyms", buildFormatedName(dataField));
+      dataField.storeValues("0", "sameAs", true, "http.+"); // no URLs
+      }
+   
+   private static String buildFormatedName(DataField dataField) {
+      // name
+      String name = dataField.getFirstValue("a");
+      if (name == null) {
+         LOG.trace(dataField.getRecordId() + ": No $a. in field " + dataField.getFirstValue("tag"));
+         for (String refId : dataField.getValues("0")) { // Refers other authority record?
+            if (refId.startsWith("(DE-588)")) {
+               dataField.replaceUnique("look4me", "true");
+               break;
+            }
+         }
+         return null;
+      }
+      StringBuilder fullName = new StringBuilder(name);
+      // context
+      List<String> contexts = dataField.get("g");
+      if (contexts != null) {
+         for (Object context : contexts) {
+            fullName.append(" <");
+            fullName.append((String) context);
+            fullName.append('>');
+         }
+      }
+      return fullName.toString();
    }
 }

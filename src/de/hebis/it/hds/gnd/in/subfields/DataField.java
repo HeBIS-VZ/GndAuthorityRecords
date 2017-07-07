@@ -113,7 +113,7 @@ public class DataField extends HashMap<String, List<String>> {
    }
 
    /**
-    * Helper to extract the first occurrence of the subfield
+    * Helper to extract all entries of a subfield
     * 
     * @param subFieldCode Code of the subfield to select
     * @return The value list of the (repeated) subfield. If the subfield isn't provided a empty list will returned.
@@ -181,6 +181,7 @@ public class DataField extends HashMap<String, List<String>> {
     */
    public void storeMultiValued(String fieldName, String value) {
       if (value == null) return;
+      if (value.isEmpty()) return;
       SolrInputField field = solrDoc.getField(fieldName);
       if (field == null) {
          if (LOG.isTraceEnabled()) LOG.trace("First entry in field \"" + fieldName);

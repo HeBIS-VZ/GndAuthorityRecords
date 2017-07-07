@@ -21,6 +21,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Function;
 
 import javax.xml.stream.XMLInputFactory;
@@ -33,7 +34,6 @@ import org.apache.logging.log4j.Logger;
 import org.apache.solr.client.solrj.SolrClient;
 import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.common.SolrInputDocument;
-
 import de.hebis.it.hds.gnd.in.subfields.CooperationFields;
 import de.hebis.it.hds.gnd.in.subfields.DataField;
 import de.hebis.it.hds.gnd.in.subfields.GeneralFields;
@@ -57,6 +57,7 @@ public class MarcXmlParser implements Function<List<String>, Boolean> {
    private static final String[]        unusedfields       = { "001", "003", "005", "008", "024", "040", "043", "065", "089", "336", "339", "372", "375", "377", "380", "382", "383", "384", "548",
          "667", "670", "675", "678", "679", "680", "682", "692", "912", "913" };
    private static final List<String>    dataFieldsToIgnore = Arrays.asList(unusedfields);
+   private final static AtomicInteger   counter            = new AtomicInteger(1);
    private String                       recordId           = null;
    private SolrClient                   solrClient         = null;
 
@@ -163,17 +164,45 @@ public class MarcXmlParser implements Function<List<String>, Boolean> {
       }
       if (LOG.isTraceEnabled()) LOG.trace("Index record");
       try {
-         if (LOG.isDebugEnabled()) LOG.debug("New Document: " + doc.toString());
-         solrClient.add(doc);
+         if (checkAndLog(doc, xmlRecord)) solrClient.add(doc);
       } catch (SolrServerException | IOException e) {
          LOG.warn("Failed sending document:" + doc.get("id") + " to " + solrClient.toString(), e);
       }
       if (LOG.isTraceEnabled()) LOG.trace("Record is send.");
    }
 
+   /**
+    * @param doc
+    */
+   private boolean checkAndLog(SolrInputDocument doc, String marcXml) {
+      if (LOG.isTraceEnabled()) LOG.trace("New Document: " + doc.toString());
+      String docId = (String) doc.getFieldValue("id");
+      if (docId == null) {
+         LOG.error("No Id found in " + marcXml.replace('\n', ' '));
+         return false;
+      }
+      if (doc.getFieldValue("preferred") == null) {
+         LOG.error(docId + ": No preferred naming found in marcXml. " + marcXml.replace('\n', ' '));
+         return false;
+      }
+      if (LOG.isDebugEnabled()) {
+         if (doc.getFieldValues("coordinates") != null) {
+            for (Object coordinate : doc.getFieldValues("coordinates")) {
+               LOG.debug(docId + ": Coordinates found [" + (String) coordinate + "].");
+            }
+         }
+         if (doc.getFieldValue("look4me") == "true") {
+            LOG.debug(docId + ":(" + (String) doc.getFieldValue("preferred") + ") Needs a second pass.");
+         }
+      }
+      int counterNow = counter.getAndIncrement();
+      if (counterNow % 10000 == 0) LOG.info("Records processed: " + counterNow);
+      return true;
+   }
+
    private char readTypeFromLeader(XMLStreamReader rawreader) {
       // TODO Auto-generated method stub
-      // TODO Dummy for upcomming functions for deletions ans redirections. 
+      // TODO Dummy for upcoming functions for deletions and redirections.
       return 'n';
    }
 
@@ -219,6 +248,9 @@ public class MarcXmlParser implements Function<List<String>, Boolean> {
             break;
          case "151": // This term/topic
             GeoFields.headingGeoName(dataField);
+            break;
+         case "260": // This complex term/topic
+            TopicFields.complexSeeReferenceTerm(dataField);
             break;
          case "400": // Alternative name
             PersonFields.tracingPersonalName(dataField);

@@ -21,7 +21,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * Methods for 'topic' subfields
+ * Methods for 'title' subfields
  * <dl>
  * <dt>Referenced definitions:</dt>
  * <dd>Basics: <a href="https://www.loc.gov/marc/authority/">LOC: MARC 21 Format for Authority Data</a></dd>

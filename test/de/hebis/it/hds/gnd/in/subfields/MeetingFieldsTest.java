@@ -44,18 +44,30 @@ public class MeetingFieldsTest {
       assertTrue("The preferred term should be 'Conference of Non-Nuclear Weapon States'.", result.contains("Conference of Non-Nuclear Weapon States"));   }
 
    /**
-    * Check alternative names (data field 411)
+    * Check alternative names in normal File (data field 411)
     */
    @Test
    public void tracingMeetingName() {
       DataField testDataField = TestHelper.dataFieldFactory("(DE-588)10-3", null, "411", "a", "Congrès des économistes de langue française");
+      testDataField.storeUnique("preferred", "exists"); // Mock for marc field 111
       MeetingFields.tracingMeetingName(testDataField);
-      // check side effects
       Collection<Object> result = testDataField.getFieldValues("synonyms");
       assertTrue("A synonym is expected", (result != null));
       assertTrue("The synonym 'Congrès des économistes de langue française' should exist", result.contains("Congrès des économistes de langue française"));
    }
 
+   /**
+    * Check alternative names on weird records w/o 111 (data field 411)
+    */
+   @Test
+   public void tracingMeetingName2() {
+      DataField testDataField = TestHelper.dataFieldFactory("(DE-588)10-3", null, "411", "a", "Congrès des économistes de langue française");
+      MeetingFields.tracingMeetingName(testDataField);
+      assertTrue("No synonyms are expected", (testDataField.getFieldValues("synonyms") == null));
+      Collection<Object> result = testDataField.getFieldValues("preferred");
+      assertTrue("The synonym 'Congrès des économistes de langue française' should exist", result.contains("Congrès des économistes de langue française"));
+   }
+   
    /**
     * Check related terms and related ids (data field 511)
     */

@@ -56,8 +56,13 @@ public class CooperationFields {
     */
    public static void tracingCooperationName(DataField dataField) {
       if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
-      dataField.storeMultiValued("synonyms", buildFormatedName(dataField));
-  }
+      if (dataField.getFieldValues("preferred") == null) {
+         LOG.info(dataField.getRecordId() + ": Use first synonym as heading");
+         dataField.storeUnique("preferred", buildFormatedName(dataField));
+      } else {
+         dataField.storeMultiValued("synonyms", buildFormatedName(dataField));
+      }
+   }
 
    /**
     * Related names &lt;datafield tag="510"&gt;.<br>

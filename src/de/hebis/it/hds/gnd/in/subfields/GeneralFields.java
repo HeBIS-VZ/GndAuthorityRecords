@@ -46,21 +46,17 @@ public class GeneralFields {
       String testId = dataField.getFirstValue("a");
       if ((testId == null) || testId.isEmpty()) {
          LOG.trace("Conversion warning: Datafield 035 has no $a. Skipping");
-         return dataField.getRecordId();
       }
-      if (dataField.getRecordId() == null) { 
+      else if (dataField.getRecordId() == null) { 
          if (LOG.isTraceEnabled()) LOG.trace(testId + ": as first id found");
-         dataField = new DataField(testId, dataField);
-         dataField.storeUnique("id", testId); // set document id
+         dataField.setRecordId(testId);
       }
       else if (testId.startsWith("(DE-588)")) { // get rid of previous minor (not gnd) ids
          if (LOG.isTraceEnabled()) {
             LOG.trace(testId + ": replaces previous found id: " + dataField.getRecordId());
-            LOG.trace(testId + ": store additional id: " + dataField.getRecordId());
          }
          dataField.storeMultiValued("sameAs", dataField.getRecordId()); // remember all ids
-         dataField.replaceUnique("id", testId);
-         dataField = new DataField(testId, dataField);
+         dataField.setRecordId(testId);
       }
       else {
          if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": store additional id: " + testId);

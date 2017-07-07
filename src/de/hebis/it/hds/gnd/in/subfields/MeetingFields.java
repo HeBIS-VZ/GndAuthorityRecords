@@ -36,46 +36,46 @@ public class MeetingFields {
 
    /**
     * Term &lt;datafield tag="111"&gt;.<br>
-    * see: {@link GenericFields#heading(DataField)}
+    * see: {@link CooperationFields#headingCooperationName(DataField)}
     * 
     * @param dataField The content of the data field
     */
 
    public static void headingMeetingName(DataField dataField) {
       if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
-      GenericFields.heading(dataField);
+      CooperationFields.headingCooperationName(dataField);
    }
 
    /**
     * Alternative terms &lt;datafield tag="411"&gt;.<br>
-    * see: {@link GenericFields#tracing(DataField)}
+    * see: {@link CooperationFields#tracingCooperationName(DataField)}
     * 
     * @param dataField The content of the data field
     */
    public static void tracingMeetingName(DataField dataField) {
       if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
-      GenericFields.tracing(dataField);
+      CooperationFields.tracingCooperationName(dataField);
    }
 
    /**
     * Related terms &lt;datafield tag="511"&gt;.<br>
-    * see: {@link GenericFields#related(DataField)}
+    * see: {@link CooperationFields#relatedCooperationName(DataField)}
     * 
     * @param dataField The content of the data field
     */
    public static void relatedMeetingName(DataField dataField) {
       if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
-      GenericFields.related(dataField);
+      CooperationFields.relatedCooperationName(dataField);
    }
 
    /**
     * Alternative names in other systems &lt;datafield tag="711"&gt;.<br>
-    * see: {@link GenericFields#linkingEntry(DataField, String)}
+    * see: {@link CooperationFields#linkingEntryCooperationName(DataField)}
     * 
     * @param dataField The content of the data field
     */
    public static void linkingEntryMeetingName(DataField dataField) {
       if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
-      GenericFields.linkingEntry(dataField, null);
+      CooperationFields.linkingEntryCooperationName(dataField);
    }
 }

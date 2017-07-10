@@ -76,6 +76,24 @@ public class GeoFieldsTest {
    }
 
    /**
+    * Decimal coded coordinates with the need to compute the center (data field 034)
+    */
+   @Test
+   public void CoordinatesWithNullValues() {
+      // degree coded
+      DataField testDataField = TestHelper.dataFieldFactory("testid", null, "034", "0", "http://sws.geonames.org/2968325");
+      TestHelper.addSubField(testDataField, "d", "E 000 00 00");
+      TestHelper.addSubField(testDataField, "e", "E 000 00 00");
+      TestHelper.addSubField(testDataField, "f", "N 049 19 21");
+      TestHelper.addSubField(testDataField, "g", "N 049 19 21");
+      // No conversion hints via $9
+      GeoFields.coordinates(testDataField);
+      Collection<Object> result = testDataField.getFieldValues("coordinates");
+      assertTrue("Coordinates (decimal) should exist", (result != null));
+      assertTrue("Coordinates (decimal) should be '49.3225, 0.0'.", result.contains("49.3225, 0.0"));
+   }
+   
+   /**
     * Other representation of the coordinates (data field 034)
     */
    @Test

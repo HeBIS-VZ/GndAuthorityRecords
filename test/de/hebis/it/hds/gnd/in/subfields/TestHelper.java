@@ -38,7 +38,7 @@ public class TestHelper {
     * @return A new Dateifeld with one (repeatable) subfield;
     */
    public static DataField dataFieldFactory(String recordId, DataField testData, String dataFieldId, String subFieldId, String... subFieldValues) {
-      testData = new DataField(recordId, testData);
+      if (testData == null) testData = new DataField(recordId, null);
       testData.put("tag", testData.newList(dataFieldId));
       testData.put("ind1", testData.newList(" "));
       testData.put("ind2", testData.newList(" "));

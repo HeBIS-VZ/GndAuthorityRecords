@@ -70,7 +70,7 @@ public class MeetingFields {
 
    /**
     * Alternative names in other systems &lt;datafield tag="711"&gt;.<br>
-    * see: {@link CooperationFields#linkingEntryCooperationName(DataField, String)}
+    * see: {@link CooperationFields#linkingEntryCooperationName(DataField)}
     * 
     * @param dataField The content of the data field
     */

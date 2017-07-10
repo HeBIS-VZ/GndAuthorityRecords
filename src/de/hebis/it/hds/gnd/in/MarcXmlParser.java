@@ -21,6 +21,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Function;
 
 import javax.xml.stream.XMLInputFactory;
@@ -32,8 +33,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.solr.client.solrj.SolrClient;
 import org.apache.solr.client.solrj.SolrServerException;
+import org.apache.solr.client.solrj.impl.ConcurrentUpdateSolrClient;
 import org.apache.solr.common.SolrInputDocument;
 
+import de.hebis.it.hds.gnd.Model;
 import de.hebis.it.hds.gnd.in.subfields.CooperationFields;
 import de.hebis.it.hds.gnd.in.subfields.DataField;
 import de.hebis.it.hds.gnd.in.subfields.GeneralFields;
@@ -54,9 +57,9 @@ import de.hebis.it.hds.gnd.in.subfields.TopicFields;
 public class MarcXmlParser implements Function<List<String>, Boolean> {
    private final static Logger          LOG                = LogManager.getLogger(MarcXmlParser.class);
    private final static XMLInputFactory srf                = XMLInputFactory.newInstance();
-   private static final String[]        unusedfields       = { "001", "003", "005", "008", "024", "040", "043", "065", "089", "336", "339", "372", "375", "377", "380", "382", "383", "384", "548",
-         "667", "670", "675", "678", "679", "680", "682", "692", "912", "913" };
+   private static final String[]        unusedfields       = { "001", "003", "005", "008", "024", "040", "043", "065", "089", "336", "339", "372", "375", "377", "380", "382", "383", "384", "548", "667", "670", "675", "678", "679", "680", "682", "692", "912", "913" };
    private static final List<String>    dataFieldsToIgnore = Arrays.asList(unusedfields);
+   private final static AtomicInteger   counter            = new AtomicInteger(1);
    private String                       recordId           = null;
    private SolrClient                   solrClient         = null;
 
@@ -163,17 +166,45 @@ public class MarcXmlParser implements Function<List<String>, Boolean> {
       }
       if (LOG.isTraceEnabled()) LOG.trace("Index record");
       try {
-         if (LOG.isDebugEnabled()) LOG.debug("New Document: " + doc.toString());
-         solrClient.add(doc);
+         if (checkAndLog(doc, xmlRecord)) solrClient.add(doc);
       } catch (SolrServerException | IOException e) {
          LOG.warn("Failed sending document:" + doc.get("id") + " to " + solrClient.toString(), e);
       }
       if (LOG.isTraceEnabled()) LOG.trace("Record is send.");
    }
 
+   /**
+    * @param doc
+    */
+   private boolean checkAndLog(SolrInputDocument doc, String marcXml) {
+      if (LOG.isTraceEnabled()) LOG.trace("New Document: " + doc.toString());
+      String docId = (String) doc.getFieldValue("id");
+      if (docId == null) {
+         LOG.error("No Id found in " + marcXml.replace('\n', ' '));
+         return false;
+      }
+      if (doc.getFieldValue("preferred") == null) {
+         LOG.error(docId + ": No preferred naming found in marcXml. " + marcXml.replace('\n', ' '));
+         return false;
+      }
+      if (LOG.isDebugEnabled()) {
+         if (doc.getFieldValues("coordinates") != null) {
+            for (Object coordinate : doc.getFieldValues("coordinates")) {
+               LOG.debug(docId + ": Coordinates found [" + (String) coordinate + "].");
+            }
+         }
+         if (doc.getFieldValue("look4me") == "true") {
+            LOG.debug(docId + ":(" + (String) doc.getFieldValue("preferred") + ") Needs a second pass.");
+         }
+      }
+      int counterNow = counter.getAndIncrement();
+      if (counterNow % 10000 == 0) LOG.info("Records processed: " + counterNow);
+      return true;
+   }
+
    private char readTypeFromLeader(XMLStreamReader rawreader) {
       // TODO Auto-generated method stub
-      // TODO Dummy for upcomming functions for deletions ans redirections. 
+      // TODO Dummy for upcoming functions for deletions and redirections.
       return 'n';
    }
 
@@ -219,6 +250,9 @@ public class MarcXmlParser implements Function<List<String>, Boolean> {
             break;
          case "151": // This term/topic
             GeoFields.headingGeoName(dataField);
+            break;
+         case "260": // This complex term/topic
+            TopicFields.complexSeeReferenceTerm(dataField);
             break;
          case "400": // Alternative name
             PersonFields.tracingPersonalName(dataField);
@@ -284,4 +318,98 @@ public class MarcXmlParser implements Function<List<String>, Boolean> {
 
    }
 
+   public static void main(String[] args) {
+      /* @formatter:off */
+      String testmarc = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" + 
+            "  <record xmlns=\"http://www.loc.gov/MARC21/slim\" type=\"Authority\">\n" + 
+            "    <leader>00000nz  a2200000n  4500</leader>\n" + 
+            "    <controlfield tag=\"001\">98018116X</controlfield>\n" + 
+            "    <controlfield tag=\"003\">DE-101</controlfield>\n" + 
+            "    <controlfield tag=\"005\">20170601133703.0</controlfield>\n" + 
+            "    <controlfield tag=\"008\">060619n||azznnaabn           | ana    |c</controlfield>\n" + 
+            "    <datafield tag=\"024\" ind1=\"7\" ind2=\" \">\n" + 
+            "      <subfield code=\"a\">http://d-nb.info/gnd/7531248-7</subfield>\n" + 
+            "      <subfield code=\"2\">uri</subfield>\n" + 
+            "    </datafield>\n" + 
+            "    <datafield tag=\"034\" ind1=\" \" ind2=\" \">\n" + 
+            "      <subfield code=\"d\">E 000 00 00</subfield>\n" + 
+            "      <subfield code=\"e\">E 000 00 00</subfield>\n" + 
+            "      <subfield code=\"f\">N 049 19 21</subfield>\n" + 
+            "      <subfield code=\"g\">N 049 19 21</subfield>\n" + 
+            "      <subfield code=\"2\">geonames</subfield>\n" + 
+            "      <subfield code=\"0\">http://sws.geonames.org/2968325</subfield>\n" + 
+            "      <subfield code=\"9\">A:agx</subfield>\n" + 
+            "    </datafield>\n" + 
+            "    <datafield tag=\"034\" ind1=\" \" ind2=\" \">\n" + 
+            "      <subfield code=\"d\">E000.000000</subfield>\n" + 
+            "      <subfield code=\"e\">E000.000000</subfield>\n" + 
+            "      <subfield code=\"f\">N049.322500</subfield>\n" + 
+            "      <subfield code=\"g\">N049.322500</subfield>\n" + 
+            "      <subfield code=\"2\">geonames</subfield>\n" + 
+            "      <subfield code=\"0\">http://sws.geonames.org/2968325</subfield>\n" + 
+            "      <subfield code=\"9\">A:dgx</subfield>\n" + 
+            "    </datafield>\n" + 
+            "    <datafield tag=\"035\" ind1=\" \" ind2=\" \">\n" + 
+            "      <subfield code=\"a\">(DE-101)98018116X</subfield>\n" + 
+            "    </datafield>\n" + 
+            "    <datafield tag=\"035\" ind1=\" \" ind2=\" \">\n" + 
+            "      <subfield code=\"a\">(DE-588)7531248-7</subfield>\n" + 
+            "    </datafield>\n" + 
+            "    <datafield tag=\"035\" ind1=\" \" ind2=\" \">\n" + 
+            "      <subfield code=\"z\">(DE-588c)7531248-7</subfield>\n" + 
+            "      <subfield code=\"9\">v:zg</subfield>\n" + 
+            "    </datafield>\n" + 
+            "    <datafield tag=\"040\" ind1=\" \" ind2=\" \">\n" + 
+            "      <subfield code=\"a\">DE-255</subfield>\n" + 
+            "      <subfield code=\"9\">r:DE-255</subfield>\n" + 
+            "      <subfield code=\"b\">ger</subfield>\n" + 
+            "      <subfield code=\"d\">1165</subfield>\n" + 
+            "    </datafield>\n" + 
+            "    <datafield tag=\"043\" ind1=\" \" ind2=\" \">\n" + 
+            "      <subfield code=\"c\">XA-FR</subfield>\n" + 
+            "    </datafield>\n" + 
+            "    <datafield tag=\"079\" ind1=\" \" ind2=\" \">\n" + 
+            "      <subfield code=\"a\">g</subfield>\n" + 
+            "      <subfield code=\"b\">g</subfield>\n" + 
+            "      <subfield code=\"c\">1</subfield>\n" + 
+            "      <subfield code=\"q\">s</subfield>\n" + 
+            "      <subfield code=\"v\">gik</subfield>\n" + 
+            "    </datafield>\n" + 
+            "    <datafield tag=\"083\" ind1=\"0\" ind2=\"4\">\n" + 
+            "      <subfield code=\"z\">2</subfield>\n" + 
+            "      <subfield code=\"a\">4422</subfield>\n" + 
+            "      <subfield code=\"9\">t:2009-12-16</subfield>\n" + 
+            "      <subfield code=\"2\">22/ger</subfield>\n" + 
+            "    </datafield>\n" + 
+            "    <datafield tag=\"151\" ind1=\" \" ind2=\" \">\n" + 
+            "      <subfield code=\"a\">Villers-sur-Mer</subfield>\n" + 
+            "    </datafield>\n" + 
+            "    <datafield tag=\"667\" ind1=\" \" ind2=\" \">\n" + 
+            "      <subfield code=\"a\">off(DE-101)*dezimale Koordinaten am 1.6.2017 korrigiert. Alte, falsche, Umrechnung war: E000.7E4000 - E000.7E4000 / N049.322639 - N049.322639</subfield>\n" + 
+            "    </datafield>\n" + 
+            "    <datafield tag=\"670\" ind1=\" \" ind2=\" \">\n" + 
+            "      <subfield code=\"a\">Dict. nat. communes</subfield>\n" + 
+            "    </datafield>\n" + 
+            "    <datafield tag=\"679\" ind1=\" \" ind2=\" \">\n" + 
+            "      <subfield code=\"a\">Ort im Dép. Calvados</subfield>\n" + 
+            "    </datafield>\n" + 
+            "    <datafield tag=\"913\" ind1=\" \" ind2=\" \">\n" + 
+            "      <subfield code=\"S\">swd</subfield>\n" + 
+            "      <subfield code=\"i\">g</subfield>\n" + 
+            "      <subfield code=\"a\">Villers-sur-Mer</subfield>\n" + 
+            "      <subfield code=\"0\">(DE-588c)7531248-7</subfield>\n" + 
+            "    </datafield>\n" + 
+            "  </record>\n" + 
+            ""; 
+      // String testmarc = "<record type=\"Authority\"><leader>00000nz  a2200000o  4500</leader><controlfield tag=\"001\">159615674</controlfield><controlfield tag=\"003\">DE-101</controlfield><controlfield tag=\"005\">20110324153550.0</controlfield><controlfield tag=\"008\">110324n||aznnnabbn           | aba    |c</controlfield><datafield tag=\"024\" ind1=\"7\" ind2=\" \"><subfield code=\"a\">http://d-nb.info/gnd/159615674</subfield><subfield code=\"2\">uri</subfield></datafield><datafield tag=\"035\" ind1=\" \" ind2=\" \"><subfield code=\"a\">(DE-101)159615674</subfield></datafield><datafield tag=\"035\" ind1=\" \" ind2=\" \"><subfield code=\"a\">(DE-588)159615674</subfield></datafield><datafield tag=\"035\" ind1=\" \" ind2=\" \"><subfield code=\"z\">(DE-588a)159615674</subfield><subfield code=\"9\">v:zg</subfield></datafield><datafield tag=\"040\" ind1=\" \" ind2=\" \"><subfield code=\"a\">DE-12</subfield><subfield code=\"9\">r:DE-12</subfield><subfield code=\"b\">ger</subfield><subfield code=\"d\">9010</subfield></datafield><datafield tag=\"079\" ind1=\" \" ind2=\" \"><subfield code=\"a\">g</subfield><subfield code=\"b\">n</subfield><subfield code=\"c\">6</subfield><subfield code=\"q\">f</subfield></datafield><datafield tag=\"100\" ind1=\"0\" ind2=\" \"><subfield code=\"a\">100% Orange</subfield></datafield><datafield tag=\"400\" ind1=\"0\" ind2=\" \"><subfield code=\"a\">Hundred per cent Orange</subfield></datafield><datafield tag=\"400\" ind1=\"0\" ind2=\" \"><subfield code=\"a\">Hundert Prozent Orange</subfield></datafield><datafield tag=\"400\" ind1=\"1\" ind2=\" \"><subfield code=\"a\">Oikawa, Kenji</subfield><subfield code=\"9\">4:nawi</subfield><subfield code=\"w\">r</subfield><subfield code=\"i\">Wirklicher Name</subfield><subfield code=\"e\">Wirklicher Name</subfield></datafield><datafield tag=\"400\" ind1=\"1\" ind2=\" \"><subfield code=\"a\">Takeuchi, Mayuko</subfield><subfield code=\"9\">4:nawi</subfield><subfield code=\"w\">r</subfield><subfield code=\"i\">Wirklicher Name</subfield><subfield code=\"e\">Wirklicher Name</subfield></datafield><datafield tag=\"913\" ind1=\" \" ind2=\" \"><subfield code=\"S\">pnd</subfield><subfield code=\"i\">5</subfield><subfield code=\"a\">100% Orange</subfield><subfield code=\"0\">(DE-588a)159615674</subfield></datafield></record>";
+      // String testmarc =  "<record type=\"Authority\"><leader>00000nz  a2200000o  4500</leader><controlfield tag=\"001\">158098269</controlfield><controlfield tag=\"003\">DE-101</controlfield><controlfield tag=\"005\">20110324125821.0</controlfield><controlfield tag=\"008\">110324n||aznnnabbn           | aba    |c</controlfield><datafield tag=\"024\" ind1=\"7\" ind2=\" \"><subfield code=\"a\">http://d-nb.info/gnd/158098269</subfield><subfield code=\"2\">uri</subfield></datafield><datafield tag=\"035\" ind1=\" \" ind2=\" \"><subfield code=\"a\">(DE-101)158098269</subfield></datafield><datafield tag=\"035\" ind1=\" \" ind2=\" \"><subfield code=\"a\">(DE-588)158098269</subfield></datafield><datafield tag=\"035\" ind1=\" \" ind2=\" \"><subfield code=\"z\">(DE-588a)158098269</subfield><subfield code=\"9\">v:zg</subfield></datafield><datafield tag=\"040\" ind1=\" \" ind2=\" \"><subfield code=\"a\">DE-12</subfield><subfield code=\"9\">r:DE-12</subfield><subfield code=\"b\">ger</subfield><subfield code=\"d\">9010</subfield></datafield><datafield tag=\"079\" ind1=\" \" ind2=\" \"><subfield code=\"a\">g</subfield><subfield code=\"b\">n</subfield><subfield code=\"c\">6</subfield><subfield code=\"q\">f</subfield></datafield><datafield tag=\"100\" ind1=\"1\" ind2=\" \"><subfield code=\"a\">Allen, M. E.</subfield></datafield><datafield tag=\"400\" ind1=\"1\" ind2=\" \"><subfield code=\"a\">Allen, Max [Wirkl. Name]</subfield><subfield code=\"9\">4:nawi</subfield><subfield code=\"w\">r</subfield><subfield code=\"i\">Wirklicher Name</subfield><subfield code=\"e\">Wirklicher Name</subfield></datafield><datafield tag=\"400\" ind1=\"1\" ind2=\" \"><subfield code=\"a\">Allen, Eleanor [Wirkl. Name]</subfield><subfield code=\"9\">4:nawi</subfield><subfield code=\"w\">r</subfield><subfield code=\"i\">Wirklicher Name</subfield><subfield code=\"e\">Wirklicher Name</subfield></datafield><datafield tag=\"913\" ind1=\" \" ind2=\" \"><subfield code=\"S\">pnd</subfield><subfield code=\"i\">a</subfield><subfield code=\"a\">Allen, M. E.</subfield><subfield code=\"0\">(DE-588a)158098269</subfield></datafield></record>";
+      /* @formatter:on   */
+      MarcXmlParser me = new MarcXmlParser(getDefaultClient()); 
+      me.parse(testmarc);
+   }
+
+   private static SolrClient getDefaultClient() {
+      String baseSolrURL = Model.getModel().getProperty("BaseURL");
+      return new ConcurrentUpdateSolrClient.Builder(baseSolrURL).withQueueSize(100).withThreadCount(100).build();
+   }
 }

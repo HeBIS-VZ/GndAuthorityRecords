@@ -56,8 +56,13 @@ public class CooperationFields {
     */
    public static void tracingCooperationName(DataField dataField) {
       if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
-      dataField.storeMultiValued("synonyms", buildFormatedName(dataField));
-  }
+      if (dataField.getFieldValues("preferred") == null) {
+         LOG.info(dataField.getRecordId() + ": Use first synonym as heading");
+         dataField.storeUnique("preferred", buildFormatedName(dataField));
+      } else {
+         dataField.storeMultiValued("synonyms", buildFormatedName(dataField));
+      }
+   }
 
    /**
     * Related names &lt;datafield tag="510"&gt;.<br>
@@ -89,7 +94,7 @@ public class CooperationFields {
       String name = dataField.getFirstValue("a");
       if (name == null) {
          LOG.info(dataField.getRecordId() + ": No $a. in field " + dataField.getFirstValue("tag"));
-         return null;
+         name = "";
       }
       StringBuilder fullName = new StringBuilder(name);
       List<String> titles = dataField.get("b");
@@ -107,6 +112,6 @@ public class CooperationFields {
             fullName.append(")");
          }
       }
-      return fullName.toString();
+      return (fullName.length() == 0) ? null : fullName.toString();
    }
 }

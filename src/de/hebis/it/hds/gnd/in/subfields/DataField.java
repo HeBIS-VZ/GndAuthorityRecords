@@ -36,12 +36,22 @@ import org.apache.solr.common.SolrInputField;
  *
  * @author Uwe Reh (uh), HeBIS-IT
  * @version 30.03.2017 uh initial
+ * @version 2017-07-07 uh Moved recodrId into the map
  */
 public class DataField extends HashMap<String, List<String>> {
    private static final long   serialVersionUID = 1L;
    private final static Logger LOG              = LogManager.getLogger(DataField.class);
-   private String              recordId;
    private SolrInputDocument   solrDoc;
+
+   /**
+    * Preconfigure a new DataField
+    * 
+    * @param doc The SolrDocument to write in.
+    */
+   public DataField(SolrInputDocument doc) {
+      super();
+      solrDoc = (doc == null) ? new SolrInputDocument() : doc;
+   }
 
    /**
     * Preconfigure a new DataField
@@ -50,30 +60,10 @@ public class DataField extends HashMap<String, List<String>> {
     * @param doc The SolrDocument to write in.
     */
    public DataField(String recordId, SolrInputDocument doc) {
-      super();
-      init(recordId, doc);
+      this(doc);
+      setRecordId(recordId);
    }
 
-   /**
-    * Reuse a DataField with a new Id
-    * 
-    * @param newRecordId The Id of the record
-    * @param dataField The DataField to reuse.
-    */
-   public DataField(String newRecordId, DataField dataField) {
-      super();
-      if (dataField == null) {
-         init(newRecordId, null);
-      }
-      else {
-         init(newRecordId, dataField.solrDoc);
-      }
-   }
-
-   private void init(String newRecordId, SolrInputDocument doc) {
-      if (newRecordId != null) recordId = newRecordId;
-      solrDoc = (doc == null) ? new SolrInputDocument() : doc;     
-   }
    /**
     * Store the value(s) of an (repeated)subfield into the solr document
     * 
@@ -86,16 +76,16 @@ public class DataField extends HashMap<String, List<String>> {
       List<String> subFieldList = get(subFieldCode);
       if (subFieldList == null) return;
       if (!repeatable && (subFieldList.size() > 1)) {
-         LOG.warn("Conversion warning at " + recordId + ". The Subfield " + get("tag").get(0) + "$" + subFieldCode + " schouldn't be repeatable.");
+         LOG.warn("Conversion warning at " + getFirstValue("recordId") + ". The Subfield " + get("tag").get(0) + "$" + subFieldCode + " schouldn't be repeatable.");
          solrDoc.addField(fieldName, subFieldList.get(0)); // use just the first value
          return;
       }
       for (String value : subFieldList) {
          if ((regExFilter != null) && value.matches(regExFilter)) {
-            if (LOG.isTraceEnabled()) LOG.trace(recordId + ": skip \"" + value + "\".");
+            if (LOG.isTraceEnabled()) LOG.trace(getFirstValue("recordId") + ": skip \"" + value + "\".");
             continue;
          }
-         if (LOG.isTraceEnabled()) LOG.trace(recordId + ": store \"" + value + "\" to solr field " + fieldName);
+         if (LOG.isTraceEnabled()) LOG.trace(getFirstValue("recordId") + ": store \"" + value + "\" to solr field " + fieldName);
          solrDoc.addField(fieldName, value);
       }
    }
@@ -232,7 +222,19 @@ public class DataField extends HashMap<String, List<String>> {
     * @return The Id of the current record (stored in this DataField)
     */
    public String getRecordId() {
-      return recordId;
+      return getFirstValue("recordId");
+   }
+
+   /**
+    * Set or change the Id
+    * 
+    * @param recordId
+    */
+   public void setRecordId(String recordId) {
+      if (recordId == null) return;
+      LOG.debug("Replace Id: " + getRecordId() + " with " + recordId);
+      storeUnique("id", recordId, true);
+      put("recordId", newList(recordId));
    }
 
    /**
@@ -243,13 +245,15 @@ public class DataField extends HashMap<String, List<String>> {
     * @param override TRUE: the old value will be replaced. FALSE: the new value will only written if the field was empty.
     */
    private void storeUnique(String fieldName, String value, boolean override) {
+      if (value == null) return;
       if (solrDoc.containsKey(fieldName)) {
          if (!override) {
-            LOG.error(recordId + "# Attempt to store multiple values into unique field: " + fieldName);
+            LOG.error(getFirstValue("recordId") + "# Attempt to store multiple values into unique field: " + fieldName);
             return;
          }
-         if (LOG.isDebugEnabled()) LOG.debug(recordId + "# Replace value of unique field: " + fieldName);
-         solrDoc.remove("id");
+         if (value.equals(getFirstValue(fieldName))) return; 
+         if (LOG.isDebugEnabled()) LOG.debug(getFirstValue("recordId") + "# Replace value of unique field: " + fieldName);
+         solrDoc.remove(fieldName);
       }
       solrDoc.addField(fieldName, value);
    }

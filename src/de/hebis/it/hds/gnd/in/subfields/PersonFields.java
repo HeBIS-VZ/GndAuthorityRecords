@@ -44,10 +44,7 @@ public class PersonFields {
     */
    public static void headingPersonalName(DataField dataField) {
       if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
-      StringBuilder fullName = buildFormatedName(dataField);
-      if ((fullName != null) && (fullName.length() > 0)) {
-         dataField.storeUnique("preferred", fullName.toString());
-      }
+      dataField.storeUnique("preferred", buildFormatedName(dataField));
    }
 
    /**
@@ -58,10 +55,7 @@ public class PersonFields {
     */
    public static void tracingPersonalName(DataField dataField) {
       if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
-      StringBuilder fullName = buildFormatedName(dataField);
-      if ((fullName != null) && (fullName.length() > 0)) {
-         dataField.storeMultiValued("synonyms", fullName.toString());
-      }
+      dataField.storeMultiValued("synonyms", buildFormatedName(dataField));
       checkRealName(dataField);
    }
 
@@ -104,15 +98,14 @@ public class PersonFields {
       }
    }
 
-   private static StringBuilder buildFormatedName(DataField dataField) {
+   private static String buildFormatedName(DataField dataField) {
       // name
       String name = dataField.getFirstValue("a");
       if (name == null) {
-         LOG.warn(dataField.getRecordId() + ": Field [45]00 without $a.");
+         LOG.info(dataField.getRecordId() + ": No $a. in field " + dataField.getFirstValue("tag"));
          return null;
       }
-      StringBuilder fullName = new StringBuilder();
-      fullName.append(name);
+      StringBuilder fullName = new StringBuilder(name);
       // nummeration
       String numeration = dataField.getFirstValue("b");
       if (numeration != null) {
@@ -128,7 +121,7 @@ public class PersonFields {
             fullName.append('>');
          }
       }
-      return fullName;
+      return fullName.toString();
    }
 
 }

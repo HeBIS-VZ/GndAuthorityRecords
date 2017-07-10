@@ -17,6 +17,8 @@
  */
 package de.hebis.it.hds.gnd.in.subfields;
 
+import java.util.List;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -43,7 +45,7 @@ public class CooperationFields {
 
    public static void headingCooperationName(DataField dataField) {
       if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
-      GenericFields.heading(dataField);
+      dataField.storeUnique("preferred", buildFormatedName(dataField));
    }
 
    /**
@@ -54,8 +56,8 @@ public class CooperationFields {
     */
    public static void tracingCooperationName(DataField dataField) {
       if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
-      GenericFields.tracing(dataField);
-   }
+      dataField.storeMultiValued("synonyms", buildFormatedName(dataField));
+  }
 
    /**
     * Related names &lt;datafield tag="510"&gt;.<br>
@@ -65,7 +67,8 @@ public class CooperationFields {
     */
    public static void relatedCooperationName(DataField dataField) {
       if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
-      GenericFields.related(dataField);
+      dataField.storeValues("0", "relatedIds", true, "https?://d-nb.info.*"); // dismiss redundant URI
+      dataField.storeMultiValued("related", buildFormatedName(dataField));
    }
 
    /**
@@ -77,5 +80,33 @@ public class CooperationFields {
    public static void linkingEntryCooperationName(DataField dataField) {
       if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
       GenericFields.linkingEntry(dataField, null);
+      dataField.storeMultiValued("synonyms", buildFormatedName(dataField));
+      dataField.storeValues("0", "sameAs", true, "http.+"); // no URLs
+   }
+
+   private static String buildFormatedName(DataField dataField) {
+      // name
+      String name = dataField.getFirstValue("a");
+      if (name == null) {
+         LOG.info(dataField.getRecordId() + ": No $a. in field " + dataField.getFirstValue("tag"));
+         return null;
+      }
+      StringBuilder fullName = new StringBuilder(name);
+      List<String> titles = dataField.get("b");
+      if (titles != null) {
+         for (Object title : titles) {
+            fullName.append(". ");
+            fullName.append((String) title);
+         }
+      }
+      List<String> addenums = dataField.get("g");
+      if (addenums != null) {
+         for (Object addenum : addenums) {
+            fullName.append(" (");
+            fullName.append((String) addenum);
+            fullName.append(")");
+         }
+      }
+      return fullName.toString();
    }
 }

@@ -52,6 +52,7 @@ public class CooperationFieldsTest {
       DataField testDataField = TestHelper.dataFieldFactory("(DE-588)10000074-5", null, "410", "a", "USA");
       TestHelper.addSubField(testDataField, "b", "Department of Agriculture", "Interagency Agricultural Projections Committee");
       TestHelper.addSubField(testDataField, "g", "USA");
+      testDataField.storeUnique("preferred", "exists"); // Mock for marc field 110
       CooperationFields.tracingCooperationName(testDataField);
       // check side effects
       Collection<Object> result = testDataField.getFieldValues("synonyms");

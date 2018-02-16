@@ -50,9 +50,10 @@ import de.hebis.it.hds.tools.streams.TextBlockSpliterator;
  * The processed info for each member will be send to the gnd index as:
  * 
  * <dl>
- *    <dh>id</dh><dd>id of doublet title</dd> 
- *    <dh>preferred</dh><dd>clusterkey</dd> 
- *    <dh>synonymes</dh><dd>list of all members (ids) in this cluster</dd>
+ * <dh>id</dh>
+ * <dd>id of doublet title</dd> <dh>preferred</dh>
+ * <dd>clusterkey</dd> <dh>synonymes</dh>
+ * <dd>list of all members (ids) in this cluster</dd>
  * </dl>
  * 
  * @author Uwe Reh (uh), HeBIS-IT
@@ -91,13 +92,14 @@ public class ImportKobvInfos {
          }
       });
       LOG.error("Finished with " + doubletInfoFile.toString());
-      // System.out.println(clearing.toString().replace(',', '\n'));
+      System.out.println(clearing.toString().replace(',', '\n'));
    }
 
    @SuppressWarnings("javadoc")
    public static void main(String[] args) throws URISyntaxException {
       ImportKobvInfos me = new ImportKobvInfos();
-      me.load(new URI("file:///work2/GND/Kobv/gvi_dups.txt"));
+//      me.load(new URI("file:///tmp/gvi_dups.txt"));
+       me.load(new URI("file:///work2/GND/Kobv/gvi_dups.txt"));
       // me.load(new URI("file:///C:/work/rawdata/gvi_dups.txt"));
    }
 

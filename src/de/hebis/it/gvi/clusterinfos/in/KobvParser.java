@@ -47,7 +47,7 @@ public class KobvParser implements Function<List<String>, Boolean> {
    }
 
    /**
-    * Parse the doemat and store the Infos into the HashMap.<br>
+    * Parse the clusterinfo and store for each member the key into the HashMap.<br>
     * 
     */
    @Override
@@ -71,8 +71,8 @@ public class KobvParser implements Function<List<String>, Boolean> {
    private void tryPut(String titleId, String clusterKey) {
       if (titleId.length() < 5) return; // simplest garbage disposer
       if (clearing.get(titleId) != null) {
-         LOG.error("Title: " + titleId + " is member of two clusters: " + clearing.get(titleId) + " and " + clusterKey);
-         System.exit(-2);
+         LOG.warn("Title: " + titleId + " is member of two clusters: " + clearing.get(titleId) + " and " + clusterKey);
+         return;
       }
       else clearing.put(titleId, clusterKey);    
    }

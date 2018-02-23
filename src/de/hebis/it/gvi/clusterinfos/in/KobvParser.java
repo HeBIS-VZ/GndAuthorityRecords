@@ -70,8 +70,10 @@ public class KobvParser implements Function<List<String>, Boolean> {
 
    private void tryPut(String titleId, String clusterKey) {
       if (titleId.length() < 5) return; // simplest garbage disposer
+      if (titleId.endsWith(clusterKey)) return; // don't store the self reference
       if (clearing.get(titleId) != null) {
-         LOG.warn("Title: " + titleId + " is member of two clusters: " + clearing.get(titleId) + " and " + clusterKey);
+//         LOG.warn("Title: " + titleId + " is member of two clusters: " + clearing.get(titleId) + " and " + clusterKey);
+         System.err.println(titleId + " is in: " + clearing.get(titleId) + " and " + clusterKey);
          return;
       }
       else clearing.put(titleId, clusterKey);    

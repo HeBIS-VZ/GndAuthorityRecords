@@ -18,6 +18,8 @@
 package de.hebis.it.hds.gnd.out;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -37,9 +39,10 @@ import org.apache.solr.common.util.NamedList;
  * @version 2017-06-02 uh initial version
  */
 public class AutorityRecordSolrFinder extends AutorityRecordFinder {
-   private static final Logger  LOG                  = LogManager.getLogger(AutorityRecordSolrFinder.class);
-   protected static SolrClient    server               = null;
-   private DocumentObjectBinder documentObjectBinder = new DocumentObjectBinder();
+   private static final Logger          LOG                  = LogManager.getLogger(AutorityRecordSolrFinder.class);
+   protected SolrClient                 server               = null;
+   protected Map<String, AuthorityBean> gndCache             = new HashMap<>();
+   private DocumentObjectBinder         documentObjectBinder = new DocumentObjectBinder();
 
    /**
     * Initialize a new Finder and connect to the default Solr core
@@ -59,7 +62,7 @@ public class AutorityRecordSolrFinder extends AutorityRecordFinder {
    }
 
    /**
-    * Connecting  Solr
+    * Connecting Solr
     * 
     * @param baseUrl URL to identify the core to use eg. "http://host:8983/solr/core"
     */
@@ -70,7 +73,8 @@ public class AutorityRecordSolrFinder extends AutorityRecordFinder {
    }
 
    /**
-    * get the data for the given id
+    * Get GND data for the given id<br>
+    * This function uses the internal cache {@link #getAuthorityBean(String, boolean) to avoid network traffic
     * 
     * @param recordId The complete Id mostly prefixed with a ISIL. Eg. '(DE-588)' for the GND
     * @return a authority bean representing the authority record or null if the id is unknown.
@@ -78,9 +82,36 @@ public class AutorityRecordSolrFinder extends AutorityRecordFinder {
     */
    @Override
    public AuthorityBean getAuthorityBean(String recordId) throws AuthorityRecordException {
+      return getAuthorityBean(recordId, false);
+   }
+
+   /**
+    * Get GND data for the given id<br>
+    * This function may use the internal cache to avoid network traffic
+    * 
+    * @param recordId The complete Id mostly prefixed with a ISIL. Eg. '(DE-588)' for the GND
+    * @param ignoreCache If TRUE the internal cache (HashMap) won't be used. This ensures to receive the newest version but will slow down the indexing process.
+    * @return a authority bean representing the authority record or null if the id is unknown.
+    * @throws AuthorityRecordException Indicates a problem while retrieving data from repository
+    */
+   public AuthorityBean getAuthorityBean(String recordId, boolean ignoreCache) throws AuthorityRecordException {
       if (server == null) return null;
       if (recordId == null) throw new NullPointerException("The id is mandatory");
-      return doRealTimeGet(recordId);
+      AuthorityBean ret;
+      synchronized (gndCache) {
+         ret = gndCache.get(recordId);
+         if (ret != null) return ret;
+         ret = doRealTimeGet(recordId);
+         gndCache.put(recordId, ret);
+      }
+      return ret;
+   }
+
+   /**
+    * Clears the internal cache
+    */
+   public void flushGndCache() {
+      gndCache = new HashMap<>();
    }
 
    /**

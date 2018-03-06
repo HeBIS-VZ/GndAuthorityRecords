@@ -66,22 +66,21 @@ public class Model extends Properties {
     */
    private void readConfigFile() {
       LOG.trace("Konfiguration einlesen");
-      InputStream configStream = Model.class.getClassLoader().getResourceAsStream(configFileName);
-      if (configStream != null) {
-         try {
-            this.load(new InputStreamReader(configStream));
-         } catch (IOException e) {
-            e.printStackTrace();
-            throw new RuntimeException("Error in loading: \"" + configFileName + "\".", e);
+      InputStream configStream = this.getClass().getClassLoader().getResourceAsStream(configFileName);
+      if (configStream == null) System.class.getClassLoader().getResourceAsStream(configFileName);
+      if (configStream == null) throw new RuntimeException("Config file \"" + configFileName + "\" couldn't be found in class path.");
+      // config file found
+      try {
+         this.load(new InputStreamReader(configStream));
+      } catch (IOException e) {
+         e.printStackTrace();
+         throw new RuntimeException("Error in loading: \"" + configFileName + "\".", e);
+      }
+      LOG.debug("Config file sucsessfully loaded");
+      if (LOG.isTraceEnabled()) {
+         for (Object key : this.keySet()) {
+            LOG.trace("Konfig: " + key + " = " + this.getProperty((String) key));
          }
-         LOG.debug("Config file sucsessfully loaded");
-         if (LOG.isTraceEnabled()) {
-            for (Object key : this.keySet()) {
-               LOG.trace("Konfig: " + key + " = " + this.getProperty((String) key));
-            }
-         }
-      } else {
-         throw new RuntimeException("Config file \"" + configFileName + "\" couldn't be found in class path.");
       }
    }
 }

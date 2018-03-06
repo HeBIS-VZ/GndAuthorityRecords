@@ -82,7 +82,7 @@ public class AutorityRecordSolrFinder extends AutorityRecordFinder {
     */
    @Override
    public AuthorityBean getAuthorityBean(String recordId) throws AuthorityRecordException {
-      return getAuthorityBean(recordId, false);
+      return this.getAuthorityBean(recordId, false);
    }
 
    /**
@@ -100,7 +100,9 @@ public class AutorityRecordSolrFinder extends AutorityRecordFinder {
       AuthorityBean ret;
       synchronized (gndCache) {
          ret = gndCache.get(recordId);
-         if (ret != null) return ret;
+         if (ret != null) {
+            return ret;
+         }
          ret = doRealTimeGet(recordId);
          gndCache.put(recordId, ret);
       }
@@ -154,7 +156,8 @@ public class AutorityRecordSolrFinder extends AutorityRecordFinder {
     */
    public static void main(String[] args) throws AuthorityRecordException {
       AutorityRecordSolrFinder me = new AutorityRecordSolrFinder();
-      AuthorityBean data = me.getAuthorityBean(args[0]);
+      me.getAuthorityBean(args[0]);
+      AuthorityBean data = me.getAuthorityBean("(DE-588)113582781");
       System.out.println(data.toString());
    }
 }

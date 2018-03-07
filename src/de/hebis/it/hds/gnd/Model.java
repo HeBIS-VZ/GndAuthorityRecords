@@ -65,16 +65,16 @@ public class Model extends Properties {
     * Read the configuration file.
     */
    private void readConfigFile() {
-      LOG.trace("Konfiguration einlesen");
-      InputStream configStream = this.getClass().getClassLoader().getResourceAsStream(configFileName);
-      if (configStream == null) System.class.getClassLoader().getResourceAsStream(configFileName);
-      if (configStream == null) throw new RuntimeException("Config file \"" + configFileName + "\" couldn't be found in class path.");
-      // config file found
+      InputStream configStream = ClassLoader.getSystemClassLoader().getResourceAsStream(configFileName);
+      if (configStream == null) {
+         throw new RuntimeException("Config file \"" + configFileName + "\" couldn't be found in classpath.");
+      }
+      LOG.debug("Found " + configFileName + "in classpath");
       try {
          this.load(new InputStreamReader(configStream));
       } catch (IOException e) {
          e.printStackTrace();
-         throw new RuntimeException("Error in loading: \"" + configFileName + "\".", e);
+         throw new RuntimeException("Error while loading: \"" + configFileName + "\".", e);
       }
       LOG.debug("Config file sucsessfully loaded");
       if (LOG.isTraceEnabled()) {
@@ -82,5 +82,10 @@ public class Model extends Properties {
             LOG.trace("Konfig: " + key + " = " + this.getProperty((String) key));
          }
       }
+   }
+   
+   public static void main(String[] unused) {
+      Model me = Model.getModel();
+      System.out.println(me.toString());
    }
 }

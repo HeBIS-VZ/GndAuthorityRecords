@@ -17,44 +17,41 @@
  */
 package de.hebis.it.gvi.clusterinfos.in;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.HashMap;
-import java.util.List;
-import java.util.function.Function;
-import java.util.function.Predicate;
-import java.util.regex.Pattern;
-import java.util.stream.Stream;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import de.hebis.it.hds.tools.streams.TextBlockSpliterator;
 
 /**
  * Convert of clusterinfos provided by KOBV<br>
  * The expected fileformat is:
  * 
  * <pre>
- *   clusterkey {
- *      Id of 1st doublet title
- *      Id of 2nd doublet title
- *      ...
- *      Id of last doublet title
- *   }
+ * <clusters>
+ *   <request>
+ *     <requestId>(DE-601)86024573X</requestId>
+ *       <duplicateId>(DE-601)86024573X</duplicateId>
+ *       ...
+ *   </request>
+ *   ...
+ * </clusters>
  * </pre>
  * 
  * The processed info for each member will be send to the gnd index as:
  * 
  * <dl>
  * <dh>id</dh>
- * <dd>id of doublet title</dd> <dh>preferred</dh>
- * <dd>clusterkey</dd> <dh>synonymes</dh>
- * <dd>list of all members (ids) in this cluster</dd>
+ * <dd>requestId</dd> <dh>preferred</dh>
+ * <dd>requestId</dd> <dh>synonymes</dh>
+ * <dd>list of all members (duplicateId) in this cluster</dd>
  * </dl>
  * 
  * @author Uwe Reh (uh), HeBIS-IT
@@ -63,55 +60,73 @@ import de.hebis.it.hds.tools.streams.TextBlockSpliterator;
  **/
 public class XML2Synonym {
    /** The Constant LOG. */
-   private static final Logger            LOG          = LogManager.getLogger(XML2Synonym.class);
-   private static final Pattern startpattern = Pattern.compile("\\{");
-   private static final Predicate<String> endpattern   = Pattern.compile("}").asPredicate();
+   private static final Logger LOG           = LogManager.getLogger(XML2Synonym.class);
+   private static final String idPattern     = "requestId";
+   private static final String memberPattern = "duplicateId";
+   private final Set<String> proof = new LinkedHashSet<>(15000000);
 
-   private class Parser implements Function<String, Boolean> {
+   private class Cluster extends HashMap<String, Set<String>> {
+      /**
+       * 
+       */
+      private static final long serialVersionUID = 1L;
+      String      id;
+      Set<String> dubletts;
 
-	@Override
-	public Boolean apply(String line) {
-		startpattern.m
-		return null;
-	}   
+      public Cluster(String id) {
+         this.id = id;
+         dubletts = new HashSet<>();
+      }
    }
-   
+
    /**
     * Load.
     *
     * @param doubletInfoFile
+    * @throws IOException 
     */
-   public void load(URI doubletInfoFile) {
-      HashMap<String, String> clearing = new HashMap<>();
+   public void load(URI doubletInfoFile) throws IOException {
+      Cluster cluster = null;
       LOG.debug("Starting with " + doubletInfoFile.toString());
-      Path path2InputFile = Paths.get(doubletInfoFile);
-      Stream<String> lineStream;
-      try {
-         lineStream = Files.lines(path2InputFile);
-      } catch (IOException e) {
-         LOG.fatal("Fehler beim Lesen der Eingabedatei: " + path2InputFile.toString());
-         throw new RuntimeException(e);
-      }
-      lineStream.map(line -> {});
-      
-      // group the lines sequentiell
-      Stream<List<String>> clusterInfoStream = TextBlockSpliterator.toTextBlocks(lineStream, startpattern, endpattern, false);
-      // process the data. map and consume
-      clusterInfoStream.map(new KobvParser(clearing)).forEach(x -> {
-         if (!x) {
-            LOG.error("Unexpected error in parsing.");
-            System.exit(-2);
+      BufferedReader clusterinfo = new BufferedReader(new FileReader(doubletInfoFile.getPath())) ;
+      String line = null;
+      while ((line = clusterinfo.readLine()) != null) {
+         if (line.contains(memberPattern)) {
+            String dublett = extract(line, memberPattern);
+            if (proof.contains(dublett)) LOG.warn(dublett + " ist mehrfach verzeichnet.");
+            else proof.add(dublett);
+            cluster.dubletts.add(dublett);
          }
-      });
+         else if (line.contains(idPattern)) {
+            if (cluster != null) process(cluster);
+            cluster = new Cluster(extract(line, idPattern));
+         }
+      }
+      if (cluster != null) process(cluster);
+      clusterinfo.close();
       LOG.error("Finished with " + doubletInfoFile.toString());
-      System.out.println(clearing.toString().replace(',', '\n'));
+   }
+
+   private void process(Cluster cluster) {
+      System.out.print(cluster.id);
+      for (String dublett : cluster.dubletts) {
+         System.out.print(", ");
+         System.out.print(dublett);
+      }
+      System.out.print("\n");
+   }
+   
+   private String extract(String line, String pattern) {
+      int pos = line.indexOf(pattern);
+      pos = line.indexOf('>', pos) + 1; 
+      return line.substring(pos, line.indexOf('<', pos));
    }
 
    @SuppressWarnings("javadoc")
-   public static void main(String[] args) throws URISyntaxException {
+   public static void main(String[] args) throws URISyntaxException, IOException {
       XML2Synonym me = new XML2Synonym();
-//      me.load(new URI("file:///tmp/gvi_dups.txt"));
-       me.load(new URI("file:///work2/GND/Kobv/gvi_dups.txt"));
+      me.load(new URI("file:///tmp/gvi_dups.txt"));
+      // me.load(new URI("file:///work2/GND/Kobv/gvi_dups.txt"));
       // me.load(new URI("file:///C:/work/rawdata/gvi_dups.txt"));
    }
 

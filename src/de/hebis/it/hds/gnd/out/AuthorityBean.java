@@ -17,6 +17,7 @@
  */
 package de.hebis.it.hds.gnd.out;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -59,11 +60,11 @@ public class AuthorityBean {
 
    /** This authority record was changed as N'th modification in the index. (automatic) */
    @Field("_version_")
-   public String       version;
+   public long       version;
 
    /** The date when the record was last changed. (default= NOW) */
    @Field("index_date")
-   public String       indexDate;
+   public Date       indexDate;
 
    /** The format of the authority record in {@link AuthorityBean#fullRecord}. (mandatory) */
    @Field("recordtype")

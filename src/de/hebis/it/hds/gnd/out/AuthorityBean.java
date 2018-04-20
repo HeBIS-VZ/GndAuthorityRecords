@@ -101,10 +101,11 @@ public class AuthorityBean {
     * <li>u = titles</li>
     * <li>r = local defined</li>
     * <li>w = libraries</li>
+    * <li>- = default for is not used</li>
     * </ul>
     */
    @Field
-   public String       authorityType;
+   public String       authorityType = "-";
 
    /**
     * The quality level of the authority record coded as digit. (optional) <br>

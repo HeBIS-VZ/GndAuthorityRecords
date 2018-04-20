@@ -136,7 +136,7 @@ public class AutorityRecordFileWriter extends AutorityRecordSolrFinder {
       if (entry.synonyms != null) {
          for (String synonym : entry.synonyms) {
             line.append(seperator);
-            line.append(synonym);
+            line.append(synonym.replace("", "").replace("", ""));
          }
       }
       out.println(line.toString());

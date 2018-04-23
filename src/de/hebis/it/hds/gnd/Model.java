@@ -20,6 +20,8 @@ package de.hebis.it.hds.gnd;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.URL;
+import java.net.URLClassLoader;
 import java.util.Properties;
 
 import org.apache.logging.log4j.LogManager;
@@ -65,8 +67,11 @@ public class Model extends Properties {
     * Read the configuration file.
     */
    private void readConfigFile() {
-      InputStream configStream = ClassLoader.getSystemClassLoader().getResourceAsStream(configFileName);
+      ClassLoader sysClassLoader = ClassLoader.getSystemClassLoader();
+      InputStream configStream = sysClassLoader.getResourceAsStream(configFileName);
       if (configStream == null) {
+         URL[] urls = ((URLClassLoader)sysClassLoader).getURLs();
+         for(URL url : urls)  System.out.println(url.getFile());
          throw new RuntimeException("Config file \"" + configFileName + "\" couldn't be found in classpath.");
       }
       LOG.debug("Found " + configFileName + "in classpath");

@@ -39,8 +39,10 @@ public class Model extends Properties {
    private final static Logger LOG              = LogManager.getLogger(Model.class);
    private static Model        singleton        = null;
    private static final String configFileName   = "AutorityRecord.properties";
-   private String              myConfigDir      = null;
-   private String              myConfigFile     = null;
+   private static final String KEY_ConfigDir    = "gnd.configdir";
+   private static final String KEY_ConfigFile   = "gnd.configfile";
+   private String              myConfigDir      = "unset";
+   private String              myConfigFile     = "unset";
 
    /**
     * Private constructor, to avoid multiple instances. <br>
@@ -77,13 +79,13 @@ public class Model extends Properties {
     */
    private void readConfigFile() throws FileNotFoundException {
       InputStream configStream = null;
-      myConfigFile = System.getProperty("gnd.configfile");
+      myConfigFile = System.getProperty(KEY_ConfigFile);
+      myConfigDir = System.getProperty(KEY_ConfigDir);
       if (myConfigFile != null) {
          if (LOG.isDebugEnabled()) LOG.debug("Try to load " + myConfigFile + ". (defined by '-Dgnd.configfile=...' in comandline");
          configStream = new FileInputStream(myConfigFile);
       } else {
          LOG.debug("No '-Dgnd.configfile=...' defined. Look for '-Dgnd.configdir=...'");
-         myConfigDir = System.getProperty("gnd.configdir");
          if (myConfigDir != null) {
             myConfigFile = myConfigDir.trim() + File.separator + configFileName;
             if (LOG.isDebugEnabled()) LOG.debug("Try to load " + myConfigFile + ". (defined by '-Dgnd.configdir=...' and constant: " + configFileName);
@@ -124,7 +126,7 @@ public class Model extends Properties {
          throw new RuntimeException("Error in loading: \"" + fileToLoad + "\".", e);
       }
       if (LOG.isDebugEnabled()) LOG.debug("Property file: \"" + fileToLoad + "\" sucsessfully loaded");
-      return ret ;
+      return ret;
    }
 
    public static void main(String[] unused) {

@@ -70,7 +70,7 @@ public class PersonFieldsTest {
       PersonFields.tracingPersonalName(testDataField);
       Collection<Object> result = testDataField.getFieldValues("look4me");
       assertTrue("The flag 'look4me' has to be set", (result != null));
-      if (result != null) assertTrue("The flag 'look4me' has to be true", result.contains("true"));
+      assertTrue("The flag 'look4me' has to be true", result.contains("true"));
    }
 
    /**

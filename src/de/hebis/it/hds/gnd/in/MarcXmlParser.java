@@ -202,6 +202,11 @@ public class MarcXmlParser implements Function<List<String>, Boolean> {
       return true;
    }
 
+   /**
+    * 
+    * @param rawreader
+    * @return
+    */
    private char readTypeFromLeader(XMLStreamReader rawreader) {
       // TODO Auto-generated method stub
       // TODO Dummy for upcoming functions for deletions and redirections.

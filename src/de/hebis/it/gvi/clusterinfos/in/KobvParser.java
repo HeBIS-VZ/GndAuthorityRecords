@@ -76,7 +76,7 @@ public class KobvParser implements Function<List<String>, Boolean> {
          System.err.println(titleId + " is in: " + clearing.get(titleId) + " and " + clusterKey);
          return;
       }
-      else clearing.put(titleId, clusterKey);    
+      clearing.put(titleId, clusterKey);    
    }
 
 }

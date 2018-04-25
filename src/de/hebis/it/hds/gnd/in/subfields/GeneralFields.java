@@ -99,6 +99,10 @@ public class GeneralFields {
       dataField.storeMultiValued("ddc", ddc);
    }
 
+   /**
+    * 
+    * @param dataField
+    */
    public static void controllInfos(DataField dataField) {
       // TODO Auto-generated method stub
       

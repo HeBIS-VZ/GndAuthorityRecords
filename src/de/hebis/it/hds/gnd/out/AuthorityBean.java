@@ -106,7 +106,7 @@ public class AuthorityBean {
     * </ul>
     */
    @Field
-   public String       authorityType = "-";
+   public String       authorityType = "s";
 
    /**
     * The quality level of the authority record coded as digit. (optional) <br>

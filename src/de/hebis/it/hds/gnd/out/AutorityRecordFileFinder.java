@@ -17,9 +17,6 @@
  */
 package de.hebis.it.hds.gnd.out;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Properties;
@@ -37,19 +34,20 @@ import de.hebis.it.hds.gnd.Model;
  */
 public class AutorityRecordFileFinder  extends AutorityRecordFinder {
    private static final Logger  LOG                  = LogManager.getLogger(AutorityRecordFileFinder.class);
-   private static Properties    synonyms               = new Properties();
+   private Model model = Model.getModel();
+   private static Properties    synonyms               = null;
    private String seperator = config.getProperty("EntrySeperator", "!_#_!");
 
    /**
-    * Initialize a new Finder and load the default property file
+    * Load the default synonym property file
     * 
     */
    public AutorityRecordFileFinder() {
-      init(config.getProperty("PropertyFilePath"));
+      this(null);
    }
 
    /**
-    * Initialize a new Finder and connect to the given Solr core
+    * Load the given synonym property file.
     * 
     * @param filePath Path to the property file
     */
@@ -57,27 +55,11 @@ public class AutorityRecordFileFinder  extends AutorityRecordFinder {
       init(filePath);
    }
 
-   /**
-    * Read the synonym dictionary.
-    * @param filePath Path to the property file
-    */
    @Override
    public void init(String filePath) {
-      LOG.trace("Load the synonyms file");
-      InputStream configStream = Model.class.getClassLoader().getResourceAsStream(filePath);
-      if (configStream != null) {
-         try {
-            synonyms.load(new InputStreamReader(configStream));
-         } catch (IOException e) {
-            e.printStackTrace();
-            throw new RuntimeException("Error in loading: \"" + filePath + "\".", e);
-         }
-         LOG.debug("Synonyms file sucsessfully loaded");
-      } else {
-         throw new RuntimeException("Property file \"" + filePath + "\" couldn't be found in class path.");
-      } 
+      synonyms = model.loadPropertyFile(filePath);
    }
-
+   
    /**
     * get the data for the given id
     * 
@@ -118,4 +100,5 @@ public class AutorityRecordFileFinder  extends AutorityRecordFinder {
       AuthorityBean data = me.getAuthorityBean(args[0]);
       System.out.println(data.toString());
    }
+
 }

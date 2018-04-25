@@ -17,11 +17,12 @@
  */
 package de.hebis.it.hds.gnd;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.URL;
-import java.net.URLClassLoader;
 import java.util.Properties;
 
 import org.apache.logging.log4j.LogManager;
@@ -38,6 +39,8 @@ public class Model extends Properties {
    private final static Logger LOG              = LogManager.getLogger(Model.class);
    private static Model        singleton        = null;
    private static final String configFileName   = "AutorityRecord.properties";
+   private String              myConfigDir      = null;
+   private String              myConfigFile     = null;
 
    /**
     * Private constructor, to avoid multiple instances. <br>
@@ -45,7 +48,11 @@ public class Model extends Properties {
     */
    private Model() {
       super();
-      readConfigFile();
+      try {
+         readConfigFile();
+      } catch (FileNotFoundException e) {
+         throw new RuntimeException("Sh*t executable JARs.", e);
+      }
       LOG.debug("The model is created and initialized.");
    }
 
@@ -65,30 +72,61 @@ public class Model extends Properties {
 
    /**
     * Read the configuration file.
+    * 
+    * @throws FileNotFoundException
     */
-   private void readConfigFile() {
-      ClassLoader sysClassLoader = ClassLoader.getSystemClassLoader();
-      InputStream configStream = sysClassLoader.getResourceAsStream(configFileName);
-      if (configStream == null) {
-         URL[] urls = ((URLClassLoader)sysClassLoader).getURLs();
-         for(URL url : urls)  System.out.println(url.getFile());
-         throw new RuntimeException("Config file \"" + configFileName + "\" couldn't be found in classpath.");
+   private void readConfigFile() throws FileNotFoundException {
+      InputStream configStream = null;
+      myConfigFile = System.getProperty("gnd.configfile");
+      if (myConfigFile != null) {
+         if (LOG.isDebugEnabled()) LOG.debug("Try to load " + myConfigFile + ". (defined by '-Dgnd.configfile=...' in comandline");
+         configStream = new FileInputStream(myConfigFile);
+      } else {
+         LOG.debug("No '-Dgnd.configfile=...' defined. Look for '-Dgnd.configdir=...'");
+         myConfigDir = System.getProperty("gnd.configdir");
+         if (myConfigDir != null) {
+            myConfigFile = myConfigDir.trim() + File.separator + configFileName;
+            if (LOG.isDebugEnabled()) LOG.debug("Try to load " + myConfigFile + ". (defined by '-Dgnd.configdir=...' and constant: " + configFileName);
+            configStream = new FileInputStream(myConfigFile);
+         } else {
+            LOG.warn("Neither '-Dgnd.configfile' nor '-Dgnd.configdir' is defined trying to load config as recource.");
+            configStream = ClassLoader.getSystemClassLoader().getResourceAsStream(configFileName);
+         }
       }
-      LOG.debug("Found " + configFileName + "in classpath");
+      if (configStream == null) {
+         throw new FileNotFoundException("Can't find config file \"" + myConfigFile + "\".");
+      }
+      if (LOG.isTraceEnabled()) LOG.trace("Found: \"" + myConfigFile + "\".");
       try {
          this.load(new InputStreamReader(configStream));
       } catch (IOException e) {
          e.printStackTrace();
-         throw new RuntimeException("Error while loading: \"" + configFileName + "\".", e);
+         throw new RuntimeException("Error while loading: \"" + myConfigFile + "\".", e);
       }
       LOG.debug("Config file sucsessfully loaded");
       if (LOG.isTraceEnabled()) {
          for (Object key : this.keySet()) {
-            LOG.trace("Konfig: " + key + " = " + this.getProperty((String) key));
+            LOG.trace("Config param: " + key + " = " + this.getProperty((String) key));
          }
       }
    }
-   
+
+   public Properties loadPropertyFile(String fileToLoad) {
+      Properties ret = new Properties();
+      if ((fileToLoad == null) || fileToLoad.trim().isEmpty()) fileToLoad = getProperty("PropertyFilePath");
+      if ((fileToLoad == null) || fileToLoad.trim().isEmpty()) throw new RuntimeException("Name/path of synonym file is missing.");
+      if ((myConfigFile != null) && !fileToLoad.contains(File.separator)) fileToLoad = myConfigDir.trim() + File.separator + fileToLoad;
+      try {
+         if (LOG.isTraceEnabled()) LOG.trace("try to load property file: \"" + fileToLoad + "\".");
+         ret.load(new InputStreamReader(new FileInputStream(fileToLoad)));
+      } catch (IOException e) {
+         e.printStackTrace();
+         throw new RuntimeException("Error in loading: \"" + fileToLoad + "\".", e);
+      }
+      if (LOG.isDebugEnabled()) LOG.debug("Property file: \"" + fileToLoad + "\" sucsessfully loaded");
+      return ret ;
+   }
+
    public static void main(String[] unused) {
       Model me = Model.getModel();
       System.out.println(me.toString());

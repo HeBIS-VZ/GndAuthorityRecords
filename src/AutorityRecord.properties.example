@@ -1,0 +1,52 @@
+# Configuration file for the projects:
+# - GNDNormDaten
+# - CLusterId
+#
+# This file can selected with java parameter "gnd.configfile".
+# The java parameter "gnd.configdir" may provided as base for all resources.
+#
+#
+#
+###################################################
+##### GND Main section
+###################################################
+# 
+# Select work mode. 
+# Either 'online' get full information from remote repository
+# or 'offline' get synonyms from lokal file
+GndMode = offline
+#
+#
+###################################################
+##### GND:Online (Solr) section
+###################################################
+#
+# Base URL to the repository
+# Example: BaseURL = http://server.domain.tld:8683/solr/core
+# BaseURL = https://solr.hebis.de/authority
+BaseURL = http://zantafino.hebis.uni-frankfurt.de:3001/solr/GND_01
+#
+#
+###################################################
+##### GND:Offline (File) section
+###################################################
+#
+SynonymMap = GndSynonyms.map
+#
+GroupSeparator = \u001D
+EntrySeperator = \u001F
+#
+# Parameter only for the export into the synonym map 
+StepSizeForExport = 10000
+ MaxLinesToProcess = 100
+
+###################################################
+##### ClusterId: section
+###################################################
+#
+ClusterMap = Cluster.map
+#
+#
+###############
+# End
+###############

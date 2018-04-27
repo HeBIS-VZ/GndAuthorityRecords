@@ -15,9 +15,10 @@
  * You should have received a copy of the GNU General Public License
  * along with the code.  If not, see http://www.gnu.org/licenses/agpl>.
  */
-package de.hebis.it.hds.gnd.out;
+package de.hebis.it.hds.gnd.out.resolver;
 
 import de.hebis.it.hds.gnd.Model;
+import de.hebis.it.hds.gnd.out.AuthorityBean;
 
 /**
  * Abstract Implementation of common methods of all AutorityRecord&lt;DATASOURCE&gt;Finder.<br>
@@ -25,8 +26,8 @@ import de.hebis.it.hds.gnd.Model;
  * @author Uwe Reh (uh), HeBIS-IT
  * @version 2017-06-02 uh initial version
  */
-public abstract class AutorityRecordFinder {
-   static final Model config = Model.getModel();
+public abstract class AuthorityResolver {
+   protected static final Model model = Model.getModel();
 
    /**
     * Initialize a new Finder and 'connect to' or 'load from' the data source.

@@ -17,10 +17,10 @@
  */
 package de.hebis.it.hds.gnd.out;
 
-import java.io.FileNotFoundException;
+import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -29,46 +29,42 @@ import org.apache.solr.client.solrj.SolrQuery.SortClause;
 import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.response.QueryResponse;
 
+import de.hebis.it.hds.gnd.out.resolver.AuthorityRecordException;
+import de.hebis.it.hds.gnd.out.resolver.OnlineAuthorityResolver;
+import net.openhft.chronicle.map.ChronicleMapBuilder;
+
 /**
  * Export the authority informations from the repository to a property file<br>
- * The lines of the file are defined as "&lt;ID&gt; = &lt;preferred&gt;(&lt;seperator&gt;&lt;synonym&gt;)*"<br> 
+ * The lines of the file are defined as "&lt;ID&gt; = &lt;preferred&gt;(&lt;seperator&gt;&lt;synonym&gt;)*"<br>
  * Eg. "(DE-588)100000355 = Amman, Reiner!_#_!Amman, Reinerius"
  * 
  * @author Uwe Reh (uh), HeBIS-IT
  * @version 2017-06-18 uh initial version
  */
-public class AutorityRecordFileWriter extends AutorityRecordSolrFinder {
-   private static final Logger LOG              = LogManager.getLogger(AutorityRecordFileWriter.class);
-   String                      propertyFilePath = null;
-   private String              seperator        = config.getProperty("EntrySeperator", "!_#_!");
-   private PrintWriter         out              = null;
-   private int                 count            = 0;
-   private int                 maxCount         = Integer.MAX_VALUE;
-
-   /**
-    * Exports all entries from the Solr repository to the default file
-    */
-   public void generateSynonymFile() {
-      generateSynonymFile(config.getProperty("PropertyFilePath"));
-   }
+public class ExportSynonymsToFile extends OnlineAuthorityResolver {
+   private static final Logger        LOG              = LogManager.getLogger(ExportSynonymsToFile.class);
+   String                             propertyFilePath = null;
+   protected static Map<String, String> synonymMap       = null;
+   private String                     partSeparator    = model.getProperty("GroupSeparator", "\u001D");
+   private String                     synonymSeparator = model.getProperty("EntrySeperator", "\u001F");
+   private int                        count            = 0;
+   private int                        maxCount         = Integer.MAX_VALUE;
 
    /**
     * Exports all entries from the Solr repository to the given file
     * 
     * @param filePath Fully qualified name of the output file or 'null' for console output.
     */
-   public void generateSynonymFile(String filePath) {
-      if (filePath == null) {
-         out = new PrintWriter(System.out);
-      } else try {
-         out = new PrintWriter(filePath);
-      } catch (FileNotFoundException e) {
-         LOG.error("Can't open file:" + filePath, e);
-         System.exit(-1);
+   public void openSynonymMap(String filePath) {
+      ChronicleMapBuilder<String, String> lookupBuilder = ChronicleMapBuilder.of(String.class, String.class);
+      lookupBuilder.averageKey("(DE-588)0123456789abc"); // example to calculate the needed space.
+      lookupBuilder.averageValueSize(200); // to calculate the needed space.
+      lookupBuilder.entries(2000000); // 70Mio entries expected
+      try {
+         synonymMap = lookupBuilder.createOrRecoverPersistedTo(new File(filePath));
+      } catch (IOException e) {
+         throw new RuntimeException("Can't open synonym map: " + filePath, e);
       }
-      printFileHeader();
-      listAllEntries();
-      out.close();
    }
 
    /**
@@ -79,7 +75,7 @@ public class AutorityRecordFileWriter extends AutorityRecordSolrFinder {
       String nextCursorMark = null;
       QueryResponse rsp = null;
       SolrQuery query = new SolrQuery("id:*");
-      query.setRows(Integer.valueOf(config.getProperty("StepSizeForExport", "100")));
+      query.setRows(Integer.valueOf(model.getProperty("StepSizeForExport", "100")));
       query.setSort(SortClause.asc("id"));
       do {
          // start with '*' in the first iteration, then use the last position
@@ -106,61 +102,56 @@ public class AutorityRecordFileWriter extends AutorityRecordSolrFinder {
          // loop over the results
          for (AuthorityBean entry : partialResults) {
             if (LOG.isTraceEnabled()) LOG.trace("Bearbeite:  " + entry.id);
-            printOut(entry);
+            putToMap(entry);
             if ((maxCount != Integer.MAX_VALUE) && (count >= maxCount)) return; // optional exit for debug purposes
          }
-         out.flush();
       } while (!cursorMark.equals(nextCursorMark));
    }
 
-   /**
-    * Write a header with short explanation to the file
-    */
-   private void printFileHeader() {
-      out.println("# Synonym file for authority records, exported from the project: \"GndAuthorityRecords\".");
-      out.println("# see: https://github.com/HeBIS-VZ/GndAuthorityRecords");
-      out.println("# Format:");
-      out.println("# Id of the authority record = <preferred notation>" + seperator + "<1st synonym>" + seperator + "..." + seperator + "<last synonym>");
-      out.println("# ");
-   }
-
+ 
    /**
     * Write the representation of the given entry to the file.
     * 
     * @param entry The data to write
     */
-   private void printOut(AuthorityBean entry) {
-      StringBuilder line = new StringBuilder(entry.id);
-      line.append(" = ");
+   private void putToMap(AuthorityBean entry) {
+      StringBuilder line = new StringBuilder();
       line.append(entry.preferred);
+      line.append(partSeparator);
       if (entry.synonyms != null) {
          for (String synonym : entry.synonyms) {
-            line.append(seperator);
             line.append(synonym.replace("", "").replace("", ""));
+            line.append(synonymSeparator);
          }
+         line.setLength(line.length()-1); // remove last synonymSeparator
       }
-      out.println(line.toString());
+      synonymMap.put(entry.id, line.toString());
       count++;
    }
 
    /**
     * Exports the synonym file
     * 
-    * @param args no cmd line parameters is used 
+    * @param args no cmd line parameters is used
     * @throws AuthorityRecordException Indicates a problem while retrieving data from repository
     */
    public static void main(String[] args) throws AuthorityRecordException {
-      System.out.println("\n\nExport of authority synonyms.");
-      AutorityRecordFileWriter me = new AutorityRecordFileWriter();
-      String maxCount = config.getProperty("MaxLinesToProcess");
-      if (maxCount != null)  {
+      System.out.println("\n\nExport authority synonyms to file");
+      ExportSynonymsToFile me = new ExportSynonymsToFile();
+      String maxCount = model.getProperty("MaxLinesToProcess");
+      if (maxCount != null) {
          me.maxCount = Integer.valueOf(maxCount);
-         System.out.println("\tThe export process will stop after " + maxCount + " lines."); 
+         System.out.println("\tThe export process will stop after " + maxCount + " lines.");
       }
-      String fpath = config.getProperty("PropertyFilePath");
-      if (fpath != null) System.out.println("\tThe output will be written to " + fpath);
+      String filePath = model.getProperty("SynonymMap");
+      if (filePath == null) throw new RuntimeException("Parameter 'SynonymMap' is not defined.");
+      filePath = model.addDefaultDir(filePath);
+      System.out.println("\tThe output will be written to " + filePath);
+      
       System.out.println("");
-      me.generateSynonymFile(config.getProperty("PropertyFilePath"));
+      me.openSynonymMap(filePath);
+      if (synonymMap.isEmpty()) me.listAllEntries();
+      else System.out.println("Nothing to do. Map: " + filePath + " was already build.");
       System.out.println("\nFinished\n");
    }
 }

@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU General Public License
  * along with the code.  If not, see http://www.gnu.org/licenses/agpl>.
  */
-package de.hebis.it.hds.gnd.out;
+package de.hebis.it.hds.gnd.out.resolver;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -32,14 +32,16 @@ import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.util.NamedList;
 
+import de.hebis.it.hds.gnd.out.AuthorityBean;
+
 /**
  * Get the authority informations from the repository.<br>
  * 
  * @author Uwe Reh (uh), HeBIS-IT
  * @version 2017-06-02 uh initial version
  */
-public class AutorityRecordSolrFinder extends AutorityRecordFinder {
-   private static final Logger          LOG                  = LogManager.getLogger(AutorityRecordSolrFinder.class);
+public class OnlineAuthorityResolver extends AuthorityResolver {
+   private static final Logger          LOG                  = LogManager.getLogger(OnlineAuthorityResolver.class);
    protected SolrClient                 server               = null;
    protected Map<String, AuthorityBean> gndCache             = new HashMap<>();
    private DocumentObjectBinder         documentObjectBinder = new DocumentObjectBinder();
@@ -48,8 +50,8 @@ public class AutorityRecordSolrFinder extends AutorityRecordFinder {
     * Initialize a new Finder and connect to the default Solr core
     * 
     */
-   public AutorityRecordSolrFinder() {
-      init(config.getProperty("BaseURL"));
+   public OnlineAuthorityResolver() {
+      init(model.getProperty("BaseURL"));
    }
 
    /**
@@ -57,7 +59,7 @@ public class AutorityRecordSolrFinder extends AutorityRecordFinder {
     * 
     * @param baseUrl URL to identify the core to use eg. "http://host:8983/solr/core"
     */
-   public AutorityRecordSolrFinder(String baseUrl) {
+   public OnlineAuthorityResolver(String baseUrl) {
       init(baseUrl);
    }
 
@@ -155,7 +157,7 @@ public class AutorityRecordSolrFinder extends AutorityRecordFinder {
     * @throws AuthorityRecordException Indicates a problem while retrieving data from repository
     */
    public static void main(String[] args) throws AuthorityRecordException {
-      AutorityRecordSolrFinder me = new AutorityRecordSolrFinder();
+      OnlineAuthorityResolver me = new OnlineAuthorityResolver();
       me.getAuthorityBean(args[0]);
       AuthorityBean data = me.getAuthorityBean("(DE-588)113582781");
       System.out.println(data.toString());

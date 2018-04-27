@@ -53,7 +53,7 @@ public class Model extends Properties {
       try {
          readConfigFile();
       } catch (FileNotFoundException e) {
-         throw new RuntimeException("Sh*t executable JARs.", e);
+         throw new RuntimeException("Sh*t executable JARs. Can't find my resources", e);
       }
       LOG.debug("The model is created and initialized.");
    }
@@ -79,15 +79,17 @@ public class Model extends Properties {
     */
    private void readConfigFile() throws FileNotFoundException {
       InputStream configStream = null;
-      myConfigFile = System.getProperty(KEY_ConfigFile);
       myConfigDir = System.getProperty(KEY_ConfigDir);
+      if (myConfigFile != null) myConfigFile = myConfigFile.trim();
+      myConfigFile = System.getProperty(KEY_ConfigFile);
       if (myConfigFile != null) {
+         myConfigFile = addDefaultDir(myConfigFile.trim());
          if (LOG.isDebugEnabled()) LOG.debug("Try to load " + myConfigFile + ". (defined by '-Dgnd.configfile=...' in comandline");
          configStream = new FileInputStream(myConfigFile);
       } else {
          LOG.debug("No '-Dgnd.configfile=...' defined. Look for '-Dgnd.configdir=...'");
          if (myConfigDir != null) {
-            myConfigFile = myConfigDir.trim() + File.separator + configFileName;
+            myConfigFile = addDefaultDir(configFileName);
             if (LOG.isDebugEnabled()) LOG.debug("Try to load " + myConfigFile + ". (defined by '-Dgnd.configdir=...' and constant: " + configFileName);
             configStream = new FileInputStream(myConfigFile);
          } else {
@@ -117,7 +119,7 @@ public class Model extends Properties {
       Properties ret = new Properties();
       if ((fileToLoad == null) || fileToLoad.trim().isEmpty()) fileToLoad = getProperty("PropertyFilePath");
       if ((fileToLoad == null) || fileToLoad.trim().isEmpty()) throw new RuntimeException("Name/path of synonym file is missing.");
-      if ((myConfigFile != null) && !fileToLoad.contains(File.separator)) fileToLoad = myConfigDir.trim() + File.separator + fileToLoad;
+      fileToLoad = addDefaultDir(fileToLoad);
       try {
          if (LOG.isTraceEnabled()) LOG.trace("try to load property file: \"" + fileToLoad + "\".");
          ret.load(new InputStreamReader(new FileInputStream(fileToLoad)));
@@ -129,6 +131,12 @@ public class Model extends Properties {
       return ret;
    }
 
+   public String addDefaultDir(String filePath) {
+      if (myConfigDir == null) return filePath;
+      if (filePath.startsWith(File.separator)) return filePath;
+      return myConfigDir + File.separator + filePath;
+   }
+   
    public static void main(String[] unused) {
       Model me = Model.getModel();
       System.out.println(me.toString());

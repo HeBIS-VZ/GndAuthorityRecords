@@ -23,8 +23,10 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 
 import de.hebis.it.hds.gnd.out.AuthorityBean;
-import de.hebis.it.hds.gnd.out.AuthorityRecordException;
-import de.hebis.it.hds.gnd.out.AutorityRecordFinder;
+import de.hebis.it.hds.gnd.out.resolver.AuthorityRecordException;
+import de.hebis.it.hds.gnd.out.resolver.OfflineAuthorityResolver;
+import de.hebis.it.hds.gnd.out.resolver.AuthorityResolver;
+import de.hebis.it.hds.gnd.out.resolver.OnlineAuthorityResolver;
 
 /**
  * Assuming an existing repository this test validates basic attributes of a result.<br>
@@ -43,7 +45,7 @@ public class AutorityRecordFinderTest {
     */
    @Test
    public void checkOrwellFromSolr() throws AuthorityRecordException {
-      AutorityRecordFinder   finder  = new AutorityRecordSolrFinder();
+      AuthorityResolver   finder  = new OnlineAuthorityResolver();
       AuthorityBean data = finder.getAuthorityBean(orwell);
       assertEquals("The found id must be equal to the queried.", orwell, data.id);
       assertNotNull("The preferred textual naming is mandatory.", data.preferred);
@@ -57,7 +59,7 @@ public class AutorityRecordFinderTest {
     */
    @Test
    public void checkOrwellFromFile() throws AuthorityRecordException {
-      AutorityRecordFinder   finder  = new AutorityRecordFileFinder();
+      AuthorityResolver   finder  = new OfflineAuthorityResolver();
       AuthorityBean data = finder.getAuthorityBean(orwell);
       assertEquals("The found id must be equal to the queried.", orwell, data.id);
       assertNotNull("The preferred textual naming is mandatory.", data.preferred);

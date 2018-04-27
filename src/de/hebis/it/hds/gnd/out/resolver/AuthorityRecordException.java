@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU General Public License
  * along with the code.  If not, see http://www.gnu.org/licenses/agpl>.
  */
-package de.hebis.it.hds.gnd.out;
+package de.hebis.it.hds.gnd.out.resolver;
 
 import java.io.IOException;
 

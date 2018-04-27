@@ -44,6 +44,7 @@ StepSizeForExport = 10000
 ##### ClusterId: section
 ###################################################
 #
+ClusterSourceFile = /home/uwe/git/SolrFilter/test/data/cluster.xml
 ClusterMap = Cluster.map
 #
 #

@@ -35,7 +35,7 @@ import de.hebis.it.hds.gnd.out.resolver.OnlineAuthorityResolver;
  * @version 2017-05-11 uh first try
  *
  */
-public class AutorityRecordFinderTest {
+public class AuthorityResolverTest {
    private static final String orwell  = "(DE-588)118590359";
 
    /**

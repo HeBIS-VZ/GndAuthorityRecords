@@ -57,9 +57,9 @@ public class ExportSynonymsToFile extends OnlineAuthorityResolver {
     */
    public void openSynonymMap(String filePath) {
       ChronicleMapBuilder<String, String> lookupBuilder = ChronicleMapBuilder.of(String.class, String.class);
-      lookupBuilder.averageKey("(DE-588)0123456789abc"); // example to calculate the needed space.
-      lookupBuilder.averageValueSize(200); // to calculate the needed space.
-      lookupBuilder.entries(2000000); // 70Mio entries expected
+      lookupBuilder.averageKeySize(50); //  to calculate the needed space.
+      lookupBuilder.averageValueSize(1000); // to calculate the needed space.
+      lookupBuilder.entries(3000000); // 3Mio entries expected
       try {
          synonymMap = lookupBuilder.createOrRecoverPersistedTo(new File(filePath));
       } catch (IOException e) {

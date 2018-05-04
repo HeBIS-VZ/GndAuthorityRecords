@@ -45,6 +45,11 @@ StepSizeForExport = 10000
 ###################################################
 #
 ClusterSourceFile = /home/uwe/git/SolrFilter/test/data/cluster.xml
+#
+# legacy solution
+ClusterPropertyFile = Cluster.properties
+#
+# Off heap solution
 ClusterMap = Cluster.map
 #
 #

@@ -17,14 +17,12 @@
  */
 package de.hebis.it.gvi.clusterinfos.out;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.LinkedHashSet;
-import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 
@@ -37,7 +35,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import de.hebis.it.hds.gnd.Model;
-import net.openhft.chronicle.map.ChronicleMapBuilder;
 
 /**
  * Convert of clusterinfos provided by KOBV<br>

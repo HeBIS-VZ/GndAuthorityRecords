@@ -1,0 +1,125 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+   <groupId>de.hebis.it</groupId>
+   <artifactId>GndNormDaten</artifactId>
+   <version>0.9</version>
+   <name>GND2GVI_converter</name>
+   <description>Transform selectet GND data to key-value file to enrich title data in GVI</description>
+   <packaging>jar</packaging>
+
+   <properties>
+      <version.java>1.8</version.java>
+      <version.log4j>2.11.2</version.log4j>
+      <version.solr>6.2.1</version.solr>
+   </properties>
+
+   <repositories>
+      <repository>
+         <id>repo</id>
+         <name>repo</name>
+         <url>file:${project.basedir}/lib</url>
+      </repository>
+   </repositories>
+
+   <dependencies>
+      <dependency>
+         <groupId>org.apache.logging.log4j</groupId>
+         <artifactId>log4j-api</artifactId>
+         <version>${version.log4j}</version>
+      </dependency>
+      <dependency>
+         <groupId>org.apache.logging.log4j</groupId>
+         <artifactId>log4j-core</artifactId>
+         <version>${version.log4j}</version>
+      </dependency>
+      <dependency>
+         <groupId>org.apache.solr</groupId>
+         <artifactId>solr-solrj</artifactId>
+         <version>${version.solr}</version>
+      </dependency>
+      <dependency>
+         <groupId>de.hebis.it</groupId>
+         <artifactId>hdstoolkit</artifactId>
+         <version>1.0</version>
+      </dependency>
+      <!-- 
+       -->
+   </dependencies>
+
+   <build>
+      <finalName>gndNormData</finalName>
+
+      <sourceDirectory>src</sourceDirectory>
+      <resources>
+         <resource>
+            <directory>src</directory>
+            <excludes>
+               <exclude>**/*.java</exclude>
+            </excludes>
+         </resource>
+      </resources>
+
+      <testSourceDirectory>test</testSourceDirectory>
+      <testResources>
+         <testResource>
+            <directory>test</directory>
+            <excludes>
+               <exclude>**/*.java</exclude>
+            </excludes>
+         </testResource>
+      </testResources>
+
+      <plugins>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-shade-plugin</artifactId>
+            <version>2.4.3</version>
+            <executions>
+               <execution>
+                  <phase>package</phase>
+                  <goals>
+                     <goal>shade</goal>
+                  </goals>
+               </execution>
+            </executions>
+         </plugin>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.8.1</version>
+            <configuration>
+               <source>${version.java}</source>
+               <target>${version.java}</target>
+               <encoding>UTF-8</encoding>
+            </configuration>
+         </plugin>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+            <version>2.6</version>
+            <configuration>
+               <archive>
+                  <manifest>
+                     <mainClass>de.hebis.it.paia.BootStrap</mainClass>
+                  </manifest>
+               </archive>
+            </configuration>
+         </plugin>
+         <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>1.2.1</version>
+            <configuration>
+               <executable>java</executable>
+               <arguments>
+                  <argument>-jar</argument>
+                  <argument>target/${project.build.finalName}.jar</argument>
+               </arguments>
+            </configuration>
+         </plugin>
+      </plugins>
+
+   </build>
+</project>

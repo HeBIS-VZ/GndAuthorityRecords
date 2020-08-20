@@ -44,33 +44,35 @@ public class PersonFields {
     */
    public static void headingPersonalName(DataField dataField) {
       if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
-      dataField.storeUnique("preferred", buildFormatedName(dataField));
+      storePreferred(dataField);
    }
 
    /**
-    * Alternative names &lt;datafield tag="400"&gt;.<br>
+    * Alternative names, pseudonyms and related persons &lt;datafield tag="[45]00"&gt;.<br>
     * Subfields will be stored in the form "$a $b &lt;$c&gt;. (schema:synonyms)<br>
     * 
     * @param dataField The content of the data field
     */
    public static void tracingPersonalName(DataField dataField) {
       if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
-      dataField.storeMultiValued("synonyms", buildFormatedName(dataField));
-      checkRealName(dataField);
+      List<String> relations = dataField.get("4");
+      if (relations != null) {
+         for (String relType : relations) {
+            switch (relType) {
+               case "nawi":
+               case "pseu":
+                  storeSynonym(dataField);
+                  break;
+               default:
+                  storeRelated(dataField);
+            }
+         }
+      }
+      else {
+         storeSynonym(dataField);
+      }
    }
 
-   /**
-    * Related personal names &lt;datafield tag="500"&gt;.<br>
-    * see: {@link GenericFields#related(DataField)}<br>
-    * If this name is the real name set Flag for 2nd pass
-    * 
-    * @param dataField The content of the data field
-    */
-   public static void relatedPersonalName(DataField dataField) {
-      if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
-      GenericFields.related(dataField);
-      checkRealName(dataField);
-   }
 
    /**
     * Alternative names in other systems &lt;datafield tag="700"&gt;.<br>
@@ -83,21 +85,16 @@ public class PersonFields {
       GenericFields.linkingEntry(dataField, "%DE.*");
    }
 
-   /**
-    * Looks for the relation code "nawi", which means 'name, wirklicher=real'<br>
-    * This case needs a second pass to get from the main (real) entry the other synonyms.<br>
-    * If a real name is given the flag (schema:look4me) will be set.
-    * 
-    * @param dataField
-    */
-   private static void checkRealName(DataField dataField) {
-      // is a 2nd pass required?
-      if ("nawi".equals(dataField.getSub9SubField('4'))) {
-         if (LOG.isDebugEnabled()) LOG.debug(dataField.getRecordId() + ": Real name in synonyms found.");
-         dataField.replaceUnique("look4me", "true");
-      }
+   private static void storePreferred(DataField dataField) {
+      dataField.storeUnique("preferred", buildFormatedName(dataField));   }
+   
+   private static void storeSynonym(DataField dataField) {
+      dataField.storeMultiValued("synonyms", buildFormatedName(dataField));
    }
-
+   
+   private static void storeRelated(DataField dataField) {
+      GenericFields.related(dataField);   }
+   
    private static String buildFormatedName(DataField dataField) {
       // name
       String name = dataField.getFirstValue("a");

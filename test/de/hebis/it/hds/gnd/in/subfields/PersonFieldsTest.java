@@ -45,49 +45,43 @@ public class PersonFieldsTest {
       assertTrue("The combined name 'Ambrosius III <de Lombez> <other title>' should exist", result.contains("Ambrosius III <de Lombez> <other title>"));
    }
 
-   /**
-    * Check alternative names (data field 400)
+    /**
+    * Check pseudonyms (data field 500)
     */
    @Test
-   public void tracingFakePersonalName() {
-      DataField testDataField = TestHelper.dataFieldFactory("(DE-588)11862444X", null, "400", "a", "Old Shatterhand");
-      TestHelper.addSubField(testDataField, "9", "4:pseu");
+   public void pseudonymPersonalName() {
+      DataField testDataField = TestHelper.dataFieldFactory("(DE-588)11862444X", null, "500", "a", "Old Shatterhand");
+      TestHelper.addSubField(testDataField, "4", "pseu");
       PersonFields.tracingPersonalName(testDataField);
-      Collection<Object> result = testDataField.getFieldValues("synonyms");
-      assertTrue("A synonym is expected", (result != null));
-      assertTrue("The synonym 'Old Shatterhand' should exist", result.contains("Old Shatterhand"));
-      result = testDataField.getFieldValues("look4me");
-      if (result != null) assertTrue("The flag 'look4me should be missig or to be false", result.contains("false"));
+      Collection<Object> result = testDataField.getFieldValues("related");
+      if (result != null) {
+         assertFalse("\"Old Shatterhand\" is a pseudonym not a related Person", result.contains("Old Shatterhand"));
+      }
+      result = testDataField.getFieldValues("synonyms");
+      assertTrue("List os synonymes is expected", (result != null));
+      assertTrue("\"Old Shatterhand\" is a expected pseudonym.", result.contains("Old Shatterhand"));
    }
 
    /**
-    * Check real names (data field 400)
-    */
-   @Test
-   public void tracingRealPersonalName() {
-      DataField testDataField = TestHelper.dataFieldFactory("(DE-588)100004687", null, "400", "a", "Groll, Georg");
-      TestHelper.addSubField(testDataField, "9", "4:nawi");
-      PersonFields.tracingPersonalName(testDataField);
-      Collection<Object> result = testDataField.getFieldValues("look4me");
-      assertTrue("The flag 'look4me' has to be set", (result != null));
-      assertTrue("The flag 'look4me' has to be true", result.contains("true"));
-   }
-
-   /**
-    * Check related terms and related ids (data field 500)
+    * Check real related terms and related ids (data field 500)
     */
    @Test
    public void relatedPersonalName() {
       DataField testDataField = TestHelper.dataFieldFactory("(DE-588)100000193", null, "500", "a", "Bauer, Heinrich Gottfried");
       TestHelper.addSubField(testDataField, "0", "(DE-101)121453839", "(DE-588)121453839", "http://d-nb.info/gnd/121453839");
-      TestHelper.addSubField(testDataField, "9", "4:bezf", "v:Sohn");
-      PersonFields.relatedPersonalName(testDataField);
+      TestHelper.addSubField(testDataField, "4", "bezf", "v:Sohn");
+      PersonFields.tracingPersonalName(testDataField);
       Collection<Object> result = testDataField.getFieldValues("related");
       assertTrue("A related Name is expected", (result != null));
       assertTrue("A related term should to be 'Bauer, Heinrich Gottfried'", result.contains("Bauer, Heinrich Gottfried"));
       result = testDataField.getFieldValues("relatedIds");
       assertTrue("Related ids are expected", (result != null));
       assertTrue("One related id should to be '(DE-588)121453839'", result.contains("(DE-588)121453839"));
+      // not a pseudonym
+      result = testDataField.getFieldValues("synonyms");
+      if (result != null) {
+         assertFalse("\"Bauer, Heinrich Gottfried\" is a related Person not a pseudonym.", result.contains("Bauer, Heinrich Gottfried"));
+      }      
    }
 
    /**

@@ -260,6 +260,7 @@ public class MarcXmlParser implements Function<List<String>, Boolean> {
             TopicFields.complexSeeReferenceTerm(dataField);
             break;
          case "400": // Alternative name
+         case "500": // Related personal name
             PersonFields.tracingPersonalName(dataField);
             break;
          case "410": // Alternative cooperation name
@@ -276,9 +277,6 @@ public class MarcXmlParser implements Function<List<String>, Boolean> {
             break;
          case "451": // Alternative geoname
             GeoFields.tracingGeoName(dataField);
-            break;
-         case "500": // Related personal name
-            PersonFields.relatedPersonalName(dataField);
             break;
          case "510": // Related cooperation
             CooperationFields.relatedCooperationName(dataField);

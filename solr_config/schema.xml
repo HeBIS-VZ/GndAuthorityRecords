@@ -92,11 +92,11 @@
    <!-- Type of the authority record (coding like DNB plus a 'r' for local definitions) -->
    <field
       name="authorityType"
-      type="optionalKey" />
+      type="optionalKeys" />
    <!-- level of proofed quality ('1' is the best) -->
    <field
       name="qualityLevel"
-      type="optionalKey" />
+      type="optionalKeys" />
 
    <!-- Locations and areas -->
    <field

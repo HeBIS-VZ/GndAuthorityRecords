@@ -35,7 +35,7 @@ public class TestHelper {
     * @param dataFieldId Id of the data field
     * @param subFieldId Id of the first subfield
     * @param subFieldValues One or more value(s) for the (repeatable) subfield
-    * @return A new Dateifeld with one (repeatable) subfield;
+    * @return A new DataField with one (repeatable) subfield;
     */
    public static DataField dataFieldFactory(String recordId, DataField testData, String dataFieldId, String subFieldId, String... subFieldValues) {
       if (testData == null) testData = new DataField(recordId, null);

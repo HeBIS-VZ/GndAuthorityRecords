@@ -63,18 +63,41 @@ public class GeneralFieldsTest {
    }
 
    /**
-    * Check info's about the type of the authority record. (data field 035)
+    * Check info's about the quality/trust level of the authority record. (data field 042)
+    */
+   @Test
+   public void qualityLevel() {
+      DataField testDataField = TestHelper.dataFieldFactory("test", null, "042", "a", "gnd1");
+      GeneralFields.qualityLevel(testDataField);
+      // check side effects
+      Collection<Object> result = testDataField.getFieldValues("qualityLevel");
+      assertTrue("The qualitiy level should be 'gnd1'.", result.contains("gnd1"));
+   }
+
+   /**
+    * Type of the authority record. (data field 075)<br>
+    * @see  https://www.dnb.de/gndgeneraltype
     */
    @Test
    public void type() {
-      DataField testDataField = TestHelper.dataFieldFactory("test", null, "079", "b", "s");
-      TestHelper.addSubField(testDataField, "c", "9");
+      DataField testDataField = TestHelper.dataFieldFactory("test", null, "075", "b", "testNoNorm");
       GeneralFields.type(testDataField);
-      // check side effects
       Collection<Object> result = testDataField.getFieldValues("authorityType");
-      assertTrue("The type should to be 's'", result.contains("s"));
-      result = testDataField.getFieldValues("qualityLevel");
-      assertTrue("The qualitiy level should be '9'.", result.contains("9"));
+      assertTrue("The type: 'testNoNorm' was not inserted", result.contains("testNoNorm"));
+      // with right norm 
+      testDataField = TestHelper.dataFieldFactory("test", null, "075", "b", "testGndgen");
+      TestHelper.addSubField(testDataField, "2", "gndgen");
+      GeneralFields.type(testDataField);
+      result = testDataField.getFieldValues("authorityType");
+      assertTrue("The type: 'testGndgen' was not inserted", result.contains("testGndgen"));
+      // with ignored norm 
+      testDataField = TestHelper.dataFieldFactory("test", null, "075", "b", "testGndspec");
+      TestHelper.addSubField(testDataField, "2", "gndspec");
+      GeneralFields.type(testDataField);
+      result = testDataField.getFieldValues("authorityType");
+      if (result != null) {
+         assertTrue("The type: 'testGndspec' should not be inserted", result.contains("testGndspec"));
+      }
    }
 
    /**

@@ -77,7 +77,7 @@ public class GeneralFields {
     * <li>"gnd6" (GND-Datensatz stammt aus Altbestand und ist maschinell eingespielt worden)</li>
     * <li>"gnd7" (GND-Datensatz ist maschinell aus Metadaten erstellt worden)</li>
     * <li>"gndz" (gesperrter GND -Datensatz, Änderungen sind nicht möglich)</li>
-    * <li> evtl. weitere Werte aus der MARC Authentication Action Code List</li>
+    * <li>evtl. weitere Werte aus der MARC Authentication Action Code List</li>
     * </ul>
     * 
     * @param dataField The content of the data field
@@ -87,8 +87,17 @@ public class GeneralFields {
    }
 
    /**
-    * Type of the record. &lt;datafield tag="079"&gt;.<br>
-    * Subfield '$b' is taken as type. (schema:authorityType)<br>
+    * Type of the authority record. &lt;datafield tag="075"&gt;.<br>
+    * Subfield '$b':
+    * <ul>
+    * <li>"p" = Person (individualisiert)</li>
+    * <li>"n" = Personenname (nicht individualisiert)</li>
+    * <li>"b" = Körperschaft</li>
+    * <li>"f" = Kongresse</li>
+    * <li>"g" = Geografikum</li>
+    * <li>"s" = Sachbegriff</li>
+    * <li>"u" = Werk</li>
+    * </ul>
     * 
     * @param dataField The content of the data field
     */

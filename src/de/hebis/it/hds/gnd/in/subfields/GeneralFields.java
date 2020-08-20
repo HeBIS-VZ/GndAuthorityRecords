@@ -88,7 +88,7 @@ public class GeneralFields {
 
    /**
     * Type of the authority record. &lt;datafield tag="075"&gt;.<br>
-    * Subfield '$b':
+    * Subfield '$b' ($2="gndgen") :
     * <ul>
     * <li>"p" = Person (individualisiert)</li>
     * <li>"n" = Personenname (nicht individualisiert)</li>
@@ -97,12 +97,17 @@ public class GeneralFields {
     * <li>"g" = Geografikum</li>
     * <li>"s" = Sachbegriff</li>
     * <li>"u" = Werk</li>
-    * </ul>
+    * </ul> see https://www.dnb.de/gndgeneraltype<br>
+    * more specivic types ($2="gndspec") are omitted
+    * 
     * 
     * @param dataField The content of the data field
     */
    public static void type(DataField dataField) {
-      dataField.storeValues("b", "authorityType", false, null);
+      String norm = dataField.getFirstValue("2");
+      if ((norm == null) || norm.equals("gndgen")) {
+       dataField.storeValues("b", "authorityType", false, null);
+      }
    }
 
    /**

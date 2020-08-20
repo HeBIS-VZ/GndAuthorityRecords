@@ -1,4 +1,5 @@
 /*
+
  * Copyright 2016, 2017 by HeBIS (www.hebis.de).
  * 
  * This file is part of HeBIS project Gnd4Index.

@@ -47,7 +47,7 @@ public class GeneralFields {
       if ((testId == null) || testId.isEmpty()) {
          LOG.trace("Conversion warning: Datafield 035 has no $a. Skipping");
       }
-      else if (dataField.getRecordId() == null) { 
+      else if (dataField.getRecordId() == null) {
          if (LOG.isTraceEnabled()) LOG.trace(testId + ": as first id found");
          dataField.setRecordId(testId);
       }
@@ -60,22 +60,40 @@ public class GeneralFields {
       }
       else {
          if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": store additional id: " + testId);
-         dataField.storeMultiValued("sameAs", testId); 
-      }   
+         dataField.storeMultiValued("sameAs", testId);
+      }
       return dataField.getRecordId(); // return a copy of the primary id
+   }
+
+   /**
+    * Trust level, my be used to ignore automatic generated records. &lt;datafield tag="042"&gt;.<br>
+    * Subfield '$a':
+    * <ul>
+    * <li>"gnd1" (GND-Datensatz authentifiziert von einem GND-Verbund- oder Fachredaktion)</li>
+    * <li>"gnd2" (GND-Datensatz authentifiziert von einer lokalen GND-Redaktion)</li>
+    * <li>"gnd3" (GND-Datensatz authentifiziert von geschultem GND-Personal)</li>
+    * <li>"gnd4" (GND-Datensatz authentifiziert von ungeschultem GND-Personal)</li>
+    * <li>"gnd5" (GND-Datensatz authentifiziert von einem sonstigen GND-Anwender)</li>
+    * <li>"gnd6" (GND-Datensatz stammt aus Altbestand und ist maschinell eingespielt worden)</li>
+    * <li>"gnd7" (GND-Datensatz ist maschinell aus Metadaten erstellt worden)</li>
+    * <li>"gndz" (gesperrter GND -Datensatz, Änderungen sind nicht möglich)</li>
+    * <li> evtl. weitere Werte aus der MARC Authentication Action Code List</li>
+    * </ul>
+    * 
+    * @param dataField The content of the data field
+    */
+   public static void qualityLevel(DataField dataField) {
+      dataField.storeValues("a", "qualityLevel", false, null);
    }
 
    /**
     * Type of the record. &lt;datafield tag="079"&gt;.<br>
     * Subfield '$b' is taken as type. (schema:authorityType)<br>
-    * Subfield '$c' is taken as level of trust. (schema:qualityLevel)<br>
-    * ('1' is the best, over '3' should only used on own risk)<br>
     * 
     * @param dataField The content of the data field
     */
    public static void type(DataField dataField) {
       dataField.storeValues("b", "authorityType", false, null);
-      dataField.storeValues("c", "qualityLevel", false, null);
    }
 
    /**
@@ -105,7 +123,7 @@ public class GeneralFields {
     */
    public static void controllInfos(DataField dataField) {
       // TODO Auto-generated method stub
-      
+
    }
 
 }

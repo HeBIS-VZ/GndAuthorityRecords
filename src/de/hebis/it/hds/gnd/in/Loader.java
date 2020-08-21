@@ -63,7 +63,7 @@ public class Loader {
     */
    public Loader(String baseSolrURL) {
       if (baseSolrURL == null) throw new RuntimeException("No URL to solr server provided.");
-      server = new ConcurrentUpdateSolrClient.Builder(baseSolrURL).withQueueSize(100).withThreadCount(100).build();
+      server = new ConcurrentUpdateSolrClient.Builder(baseSolrURL).withQueueSize(1000).withThreadCount(10).build();
       if (server == null) throw new RuntimeException("Can't initialize the solrj client.");
       LOG.debug("SolrWriter is connected to " + baseSolrURL);
    }
@@ -89,9 +89,10 @@ public class Loader {
       marcXmlStream.map(new MarcXmlParser(server)).forEach(x -> {
          if (!x) System.err.println("Fail");
       });
-      LOG.debug("Finished with " + marcXmlFile.toString());
+      LOG.info("Finished with " + marcXmlFile.toString());
       try {
          server.commit();
+         server.close();
       } catch (SolrServerException | IOException e) {
          LOG.error("Failed sending final commit for:" + marcXmlFile.toString() + " to " + server.toString(), e);
          throw new RuntimeException(e);

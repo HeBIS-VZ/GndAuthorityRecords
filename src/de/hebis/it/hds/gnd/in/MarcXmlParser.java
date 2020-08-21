@@ -196,7 +196,7 @@ public class MarcXmlParser implements Function<List<String>, Boolean> {
       }
       if (LOG.isTraceEnabled()) LOG.trace("Record is send.");
       int counterNow = counter.getAndIncrement();
-      if (counterNow % 10000 == 0) LOG.info("Records processed: " + counterNow);
+      if (LOG.isTraceEnabled() && (counterNow % 10000 == 0)) LOG.info("Records processed: " + counterNow);
       return true;
    }
 

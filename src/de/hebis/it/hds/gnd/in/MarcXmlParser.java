@@ -165,26 +165,21 @@ public class MarcXmlParser implements Function<List<String>, Boolean> {
          throw new RuntimeException("Data error in XML file.", e);
       }
       if (LOG.isTraceEnabled()) LOG.trace("Index record");
-      try {
-         if (checkAndLog(doc, xmlRecord)) solrClient.add(doc);
-      } catch (SolrServerException | IOException e) {
-         LOG.warn("Failed sending document:" + doc.get("id") + " to " + solrClient.toString(), e);
-      }
-      if (LOG.isTraceEnabled()) LOG.trace("Record is send.");
+      addToIndex(doc, xmlRecord);
    }
 
    /**
     * @param doc
     */
-   private boolean checkAndLog(SolrInputDocument doc, String marcXml) {
+   private boolean addToIndex(SolrInputDocument doc, String marcXml) {
       if (LOG.isTraceEnabled()) LOG.trace("New Document: " + doc.toString());
       String docId = (String) doc.getFieldValue("id");
       if (docId == null) {
-         LOG.error("No Id found in " + marcXml.replace('\n', ' '));
+         LOG.warn("No Id found. ID:" + docId);
          return false;
       }
       if (doc.getFieldValue("preferred") == null) {
-         LOG.error(docId + ": No preferred naming found in marcXml. " + marcXml.replace('\n', ' '));
+         LOG.warn(docId + ": No preferred naming found in marcXml. ID:" + docId);
          return false;
       }
       if (LOG.isDebugEnabled()) {
@@ -193,10 +188,13 @@ public class MarcXmlParser implements Function<List<String>, Boolean> {
                LOG.debug(docId + ": Coordinates found [" + (String) coordinate + "].");
             }
          }
-         if (doc.getFieldValue("look4me") == "true") {
-            LOG.debug(docId + ":(" + (String) doc.getFieldValue("preferred") + ") Needs a second pass.");
-         }
       }
+      try {
+         solrClient.add(doc);
+      } catch (SolrServerException | IOException e) {
+         LOG.warn("Failed sending document:" + docId + " to " + solrClient.toString(), e);
+      }
+      if (LOG.isTraceEnabled()) LOG.trace("Record is send.");
       int counterNow = counter.getAndIncrement();
       if (counterNow % 10000 == 0) LOG.info("Records processed: " + counterNow);
       return true;

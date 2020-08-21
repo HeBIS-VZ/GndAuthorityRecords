@@ -119,19 +119,6 @@ public class AuthorityBean {
    @Field
    public List<String> coordinates;
 
-   /**
-    * This flag marks authority records with unresolved references to others. (default = false) <br>
-    * Records with this flag set, need to be handled in a second pass.
-    * <dl>
-    * <dt>Motivation</dt>
-    * <dd>A assumed name (pseudonym) contains a reference to the real name, but not to other assumed names. <br>
-    * To obtain all synonyms, it's necessary to copy the synonyms of the 'real name' record.
-    * <dd>
-    * </dl>
-    */
-   @Field
-   public boolean      look4me;
-
       
    /** The unchanged authority record. (mandatory) */
    @Field("fullrecord")

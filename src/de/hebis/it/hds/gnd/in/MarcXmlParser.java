@@ -57,7 +57,7 @@ import de.hebis.it.hds.gnd.in.subfields.TopicFields;
 public class MarcXmlParser implements Function<List<String>, Boolean> {
    private final static Logger          LOG                = LogManager.getLogger(MarcXmlParser.class);
    private final static XMLInputFactory srf                = XMLInputFactory.newInstance();
-   private static final String[]        unusedfields       = { "001", "003", "005", "008", "024", "040", "043", "065", "079", "089", "336", "339", "372", "375", "377", "380", "382", "383", "384", "548", "667", "670", "675", "677", "678", "679", "680", "682", "692", "912", "913" };
+   private static final String[]        unusedfields       = { "001", "003", "005", "008", "024", "040", "043", "065", "079", "089", "336", "339", "372", "375", "377", "380", "382", "383", "384", "548", "667", "670", "672", "675", "677", "678", "679", "680", "682", "692", "912", "913" };
    private static final List<String>    dataFieldsToIgnore = Arrays.asList(unusedfields);
    private final static AtomicInteger   counter            = new AtomicInteger(1);
    private String                       recordId           = null;

@@ -17,6 +17,8 @@
  */
 package de.hebis.it.hds.gnd.in.subfields;
 
+import java.util.NoSuchElementException;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -36,32 +38,29 @@ public class GeoFields {
 
    /**
     * Coordinates. &lt;datafield tag="034"&gt;.<br>
-    * A center will computed from the subfields $d, $e, $f, $g and $9A. ans stored as WGS86 (schema:coordinates)<br>
+    * A center will computed from the subfields $d, $e, $f, $g and $9A. and stored as WGS84 (schema:coordinates)<br>
     * Subfield '$0' is taken as additional id. (schema:sameAs)<br>
     * 
     * @param dataField The content of the data field
     */
    public static void coordinates(DataField dataField) {
       boolean calculateMidPoint = true; // assume that min and max values are different
-      String minLon = dataField.getFirstValue("d");
-      if ((minLon == null) || minLon.isEmpty()) {
-         LOG.info(dataField.getRecordId() + ": Subfield $d is missing, skip evaluation");
+      String minLon;
+      String maxLon;
+      String minLat;
+      String maxLat;
+      try {
+         minLon = getSubFieldAsString(dataField, "d");
+         maxLon = getSubFieldAsString(dataField, "e");
+         minLat = getSubFieldAsString(dataField, "f");
+         maxLat = getSubFieldAsString(dataField, "g");
+      }
+      catch (NoSuchElementException e) {
          return;
       }
-      String maxLon = dataField.getFirstValue("e");
-      if ((maxLon == null) || maxLon.isEmpty() || maxLon.equals(minLon)) {
-         if (LOG.isDebugEnabled()) LOG.debug(dataField.getRecordId() + ": Max value is missed ore equal.");
-         calculateMidPoint = false;
-      }
-      String minLat = dataField.getFirstValue("f");
-      if ((minLat == null) || minLat.isEmpty()) {
-         LOG.info(dataField.getRecordId() + ": Subfield $f is missing, skip evaluation");
-         return;
-      }
-      String maxLat = dataField.getFirstValue("g");
       char codingSchema = getCoding(dataField);
       if (codingSchema == '?') { // unknown
-         LOG.info(dataField.getRecordId() + ": Subfield $9a is missing and format could not detected, skip evaluation");
+         LOG.info(dataField.getRecordId() + ": No coding shema , skip evaluation");
          return;
       }
       Double longitute = toNormalizedDecimal(minLon, codingSchema);
@@ -70,11 +69,27 @@ public class GeoFields {
          longitute  = (longitute + toNormalizedDecimal(maxLon, codingSchema)) / 2;
          latitute  = (latitute + toNormalizedDecimal(maxLat, codingSchema)) / 2;
       }
-      dataField.storeMultiValued("coordinates", latitute.toString() + ", " + longitute.toString());  
+      dataField.storeMultiValued("coordinates", longitute.toString() + ", " + latitute.toString());  
       // optional URI
       String sameAs = dataField.getFirstValue("0");
       if (sameAs != null) dataField.storeMultiValued("sameAs", sameAs);
    }
+
+
+   /**
+    * @param dataField
+    * @return
+    */
+   private static String getSubFieldAsString(DataField dataField, String subFieldCode) throws NoSuchElementException{
+      String minLon = dataField.getFirstValue(subFieldCode);
+      if ((minLon == null) || minLon.isEmpty()) {
+         String message = dataField.getRecordId() + ": Subfield " + subFieldCode + " is missing, skip evaluation";
+         LOG.info(message);
+         throw new NoSuchElementException(message);
+      }
+      return minLon;
+   }
+   
    
    /**
     * Geoname &lt;datafield tag="151"&gt;.<br>

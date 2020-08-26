@@ -31,7 +31,7 @@
    <!-- Primary container -->
    <field
       name="fullrecord"
-      type="uniqueData" />
+      type="blob" />
 
    <!-- System field of SOLR, will be implicit filled -->
    <field
@@ -98,11 +98,11 @@
       name="qualityLevel"
       type="optionalKeys" />
 
-   <!-- Locations and areas -->
+   <!-- Locations -->
    <field
       name="coordinates"
-      type="location_rpt" />
-
+      type="geo_point" />
+   <dynamicField name="*_coordinate"  type="double" />
     
    <!--
       ###########################################
@@ -126,11 +126,29 @@
       multiValued="false" />
 
    <fieldType
+      name="double"
+      class="solr.TrieDoubleField"
+      stored="false"
+      indexed="true"
+      required="false"
+      multiValued="true" />
+
+
+   <fieldType
       name="timeStamp"
       class="solr.TrieDateField"
       indexed="true"
       stored="true"
       required="true"
+      multiValued="false" />
+
+   <fieldType
+      name="blob"
+      class="solr.TextField"
+      indexed="false"
+      stored="true"
+      required="true"
+      sortMissingLast="true"
       multiValued="false" />
 
    <fieldType
@@ -161,12 +179,10 @@
       multiValued="false" />
       
    <fieldType 
-      name="location_rpt" 
-      class="solr.SpatialRecursivePrefixTreeFieldType" 
-      geo="true" 
-      distErrPct="0.025"
-      maxDistErr="0.001"
-      distanceUnits="kilometers"
+      name="geo_point" 
+      class="solr.LatLonType"
+      subFieldSuffix="_coordinate"
+      indexed="true"
       stored="true"
       required="false"
       multiValued="true" />
@@ -175,7 +191,7 @@
    <fieldType
       name="uniqueData"
       class="solr.StrField"
-      indexed="false"
+      indexed="true"
       stored="true"
       required="true"
       multiValued="false" />
@@ -198,7 +214,5 @@
       multiValued="true" />
 
    <uniqueKey>id</uniqueKey>
-   <defaultSearchField>id</defaultSearchField>
-   <solrQueryParser defaultOperator="AND" />
 </schema>
 

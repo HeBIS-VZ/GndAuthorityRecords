@@ -19,6 +19,7 @@ package de.hebis.it.hds.gnd.in;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.text.Normalizer;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -91,7 +92,7 @@ public class MarcXmlParser implements Function<List<String>, Boolean> {
       for (String line : recordAsListOfLines) {
          fullrecord.append(line.trim().replace("&#152;", "&lt;").replace("&#156;", "&gt;"));
       }
-      parse(fullrecord.toString());
+      parse(Normalizer.normalize(fullrecord.toString(), Normalizer.Form.NFC));
       return true;
    }
 
@@ -109,7 +110,8 @@ public class MarcXmlParser implements Function<List<String>, Boolean> {
       char recordType = 'n'; // New/Normal
       try {
          rawreader = srf.createXMLStreamReader(new ByteArrayInputStream(xmlRecord.getBytes("UTF-8")), "UTF-8");
-      } catch (Exception e) {
+      }
+      catch (Exception e) {
          LOG.error("Can't create the stax parser.");
          throw new RuntimeException(e);
       }
@@ -129,7 +131,8 @@ public class MarcXmlParser implements Function<List<String>, Boolean> {
                               if (LOG.isTraceEnabled()) LOG.trace("Skip unused field : " + tagId);
                               break;
                            }
-                        } else { // Control record, only the '682' data field needs to be evaluated
+                        }
+                        else { // Control record, only the '682' data field needs to be evaluated
                            if (!"682".equals(tagId)) {
                               if (LOG.isTraceEnabled()) LOG.trace("Skip unused field in control record : " + tagId);
                               break;
@@ -161,7 +164,8 @@ public class MarcXmlParser implements Function<List<String>, Boolean> {
             rawreader.next();
          }
          rawreader.close();
-      } catch (XMLStreamException e) {
+      }
+      catch (XMLStreamException e) {
          throw new RuntimeException("Data error in XML file.", e);
       }
       if (LOG.isTraceEnabled()) LOG.trace("Index record");
@@ -191,12 +195,16 @@ public class MarcXmlParser implements Function<List<String>, Boolean> {
       }
       try {
          solrClient.add(doc);
-      } catch (SolrServerException | IOException e) {
+      }
+      catch (SolrServerException | IOException e) {
          LOG.warn("Failed sending document:" + docId + " to " + solrClient.toString(), e);
       }
-      if (LOG.isTraceEnabled()) LOG.trace("Record is send.");
-      int counterNow = counter.getAndIncrement();
-      if (LOG.isTraceEnabled() && (counterNow % 10000 == 0)) LOG.info("Records processed: " + counterNow);
+      if (LOG.isDebugEnabled()) {
+         int logStepSize = 10000;
+         if (LOG.isTraceEnabled()) logStepSize = 10;
+         int counterNow = counter.getAndIncrement();
+         if ((counterNow % logStepSize == 0)) LOG.debug("Records processed: " + counterNow);
+      }
       return true;
    }
 
@@ -325,90 +333,102 @@ public class MarcXmlParser implements Function<List<String>, Boolean> {
    public static void main(String[] args) {
       /* @formatter:off */
       String testmarc = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" + 
-            "  <record xmlns=\"http://www.loc.gov/MARC21/slim\" type=\"Authority\">\n" + 
-            "    <leader>00000nz  a2200000n  4500</leader>\n" + 
-            "    <controlfield tag=\"001\">98018116X</controlfield>\n" + 
+            "  <record type=\"Authority\">\n" + 
+            "    <leader>00000nz  a2200000oc 4500</leader>\n" + 
+            "    <controlfield tag=\"001\">1168028205</controlfield>\n" + 
             "    <controlfield tag=\"003\">DE-101</controlfield>\n" + 
-            "    <controlfield tag=\"005\">20170601133703.0</controlfield>\n" + 
-            "    <controlfield tag=\"008\">060619n||azznnaabn           | ana    |c</controlfield>\n" + 
+            "    <controlfield tag=\"005\">20180928093751.0</controlfield>\n" + 
+            "    <controlfield tag=\"008\">180928n||aznnnbabn           | ana    |c</controlfield>\n" + 
             "    <datafield tag=\"024\" ind1=\"7\" ind2=\" \">\n" + 
-            "      <subfield code=\"a\">http://d-nb.info/gnd/7531248-7</subfield>\n" + 
-            "      <subfield code=\"2\">uri</subfield>\n" + 
+            "      <subfield code=\"a\">1168028205</subfield>\n" + 
+            "      <subfield code=\"0\">http://d-nb.info/gnd/1168028205</subfield>\n" + 
+            "      <subfield code=\"2\">gnd</subfield>\n" + 
             "    </datafield>\n" + 
             "    <datafield tag=\"034\" ind1=\" \" ind2=\" \">\n" + 
-            "      <subfield code=\"d\">E 000 00 00</subfield>\n" + 
-            "      <subfield code=\"e\">E 000 00 00</subfield>\n" + 
-            "      <subfield code=\"f\">N 049 19 21</subfield>\n" + 
-            "      <subfield code=\"g\">N 049 19 21</subfield>\n" + 
-            "      <subfield code=\"2\">geonames</subfield>\n" + 
-            "      <subfield code=\"0\">http://sws.geonames.org/2968325</subfield>\n" + 
+            "      <subfield code=\"d\">E 034 38 00</subfield>\n" + 
+            "      <subfield code=\"e\">E 034 38 00</subfield>\n" + 
+            "      <subfield code=\"f\">N 110 55 00</subfield>\n" + 
+            "      <subfield code=\"g\">N 110 55 00</subfield>\n" + 
+            "      <subfield code=\"2\">wikiped</subfield>\n" + 
             "      <subfield code=\"9\">A:agx</subfield>\n" + 
             "    </datafield>\n" + 
             "    <datafield tag=\"034\" ind1=\" \" ind2=\" \">\n" + 
-            "      <subfield code=\"d\">E000.000000</subfield>\n" + 
-            "      <subfield code=\"e\">E000.000000</subfield>\n" + 
-            "      <subfield code=\"f\">N049.322500</subfield>\n" + 
-            "      <subfield code=\"g\">N049.322500</subfield>\n" + 
-            "      <subfield code=\"2\">geonames</subfield>\n" + 
-            "      <subfield code=\"0\">http://sws.geonames.org/2968325</subfield>\n" + 
+            "      <subfield code=\"d\">E034.633333</subfield>\n" + 
+            "      <subfield code=\"e\">E034.633333</subfield>\n" + 
+            "      <subfield code=\"f\">N110.916666</subfield>\n" + 
+            "      <subfield code=\"g\">N110.916666</subfield>\n" + 
+            "      <subfield code=\"2\">wikiped</subfield>\n" + 
             "      <subfield code=\"9\">A:dgx</subfield>\n" + 
             "    </datafield>\n" + 
             "    <datafield tag=\"035\" ind1=\" \" ind2=\" \">\n" + 
-            "      <subfield code=\"a\">(DE-101)98018116X</subfield>\n" + 
+            "      <subfield code=\"a\">(DE-101)1168028205</subfield>\n" + 
             "    </datafield>\n" + 
             "    <datafield tag=\"035\" ind1=\" \" ind2=\" \">\n" + 
-            "      <subfield code=\"a\">(DE-588)7531248-7</subfield>\n" + 
-            "    </datafield>\n" + 
-            "    <datafield tag=\"035\" ind1=\" \" ind2=\" \">\n" + 
-            "      <subfield code=\"z\">(DE-588c)7531248-7</subfield>\n" + 
-            "      <subfield code=\"9\">v:zg</subfield>\n" + 
+            "      <subfield code=\"a\">(DE-588)1168028205</subfield>\n" + 
             "    </datafield>\n" + 
             "    <datafield tag=\"040\" ind1=\" \" ind2=\" \">\n" + 
-            "      <subfield code=\"a\">DE-255</subfield>\n" + 
-            "      <subfield code=\"9\">r:DE-255</subfield>\n" + 
+            "      <subfield code=\"a\">DE-Mar1</subfield>\n" + 
+            "      <subfield code=\"c\">DE-Mar1</subfield>\n" + 
+            "      <subfield code=\"9\">r:DE-576</subfield>\n" + 
             "      <subfield code=\"b\">ger</subfield>\n" + 
-            "      <subfield code=\"d\">1165</subfield>\n" + 
+            "      <subfield code=\"d\">1764</subfield>\n" + 
+            "      <subfield code=\"e\">rda</subfield>\n" + 
+            "    </datafield>\n" + 
+            "    <datafield tag=\"042\" ind1=\" \" ind2=\" \">\n" + 
+            "      <subfield code=\"a\">gnd3</subfield>\n" + 
             "    </datafield>\n" + 
             "    <datafield tag=\"043\" ind1=\" \" ind2=\" \">\n" + 
-            "      <subfield code=\"c\">XA-FR</subfield>\n" + 
+            "      <subfield code=\"c\">XB-CN</subfield>\n" + 
+            "    </datafield>\n" + 
+            "    <datafield tag=\"075\" ind1=\" \" ind2=\" \">\n" + 
+            "      <subfield code=\"b\">g</subfield>\n" + 
+            "      <subfield code=\"2\">gndgen</subfield>\n" + 
+            "    </datafield>\n" + 
+            "    <datafield tag=\"075\" ind1=\" \" ind2=\" \">\n" + 
+            "      <subfield code=\"b\">gin</subfield>\n" + 
+            "      <subfield code=\"2\">gndspec</subfield>\n" + 
             "    </datafield>\n" + 
             "    <datafield tag=\"079\" ind1=\" \" ind2=\" \">\n" + 
             "      <subfield code=\"a\">g</subfield>\n" + 
-            "      <subfield code=\"b\">g</subfield>\n" + 
-            "      <subfield code=\"c\">1</subfield>\n" + 
-            "      <subfield code=\"q\">s</subfield>\n" + 
-            "      <subfield code=\"v\">gik</subfield>\n" + 
-            "    </datafield>\n" + 
-            "    <datafield tag=\"083\" ind1=\"0\" ind2=\"4\">\n" + 
-            "      <subfield code=\"z\">2</subfield>\n" + 
-            "      <subfield code=\"a\">4422</subfield>\n" + 
-            "      <subfield code=\"9\">t:2009-12-16</subfield>\n" + 
-            "      <subfield code=\"2\">22/ger</subfield>\n" + 
+            "      <subfield code=\"q\">f</subfield>\n" + 
             "    </datafield>\n" + 
             "    <datafield tag=\"151\" ind1=\" \" ind2=\" \">\n" + 
-            "      <subfield code=\"a\">Villers-sur-Mer</subfield>\n" + 
+            "      <subfield code=\"a\">Hangu Pass</subfield>\n" + 
             "    </datafield>\n" + 
-            "    <datafield tag=\"667\" ind1=\" \" ind2=\" \">\n" + 
-            "      <subfield code=\"a\">off(DE-101)*dezimale Koordinaten am 1.6.2017 korrigiert. Alte, falsche, Umrechnung war: E000.7E4000 - E000.7E4000 / N049.322639 - N049.322639</subfield>\n" + 
+            "    <datafield tag=\"451\" ind1=\" \" ind2=\" \">\n" + 
+            "      <subfield code=\"a\">Hanguguan</subfield>\n" + 
+            "    </datafield>\n" + 
+            "    <datafield tag=\"451\" ind1=\" \" ind2=\" \">\n" + 
+            "      <subfield code=\"a\">函谷关</subfield>\n" + 
+            "    </datafield>\n" + 
+            "    <datafield tag=\"550\" ind1=\" \" ind2=\" \">\n" + 
+            "      <subfield code=\"0\">(DE-101)041214544</subfield>\n" + 
+            "      <subfield code=\"0\">(DE-588)4121454-7</subfield>\n" + 
+            "      <subfield code=\"0\">https://d-nb.info/gnd/4121454-7</subfield>\n" + 
+            "      <subfield code=\"a\">Pass</subfield>\n" + 
+            "      <subfield code=\"g\">Geografie</subfield>\n" + 
+            "      <subfield code=\"4\">obin</subfield>\n" + 
+            "      <subfield code=\"4\">https://d-nb.info/standards/elementset/gnd#broaderTermInstantial</subfield>\n" + 
+            "      <subfield code=\"w\">r</subfield>\n" + 
+            "      <subfield code=\"i\">Oberbegriff instantiell</subfield>\n" + 
             "    </datafield>\n" + 
             "    <datafield tag=\"670\" ind1=\" \" ind2=\" \">\n" + 
-            "      <subfield code=\"a\">Dict. nat. communes</subfield>\n" + 
+            "      <subfield code=\"a\">Wikipedia</subfield>\n" + 
+            "      <subfield code=\"b\">Stand: 28.09.2018</subfield>\n" + 
+            "      <subfield code=\"u\">https://en.wikipedia.org/wiki/Hangu_Pass</subfield>\n" + 
             "    </datafield>\n" + 
-            "    <datafield tag=\"679\" ind1=\" \" ind2=\" \">\n" + 
-            "      <subfield code=\"a\">Ort im Dép. Calvados</subfield>\n" + 
+            "    <datafield tag=\"675\" ind1=\" \" ind2=\" \">\n" + 
+            "      <subfield code=\"a\">GeoNames</subfield>\n" + 
             "    </datafield>\n" + 
-            "    <datafield tag=\"913\" ind1=\" \" ind2=\" \">\n" + 
-            "      <subfield code=\"S\">swd</subfield>\n" + 
-            "      <subfield code=\"i\">g</subfield>\n" + 
-            "      <subfield code=\"a\">Villers-sur-Mer</subfield>\n" + 
-            "      <subfield code=\"0\">(DE-588c)7531248-7</subfield>\n" + 
+            "    <datafield tag=\"677\" ind1=\" \" ind2=\" \">\n" + 
+            "      <subfield code=\"a\">Pass, welcher die oberen \"Yellow River\" and \"Wei\" Täler von der nordchinesischen Ebene trennt</subfield>\n" + 
             "    </datafield>\n" + 
             "  </record>\n" + 
             ""; 
       // String testmarc = "<record type=\"Authority\"><leader>00000nz  a2200000o  4500</leader><controlfield tag=\"001\">159615674</controlfield><controlfield tag=\"003\">DE-101</controlfield><controlfield tag=\"005\">20110324153550.0</controlfield><controlfield tag=\"008\">110324n||aznnnabbn           | aba    |c</controlfield><datafield tag=\"024\" ind1=\"7\" ind2=\" \"><subfield code=\"a\">http://d-nb.info/gnd/159615674</subfield><subfield code=\"2\">uri</subfield></datafield><datafield tag=\"035\" ind1=\" \" ind2=\" \"><subfield code=\"a\">(DE-101)159615674</subfield></datafield><datafield tag=\"035\" ind1=\" \" ind2=\" \"><subfield code=\"a\">(DE-588)159615674</subfield></datafield><datafield tag=\"035\" ind1=\" \" ind2=\" \"><subfield code=\"z\">(DE-588a)159615674</subfield><subfield code=\"9\">v:zg</subfield></datafield><datafield tag=\"040\" ind1=\" \" ind2=\" \"><subfield code=\"a\">DE-12</subfield><subfield code=\"9\">r:DE-12</subfield><subfield code=\"b\">ger</subfield><subfield code=\"d\">9010</subfield></datafield><datafield tag=\"079\" ind1=\" \" ind2=\" \"><subfield code=\"a\">g</subfield><subfield code=\"b\">n</subfield><subfield code=\"c\">6</subfield><subfield code=\"q\">f</subfield></datafield><datafield tag=\"100\" ind1=\"0\" ind2=\" \"><subfield code=\"a\">100% Orange</subfield></datafield><datafield tag=\"400\" ind1=\"0\" ind2=\" \"><subfield code=\"a\">Hundred per cent Orange</subfield></datafield><datafield tag=\"400\" ind1=\"0\" ind2=\" \"><subfield code=\"a\">Hundert Prozent Orange</subfield></datafield><datafield tag=\"400\" ind1=\"1\" ind2=\" \"><subfield code=\"a\">Oikawa, Kenji</subfield><subfield code=\"9\">4:nawi</subfield><subfield code=\"w\">r</subfield><subfield code=\"i\">Wirklicher Name</subfield><subfield code=\"e\">Wirklicher Name</subfield></datafield><datafield tag=\"400\" ind1=\"1\" ind2=\" \"><subfield code=\"a\">Takeuchi, Mayuko</subfield><subfield code=\"9\">4:nawi</subfield><subfield code=\"w\">r</subfield><subfield code=\"i\">Wirklicher Name</subfield><subfield code=\"e\">Wirklicher Name</subfield></datafield><datafield tag=\"913\" ind1=\" \" ind2=\" \"><subfield code=\"S\">pnd</subfield><subfield code=\"i\">5</subfield><subfield code=\"a\">100% Orange</subfield><subfield code=\"0\">(DE-588a)159615674</subfield></datafield></record>";
       // String testmarc =  "<record type=\"Authority\"><leader>00000nz  a2200000o  4500</leader><controlfield tag=\"001\">158098269</controlfield><controlfield tag=\"003\">DE-101</controlfield><controlfield tag=\"005\">20110324125821.0</controlfield><controlfield tag=\"008\">110324n||aznnnabbn           | aba    |c</controlfield><datafield tag=\"024\" ind1=\"7\" ind2=\" \"><subfield code=\"a\">http://d-nb.info/gnd/158098269</subfield><subfield code=\"2\">uri</subfield></datafield><datafield tag=\"035\" ind1=\" \" ind2=\" \"><subfield code=\"a\">(DE-101)158098269</subfield></datafield><datafield tag=\"035\" ind1=\" \" ind2=\" \"><subfield code=\"a\">(DE-588)158098269</subfield></datafield><datafield tag=\"035\" ind1=\" \" ind2=\" \"><subfield code=\"z\">(DE-588a)158098269</subfield><subfield code=\"9\">v:zg</subfield></datafield><datafield tag=\"040\" ind1=\" \" ind2=\" \"><subfield code=\"a\">DE-12</subfield><subfield code=\"9\">r:DE-12</subfield><subfield code=\"b\">ger</subfield><subfield code=\"d\">9010</subfield></datafield><datafield tag=\"079\" ind1=\" \" ind2=\" \"><subfield code=\"a\">g</subfield><subfield code=\"b\">n</subfield><subfield code=\"c\">6</subfield><subfield code=\"q\">f</subfield></datafield><datafield tag=\"100\" ind1=\"1\" ind2=\" \"><subfield code=\"a\">Allen, M. E.</subfield></datafield><datafield tag=\"400\" ind1=\"1\" ind2=\" \"><subfield code=\"a\">Allen, Max [Wirkl. Name]</subfield><subfield code=\"9\">4:nawi</subfield><subfield code=\"w\">r</subfield><subfield code=\"i\">Wirklicher Name</subfield><subfield code=\"e\">Wirklicher Name</subfield></datafield><datafield tag=\"400\" ind1=\"1\" ind2=\" \"><subfield code=\"a\">Allen, Eleanor [Wirkl. Name]</subfield><subfield code=\"9\">4:nawi</subfield><subfield code=\"w\">r</subfield><subfield code=\"i\">Wirklicher Name</subfield><subfield code=\"e\">Wirklicher Name</subfield></datafield><datafield tag=\"913\" ind1=\" \" ind2=\" \"><subfield code=\"S\">pnd</subfield><subfield code=\"i\">a</subfield><subfield code=\"a\">Allen, M. E.</subfield><subfield code=\"0\">(DE-588a)158098269</subfield></datafield></record>";
       /* @formatter:on   */
-      MarcXmlParser me = new MarcXmlParser(getDefaultClient()); 
+      MarcXmlParser me = new MarcXmlParser(getDefaultClient());
       me.parse(testmarc);
    }
 

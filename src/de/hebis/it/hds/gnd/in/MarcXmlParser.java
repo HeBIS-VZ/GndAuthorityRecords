@@ -196,7 +196,7 @@ public class MarcXmlParser implements Function<List<String>, Boolean> {
       try {
          solrClient.add(doc);
       }
-      catch (SolrServerException | IOException e) {
+      catch (Exception e) {
          LOG.warn("Failed sending document:" + docId + " to " + solrClient.toString(), e);
       }
       if (LOG.isDebugEnabled()) {

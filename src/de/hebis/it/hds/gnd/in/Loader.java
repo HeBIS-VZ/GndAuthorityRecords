@@ -33,6 +33,7 @@ import org.apache.logging.log4j.Logger;
 import org.apache.solr.client.solrj.SolrClient;
 import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.impl.ConcurrentUpdateSolrClient;
+import org.apache.solr.client.solrj.impl.HttpSolrClient;
 
 import de.hebis.it.hds.gnd.Model;
 import de.hebis.it.hds.tools.streams.TextBlockSpliterator;
@@ -63,7 +64,12 @@ public class Loader {
     */
    public Loader(String baseSolrURL) {
       if (baseSolrURL == null) throw new RuntimeException("No URL to solr server provided.");
-      server = new ConcurrentUpdateSolrClient.Builder(baseSolrURL).withQueueSize(1000).withThreadCount(10).build();
+      if (LOG.isDebugEnabled()) {
+         server = new HttpSolrClient.Builder(baseSolrURL).build();
+      }
+      else {
+         server = new ConcurrentUpdateSolrClient.Builder(baseSolrURL).withQueueSize(1000).withThreadCount(10).build();
+      }
       if (server == null) throw new RuntimeException("Can't initialize the solrj client.");
       LOG.debug("SolrWriter is connected to " + baseSolrURL);
    }
@@ -79,7 +85,8 @@ public class Loader {
       Stream<String> lineStream;
       try {
          lineStream = Files.lines(path2InputFile);
-      } catch (IOException e) {
+      }
+      catch (IOException e) {
          LOG.fatal("Fehler beim Lesen der Eingabedatei: " + path2InputFile.toString());
          throw new RuntimeException(e);
       }
@@ -93,7 +100,8 @@ public class Loader {
       try {
          server.commit();
          server.close();
-      } catch (SolrServerException | IOException e) {
+      }
+      catch (SolrServerException | IOException e) {
          LOG.error("Failed sending final commit for:" + marcXmlFile.toString() + " to " + server.toString(), e);
          throw new RuntimeException(e);
       }

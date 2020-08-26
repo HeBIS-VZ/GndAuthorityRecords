@@ -69,7 +69,8 @@ public class GeoFields {
          longitute  = (longitute + toNormalizedDecimal(maxLon, codingSchema)) / 2;
          latitute  = (latitute + toNormalizedDecimal(maxLat, codingSchema)) / 2;
       }
-      dataField.storeMultiValued("coordinates", longitute.toString() + ", " + latitute.toString());  
+      dataField.storeMultiValued("coordinates", latitute.toString() + ", " + longitute.toString());  
+//      dataField.storeMultiValued("coordinates", longitute.toString() + ", " + latitute.toString());  
       // optional URI
       String sameAs = dataField.getFirstValue("0");
       if (sameAs != null) dataField.storeMultiValued("sameAs", sameAs);

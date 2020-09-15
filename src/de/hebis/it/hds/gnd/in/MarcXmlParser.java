@@ -37,6 +37,7 @@ import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.impl.ConcurrentUpdateSolrClient;
 import org.apache.solr.common.SolrInputDocument;
 
+import de.hebis.it.hds.gnd.EvalDataFieldException;
 import de.hebis.it.hds.gnd.Model;
 import de.hebis.it.hds.gnd.in.subfields.CooperationFields;
 import de.hebis.it.hds.gnd.in.subfields.DataField;
@@ -124,20 +125,17 @@ public class MarcXmlParser implements Function<List<String>, Boolean> {
                         if (LOG.isTraceEnabled()) LOG.trace("Process leader.");
                         recordType = readTypeFromLeader(rawreader);
                         break;
+                     case "controlfield":
+                        if ("001".equals(rawreader.getAttributeValue(null, "tag"))) {
+                           recordId = "PPN: " + rawreader.getElementText();
+                        }
+                        break;
                      case "datafield":
                         String tagId = rawreader.getAttributeValue(null, "tag");
-                        if (recordType == 'n') { // Normal authority record
                            if (dataFieldsToIgnore.contains(tagId)) {
                               if (LOG.isTraceEnabled()) LOG.trace("Skip unused field : " + tagId);
                               break;
                            }
-                        }
-                        else { // Control record, only the '682' data field needs to be evaluated
-                           if (!"682".equals(tagId)) {
-                              if (LOG.isTraceEnabled()) LOG.trace("Skip unused field in control record : " + tagId);
-                              break;
-                           }
-                        }
                         // only if used
                         if (LOG.isTraceEnabled()) LOG.trace("Found field : " + tagId);
                         dataField = new DataField(recordId, doc);
@@ -155,7 +153,12 @@ public class MarcXmlParser implements Function<List<String>, Boolean> {
                   if ("datafield".equals(rawreader.getLocalName())) {
                      if (dataField != null) { // // Only if the field matters
                         if (LOG.isTraceEnabled()) LOG.trace("Process field.");
-                        eval(dataField);
+                        try {
+                           evalDataField(dataField);
+                        }
+                        catch (EvalDataFieldException e) {
+                           LOG.warn("Conversion error in \"" + recordId + "\": " + e.getMessage());
+                        }
                         dataField = null;
                      }
                   }
@@ -223,16 +226,15 @@ public class MarcXmlParser implements Function<List<String>, Boolean> {
     * Interpret a single marcXML 'datafield'
     * 
     * @param dataField internal representation of the authority record
-    * @return FALSE if the parser has found a Problem, otherwise TRUE
     */
-   public boolean eval(DataField dataField) {
+   public void evalDataField(DataField dataField) throws EvalDataFieldException {
       String subFieldId = dataField.getFirstValue("tag");
       if ((subFieldId == null) || subFieldId.isEmpty()) {
          LOG.warn("XML Data error: Category without the attribute 'tag'.");
-         return false;
+         return;
       }
       switch (subFieldId) {
-         case "034": // geographic coordinates
+          case "034": // geographic coordinates
             GeoFields.coordinates(dataField);
             break;
          case "035": // The id(s) of the record
@@ -326,7 +328,7 @@ public class MarcXmlParser implements Function<List<String>, Boolean> {
          default:
             LOG.warn("No Rule for " + recordId + " : " + subFieldId);
       }
-      return true;
+      return;
 
    }
 
@@ -345,8 +347,8 @@ public class MarcXmlParser implements Function<List<String>, Boolean> {
             "      <subfield code=\"2\">gnd</subfield>\n" + 
             "    </datafield>\n" + 
             "    <datafield tag=\"034\" ind1=\" \" ind2=\" \">\n" + 
-            "      <subfield code=\"d\">E 034 38 00</subfield>\n" + 
-            "      <subfield code=\"e\">E 034 38 00</subfield>\n" + 
+            "      <subfield code=\"d\">E 094 38 00</subfield>\n" + 
+            "      <subfield code=\"e\">E 094 38 00</subfield>\n" + 
             "      <subfield code=\"f\">N 110 55 00</subfield>\n" + 
             "      <subfield code=\"g\">N 110 55 00</subfield>\n" + 
             "      <subfield code=\"2\">wikiped</subfield>\n" + 

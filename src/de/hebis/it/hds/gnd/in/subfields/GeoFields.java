@@ -22,6 +22,8 @@ import java.util.NoSuchElementException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import de.hebis.it.hds.gnd.EvalDataFieldException;
+
 /**
  * Methods for geographical subfields
  * <dl>
@@ -42,8 +44,9 @@ public class GeoFields {
     * Subfield '$0' is taken as additional id. (schema:sameAs)<br>
     * 
     * @param dataField The content of the data field
+    * @throws EvalDataFieldException 
     */
-   public static void coordinates(DataField dataField) {
+   public static void coordinates(DataField dataField) throws EvalDataFieldException {
       boolean calculateMidPoint = true; // assume that min and max values are different
       String minLon;
       String maxLon;
@@ -68,6 +71,11 @@ public class GeoFields {
       if (calculateMidPoint) {
          longitute  = (longitute + toNormalizedDecimal(maxLon, codingSchema)) / 2;
          latitute  = (latitute + toNormalizedDecimal(maxLat, codingSchema)) / 2;
+      }
+      // check valid Range
+      if ((Math.abs(latitute) >180) || (Math.abs(longitute) >90)) {
+         String message = "Data; \"" + dataField.toString() + "\"";
+         throw new EvalDataFieldException(message);
       }
       dataField.storeMultiValued("coordinates", latitute.toString() + ", " + longitute.toString());  
 //      dataField.storeMultiValued("coordinates", longitute.toString() + ", " + latitute.toString());  

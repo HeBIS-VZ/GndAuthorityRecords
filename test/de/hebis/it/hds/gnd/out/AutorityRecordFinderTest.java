@@ -22,10 +22,6 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import de.hebis.it.hds.gnd.out.AuthorityBean;
-import de.hebis.it.hds.gnd.out.AuthorityRecordException;
-import de.hebis.it.hds.gnd.out.AutorityRecordFinder;
-
 /**
  * Assuming an existing repository this test validates basic attributes of a result.<br>
  * 

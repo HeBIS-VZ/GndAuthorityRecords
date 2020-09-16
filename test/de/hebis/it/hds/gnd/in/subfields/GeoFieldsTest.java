@@ -24,6 +24,8 @@ import java.util.Collection;
 
 import org.junit.Test;
 
+import de.hebis.it.hds.gnd.EvalDataFieldException;
+
 /**
  * Test class for {@link GeoFields}
  *
@@ -33,9 +35,10 @@ import org.junit.Test;
 public class GeoFieldsTest {
    /**
     * Coordinates to be converted (data field 034)
+    * @throws EvalDataFieldException 
     */
    @Test
-   public void convertCoordinates() {
+   public void convertCoordinates() throws EvalDataFieldException {
       // degree coded
       DataField testDataField = TestHelper.dataFieldFactory("testid", null, "034", "0", "http://sws.geonames.org/3103556");
       TestHelper.addSubField(testDataField, "d", "E 015 59 15");
@@ -55,9 +58,10 @@ public class GeoFieldsTest {
 
    /**
     * Decimal coded coordinates with the need to compute the center (data field 034)
+    * @throws EvalDataFieldException 
     */
    @Test
-   public void centeredCoordinates() {
+   public void centeredCoordinates() throws EvalDataFieldException {
       // decimal coded
       DataField testDataField = TestHelper.dataFieldFactory("testid", null, "034", "0", "http://sws.geonames.org/3103556");
       TestHelper.addSubField(testDataField, "d", "E015.987500");
@@ -77,9 +81,10 @@ public class GeoFieldsTest {
 
    /**
     * Decimal coded coordinates with the need to compute the center (data field 034)
+    * @throws EvalDataFieldException 
     */
    @Test
-   public void CoordinatesWithNullValues() {
+   public void CoordinatesWithNullValues() throws EvalDataFieldException {
       // degree coded
       DataField testDataField = TestHelper.dataFieldFactory("testid", null, "034", "0", "http://sws.geonames.org/2968325");
       TestHelper.addSubField(testDataField, "d", "E 000 00 00");
@@ -95,9 +100,10 @@ public class GeoFieldsTest {
    
    /**
     * Other representation of the coordinates (data field 034)
+    * @throws EvalDataFieldException 
     */
    @Test
-   public void sameAsCoordinates() {
+   public void sameAsCoordinates() throws EvalDataFieldException {
       // degree coded
       DataField testDataField = TestHelper.dataFieldFactory("testid", null, "034", "0", "http://sws.geonames.org/3103556");
       TestHelper.addSubField(testDataField, "d", "E 015 59 15");

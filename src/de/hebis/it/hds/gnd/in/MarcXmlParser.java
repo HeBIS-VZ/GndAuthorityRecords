@@ -18,7 +18,6 @@
 package de.hebis.it.hds.gnd.in;
 
 import java.io.ByteArrayInputStream;
-import java.io.IOException;
 import java.text.Normalizer;
 import java.util.Arrays;
 import java.util.List;
@@ -33,7 +32,6 @@ import javax.xml.stream.XMLStreamReader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.solr.client.solrj.SolrClient;
-import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.impl.ConcurrentUpdateSolrClient;
 import org.apache.solr.common.SolrInputDocument;
 
@@ -108,6 +106,7 @@ public class MarcXmlParser implements Function<List<String>, Boolean> {
       XMLStreamReader rawreader = null;
       DataField dataField = null;
       recordId = null;
+      @SuppressWarnings("unused")
       char recordType = 'n'; // New/Normal
       try {
          rawreader = srf.createXMLStreamReader(new ByteArrayInputStream(xmlRecord.getBytes("UTF-8")), "UTF-8");

@@ -346,18 +346,18 @@ public class MarcXmlParser implements Function<List<String>, Boolean> {
             "      <subfield code=\"2\">gnd</subfield>\n" + 
             "    </datafield>\n" + 
             "    <datafield tag=\"034\" ind1=\" \" ind2=\" \">\n" + 
-            "      <subfield code=\"d\">E 094 38 00</subfield>\n" + 
-            "      <subfield code=\"e\">E 094 38 00</subfield>\n" + 
+            "      <subfield code=\"d\">E 034 38 00</subfield>\n" + 
+            "      <subfield code=\"e\">E 034 38 00</subfield>\n" + 
             "      <subfield code=\"f\">N 110 55 00</subfield>\n" + 
             "      <subfield code=\"g\">N 110 55 00</subfield>\n" + 
             "      <subfield code=\"2\">wikiped</subfield>\n" + 
             "      <subfield code=\"9\">A:agx</subfield>\n" + 
             "    </datafield>\n" + 
             "    <datafield tag=\"034\" ind1=\" \" ind2=\" \">\n" + 
-            "      <subfield code=\"d\">E034.633333</subfield>\n" + 
-            "      <subfield code=\"e\">E034.633333</subfield>\n" + 
-            "      <subfield code=\"f\">N110.916666</subfield>\n" + 
-            "      <subfield code=\"g\">N110.916666</subfield>\n" + 
+            "      <subfield code=\"d\">E106.666666</subfield>\n" + 
+            "      <subfield code=\"e\">E106.666666</subfield>\n" + 
+            "      <subfield code=\"f\">N010.750000</subfield>\n" + 
+            "      <subfield code=\"g\">N010.750000</subfield>\n" + 
             "      <subfield code=\"2\">wikiped</subfield>\n" + 
             "      <subfield code=\"9\">A:dgx</subfield>\n" + 
             "    </datafield>\n" + 

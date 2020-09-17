@@ -44,10 +44,9 @@ public class GeoFields {
     * Subfield '$0' is taken as additional id. (schema:sameAs)<br>
     * 
     * @param dataField The content of the data field
-    * @throws EvalDataFieldException 
+    * @throws EvalDataFieldException
     */
    public static void coordinates(DataField dataField) throws EvalDataFieldException {
-      boolean calculateMidPoint = true; // assume that min and max values are different
       String minLon;
       String maxLon;
       String minLat;
@@ -59,7 +58,8 @@ public class GeoFields {
          maxLat = getSubFieldAsString(dataField, "g");
       }
       catch (NoSuchElementException e) {
-         return;
+         String message = "Incomplete data: \"" + dataField.toString() + "\"";
+         throw new EvalDataFieldException(message);
       }
       char codingSchema = getCoding(dataField);
       if (codingSchema == '?') { // unknown
@@ -68,28 +68,27 @@ public class GeoFields {
       }
       Double longitute = toNormalizedDecimal(minLon, codingSchema);
       Double latitute = toNormalizedDecimal(minLat, codingSchema);
-      if (calculateMidPoint) {
-         longitute  = (longitute + toNormalizedDecimal(maxLon, codingSchema)) / 2;
-         latitute  = (latitute + toNormalizedDecimal(maxLat, codingSchema)) / 2;
+      // Map areas to their center. Not needed for points
+      if (!minLon.equals(maxLon) || !minLat.equals(maxLat)) {
+         longitute = (longitute + toNormalizedDecimal(maxLon, codingSchema)) / 2;
+         latitute = (latitute + toNormalizedDecimal(maxLat, codingSchema)) / 2;
       }
-      // check valid Range
-      if ((Math.abs(latitute) >180) || (Math.abs(longitute) >90)) {
-         String message = "Data; \"" + dataField.toString() + "\"";
+      // check for valid values
+      if ((Math.abs(latitute) > 90) || (Math.abs(longitute) > 180)) {
+         String message = "Wrong data: \"" + dataField.toString() + "\"";
          throw new EvalDataFieldException(message);
       }
-      dataField.storeMultiValued("coordinates", latitute.toString() + ", " + longitute.toString());  
-//      dataField.storeMultiValued("coordinates", longitute.toString() + ", " + latitute.toString());  
+      dataField.storeMultiValued("coordinates", latitute.toString() + ", " + longitute.toString());
       // optional URI
       String sameAs = dataField.getFirstValue("0");
       if (sameAs != null) dataField.storeMultiValued("sameAs", sameAs);
    }
 
-
    /**
     * @param dataField
     * @return
     */
-   private static String getSubFieldAsString(DataField dataField, String subFieldCode) throws NoSuchElementException{
+   private static String getSubFieldAsString(DataField dataField, String subFieldCode) throws NoSuchElementException {
       String minLon = dataField.getFirstValue(subFieldCode);
       if ((minLon == null) || minLon.isEmpty()) {
          String message = dataField.getRecordId() + ": Subfield " + subFieldCode + " is missing, skip evaluation";
@@ -98,8 +97,7 @@ public class GeoFields {
       }
       return minLon;
    }
-   
-   
+
    /**
     * Geoname &lt;datafield tag="151"&gt;.<br>
     * see: {@link GenericFields#heading(DataField)}
@@ -111,7 +109,7 @@ public class GeoFields {
       if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
       GenericFields.heading(dataField);
    }
-   
+
    /**
     * Alternative geonames &lt;datafield tag="451"&gt;.<br>
     * see: {@link GenericFields#tracing(DataField)}
@@ -122,7 +120,6 @@ public class GeoFields {
       if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
       GenericFields.tracing(dataField);
    }
-
 
    /**
     * Related geographic names &lt;datafield tag="551"&gt;.<br>
@@ -145,18 +142,25 @@ public class GeoFields {
       if (LOG.isTraceEnabled()) LOG.trace(dataField.getRecordId() + ": in method");
       GenericFields.linkingEntry(dataField, null);
    }
-   
+
+   /**
+    * Convert GND formated coordinates to their numeric, decimal representation
+    * @param in Raw coordinate
+    * @param codingSchema If 'a' the input is in degrees
+    * @return 
+    */
    private static Double toNormalizedDecimal(String in, char codingSchema) {
       String data = in.replaceAll("[^\\w.]", "");
       if (codingSchema == 'a') { // convert degree minutes and seconds to decimal
          int dataLength = data.length();
          if (dataLength < 5) return null; // to short to convert
-         String degree = data.substring(0, dataLength-4);
-         int minutes = Integer.valueOf(data.substring(dataLength-4, dataLength-2));
-         int seconds = Integer.valueOf(data.substring(dataLength-2, dataLength));
-         int decimal = (minutes * 60 + seconds) * 10000 / 36; 
+         String degree = data.substring(0, dataLength - 4);
+         int minutes = Integer.valueOf(data.substring(dataLength - 4, dataLength - 2));
+         int seconds = Integer.valueOf(data.substring(dataLength - 2, dataLength));
+         int decimal = (minutes * 60 + seconds) * 10000 / 36;
          data = degree + '.' + decimal;
       }
+      // change from alphanumeric to numeric orientation
       data = data.replaceFirst("[eEnNoO]0?", "");
       data = data.replaceFirst("[sSwW]0?", "-");
       return Double.parseDouble(data);

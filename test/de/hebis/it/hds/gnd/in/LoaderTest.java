@@ -22,7 +22,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import de.hebis.it.hds.gnd.in.data.TestData;
+import data.TestData;
 
 /**
  * Tests to validate the import of the authority records

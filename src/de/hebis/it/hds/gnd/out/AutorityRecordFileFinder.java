@@ -96,7 +96,7 @@ public class AutorityRecordFileFinder  extends AutorityRecordFinder {
     * @throws AuthorityRecordException Indicates a problem while retrieving data from repository
     */
    public static void main(String[] args) throws AuthorityRecordException {
-      AutorityRecordFileFinder me = new AutorityRecordFileFinder();
+      AutorityRecordFileFinder me = new AutorityRecordFileFinder("test/data/GndSynonyms.prop");
       AuthorityBean data = me.getAuthorityBean(args[0]);
       System.out.println(data.toString());
    }

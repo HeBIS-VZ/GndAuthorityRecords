@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU General Public License
  * along with the code.  If not, see http://www.gnu.org/licenses/agpl>.
  */
-package de.hebis.it.hds.gnd.in.data;
+package data;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -59,13 +59,6 @@ public class TestData {
       return url2uri(TestData.class.getResource("Tu.mrc.xml"));
    }
 
-   // ToDO
-   // public static URI getLocal() {
-   // return url2uri(TestData.class.getResource("Tr.mrc.xml"));
-   // }
-   // public static URI getLibrary() {
-   // return url2uri(TestData.class.getResource("Tw.mrc.xml"));
-   // }
    
    private static URI url2uri(URL resource) {
       try {
@@ -74,5 +67,9 @@ public class TestData {
          // Should never happen
          throw new RuntimeException("URI conversion error, while geting test data.");
       }
+   }
+   
+   public static void main(String[] args) {
+      System.out.println(TestData.getURI4Work());
    }
 }

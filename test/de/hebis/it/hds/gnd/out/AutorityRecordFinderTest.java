@@ -22,6 +22,8 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
+import de.hebis.it.hds.gnd.TestHelper;
+
 /**
  * Assuming an existing repository this test validates basic attributes of a result.<br>
  * 
@@ -39,9 +41,9 @@ public class AutorityRecordFinderTest {
     */
    @Test
    public void checkOrwellFromSolr() throws AuthorityRecordException {
-      AutorityRecordFinder   finder  = new AutorityRecordSolrFinder();
+      AutorityRecordFinder   finder  = TestHelper.getAuthorityData();
       AuthorityBean data = finder.getAuthorityBean(orwell);
-      assertEquals("The found id must be equal to the queried.", orwell, data.id);
+      assertEquals("The found id must be equal to the queried.", orwell, data.id);  
       assertNotNull("The preferred textual naming is mandatory.", data.preferred);
       assertNotNull("This entry should have synonyms.", data.synonyms);
    }
@@ -53,7 +55,7 @@ public class AutorityRecordFinderTest {
     */
    @Test
    public void checkOrwellFromFile() throws AuthorityRecordException {
-      AutorityRecordFinder   finder  = new AutorityRecordFileFinder();
+      AutorityRecordFinder   finder  = TestHelper.getAuthorityData();
       AuthorityBean data = finder.getAuthorityBean(orwell);
       assertEquals("The found id must be equal to the queried.", orwell, data.id);
       assertNotNull("The preferred textual naming is mandatory.", data.preferred);

@@ -24,6 +24,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.URL;
 import java.util.Properties;
 
 import org.apache.logging.log4j.LogManager;
@@ -114,7 +115,8 @@ public class Model extends Properties {
       }
    }
 
-   public Properties loadPropertyFile(String fileToLoad) {
+   public Properties loadPropertyFile(String file) {
+      String fileToLoad = mapResource(file);
       Properties ret = new Properties();
       if ((fileToLoad == null) || fileToLoad.trim().isEmpty()) fileToLoad = getProperty("PropertyFilePath");
       if ((fileToLoad == null) || fileToLoad.trim().isEmpty()) throw new RuntimeException("Name/path of synonym file is missing.");
@@ -128,6 +130,22 @@ public class Model extends Properties {
       }
       if (LOG.isDebugEnabled()) LOG.debug("Property file: \"" + fileToLoad + "\" sucsessfully loaded");
       return ret;
+   }
+   
+   /**
+    * Convert a recource zu its file path.<br>
+    * If a file path was given, return just this. 
+    * @param file
+    * @return
+    */
+   private String mapResource(String file) {
+      URL otto = System.class.getResource(file);
+      if (otto != null) {
+         return otto.getPath();
+      }
+      return file;
+      
+      
    }
 
    public static void main(String[] unused) {
